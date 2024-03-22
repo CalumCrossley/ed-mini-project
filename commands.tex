@@ -1,0 +1,103 @@
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+%\usepackage[dvipsnames]{xcolor}
+\tcbuselibrary{theorems}
+\usepackage{mdframed}
+\usepackage{amsmath, amsfonts, amsthm, bbm, thmtools, hyperref}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+\pgfplotsset{width=\columnwidth,compat=1.13}
+\usepackage{float}
+\usepackage{titling}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz-cd}
+\usepackage{euscript}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing,shapes}
+\usetikzlibrary{patterns, patterns.meta}
+\usetikzlibrary {intersections,pgfplots.fillbetween} 
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{fadings}
+\usetikzlibrary{calc}
+\usepackage{hyperref}
+
+\DeclareMathOperator{\image}{im} 
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\cokernel}{coker} 
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\CoInd}{CoInd}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator*{\ulalim}{\underleftarrow\lim}
+\graphicspath{{images/}}
+\setcounter{section}{-1}
+
+\definecolor{maincolor}{RGB}{35, 55, 58}
+\hypersetup{linkcolor = maincolor, linkbordercolor=maincolor, citebordercolor = maincolor} %colorlink removes boxes
+
+\numberwithin{equation}{section}
+
+%\newtheorem{theorem}{Theorem}[subsection]
+%\numberwithin{theorem}{subsection}% Reset theorem counter with every section
+
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\numberwithin{definition}{section}% Reset theorem counter with every section
+
+%\mdfdefinestyle{theoremstyle}{linecolor=Emerald, linewidth=2pt, frametitlerule=true, frametitlebackgroundcolor=gray!20, innertopmargin=\topskip
+%} \mdtheorem[style=theoremstyle]{definition}{Definition}
+
+%\mdfdefinestyle{theoremstyle}{ linecolor=Aquamarine, linewidth=2pt, frametitlerule=true, frametitlebackgroundcolor=gray!20, innertopmargin=\topskip
+%} \mdtheorem[style=theoremstyle]{theorem}{Theorem}
+
+ 
+\newtcbtheorem[number within=section]{theorem}{Theorem} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
+
+\newtcbtheorem[use counter from = theorem]{definition}{Definition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{dfn}
+
+\newtcbtheorem[use counter from = theorem]{prop}{Proposition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{prop}
+
+\newtcbtheorem[use counter from = theorem]{cor}{Corollary} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{cor}
+
+\newtcbtheorem[use counter from = theorem]{lemma}{Lemma} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{lemma}
+
+\newtcbtheorem[no counter]{ob}{Observation} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{ob}
+
+\newtcbtheorem[no counter]{example}{Example} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{ex}
+
+\newtcbtheorem[no counter]{technicalities}{Technicalities} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{tech}
+
+\newtcbtheorem[no counter]{remark}{Remark} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{rem}
+
+%\newtheorem{lemma}[theorem]{Lemma}
+%\numberwithin{lemma}{section}% Reset theorem counter with every section
+%\newtheorem{prop}[theorem]{Proposition}
+%\numberwithin{prop}{section}% Reset theorem counter with every section
+%\newtheorem{cor}[theorem]{Corollary}
+%\numberwithin{cor}{section}% Reset theorem counter with every section
+
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\dbyd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\vsig}{\vec{\sigma}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\comp}{\circ}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\u}{{u_1}}
+\renewcommand{\v}{{u_2}}
+\newcommand{\laplace}{\Delta}
+\renewcommand{\line}[2]{{\overrightarrow{#1,#2}}}
+
+\newcommand{\todo}[1]{{\color{red}\textbf{TODO!: #1}}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\renewcommand{\.}{\,.}
