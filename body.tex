@@ -1,6 +1,3 @@
-\section{Stuff}
-Hello
-
 \section{Basics of derived categories}
  - Fm transform, Orlov reconstruction, action on cohomology, blowup formula, HKR isomorphism
 
@@ -20,7 +17,7 @@ Composition is defined by choosing some roof as follows: !insert diagram!
  
 Under these constructions, morphisms in $S$ become invertible. 
 
-\begin{theorem}{Theorem}{Quis form a localizing class}
+\begin{theorem}{}{Quis form a localizing class}
     Quasiisomosphism form a localizing class in the homotopy category of an abelian category $K(\mathcal{A})$. We denote the derived category by$$D(\mathcal{A}):=K(\mathcal{A})[Q^{-1}]$$
 \end{theorem}
 
@@ -32,7 +29,7 @@ This is an additive category. Moreover, the cohomology functor factors through t
 
 The three objects fit into a long exact sequence coming from a distinguished triangle. We see that $f$ is a quasiisomorphism iff $cone(f)=0$. 
 
-\begin{proposition}{Proposition}{cones}
+\begin{proposition}{}{cones}
     $\mathrm{cone}(B\xrightarrow{\tau} \mathrm{cone}(f))\simeq A$ in the homotopy category.
 \end{proposition}
 
@@ -48,8 +45,8 @@ Next, we see that the following diagram commutes:$$\begin{CD} B @> > > \mathrm{c
 %I.e. the following triangles are the same: 
 %![[Cone of a cone|center|700]]
 
+Now we can complete the proof that quasiisomorphisms form a localizing class in the homotopy category:
 \begin{proof}
-    Proof that quasiisomorphisms are a localizing class in the homotopy category:  
     The benefit of this is that we can replace $A\rightarrow B\rightarrow \mathrm{cone(f)}$ with $B\rightarrow \mathrm{cone}(f)\rightarrow \mathrm{cone(\tau)}$ and compose $\tau$ with another morphism. Recall that we wanted to show quasiisomorphisms form a localizing class, so we'd like to be able to factorize in two ways: suppose $f$ is a quasiisomorphism and $g$ is any morphism. We'd like to find $?$ such that $?\rightarrow C$ is a quasiisomorphism and the diagram commutes.
     $$\begin{CD} ? @> > > C \\ @VVV @VVgV \\ A @> > f> B\end{CD}$$
     This comes down to the following diagram: 
@@ -57,23 +54,90 @@ Next, we see that the following diagram commutes:$$\begin{CD} B @> > > \mathrm{c
     Since $f$ is a quasiisomorphism, we see that $\mathrm{cone}(f)=0$ and hence $\mathrm{cone}(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\mathrm{cone}(\tau g)[-1]$.
 \end{proof} 
 
+\subsection{Hom sets in the derived category}
+
 Now we want to show that $$\mathrm{Ext}_{\mathcal{A}}^i(A,B)=\mathrm{Hom_{D \mathcal{A}}}(A, B[i])$$
 To compute Ext, we need to replace $A$ by a projective resolution $P^\bullet \rightarrow A$, then Hom into $B$ and take cohomology. Equivalently, can resolve $B$ by injectives $B\rightarrow I^\bullet$, Hom from $A$ and take cohomology.
 
 To do this, first need the following: 
 
-\begin{proposition}
-     If $A\rightarrow B$ is a quasiisomorphism and $I$ is a bounded below? complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(B,I)\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I)$$
+\begin{proposition}{}{}
+     If $A\rightarrow B$ is a quasiisomorphism and $I$ is a bounded below complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(B,I)\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I)$$
 \end{proposition}
 
 To prove this, use general properties about injective objects. Look at e.g. Weibel.
 
-This then implies that if $A$ is arbitrary and $I$ is a complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(A,I)=\mathrm{Hom}_{D\mathcal{A}}(A,I)$$by looking at the description of a morphism in the derived category.
+This then implies that if $A$ is arbitrary and $I$ is a complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(A,I)\simeq \mathrm{Hom}_{D\mathcal{A}}(A,I)$$by looking at the description of a morphism in the derived category.
 
 Now take an injective resolution $B\rightarrow I^\bullet$. We see that $$\mathrm{Hom}_{D\mathcal{A}}(A,B[i])\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I^\bullet[i])$$But this is given by a morphism $f:A\rightarrow I^i$ which should be a chain map: 
 $$\begin{CD}0 @> > > A @> > > 0 \\ @VVV @VfVV @VVV \\ I^{i-1} @> > > I^i @> > > I^{i+1} \end{CD}$$
-Hence, we can think of $f$ as a map in $\mathrm{Hom}(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. 
+Hence, we can think of $f$ as a map in $\mathrm{Hom}(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. This completes the comparison between $\mathrm{Ext}^i(A,B)$ and $\mathrm{Hom}_{D\mathcal{A}}(A,B[i])$. 
 
+\subsection{Derived functors}
+When we have either enough projectives or injectives, then we can restrict to the full subcategory of such objects. 
+
+\begin{theorem}{}{}
+    Assume $\mathcal{A}$ has enough projectives. Then $$K^{-}(\mathcal{P})\simeq D^{-}(\mathcal{A})$$Dually, if there are enough injectives, $$K^{+}(\mathcal{I})\simeq D^{+}(\mathcal{A})$$
+\end{theorem}
+
+This allows for the definition of a derived functor, as follows:
+
+Suppose $F$ is an additive functor between abelian categories $\mathcal{A}, \mathcal{B}$. Then it induces a functor on the homotopy categories, by applying it termwise. If it is exact, then it sends quasiisomorphissms to quasiisomorphisms and commutes with kernels, cokernels etc.
+
+Suppose now that $F$ is left exact, e.g. pushforward functor. Then we can define $RF$, the right derived functor of $F$, by choosing an inverse to the equivalence on the left:  $$\begin{CD} D^+(\mathcal{A)} @> > > D^+(\mathcal{B)} \\ @A A A  @A A A \\ K^+(\mathcal{I}_{A})@> F> >K^+(\mathcal{B}) \end{CD}$$
+Explicitly, we choose an injective resolution and define $$RF(A^\bullet):=F(I^\bullet)$$
+
+\subsubsection{Derived functors in geometry}
+Now let's do some geometry. Have functors: 
+
+\begin{itemize}
+    \item $\Gamma:\mathbf{Qcoh}(X)\xrightarrow{}Ab$
+    \item $\mathrm{Hom}: \mathbf{Qcoh}(X)\times \mathbf{Qcoh}(X)\xrightarrow{ }Ab$
+    \item given $f:X\xrightarrow{ }Y$, have $f_*:\mathbf{Qcoh}(X)\xrightarrow{}\mathbf{Qcoh}(Y)$. For $Y=\mathrm{Spec}(\mathbb{Z})$, pushforward is the same as taking global sections of the sheaf.
+    \item $\lHom:\mathbf{Qcoh}(X)\times \mathbf{Qcoh}(X)\xrightarrow{} \mathbf{Qcoh}(X)$. Notice $\Gamma(\lHom)=\mathrm{Hom}$. These are left exact.
+    \item $\otimes$, $f^*$. These are right exact. Note that $f^{-1}$ is exact, but to get $f^*$ one tensors with the structure sheaf. 
+\end{itemize}
+
+Note that $\mathbf{Qcoh}(X)$ has enough injectives, but not a lot of projectives. So can define right derived functors.
+
+We would like to say that, since $g_{*}\circ f_{*}=(g\circ f)_{*}$ that the same holds for their derived versions.
+
+Issue: the pushforward does not respect injectives! We will introduce another class of sheaves, the flasque ones, to make this work. Now, pushforwards respect flasque sheaves! This is an example of what is called an adapted class:
+
+\begin{definition}{Acyclic objects and adapted classes}{Adapted classes}
+     An object is called $F$-acyclic if $R^iF(A)=0, \forall i>0$. A class of objects is adapted to $F$ if it is closed under $\oplus$, all objects in the class are $F$-acyclic and every object in $\mathcal{A}$ can be embedded in an object of the class.
+        
+\end{definition}
+
+\begin{theorem}{Composition of derived functors}{Composition of derived functors}
+    Suppose $F:\mathcal{A}\xrightarrow{}\mathcal{B}, G:\mathcal{B}\xrightarrow{}\mathcal{C}$ are two functors such that $F(R_{\mathcal{A}})\subset R_{\mathcal{B}}$, where these are adapted classes for $F$ and $G$ respectively. Then $RG\circ RF = R(G\circ F)$.
+\end{theorem}
+
+Notice that one can throw in all $F$-acyclic objects in the adapted class, but that would cause a problem if we want the inclusion to hold.
+
+Since pushforwards send flasques to flasques, and flasques are an adapted class, we get what we originally wanted.
+
+\subsubsection{Derived functors of Hom}
+
+Take $E$ a quasicoherent sheaf. Then local Homs form a left exact functor $\lHom(E,-)$ and we can form its right derived functor $$\RlHom:D^+(\mathbf{Qcoh}(X))\xrightarrow{}D^+(\mathbf{Qcoh}(X))$$
+
+Crucially, projective varieties have enough vector bundles to resolve any sheaf:
+
+\begin{proposition}{}{}
+    If $X$ is projective, then $\mathbf{Coh}(X)$ has enough locally frees.  
+\end{proposition}
+
+The reason is that given $F$, there is $n>>0$ such that $F(n)$ is generated by global sections. These are given by maps $\mathcal{O}_{X}\xrightarrow{}F(n)$ and since we have many of them, then we get a surjection $\mathcal{O}_{X}^N\xrightarrow{}F(n)$. Can then untwist. In this case, every bounded above complex of coherent sheaves is quasiisomorphic to a bounded above complex of vector bundles. If $X$ is regular, can just take bounded. Need Hilbert syzygy theorem.
+
+Now, $\lHom(E,-)$ takes injectives to flasques. From this, we see that $$\RHom(E,-)=\RG(\RlHom(E,-))$$
+
+What about $\mathbf{R}\lHom(E^\bullet, F^\bullet)$? Note that $\lHom(E^\bullet,-)$ is not a functor between $\mathrm{Qcoh}$, but between homotopy categories. Need lemma:
+
+\begin{lemma}{}{}
+    If $E^\bullet$ or $F^\bullet$ is acyclic and $F^\bullet$ is a complex of injectives, then $\lHom(E^\bullet, F^\bullet)$ is acyclic.
+\end{lemma}
+
+Recall that the hom between complexes is defined as the complex $$\lHom(E^\bullet, F^\bullet)_{k}=\prod \lHom(E_{i}, F_{i+k})$$
 
 
 

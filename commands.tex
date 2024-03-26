@@ -29,15 +29,17 @@
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\cokernel}{coker} 
 \DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Ind}{Ind}
-\DeclareMathOperator{\CoInd}{CoInd}
-\DeclareMathOperator{\Tor}{Tor}
-\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\lExt}{\mathcal{E}\mathit{xt}} %local Ext
+\DeclareMathOperator{\lHom}{\mathcal{H}\mathit{om}} %local Hom
+\DeclareMathOperator{\RHom}{\mathbf{R}Hom} %derived usual Hom
+\DeclareMathOperator{\RlHom}{\mathbf{R}\mathcal{H}\mathit{om}} %derived local Hom
+\DeclareMathOperator{\RG}{\mathbf{R}\Gamma} %derived global sections
+
 \DeclareMathOperator*{\ulalim}{\underleftarrow\lim}
 \graphicspath{{images/}}
 \setcounter{section}{-1}
 
-\definecolor{maincolor}{RGB}{35, 55, 58}
+\definecolor{maincolor}{RGB}{122, 17, 49}
 \hypersetup{linkcolor = maincolor, linkbordercolor=maincolor, citebordercolor = maincolor} %colorlink removes boxes
 
 \numberwithin{equation}{section}
@@ -56,23 +58,23 @@
 %} \mdtheorem[style=theoremstyle]{theorem}{Theorem}
 
  
-\newtcbtheorem[number within=section]{theorem}{Theorem} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
+\newtcbtheorem[number within=section]{theorem}{Theorem} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
 
-\newtcbtheorem[use counter from = theorem]{definition}{Definition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{dfn}
+\newtcbtheorem[use counter from = theorem]{definition}{Definition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{dfn}
 
-\newtcbtheorem[use counter from = theorem]{proposition}{Proposition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{prop}
+\newtcbtheorem[use counter from = theorem]{proposition}{Proposition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{prop}
 
-\newtcbtheorem[use counter from = theorem]{cor}{Corollary} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{cor}
+\newtcbtheorem[use counter from = theorem]{cor}{Corollary} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{cor}
 
-\newtcbtheorem[use counter from = theorem]{lemma}{Lemma} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{lemma}
+\newtcbtheorem[use counter from = theorem]{lemma}{Lemma} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{lemma}
 
-\newtcbtheorem[no counter]{ob}{Observation} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries,  fontupper=\itshape}{ob}
+\newtcbtheorem[no counter]{ob}{Observation} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{ob}
 
-\newtcbtheorem[no counter]{example}{Example} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{ex}
+\newtcbtheorem[no counter]{example}{Example} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{ex}
 
-\newtcbtheorem[no counter]{technicalities}{Technicalities} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{tech}
+\newtcbtheorem[no counter]{technicalities}{Technicalities} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{tech}
 
-\newtcbtheorem[no counter]{remark}{Remark} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=black, fonttitle = \upshape\itshape}{rem}
+\newtcbtheorem[no counter]{remark}{Remark} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{rem}
 
 %\newtheorem{lemma}[theorem]{Lemma}
 %\numberwithin{lemma}{section}% Reset theorem counter with every section

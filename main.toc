@@ -1,6 +1,9 @@
 \contentsline {section}{\numberline {0}Introduction}{3}{section.0}%
-\contentsline {section}{\numberline {1}Stuff}{4}{section.1}%
-\contentsline {section}{\numberline {2}Basics of derived categories}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Localization and the derived category of an abelian category}{4}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Flips and flops}{6}{section.3}%
-\contentsline {section}{\numberline {4}K3 surfaces and the cubic fourfold}{6}{section.4}%
+\contentsline {section}{\numberline {1}Basics of derived categories}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Localization and the derived category of an abelian category}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Hom sets in the derived category}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Derived functors}{6}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Derived functors in geometry}{7}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Derived functors of Hom}{8}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}Flips and flops}{8}{section.2}%
+\contentsline {section}{\numberline {3}K3 surfaces and the cubic fourfold}{8}{section.3}%
