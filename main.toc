@@ -5,5 +5,9 @@
 \contentsline {subsection}{\numberline {1.3}Derived functors}{6}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Derived functors in geometry}{7}{subsubsection.1.3.1}%
 \contentsline {subsubsection}{\numberline {1.3.2}Derived functors of Hom}{8}{subsubsection.1.3.2}%
-\contentsline {section}{\numberline {2}Flips and flops}{8}{section.2}%
-\contentsline {section}{\numberline {3}K3 surfaces and the cubic fourfold}{8}{section.3}%
+\contentsline {subsection}{\numberline {1.4}Spectral sequences}{9}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Computing derived functors: the Grothendieck spectral sequence}{9}{subsubsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.5}Compatibilities between derived functors}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Serre duality}{14}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Flips and flops}{16}{section.2}%
+\contentsline {section}{\numberline {3}K3 surfaces and the cubic fourfold}{16}{section.3}%

@@ -139,6 +139,216 @@ What about $\mathbf{R}\lHom(E^\bullet, F^\bullet)$? Note that $\lHom(E^\bullet,-
 
 Recall that the hom between complexes is defined as the complex $$\lHom(E^\bullet, F^\bullet)_{k}=\prod \lHom(E_{i}, F_{i+k})$$
 
+Recall the hom complex $$\mathrm{Hom}^n(A,B)=\prod \mathrm{Hom} (A^i, B^{i+n})$$with differential $df=d_{B}f-(-1)^nfd_{A}$. We see that $Z^0$ is just chain maps, whereas $B^0$ is chain homotopies, so $H^0$ is $\mathrm{Hom}_{\mathcal{K}}(A,B)$, i.e. morphisms up to homotopy. 
+
+This construction is consistent with shifting by $n$. So $$H^n(\mathrm{Hom}^\bullet(A,B))=H^0(\mathrm{Hom}^\bullet(A,B[n])=\mathrm{Hom}_{\mathcal{K}}(A,B[n])$$
+If we want to compute $\mathrm{RHom}(A,B)$, we replace $B$ by a complex of injectives $I$ and then this should just be $\mathrm{Hom}^\bullet(A,I)$. 
+
+As a corollary, we see that $$H^n\mathrm{RHom}(A,B)\simeq \mathrm{Hom}_{\mathcal{D}}(A,B[n])$$just as we had for objects before, but now for arbitrary complexes of e.g. sheaves.
+
+\subsection{Spectral sequences}
+
+Given a bicomplex, we can take cohomology in vertical or horizontal direction. Then, get new maps which are like a knight's move in chess. Can iterate and get a sequence of complexes whose cohomology approximates the cohomology of the total complex.
+
+Get pages $$E_{r}^{p,q}\xrightarrow{d_{r}} E_{r}^{p+r,q-r+1}$$
+In bounded cases, these eventually become zero. Usually, this happens on the second page. This gives information about the total complex, which has a filtration $$F^{p_{0}} \mathrm{Tot}C^n=\bigoplus_{p\geq p_{0}, p+q=n} C^{p,q}$$Then we claim that $$F^p/F^{p+1} H^n(\mathrm{Tot}\,C)\simeq E_{\infty}^{p,n-p}$$We write this as $$E^{p,q}\implies H^{p+q}(\mathrm{Tot}\,C)$$
+
+Given a commutative ring $R$ and two complexes $A,B$ the tensor product complex is $\bigoplus A^p\otimes B^q$ with Leibniz differential $d(a\otimes b)=da\otimes b + (-1)^p a\otimes db$. 
+
+Assume $A$ is a bounded above complex of flat modules and $B$ is acyclic. Then $A\otimes B$ is acyclic. This is since the first page is just $$E_{1}^{p,q}=H^q(A^p\otimes B)=0$$
+This is similar to the statement that if a row or column in a double complex is acyclic, then the vertical and horizontal cohomologies coincide.
+
+Now we move on to the Grothendieck spectral sequence.
+
+\subsubsection{Computing derived functors: the Grothendieck spectral sequence}
+
+Suppose we know $R^iF(A^p)$ or $R^iF(H^pA)$ for a complex $A$. How can we compute $R^iF(A)$ from this information?
+
+Need the Cartan-Eilenberg complex! This is a bicomplex resolution that looks like %![[Cartan-Eilenberg compex|center]]
+
+One can check that $\mathrm{Tot}\,I \rightarrow A$ is a quasi-isomorphism. So $RF(A)=F(\mathrm{Tot}\,I)=\mathrm{Tot}\,FI$. When we take cohomology, we are interested in the $n$-th cohomology of the total complex, for which we have two spectral sequences: one starts with horizontal differential, and the other with the vertical. 
+
+If we start with vertical, then the first page is $$E_{1}^{p,q}=R^qF(A^p)\implies H^nRF(A)$$since we are computing derived functors of $F$. If we start with horizontal, then $$E_{2}^{p,q}=R^qF(H^pA)\implies H^nRF(A)$$
+
+Now we describe two very important instance of the Grothendieck spectral sequence, the Leray spectral sequence and the local to global spectral sequence.
+
+\begin{example}{Leray spectral sequence}{} Consider $X\xrightarrow{g} Y \xrightarrow{f} Z$. The Leray spectral sequence is as follows: $$R^n(f\circ g)_{*}\mathcal{F}=H^nR(f\circ g)_{*}\mathcal{F}=H^n Rf_{*}\circ Rg_{*} \mathcal{F}$$
+
+We are in the situation of trying to compute the n-th derived functor of $F=Rf_*$ of some complex $A=Rg_*\mathcal{F}$. We can apply the second spectral sequence to see that $$E_{2}^{p,q}=R^qf_{*}(R^pg_{*}\mathcal{F})\implies R^n(f\circ g)_{*} \mathcal{F}$$
+When we apply this to $Z=\mathrm{Spec}\,\mathbb{Z}$, then $f_*$ is global sections and $Rf_*$ is sheaf cohomology, as is $R(f\circ g)_*$ which gives us the Leray spectral sequence: $$H^q(Y, R^qg_{*}\mathcal{F})\implies H^{p+q}(X,\mathcal{F})$$
+\end{example}
+
+
+
+\begin{example}{Local to global spectral sequence}{}
+
+We know from before that $$\RG\circ \RlHom=\RHom$$
+Upon taking cohomology, on the right hand side we get $\mathrm{Ext}^n(\mathcal{F}, \mathcal{G}).$ On the other hand, taking $F=\RG, A=\RlHom(\mathcal{ F}, \mathcal{G})$ then the spectral sequence gives us $$H^q(X, \lExt^p(\mathcal{F, \mathcal{G))}}\implies \mathrm{Ext}^n(\mathcal{F},\mathcal{G)}$$ \end{example}
+
+As an application, we compute the Ext groups of a point and local Ext of a subvariety. 
+We see that $$H^q(X, \lExt(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^n(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $q>0$ give nothing. But when $q=0$, we have no differential. So in fact $$\mathrm{Ext}^n(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^n(\mathcal{O}_{p}, \mathcal{O}_{p}))$$Then use Koszul complex and get exterior algebra!
+
+More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then the sheaf Ext's $\lExt(\mathcal{O}_{Y},\mathcal{O}_{Y})$ are computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$
+This allows us to compute the self Ext groups of a point.
+
+\begin{remark}{Deformations}{}
+    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\mathcal{O}_Y,\mathcal{O}_Y)$. 
+    
+\end{remark}
+
+\subsection{Compatibilities between derived functors}
+
+Locally frees should be an adapted class for $f^*$. Recall what this means: 
+\begin{itemize}
+    \item should be closed under $\oplus$
+    \item everything should be a quotient of a vector bundle
+    \item vector bundles should be $f^*$-acyclic
+\end{itemize}
+
+But we don't have enough projectives, so the last condition does not make sense. We need an equivalent one: if $E^\bullet$ is acyclic complex of locally frees, we require that $f^*E^\bullet$ is still acyclic.
+
+Recall: to derive $\lHom(\mathcal{F}, -)$ we can resolve second term by injectives, whereas to derive $\lHom(-,\mathcal{G})$ we can resolve first term by vector bundles. Similarly for complexes of sheaves.For the derived tensor product $\mathcal{F}^\bullet\otimes^L \mathcal{G}^\bullet$, have the same story, except need only use locally frees on either side. Have nice properties which can be checked on locally frees, and then taking complexes of locally frees e.g. associativity: $(E^\bullet \otimes F^\bullet ) \otimes G^\bullet \simeq E^\bullet \otimes (F^\bullet \otimes G)$
+
+Since we have an adapted class of locally frees, get left derived $\dL f^*:D^-(\mathbf{Coh}\,Y)\rightarrow D^-(\mathbf{Qcoh X})$. Since pullbacks of vector bundles are vector bundles, we see that $$\dL g^*\circ \dL f^*=\dL (g\circ f)^*$$
+
+%*Exercise:* blow up origin at plane, derive pull back structure sheaf at origin.
+
+We have other compatibilities: 
+$$\begin{gathered} \dL f^*(\mathcal{E}^\bullet \otimes^L \mathcal{F}^\bullet)\simeq \dL f^*\mathcal{E}^\bullet \otimes^L \dL f^* \mathcal{F}^\bullet \\ 
+\RHom(\mathcal{E}^\bullet, \RlHom(\mathcal{F}^\bullet,\mathcal{G}^\bullet))\simeq \RlHom(\mathcal{E}^\bullet\otimes^L \mathcal{ F}, \mathcal{G}^\bullet)\\
+\RlHom(\mathcal{E}^\bullet, \mathcal{F}^\bullet)\otimes^L \mathcal{G}^\bullet
+\simeq \RlHom(\mathcal{E}^\bullet, \mathcal{F}\otimes^L \mathcal{G}^\bullet)\\
+\mathcal{E}^\lor\otimes \mathcal{G}^\bullet \simeq \RlHom(\mathcal{E}^\bullet, \mathcal{G}^\bullet), \mathcal{E^\lor = \RlHom(\mathcal{E}, \mathcal{O}}_{X})\end{gathered} $$
+
+Also have an adjunction projection formula as usual: 
+$$\begin{gathered}
+    \dR f_{*}\RlHom_{X}(Lf^*\mathcal{E},\mathcal{F})\simeq \RlHom_{Y}(\mathcal{E}, \dR f_{*}\mathcal{F}) \\
+\RlHom_{X}(\dL f^*\mathcal{E}, \mathcal{F})\simeq \RHom_{Y}(\mathcal{E}, \dR f_{*}\mathcal{F})
+\end{gathered}$$
+Works if $\mathcal{E}$ is injective, $\mathcal{F}$ locally free. The second version comes from the first one by taking global sections. Note that $\Gamma f_{*} \mathcal{G}=\Gamma \mathcal{G}$ and the same holds upon applying derived functors.
+
+The adjunction formula is a version of the projection formula.
+$$\dR f_{*} (\mathcal{E}\otimes^L \dL f^*\mathcal{F})\simeq (\dR f_{* }\mathcal{E})\otimes^L \mathcal{F}$$
+The projection formula, as well as the other ones, usually requires that $\mathcal{F}$ be locally free, but in the derived setting it works for everything, since we resolve by locally frees! 
+
+\begin{theorem}{Cohomology and base change}{Cohomology and base change}
+    Suppose we have a flat morphism $g:Y\xrightarrow{}Z$ and a pullback square $$\begin{CD}W @> \tilde{f}> > Y \\ @V\tilde{g}VV @VVgV \\ X @> >f > Z
+    \end{CD}$$
+    Then $$\dL g^* \dR f_{*}\mathcal{E}=\dR \tilde{f}_{*}\dL \tilde{g}^*\mathcal{E}$$
+\end{theorem}
+
+
+The reason this is true is because it works in the usual case for injective sheaves and flat morphisms.
+
+
+We can apply this to a classical example, the Poincare bundle on the elliptic curve.
+\begin{example}{Poincare bundle}{}
+When $Z=\mathrm{Spec}\,k$, $W=X\times Y$ then we must have that $$\dR p_{*}q^* \mathcal{E}\simeq g^* \dR f_{*}\mathcal{E}$$where both $f,g$ map to a point. But $\dR f_{*}=\RG$ in this case. The derived category of $\mathrm{Spec}\,k$ is the category of graded vector spaces, where every object can be replaced by its cohomology with zero differential. Hence, the thing on the right is just $$\mathcal{O}_{Y}\otimes_{k} \RG (\mathcal{E})$$where $\RG(\mathcal{E})$ is a graded vector space.
+
+So for example, when $X$ is an elliptic curve, then if $\mathcal{E}=\mathcal{O}_{X}$ concentrated in degree zero, we have $$\RG(\mathcal{O}_{X})=H^\bullet(X,\mathcal{O}_{X})=k\xrightarrow{0}k$$Then $g^* \dR f_*\mathcal{E}= \mathcal{O}_{Y}\xrightarrow{0}\mathcal{O}_{Y}= \mathcal{O}_{Y}\oplus \mathcal{O}_{Y}[1]$. 
+
+Now, let $E$ be an elliptic curve and fix $P_0\in E$. Then every degree zero line bundle is given by $\mathcal{O}_{E}(P-P_{0})$. Hence $$\mathrm{Pic^0(E)}\simeq E$$Can make universal bundle over $\mathcal{L}\xrightarrow{} \mathrm{Pic}^0(E)\times E$ given by $\mathcal{L}:=\mathcal{O}_{E\times E}(\Delta-E\times P_{0})$. We see that $$\mathcal{L}|_{P\times E}\simeq \mathcal{O}_{E}(P-P_{0})$$Now, note that $$H^\bullet (E, \mathcal{O}_{E}(P-P_{0}))=\mathrm{Ext}^\bullet(\mathcal{O}_{P_{0}},\mathcal{O}_{P})=\begin{cases}0, P\neq P_{0}\\ k\oplus k[1], P=P_{0}\end{cases} $$which is the skyscraper sheaf computation we did before.
+
+\end{example}
+
+\begin{example}{Continued}{}
+
+Have the following diagram, to which we want to apply cohomology and base change: $$\begin{CD}
+P\times E @> > > E\times E\\ @VVV @VV\pi V \\ P @> > > E
+\end{CD}$$
+We have just seen, since pushforward to a point is global sections, that$$\dR \pi_{*}\iota^*\mathcal{L}=H^\bullet(E, \mathcal{O}_{E}(P-P_{0}))$$From the cohomology and base change formula, this must be equal to $\dL \iota^*\dR \pi_{*}\mathcal{L}$. We appeal to the fact that $\dR \pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[-1]$. Moreover, the ideal sheaf sequence is in particular a Koszul resolution: $$0\rightarrow \mathcal{O}_{E}(-P_{0})\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}\mathcal{O}_{{P_{0}}}\xrightarrow{}0$$This is a resolution of locally free sheaves allowing us to compute the derived restriction pullback of $\mathcal{O}_{{P}_{0}}$ which by inspection is exactly $k\xrightarrow{0}k$ if $P=P_0$ and $0$ if not equal, as expected. 
+
+% Question: why is $\mathrm{R}\pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[-1]$? Need to ask Ed.
+
+\end{example}
+
+\begin{remark}{Fourier-Mukai transforms}{}
+    What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\mathcal{L}$ on $E\times E$, which defines an endomorphism $\Phi_\mathcal{L}:D^b \mathbf{Coh}(E)\rightarrow D^b \mathbf{Coh}(E), \mathcal{F}\mapsto {\pi_2}_*(\pi_1^* \mathcal{F} \otimes \mathcal{L})$
+    
+\end{remark}
+
+\subsection{Serre duality}
+
+The classical statement is as follows:
+
+\begin{proposition}{Classical Serre duality}{Classical Serre duality}
+    If $X$ is smooth projective over alg. closed $k$, and $\mathcal{E}$ is a vector bundle on $X$, then $$H^i(X,\mathcal{E})^*\simeq H^{n-i}(X, \mathcal{E}^\lor\otimes \omega_{X})$$
+\end{proposition}
+
+The duality is given by a pairing. Namely, we have a perfect pairing$$H^i(X,\mathcal{E})\otimes H^{n-i}(X,\mathcal{E}^\lor\otimes \omega_{X})\xrightarrow{}H^n(X, \mathcal{E}\otimes \mathcal{E}^\lor\otimes \omega_{X})\xrightarrow{}H^n(X, \omega_{X})\xrightarrow{}k$$
+Also can prove this using Hodge star on vector bundles.
+
+There is a hypercohomology version. If we replace $\mathcal{E}$ by a complex of vector bundles, we define the dual complex as $$\lHom(\mathcal{E},\mathcal{O})^n=\lHom(\mathcal{E}^{-n}, \mathcal{O})$$Have a map $$\mathcal{E}^\lor \otimes \mathcal{E}\xrightarrow{}\mathcal{O}$$
+
+%*Example:* $\mathcal{E}=V^0\xrightarrow{}W^1$. The dual complex is $W^\lor\xrightarrow{}V^\lor$, where now $W^\lor$ lives in degree $-1$. The tensor complex is $$W^\lor \otimes V \xrightarrow{} V^\lor \otimes V \oplus W^\lor \otimes W \xrightarrow{} V^\lor \otimes W$$The map is the natural one in degree zero. 
+
+So in the same way can construct a pairing: if we define $$\mathbb{H}^i(X,\mathcal{E})=H^i\RG(\mathcal{E)}$$ then get 
+
+\begin{proposition}{Serre duality for complexes}{Serre duality for complexes}
+        $$\mathbb{H}^i(X,\mathcal{E})\otimes \mathbb{H}^{n-i}(X, \mathcal{E}^\lor \otimes \omega_{X})\xrightarrow{}k$$
+The claim is that this pairing is still perfect.
+\end{proposition}
+
+There is a stupid truncation where we just kill off any terms after a certain point. Have short exact sequence like %![[Stupid truncation|center|300]]
+Then get LES on hypercohomology and reduce to the case of vector bundles (this method of proof is called devissage).
+
+Recall that in $\mathcal{D}^b\mathbf{Coh}(X)$, any object is represented by a complex of vector bundles. 
+
+There is another form of Serre duality:
+
+\begin{proposition}{Categorical form of Serre duality}{Categorical form of Serre duality}
+    If $A,B\in \mathcal{D}^b\mathbf{Coh}(X)$, then $$\mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(B,A\otimes \omega_{X}[n])$$
+\end{proposition}
+
+The idea is as follows: we can compute the Homs of the derived category as 
+$$\begin{gathered}
+    \mathrm{Hom}_{\mathcal{D}}(B,A\otimes \omega_{X}[n])\simeq H^n\RHom(B,A\otimes \omega_{X})\\=H^n \RG ( \RlHom(B,A\otimes \omega_{X}))=\\=\mathbb{H}^n(X,B^\lor \otimes A \otimes \omega_{X})
+\end{gathered}$$
+
+Similarly, $$\begin{gathered}
+\mathrm{Hom}_{\mathcal{D}}(A,B)=H^0\RHom(A,B)=H^0 \RG(X,\RlHom(A,B))=\\=\mathbb{H}^0(X,\RlHom(A,B))=\mathbb{H}^0(X, A^\lor\otimes B)
+\end{gathered}$$
+These are dual by the previous version of Serre duality, applying it to $\mathcal{E}=A^\lor \otimes B$. 
+
+\begin{definition}{Serre functor}{Serre functor}
+    Define $S:\mathcal{D}(X)\rightarrow \mathcal{D}(X), F\mapsto F\otimes \omega_{X}[n]$. Then have $$\mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(B,S(A))$$
+     A Serre functor is an additive, k-linear autoequivalence obeying the above property
+\end{definition}
+
+Two such functors are canonically equivalent, since $S(A)$ represents the functor $B\mapsto \mathrm{Hom}(A,B)^*$. 
+
+% Check that $S$ commutes with any autoequivalence: $$\begin{gathered}
+% \mathrm{Hom}(B,SFA)\simeq \mathrm{Hom}(FA,B)^*\\
+% \mathrm{Hom}(B,FSA)\simeq \mathrm{Hom}(F^{-1}B,SA)\simeq \mathrm{Hom}(A, F^{-1}B)^*\simeq \mathrm{Hom}(FA,B)^*
+% \end{gathered}$$So the two represent the same functor.
+
+% The element $1_A$ corresponds via the isomorphism to some $\tau_A: \mathrm{Hom}(A, S(A))\xrightarrow{}k$, which we call a trace. 
+
+% *Exercise:* given sequence $$A\xrightarrow{x}B\xrightarrow{y}S(A)\xrightarrow{S(x)}S(B)$$then $\mathrm{Tr}(yx)=\mathrm{Tr}(S(x)y)$. 
+
+The Serre functor allows us to switch between left and right adjoints. Suppose $F$ left adjoint to $G$. Then $SFS^{-1}$ is right adjoint to $G$. 
+
+% The point is that the duality pairing is the same as the composition and then the trace: $\mathrm{Tr}(y\circ x)=\mu(x,y)$, where $\mu$ is the duality pairing. Claim we have a commutative diagram, where on the left we send $(x,y)\mapsto(y, Sx)$. 
+% $$\begin{CD}
+% \mathrm{Hom}(A,B)\otimes \mathrm{Hom}(B,SA)@> > > k\\ @VVV @VVV \\ \mathrm{Hom}(B,SA)\otimes \mathrm{Hom}(SA,SB)@> > > k
+% \end{CD}$$
+% Equivalently, can think about composite isomorphisms $$\mathrm{Hom}(B,SA)\simeq \mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(SA,SB)^*\simeq \mathrm{Hom}(B,SA)$$
+% The first arrow sends $x\mapsto \mu(x,-)$. However, the leftmost arrow is given by $x\mapsto \mu(-,x)$. Hence, the two are related via $S$ and so $\mathrm{Tr}(yx)=\mu(x,y)=\mu(y,Sx)=\mathrm{Tr}(S(x)y)$. 
+
+\begin{example}{Shriek functor}{Shriek functor} Given $f:X\rightarrow Y$, have that $\dL f^*$ is left adjoint to $\dR f_{*}$. In both categories have Serre functors, so can obtain the right adjoint to the pushforward as $$\begin{gathered}
+f^!(A):=(\dL f^*A\otimes f^*\omega_{Y}^{-1}[-\dim Y])\otimes \omega_{X}[\dim X]=\\=\dL f^*A\otimes (f^*\omega_{Y}^{-1}\otimes \omega_{X})[\dim X -\dim Y]\end{gathered}$$
+We call $\omega_{f}=f^*\omega_{Y}^{-1}\otimes \omega_{X}=f^!\mathcal{O}_{Y}$, the relative dualizing sheaf. Hence get $$\mathrm{Hom}(\dR f_{*}A, B)\simeq \mathrm{Hom}(A, f^!B)$$
+In fact, there is a sheafified version: $$\RlHom(\dR f_{*}A,B)=\dR f_{*}\RlHom(A,f^!B)$$
+In particular, with $B=\mathcal{O}_{Y},$ get $$(\dR f_{*}\mathcal{F})^\lor\simeq \dR f_{*}(\mathcal{F}, \omega_{f}[\dim X-\dim Y])$$
+Putting $Y=pt$, get usual Serre duality! So this can be seen as a relative version of Serre duality. But in general, cannot take the pieces $R^i$ as dual! Have to keep the whole chain complex.
+\end{example}
+
+\begin{example}{Poincare bundle again}{} Take the universal line bundle on an elliptic curve. The canonical bundle is trivial, so by relative Serre duality we have $$(\dR \pi_{*}\mathcal{L})^\lor\simeq \dR \pi_{*}\mathcal{L}^{-1}[1]$$Can use Cech resolutions to see that $f_*\mathcal{L}$ is a torsion free sheaf supported at a point, so has to be zero. So $R^0=0$ on both sides. But $R^1\pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[1]$ as we saw before, so the duality does not hold termwise, but over the whole complex! This means that there is a group $$\lExt^1(\mathcal{O}_{P_{0}}, \mathcal{O})=\mathcal{O}_{P_{0}}$$There is a generalization of $f^!$ to general nice schemes, if we work with quasicoherent sheaves. Still have duality isomorphisms and the isomorphism $f^!\mathcal{F}\simeq \dL f^*\mathcal{F}\otimes f^!\mathcal{O}$. \end{example}
+
+%In general, if $p:X\rightarrow pt$, we are interested in $p^!(\mathcal{O}_{pt})=\mathcal{D}_{X}$. But we can compose with an embedding into projective space $i:X\rightarrow \mathbb{P}^n$ and since adjoints are functorial, see that $\mathcal{D}_{X}=i^!\mathcal{D}_{\mathbb{P}^n}=i^!\omega_{\mathbb{P}^n}[n]$. So need to understand $i^!$ for an embedding. But it can actually be defined as a derived functor!
+
+%If we have a closed embedding $i:X\rightarrow Y$, there is an abelian version of $i^!$, namely a derived functor of $$\mathcal{F}\mapsto \lHom(i_{*}\mathcal{O}_{X},\mathcal{F})=i_{*}(\mathcal{H}^0i^!\mathcal{F})$$More generally, $$\RlHom(i_{*}\mathcal{O}_{X},\mathcal{F})\simeq i_{*} i^!\mathcal{F}$$If $X$ is Cohen-Macaulay, then we have a formula for the dualizing sheaf: $$i_{*}\omega_{X}\simeq \lExt^{codim X}(i_{*}\mathcal{O}_{X}, \omega_{\mathbb{P}^n})$$
+%So we have that $\mathcal{D}_{X}\simeq \omega_{X}[n]$ and Serre duality becomes $H^i(X,\mathcal{F})^*\simeq H^{n-i}(\mathcal{F}, \omega_{X})$. 
 
 
 
