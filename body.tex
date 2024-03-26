@@ -350,7 +350,149 @@ Putting $Y=pt$, get usual Serre duality! So this can be seen as a relative versi
 %If we have a closed embedding $i:X\rightarrow Y$, there is an abelian version of $i^!$, namely a derived functor of $$\mathcal{F}\mapsto \lHom(i_{*}\mathcal{O}_{X},\mathcal{F})=i_{*}(\mathcal{H}^0i^!\mathcal{F})$$More generally, $$\RlHom(i_{*}\mathcal{O}_{X},\mathcal{F})\simeq i_{*} i^!\mathcal{F}$$If $X$ is Cohen-Macaulay, then we have a formula for the dualizing sheaf: $$i_{*}\omega_{X}\simeq \lExt^{codim X}(i_{*}\mathcal{O}_{X}, \omega_{\mathbb{P}^n})$$
 %So we have that $\mathcal{D}_{X}\simeq \omega_{X}[n]$ and Serre duality becomes $H^i(X,\mathcal{F})^*\simeq H^{n-i}(\mathcal{F}, \omega_{X})$. 
 
+% example of a (2,3) K3 surface in P4?
 
+\subsection{Fourier-Mukai transforms}
+
+\begin{definition}{Fourier-Mukai functor}{Fourier-Mukai functor}
+    Given $\mathcal{E}\in \mathcal{D}^b\mathrm{Coh}(X\times Y)$, we get a Fourier Mukai functor $$\begin{gathered}
+    FM_{\mathcal{E}}:\mathcal{D}(X)\xrightarrow{}\mathcal{D}(Y)\\
+    \mathcal{F}\mapsto \dR q_{*}(\mathcal{E}\otimes \dL p^*\mathcal{F})
+    \end{gathered}$$  
+\end{definition}
+
+All of the functors we have so far encountered are FM transforms:
+\begin{itemize}
+    \item  given $f:X\rightarrow Y$ with $\Gamma_f\subset X\times Y$, the structure sheaf of the graph is the kernel of the pushforward functor and the pullback functor, depending on the way we go.
+
+    Have $\mathcal{O}_{\Gamma}=(1\times f)_{*}\mathcal{O}_{X}$ and we use the projection formula: $$\begin{gathered}
+q_{*}(\mathcal{O}_{\Gamma}\otimes p^*\mathcal{F})=q_{*}((1\times f)_{*}(\mathcal{O}_{X}\otimes (1\times f)^*p^*\mathcal{F}))=f_{*}\mathcal{F}\end{gathered}$$
+
+    \item Tensoring with $\mathcal{G}$ is the Fourier-Mukai transform with respect to $\Delta_{*}\mathcal{G}$.
+    \item Shift functor is induced by $\mathcal{O}_{\Delta}[n]$.
+    \item If $Y$ is a fine moduli space of sheaves on $X$ equipped with a universal sheaf $\mathcal{E}\rightarrow X\times Y$ parametrizing sheaves by restricting to $X\times \{y\}$. We see that the Fourier-Mukai transform w.r.t. the universal sheaf of a skyscraper sheaf $\mathcal{O}_{y}$is $\mathcal{E}|_{X\times \{y\}}$, the sheaf that the point $y\in Y$ parametrizes. Have induced map $$T_{y}Y=\mathrm{Ext}^1(\mathcal{O}_{y},\mathcal{O}_{y})\rightarrow \mathrm{Ext}^1(\mathcal{E}|_{X\times \{y\}},\mathcal{E}|_{X\times \{y\}})$$This is the so-called Kodaira-Spencer map! Deformations of the point gives first-order deformations of the sheaf.
+\end{itemize}
+
+Given kernels $\mathcal{E}, \mathcal{E}'$ on $X\times Y$ and $Y\times Z$ respectively, we consider the kernel $\mathcal{E}''=\pi_{*}(\pi^*\mathcal{E}\otimes \pi^*\mathcal{E}')$ on $X\times Z$ by pulling to the triple product and then pushing down. We claim that $$FM(\mathcal{E'})\circ FM(\mathcal{E)}=FM(\mathcal{E}'')$$This is done by using the projection formula a bunch of times and finally an instance of flat base change. Basically, first transform everything to a tensor product on the triple product $X\times Y \times Z$ by using the projection formula. Then use commutativity of diagram using different ways to factorize the projection to $Z$. Finally, use projection formula again and base change for the diamond involving $X\times Y \times Z, X\times Y, Y\times Z, Y$. 
+
+The adjoints of a Fourier-Mukai funcotr are given by the dual kernel together with a Serre functor: given $FM_\mathcal{E}$ going from $X$ to $Y$, have two adjoints given by $FM_{\mathcal{E}^\lor \otimes \pi^* \omega_{X}[\dim X]}$ and $FM_{\mathcal{E}^\lor \otimes \pi^* \omega_{Y}[\dim Y]}$. Need Grothendieck-Verdier duality! We omit the derived notation:
+
+$$\begin{gathered}
+\mathrm{Hom}_{Y}(FM(\mathcal{F}), \mathcal{G})=\mathrm{Hom}_{Y} (\pi_{*} (\mathcal{E} \otimes \pi^* \mathcal{F}), \mathcal{G})\simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*\mathcal{F}}, \pi^! \mathcal{G})\simeq \\ \simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*\mathcal{F}}, \pi^*\mathcal{G}\otimes \omega_{\pi})\simeq \simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*}\mathcal{F}, \pi^*\mathcal{G} \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \mathrm{Hom}_{X\times Y}(\pi^*\mathcal{F, \mathcal{E}^\lor}\otimes \pi^*\mathcal{G} \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \mathrm{Hom}_{X}(\mathcal{F}, FM(\mathcal{G}))
+\end{gathered}$$
+
+From this, we can conclude that if a kernel induces an equivalence, then the dimensions of the two varieties should be the same.
+
+\begin{theorem}{Orlov}{Orlov's theorem on Fourier-Mukai transforms}
+Every fully faithful exact functor between is induced by a Fourier-Mukai transform. In particularm every equivalence as well.
+\end{theorem}
+There is a generalization by Canonaco and Stellari which requires only that $\mathrm{Ext}^i(F,F)=0, i < 0 \implies \mathrm{Ext}^i(\Phi F,\Phi F)=0$. 
+
+% We can consider a 2-category with objects smooth projective varieties, morphisms given by Fourier-Mukai transforms via kernels and 2-morphisms are maps of kernels. Orlov's theorem says the functor into the 2-category of triangulated categories is essentially injective.
+
+\subsection{Exceptional collections and semiorthogonal decompositions}
+
+\begin{definition}{Exceptional object}{Exceptional object}
+    An exceptional object is one with the cohomology of a point: $$\mathrm{Hom}_{\mathcal{D}}(E,E)=k, \mathrm{Hom}_{\mathcal{D}}(E,E[i])=0, i\neq 0$$
+\end{definition}
+
+
+For example, line bundles on $\mathbb{P}^n$ and more generally on Fanos by Kodaira vanishing. Also, $\mathcal{O}_{E}(t)$ on a blowup at a point with exceptional divisor $E$. This is done by applying LES to the ideal sheaf sequence $$0\xrightarrow{}\mathcal{O}_{\tilde{X}} (-E)\xrightarrow{}\mathcal{O}_{\tilde{X}}\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}0$$Then hom into $\mathcal{O}_{E}$. Have $$\mathrm{Ext}(\mathcal{O}(-E), \mathcal{O}_{E})=H^\bullet_{\tilde{ X}} (\mathcal{O}_{E}(E))\simeq H^\bullet_{E} (\mathcal{O}_{E}(-1))=0$$since $E=\mathbb{P}^{n-1}$. 
+
+Many homogenous vector bundles are exceptional.
+
+\begin{example}{Tangent bundle of projective space}{} 
+    $\mathcal{T}_{\mathbb{P}^n}$ is exceptional. One can probably chase around the LES's associated to the Euler sequence $$0\rightarrow \mathcal{O}\rightarrow \mathcal{O}(1)^{\oplus n+1}\rightarrow \mathcal{T}\rightarrow 0$$
+    We prefer a different approach, using the notion of a (dual) spherical twist (more on this later). Given a spherical object $\mathcal{E}$, we can construct two twists, along the evaluation and coevaluation maps respectively: $$T_\mathcal{E}\mathcal{F}:=\mathrm{cone}(\bigoplus_i \Hom(\mathcal{E},\mathcal{F}[i])\otimes \mathcal{E}[-i]\rightarrow \mathcal{F}), T^\lor_\mathcal{E}\mathcal{F}:=\mathrm{cone}(\mathcal{E}\rightarrow \bigoplus_i \Hom(\mathcal{E},\mathcal{F}[i])\otimes \mathcal{E}[-i] )$$
+    We can see that our version of the Euler sequence implies that $\mathcal{T}=T^\lor_\mathcal{O}(\mathcal{O}(1))$. Similarly, the dual version of the Euler sequence implies that $\Omega=T_{\mathcal{O}(-1)}\mathcal{O}$. Since spherical twists are autoequivalences and preserve endomorphisms, this means that the tangent and cotangent bundles are exceptional, just as the line bundles on projective space.
+\end{example}
+
+Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves.
+
+On Calabi-Yau's, there are no exceptional objects by Serre duality. However, they do admit spherical objects.
+
+> [!definitionred] Exceptional collections
+> A collection $E_i$ is exceptional if each $E_i$ is exceptional and there are no homs from right to left: $\mathrm{RHom}(E_{i}, E_{j})=0, i>j$.
+
+*Example:* $\mathcal{O},\dots,\mathcal{O}(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\mathcal{O}(-n-1)$ which is nonzero.
+
+More generally, for a Fano, $\omega_{X}=\mathcal{O}_{X}(-k)$ is antiample. Then $\mathcal{O}, \dots, \mathcal{O}(k-1)$ is exceptional.
+
+For a blowup $\tilde{X}\xrightarrow{}\mathbb{P}^2$ we have line bundles $\mathcal{O}_{E}(-1), \mathcal{O}, \mathcal{O}(H), \mathcal{O}(2H)$ and moreover $$\mathrm{R}\Gamma(\mathcal{O}_{\tilde{X}})=\mathrm{R}\Gamma \,\mathrm{R}f_{*}\mathcal{O}_{\tilde{ X}}=\mathrm{R}\Gamma \mathcal{O}_{\mathbb{P}^2}=k[0]$$since the higher pushforwards of a blowup vanish. So the objects are exceptional. They form an exceptional collection since $\mathcal{O}_{\tilde{X}}(H)=f^*\mathcal{O}(1)$ and then we can use adjunction. The exceptional collection downstairs gives us an exceptional collection upstairs. We also need to check $$\mathrm{Ext}_{\tilde{ X}}(\mathcal{O}(tH), \mathcal{O}_{E}(-1))=\mathrm{Ext}_{\mathbb{P}^2}(\mathcal{O}(t), \mathrm{R}f_{*}\mathcal{O}_{E}(-1))=0$$For this, we can use the base change formula to see that $\mathrm{R}f_{*}\mathcal{O}_{E}(-1)=0$ since by base change this is the line bundle on the exceptional divisor pushed down to a point, i.e. the cohomology of the tautological line bundle.
+
+We put $E \perp F$ whenever $\mathrm{RHom}(E,F)=0$. This is not a symmetric relation! It is on Calabi-Yau's. 
+
+> [!definitionred] Full exceptional collection
+> An exceptional collection is full if you can generate every object by sums, shifts and cones.
+
+> [!theoremred] Beilinson's theorem
+> On $\mathbb{P}^n,$ the exceptional collection $\mathcal{O},\dots,\mathcal{O}(n)$ is full.
+
+Use Koszul resolution of skyscrapers to see they are contained in this subcategory. Then, find the orthogonal complement is empty, for which we need the collection to be exceptional.
+
+Suppose that $\mathrm{RHom}(\mathcal{O}_{p}, \mathcal{F})=0,\forall p \in X$. Use the Grothendieck spectral sequence $$\mathrm{R}^p\mathrm{Hom}(\mathcal{O}_{p}, \mathcal{H}^q \mathcal{F})\implies \mathrm{R}^{p+q}\mathrm{Hom}(\mathcal{O}_{p},\mathcal{F})=0 $$If we choose $q$ maximal with $\mathcal{H}^q\mathcal{F}\neq 0$ and $p\in \mathrm{supp}\,\mathcal{F}$, then we will have a nonzero term in the top right corner of the second page, which survives to infinity. This is a contradiction, and hence either $\mathcal{F}=0$ or all the cohomologies are zero. 
+
+ Lecture 11 and 12
+
+Want to show that for a blowup $\mathrm{R}f_{*}\mathcal{O}_{\tilde{X}}=\mathcal{O}_{X}$. By Zariski's main theorem, have that it's true for $R^0$. Have projective bundle $\mathbb{P}^n\xrightarrow{}E\xrightarrow{}Z$ and a SES $$0\xrightarrow{}\mathcal{O}_{\tilde{X}}(-E)\xrightarrow{}\mathcal{O}_{\tilde{ X}}\xrightarrow{}\mathcal{O}_{E}\xrightarrow{ }0$$Hence, $\mathrm{R}f_{*}\mathcal{O}_{E}=\mathcal{O}_{Z}$. When we push down to $X$ under the LES, the first level is the ideal sheaf sequence for $Z$. Can twist by $-E$, hence $\mathcal{O}_{E}(E)=\mathcal{O}_{E}(1)$. Want to show these have no higher pushforwards. In particular, $R^{>0}f_{*}(\mathcal{O}(-nE))=0, n\gg 0$. But $\mathcal{O}_{X}(-E)=\mathcal{O}_{f}(1)$ is relatively ample, so can use Serre vanishing? Not sure.
+
+> [!theoremred] Theorem (Kapranov) 
+> Let $\mathcal{U}\xrightarrow{}\mathrm{Gr}_{k}(n)$ be the tautological bundle over the Grassmanian. Then the Schur functors $\mathrm{Schur}^\lambda \mathcal{U}^\lor$ for $\lambda$ a Young diagram form a full exceptional collection.
+
+ Blowup exceptional collection
+Let's go back to the example of the blowup of $\mathbb{P}^2$ at a point. For any $p\notin E$, we have that $\mathcal{O}_{p}=\mathrm{L}f^*\mathcal{O}_{f(p)}$ which we can Koszul resolve on the base then pull back to get $$\mathcal{O}_{\tilde{X}}(-2H)\xrightarrow{}\mathcal{O}_{\tilde{ X}}(-H)^2\xrightarrow{}\mathcal{O}_{\tilde{X}}\xrightarrow{}\mathcal{O}_{p}$$So these skyscraper sheaves are in the span of $\mathcal{O},\mathcal{O}(H),\mathcal{O}(2H)$, after twisting by $2H$. When $p\in E$, then $f(p)$ is in the center. By exercise, have $$\mathrm{L}_{i}f^*\mathcal{O}_{f(p)}=\begin{cases}
+\mathcal{O}_{E},i=0 \\
+\mathcal{O}_{E}(-1), i=1
+\end{cases}$$
+Hence, have a map $\mathcal{O}_{E}(-1)[1]\xrightarrow{}\mathrm{L}f^*\mathcal{O}_{f(p)}$ since all complexes admit a map from their last cohomology and a map to their first cohomology. The cone of this map has to be $\mathcal{O}_{E}$ by looking at the LES in cohomology. 
+
+Finally, have a SES $$0\rightarrow \mathcal{O}_{E}(-1)\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}\mathcal{O}_{p}\xrightarrow{}0$$This shows that the exceptional collection is full. 
+
+%Quadric in P5 Have that $\omega_{Q}=\mathcal{O}(-4)$ so have exceptional collection of line bundles up to degree 4. We will show this is not full. This contains a plane $P\subset Q$. Consider $\mathcal{O}_{P}(1)$. Then $$\mathrm{RHom}(\mathcal{O}_{Q}(3), \mathcal{O}_{P}(1))=\mathrm{R\Gamma}(\mathcal{O}_{P}(-2))=0$$Similarly with $\mathcal{O}_{Q}(2)$. However, with $\mathcal{O}_{Q}(1)$ get $\mathrm{R}\Gamma (\mathcal{O}_{P})=k$. So it is not orthogonal! Consider the kernel of the restriction morphism $$0\xrightarrow{}\mathcal{I}_{P/Q}(1)\xrightarrow{}\mathcal{O}_{Q}(1)\xrightarrow{}\mathcal{O}_{P}(1)\xrightarrow{}0$$We claim that the ideal sheaf is orthogonal to the line bundles. Up to a shift, this is a cone of two things which were already orthogonal to $\mathcal{O}(2), \mathcal{O}(3)$ but orthogonality is closed under taking cones. So we need only worry about $\mathcal{O}(1)$. Then use LES to conclude that $\mathrm{Ext}^\bullet(\mathcal{O}_{Q}(1), \mathcal{I}(1))=0$. What about $\mathcal{O}_{Q}$?
+
+Via the LES again, we can conclude that $\mathrm{Ext}^\bullet(\mathcal{O}_{Q}, \mathcal{I})=k^3$ concentrated in degree 3, given by the three linear forms cutting out $P$. So not orthogonal and play the same game again: $$0\xrightarrow{}\mathcal{S}\xrightarrow{}\mathcal{O}_{Q}^3\xrightarrow{}\mathcal{I}\xrightarrow{}0$$Then $\mathcal{S}$ is orthogonal to $\mathcal{O}, \mathcal{O}(1),\dots,\mathcal{O}(3)$. It is of rank $2$ so is nonzero. It is a spinor bundle? Moreover, it is exceptional - see exercises.
+
+In Kapranov's paper, if we take planes $P_+, P_-$ from two families on $Q,$ then $S_+, S_-$ are exceptional and $$\mathcal{D}^b(Q)=\langle S_{+},S_{-}, \mathcal{O}_{Q}, \mathcal{O}_{Q}(1), \mathcal{O}_{Q}(2), \mathcal{O}_{Q}(3)\rangle$$
+See: Bondal-Orlov on two quadric intersecting, Kuznetsov on cubic fourfold.
+
+ Semiorthogonal decompositions
+
+> [!definitionred] Admissible subcategory
+> A full subcategory $\mathcal{A}$ closed under shifts and cones is admissible if the inclusion admits both a left and a right adjoint.
+
+For example, the image of a fully faithful functor $\mathcal{D}(Y)\xrightarrow{}\mathcal{D}(X)$ which is induced by a FM kernel, so has adjoints given by Serre functors.
+
+Nonexample: the subcategory generated by skyscrapers. This has empty orthogonal complement, but everything in it has finite support. But if one has an admissible subcategory with empty orthogonal, it actually generates the whole category.
+
+> [!propositionred] Proposition
+> If $\mathcal{A}$ is admissible and $\mathcal{A}^\perp=0$, then $\mathcal{A}=\mathcal{D}(X)$.
+> > [!proofred] Proof
+> > We first notice that by having adjoints, if $B\in\mathcal{A}^\perp$ then for all $A$ we have $$\mathrm{RHom}(IA, B)=\mathrm{RHom}(A,RB)=0$$By Yoneda, this implies $RB=0$, so $\mathcal{A}^\perp = \ker R$. Similarly, $^\perp \mathcal{A}=\ker L.$ Can use counit of adjunction to get map $IRB\xrightarrow{}B$. The cone is in $\mathcal{A}^\perp=0$, so $B\in \mathcal{A}$.  The reason is that for any $A\in \mathcal{A}$, we have an LES $$\dots\xrightarrow{}\mathrm{Hom}(IA, IRB)\xrightarrow{}\mathrm{Hom}(IA, B)\xrightarrow{}\mathrm{Hom}(IA,cone)\xrightarrow{}\dots$$But $\mathrm{Hom}(IA,IRB)=\mathrm{Hom}(A,RIRB), \mathrm{Hom}(IA,B)=\mathrm{Hom}(A,RB)$ and these two are isomorphic by adjoint triangle. The map is actually given by $R\epsilon, \epsilon: IR\xrightarrow{ }1$.  But $I$ is fully faithful, so $\eta$ is an isomorphism and hence $R\epsilon$ is an isomorphism. 
+
+
+Note: given exceptional $E$, can think of it as an object on $\mathcal{D}(pt\times X)$ and its induced map $FM_{E}:\mathcal{D}(pt)\xrightarrow{}\mathcal{D}(X)$ is fully faithful, sending $V\mapsto V\otimes E$. The end-morphisms on both sides agree: $\mathrm{Ext}(k,k)=k=\mathrm{Ext}(E,E)$. This has a tensor-hom adjunction: the right adjoint is $F\mapsto \mathrm{RHom}(E,F)$. The counit provides us with an evaluation map $$E\otimes \mathrm{RHom}(E,F)\xrightarrow{ev}F$$In general, objects of $\mathcal{D}(X)$ correspond to functors from $\mathcal{D}(pt)$ and exceptionals correspond to fully faithful functors. 
+
+> [!definitionred] Semi-orthogonal decomposition
+> A semiorthogonal decomposition is a sequence of admissible subcategories $\mathcal{A}_{i}$ such that $\mathcal{A}_{j}\perp \mathcal{A}_{i}, i<j$ and they generate $\mathcal{D}(X)$.
+
+> [!propositionred] Projective bundle formula for derived categories
+> Given vector bundle $E\rightarrow X$ of rank $n+1$ we have a semiorthogonal decomposition $$\mathcal{D}(\mathbb{P}(E))=\langle f^*\mathcal{D}(X), f^*\mathcal{D}(X)\otimes \mathcal{O}(1),\dots, f^*\mathcal{D}(X)\otimes \mathcal{O}(n)\rangle$$
+
+We see that $f^*$ is fully faithful: $$\mathrm{RHom}(f^*a,f^*b)=\mathrm{RHom}(a, f_{*} (f^*b\otimes \mathcal{O}_{\mathbb{P}(E)}))=\mathrm{RHom}(a, b)$$since $f_*\mathcal{O}_{\mathbb{P}(E)}=\mathcal{O}_{X}$. So each of the bits is admissible. Now need to show there are no Rhoms: $$\begin{gathered}
+\mathrm{RHom}(f^*a\otimes \mathcal{O}(i), f^*b\otimes \mathcal{O}(j))=\mathrm{RHom}(a, f_{*}(f^*b\otimes \mathcal{O}(j-i)))=\\
+=\mathrm{RHom}(a, b\otimes f_{*}\mathcal{O}(j-i))=0
+\end{gathered}$$for $i<j$. Finally, need to show generation. For a point $p\in \mathbb{P}(E)$, have Koszul resolution on the fibers. But a fiber has $\mathcal{O}_{F}=f^*\mathcal{O}_{q}$ where $f(F)=q$. So can generate everything fiberwise via Beilinson.  
+
+This allows us to talk about blowups in general! Since over the exceptional locus we have a projective bundle. 
+
+Given a blowup $f:\tilde{X}\xrightarrow{}X$, we still have that $f^*$ is fully faithful, so we have an admissible subcategory $f^*\mathcal{D}(X)$. Moreover, have a fully faithful functor $\varphi_{t}:\mathcal{D}(Z)\xrightarrow{}\mathcal{D}(\tilde{X})$ given by sending $F$ to $j_{*}(f^*F\otimes \mathcal{O}_{E}(tE)), t\in \mathbb{Z}$. This is a Fourier-Mukai transform with kernel $\mathcal{O}_{E}(tE)$.
+
+*Exercise:* find the right adjoint of this and show it composes to identity.
+
+> [!theoremred] Theorem (Bondal-Orlov)
+> $$\mathcal{D}(\tilde{X})=\langle \varphi_{{k-1}}\mathcal{D}(Z),\dots,\varphi_{1}\mathcal{D}(Z), f^*\mathcal{D}(X)\rangle$$
+
+Compare with the formula for cohomology!
 
 
 \section{Flips and flops}
