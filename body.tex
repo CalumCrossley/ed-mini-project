@@ -2,7 +2,82 @@
 Hello
 
 \section{Basics of derived categories}
- - Fm transform, Orlov reconstruction, action on cohomology, blowup formula
+ - Fm transform, Orlov reconstruction, action on cohomology, blowup formula, HKR isomorphism
+
+\subsection{Localization and the derived category of an abelian category}
+
+Need a class of localizing objects, basically need things to be able to write inverses on the right and left. It turns out quasiisomorphisms are a localizing class not on the nose, but only up to homotopy.
+
+In other words, we can always replace $f:X\rightarrow Y, s:Z\rightarrow Y$ by another morphism $s':T\rightarrow X$ i.e.  $s'f=gs,fs^{-1}=(s')^{-1}g$
+
+$$\begin{CD} T @>g>> Z \\ @Vs'VV @VVsV \\ X @> >f > Y\end{CD}$$
+
+\begin{definition}{Localization}{Localization}
+    Suppose $\mathcal{C}$ has a localizing class $S$. Then $\mathcal{C}[S^{-1}]$ is the category with objects the same as that of $\mathcal{C}$ and morphisms given by equivalence classes of roofs which we think of as $s^{-1}f$. Two roofs are the same if there is a bigger roof restricting to them (think of this as a larger numerator, or lcm)
+\end{definition}
+
+Composition is defined by choosing some roof as follows: !insert diagram!
+ 
+Under these constructions, morphisms in $S$ become invertible. 
+
+\begin{theorem}{Theorem}{Quis form a localizing class}
+    Quasiisomosphism form a localizing class in the homotopy category of an abelian category $K(\mathcal{A})$. We denote the derived category by$$D(\mathcal{A}):=K(\mathcal{A})[Q^{-1}]$$
+\end{theorem}
+
+This is an additive category. Moreover, the cohomology functor factors through this.
+
+\begin{definition}{Mapping cone}{Mapping cone}
+    The mapping cone of $f:A^\bullet\xrightarrow{}B^\bullet$ is the complex $A^\bullet[1]\oplus B^\bullet$ and differential $\begin{pmatrix} -d_A & 0 \\ f & d_B
+\end{pmatrix}$.\end{definition}
+
+The three objects fit into a long exact sequence coming from a distinguished triangle. We see that $f$ is a quasiisomorphism iff $cone(f)=0$. 
+
+\begin{proposition}{Proposition}{cones}
+    $\mathrm{cone}(B\xrightarrow{\tau} \mathrm{cone}(f))\simeq A$ in the homotopy category.
+\end{proposition}
+
+This shows that the cone of a cone is the original object. So cones just go around distinguished triangles. One needs to show that the two morphisms described below are homotopy inverses. One is easy: it composes to identity. The other one is also not too bad.
+
+%$$\begin{CD}A_{i+1}@> \begin{pmatrix}
+%-f \\ 1 \\ 0
+%\end{pmatrix}> > B_{{i+1}}\oplus A_{{i+1}}\oplus B_{i} @> > > A_{{i+1}} \\ @V -d_{A} VV @VV\begin{pmatrix}
+%-d_{B}& 0 & 0 \\ 0 & -d_{A} & 0 \\1 & f & d_{B}
+%\end{pmatrix}V @VV-d_{A}V \\ A_{i+2} @> > > B_{i+2}\oplus A_{i+2}\oplus B_{i+1}@> > > A_{i+2}\end{CD}$$
+
+Next, we see that the following diagram commutes:$$\begin{CD} B @> > > \mathrm{cone}(f)@> > > A[-1] \\ @V=VV @V=VV @VVV\\B @> > > \mathrm{cone}(f) @> > > \mathrm{cone(\tau)}\end{CD}$$
+%I.e. the following triangles are the same: 
+%![[Cone of a cone|center|700]]
+
+\begin{proof}
+    Proof that quasiisomorphisms are a localizing class in the homotopy category:  
+    The benefit of this is that we can replace $A\rightarrow B\rightarrow \mathrm{cone(f)}$ with $B\rightarrow \mathrm{cone}(f)\rightarrow \mathrm{cone(\tau)}$ and compose $\tau$ with another morphism. Recall that we wanted to show quasiisomorphisms form a localizing class, so we'd like to be able to factorize in two ways: suppose $f$ is a quasiisomorphism and $g$ is any morphism. We'd like to find $?$ such that $?\rightarrow C$ is a quasiisomorphism and the diagram commutes.
+    $$\begin{CD} ? @> > > C \\ @VVV @VVgV \\ A @> > f> B\end{CD}$$
+    This comes down to the following diagram: 
+    $$\begin{CD} \mathrm{cone}(\tau g)[-1]@> quis> > C @> > > \mathrm{cone}(f) @> > > \mathrm{cone}(\tau g)\\ @VVV @VgVV @V=VV @VVV \\ \mathrm{cone(\tau)[-1]}@> > > B @> \tau> > \mathrm{cone}(f)@> > > \mathrm{cone}(\tau) \\ @VquisVV @V=VV @V=VV @VVV \\ A @> > f > B @> > > \mathrm{cone}(f)@> > > A[1]\end{CD}$$
+    Since $f$ is a quasiisomorphism, we see that $\mathrm{cone}(f)=0$ and hence $\mathrm{cone}(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\mathrm{cone}(\tau g)[-1]$.
+\end{proof} 
+
+Now we want to show that $$\mathrm{Ext}_{\mathcal{A}}^i(A,B)=\mathrm{Hom_{D \mathcal{A}}}(A, B[i])$$
+To compute Ext, we need to replace $A$ by a projective resolution $P^\bullet \rightarrow A$, then Hom into $B$ and take cohomology. Equivalently, can resolve $B$ by injectives $B\rightarrow I^\bullet$, Hom from $A$ and take cohomology.
+
+To do this, first need the following: 
+
+\begin{proposition}
+     If $A\rightarrow B$ is a quasiisomorphism and $I$ is a bounded below? complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(B,I)\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I)$$
+\end{proposition}
+
+To prove this, use general properties about injective objects. Look at e.g. Weibel.
+
+This then implies that if $A$ is arbitrary and $I$ is a complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(A,I)=\mathrm{Hom}_{D\mathcal{A}}(A,I)$$by looking at the description of a morphism in the derived category.
+
+Now take an injective resolution $B\rightarrow I^\bullet$. We see that $$\mathrm{Hom}_{D\mathcal{A}}(A,B[i])\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I^\bullet[i])$$But this is given by a morphism $f:A\rightarrow I^i$ which should be a chain map: 
+$$\begin{CD}0 @> > > A @> > > 0 \\ @VVV @VfVV @VVV \\ I^{i-1} @> > > I^i @> > > I^{i+1} \end{CD}$$
+Hence, we can think of $f$ as a map in $\mathrm{Hom}(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. 
+
+
+
+
+
 
 \section{Flips and flops}
 \input{flops.tex}

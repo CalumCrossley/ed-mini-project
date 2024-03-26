@@ -1,5 +1,6 @@
 \contentsline {section}{\numberline {0}Introduction}{3}{section.0}%
 \contentsline {section}{\numberline {1}Stuff}{4}{section.1}%
 \contentsline {section}{\numberline {2}Basics of derived categories}{4}{section.2}%
-\contentsline {section}{\numberline {3}Flips and flops}{4}{section.3}%
-\contentsline {section}{\numberline {4}K3 surfaces and the cubic fourfold}{4}{section.4}%
+\contentsline {subsection}{\numberline {2.1}Localization and the derived category of an abelian category}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Flips and flops}{6}{section.3}%
+\contentsline {section}{\numberline {4}K3 surfaces and the cubic fourfold}{6}{section.4}%
