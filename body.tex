@@ -1,7 +1,8 @@
-\section{Basics of derived categories}
- - Fm transform, Orlov reconstruction, action on cohomology, blowup formula, HKR isomorphism
+\section{Foundational material}
+ Orlov reconstruction, action on cohomology, blowup formula, HKR isomorphism, spherical twists
 
-\subsection{Localization and the derived category of an abelian category}
+\subsection{The derived category of an abelian category}
+\subsubsection{Localization}
 
 Need a class of localizing objects, basically need things to be able to write inverses on the right and left. It turns out quasiisomorphisms are a localizing class not on the nose, but only up to homotopy.
 
@@ -54,7 +55,7 @@ Now we can complete the proof that quasiisomorphisms form a localizing class in 
     Since $f$ is a quasiisomorphism, we see that $\mathrm{cone}(f)=0$ and hence $\mathrm{cone}(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\mathrm{cone}(\tau g)[-1]$.
 \end{proof} 
 
-\subsection{Hom sets in the derived category}
+\subsubsection{Hom sets in the derived category}
 
 Now we want to show that $$\mathrm{Ext}_{\mathcal{A}}^i(A,B)=\mathrm{Hom_{D \mathcal{A}}}(A, B[i])$$
 To compute Ext, we need to replace $A$ by a projective resolution $P^\bullet \rightarrow A$, then Hom into $B$ and take cohomology. Equivalently, can resolve $B$ by injectives $B\rightarrow I^\bullet$, Hom from $A$ and take cohomology.
@@ -73,7 +74,7 @@ Now take an injective resolution $B\rightarrow I^\bullet$. We see that $$\mathrm
 $$\begin{CD}0 @> > > A @> > > 0 \\ @VVV @VfVV @VVV \\ I^{i-1} @> > > I^i @> > > I^{i+1} \end{CD}$$
 Hence, we can think of $f$ as a map in $\mathrm{Hom}(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. This completes the comparison between $\mathrm{Ext}^i(A,B)$ and $\mathrm{Hom}_{D\mathcal{A}}(A,B[i])$. 
 
-\subsection{Derived functors}
+\subsubsection{Derived functors}
 When we have either enough projectives or injectives, then we can restrict to the full subcategory of such objects. 
 
 \begin{theorem}{}{}
@@ -87,7 +88,7 @@ Suppose $F$ is an additive functor between abelian categories $\mathcal{A}, \mat
 Suppose now that $F$ is left exact, e.g. pushforward functor. Then we can define $RF$, the right derived functor of $F$, by choosing an inverse to the equivalence on the left:  $$\begin{CD} D^+(\mathcal{A)} @> > > D^+(\mathcal{B)} \\ @A A A  @A A A \\ K^+(\mathcal{I}_{A})@> F> >K^+(\mathcal{B}) \end{CD}$$
 Explicitly, we choose an injective resolution and define $$RF(A^\bullet):=F(I^\bullet)$$
 
-\subsubsection{Derived functors in geometry}
+\paragraph{Derived functors in geometry}
 Now let's do some geometry. Have functors: 
 
 \begin{itemize}
@@ -117,7 +118,7 @@ Notice that one can throw in all $F$-acyclic objects in the adapted class, but t
 
 Since pushforwards send flasques to flasques, and flasques are an adapted class, we get what we originally wanted.
 
-\subsubsection{Derived functors of Hom}
+\paragraph{Derived functors of Hom}
 
 Take $E$ a quasicoherent sheaf. Then local Homs form a left exact functor $\lHom(E,-)$ and we can form its right derived functor $$\RlHom:D^+(\mathbf{Qcoh}(X))\xrightarrow{}D^+(\mathbf{Qcoh}(X))$$
 
@@ -146,57 +147,7 @@ If we want to compute $\mathrm{RHom}(A,B)$, we replace $B$ by a complex of injec
 
 As a corollary, we see that $$H^n\mathrm{RHom}(A,B)\simeq \mathrm{Hom}_{\mathcal{D}}(A,B[n])$$just as we had for objects before, but now for arbitrary complexes of e.g. sheaves.
 
-\subsection{Spectral sequences}
-
-Given a bicomplex, we can take cohomology in vertical or horizontal direction. Then, get new maps which are like a knight's move in chess. Can iterate and get a sequence of complexes whose cohomology approximates the cohomology of the total complex.
-
-Get pages $$E_{r}^{p,q}\xrightarrow{d_{r}} E_{r}^{p+r,q-r+1}$$
-In bounded cases, these eventually become zero. Usually, this happens on the second page. This gives information about the total complex, which has a filtration $$F^{p_{0}} \mathrm{Tot}C^n=\bigoplus_{p\geq p_{0}, p+q=n} C^{p,q}$$Then we claim that $$F^p/F^{p+1} H^n(\mathrm{Tot}\,C)\simeq E_{\infty}^{p,n-p}$$We write this as $$E^{p,q}\implies H^{p+q}(\mathrm{Tot}\,C)$$
-
-Given a commutative ring $R$ and two complexes $A,B$ the tensor product complex is $\bigoplus A^p\otimes B^q$ with Leibniz differential $d(a\otimes b)=da\otimes b + (-1)^p a\otimes db$. 
-
-Assume $A$ is a bounded above complex of flat modules and $B$ is acyclic. Then $A\otimes B$ is acyclic. This is since the first page is just $$E_{1}^{p,q}=H^q(A^p\otimes B)=0$$
-This is similar to the statement that if a row or column in a double complex is acyclic, then the vertical and horizontal cohomologies coincide.
-
-Now we move on to the Grothendieck spectral sequence.
-
-\subsubsection{Computing derived functors: the Grothendieck spectral sequence}
-
-Suppose we know $R^iF(A^p)$ or $R^iF(H^pA)$ for a complex $A$. How can we compute $R^iF(A)$ from this information?
-
-Need the Cartan-Eilenberg complex! This is a bicomplex resolution that looks like %![[Cartan-Eilenberg compex|center]]
-
-One can check that $\mathrm{Tot}\,I \rightarrow A$ is a quasi-isomorphism. So $RF(A)=F(\mathrm{Tot}\,I)=\mathrm{Tot}\,FI$. When we take cohomology, we are interested in the $n$-th cohomology of the total complex, for which we have two spectral sequences: one starts with horizontal differential, and the other with the vertical. 
-
-If we start with vertical, then the first page is $$E_{1}^{p,q}=R^qF(A^p)\implies H^nRF(A)$$since we are computing derived functors of $F$. If we start with horizontal, then $$E_{2}^{p,q}=R^qF(H^pA)\implies H^nRF(A)$$
-
-Now we describe two very important instance of the Grothendieck spectral sequence, the Leray spectral sequence and the local to global spectral sequence.
-
-\begin{example}{Leray spectral sequence}{} Consider $X\xrightarrow{g} Y \xrightarrow{f} Z$. The Leray spectral sequence is as follows: $$R^n(f\circ g)_{*}\mathcal{F}=H^nR(f\circ g)_{*}\mathcal{F}=H^n Rf_{*}\circ Rg_{*} \mathcal{F}$$
-
-We are in the situation of trying to compute the n-th derived functor of $F=Rf_*$ of some complex $A=Rg_*\mathcal{F}$. We can apply the second spectral sequence to see that $$E_{2}^{p,q}=R^qf_{*}(R^pg_{*}\mathcal{F})\implies R^n(f\circ g)_{*} \mathcal{F}$$
-When we apply this to $Z=\mathrm{Spec}\,\mathbb{Z}$, then $f_*$ is global sections and $Rf_*$ is sheaf cohomology, as is $R(f\circ g)_*$ which gives us the Leray spectral sequence: $$H^q(Y, R^qg_{*}\mathcal{F})\implies H^{p+q}(X,\mathcal{F})$$
-\end{example}
-
-
-
-\begin{example}{Local to global spectral sequence}{}
-
-We know from before that $$\RG\circ \RlHom=\RHom$$
-Upon taking cohomology, on the right hand side we get $\mathrm{Ext}^n(\mathcal{F}, \mathcal{G}).$ On the other hand, taking $F=\RG, A=\RlHom(\mathcal{ F}, \mathcal{G})$ then the spectral sequence gives us $$H^q(X, \lExt^p(\mathcal{F, \mathcal{G))}}\implies \mathrm{Ext}^n(\mathcal{F},\mathcal{G)}$$ \end{example}
-
-As an application, we compute the Ext groups of a point and local Ext of a subvariety. 
-We see that $$H^q(X, \lExt(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^n(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $q>0$ give nothing. But when $q=0$, we have no differential. So in fact $$\mathrm{Ext}^n(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^n(\mathcal{O}_{p}, \mathcal{O}_{p}))$$Then use Koszul complex and get exterior algebra!
-
-More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then the sheaf Ext's $\lExt(\mathcal{O}_{Y},\mathcal{O}_{Y})$ are computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$
-This allows us to compute the self Ext groups of a point.
-
-\begin{remark}{Deformations}{}
-    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\mathcal{O}_Y,\mathcal{O}_Y)$. 
-    
-\end{remark}
-
-\subsection{Compatibilities between derived functors}
+\paragraph{Compatibilities between derived functors}
 
 Locally frees should be an adapted class for $f^*$. Recall what this means: 
 \begin{itemize}
@@ -240,7 +191,6 @@ The projection formula, as well as the other ones, usually requires that $\mathc
 
 The reason this is true is because it works in the usual case for injective sheaves and flat morphisms.
 
-
 We can apply this to a classical example, the Poincare bundle on the elliptic curve.
 \begin{example}{Poincare bundle}{}
 When $Z=\mathrm{Spec}\,k$, $W=X\times Y$ then we must have that $$\dR p_{*}q^* \mathcal{E}\simeq g^* \dR f_{*}\mathcal{E}$$where both $f,g$ map to a point. But $\dR f_{*}=\RG$ in this case. The derived category of $\mathrm{Spec}\,k$ is the category of graded vector spaces, where every object can be replaced by its cohomology with zero differential. Hence, the thing on the right is just $$\mathcal{O}_{Y}\otimes_{k} \RG (\mathcal{E})$$where $\RG(\mathcal{E})$ is a graded vector space.
@@ -264,6 +214,58 @@ We have just seen, since pushforward to a point is global sections, that$$\dR \p
 
 \begin{remark}{Fourier-Mukai transforms}{}
     What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\mathcal{L}$ on $E\times E$, which defines an endomorphism $\Phi_\mathcal{L}:D^b \mathbf{Coh}(E)\rightarrow D^b \mathbf{Coh}(E), \mathcal{F}\mapsto {\pi_2}_*(\pi_1^* \mathcal{F} \otimes \mathcal{L})$
+    
+\end{remark}
+
+\subsection{Spectral sequences}
+\subsubsection{The spectral sequence associated to a bicomplex}
+
+Given a bicomplex, we can take cohomology in vertical or horizontal direction. Then, get new maps which are like a knight's move in chess. Can iterate and get a sequence of complexes whose cohomology approximates the cohomology of the total complex.
+
+Get pages $$E_{r}^{p,q}\xrightarrow{d_{r}} E_{r}^{p+r,q-r+1}$$
+In bounded cases, these eventually become zero. Usually, this happens on the second page. This gives information about the total complex, which has a filtration $$F^{p_{0}} \mathrm{Tot}C^n=\bigoplus_{p\geq p_{0}, p+q=n} C^{p,q}$$Then we claim that $$F^p/F^{p+1} H^n(\mathrm{Tot}\,C)\simeq E_{\infty}^{p,n-p}$$We write this as $$E^{p,q}\implies H^{p+q}(\mathrm{Tot}\,C)$$
+
+Given a commutative ring $R$ and two complexes $A,B$ the tensor product complex is $\bigoplus A^p\otimes B^q$ with Leibniz differential $d(a\otimes b)=da\otimes b + (-1)^p a\otimes db$. 
+
+Assume $A$ is a bounded above complex of flat modules and $B$ is acyclic. Then $A\otimes B$ is acyclic. This is since the first page is just $$E_{1}^{p,q}=H^q(A^p\otimes B)=0$$
+This is similar to the statement that if a row or column in a double complex is acyclic, then the vertical and horizontal cohomologies coincide.
+
+Now we move on to the Grothendieck spectral sequence.
+
+\subsubsection{Computing derived functors: the Grothendieck spectral sequence}
+
+Suppose we know $R^iF(A^p)$ or $R^iF(H^pA)$ for a complex $A$. How can we compute $R^iF(A)$ from this information?
+
+Need the Cartan-Eilenberg complex! This is a bicomplex resolution that looks like %![[Cartan-Eilenberg compex|center]]
+
+One can check that $\mathrm{Tot}\,I \rightarrow A$ is a quasi-isomorphism. So $RF(A)=F(\mathrm{Tot}\,I)=\mathrm{Tot}\,FI$. When we take cohomology, we are interested in the $n$-th cohomology of the total complex, for which we have two spectral sequences: one starts with horizontal differential, and the other with the vertical. 
+
+If we start with vertical, then the first page is $$E_{1}^{p,q}=R^qF(A^p)\implies H^nRF(A)$$since we are computing derived functors of $F$. If we start with horizontal, then $$E_{2}^{p,q}=R^qF(H^pA)\implies H^nRF(A)$$
+
+Now we describe two very important instance of the Grothendieck spectral sequence, the Leray spectral sequence and the local to global spectral sequence.
+
+\begin{example}{Leray spectral sequence}{} Consider $X\xrightarrow{g} Y \xrightarrow{f} Z$. The Leray spectral sequence is as follows: $$R^n(f\circ g)_{*}\mathcal{F}=H^nR(f\circ g)_{*}\mathcal{F}=H^n Rf_{*}\circ Rg_{*} \mathcal{F}$$
+
+We are in the situation of trying to compute the n-th derived functor of $F=Rf_*$ of some complex $A=Rg_*\mathcal{F}$. We can apply the second spectral sequence to see that $$E_{2}^{p,q}=R^qf_{*}(R^pg_{*}\mathcal{F})\implies R^n(f\circ g)_{*} \mathcal{F}$$
+When we apply this to $Z=\mathrm{Spec}\,\mathbb{Z}$, then $f_*$ is global sections and $Rf_*$ is sheaf cohomology, as is $R(f\circ g)_*$ which gives us the Leray spectral sequence: $$H^q(Y, R^qg_{*}\mathcal{F})\implies H^{p+q}(X,\mathcal{F})$$
+\end{example}
+
+
+
+\begin{example}{Local to global spectral sequence}{}
+
+We know from before that $$\RG\circ \RlHom=\RHom$$
+Upon taking cohomology, on the right hand side we get $\mathrm{Ext}^n(\mathcal{F}, \mathcal{G}).$ On the other hand, taking $F=\RG, A=\RlHom(\mathcal{ F}, \mathcal{G})$ then the spectral sequence gives us $$H^q(X, \lExt^p(\mathcal{F, \mathcal{G))}}\implies \mathrm{Ext}^n(\mathcal{F},\mathcal{G)}$$ \end{example}
+
+As an application, we compute the Ext groups of a point and local Ext of a subvariety. 
+
+More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then the sheaf Ext's $\lExt(\mathcal{O}_{Y},\mathcal{O}_{Y})$ are computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$ This allows us to compute the self Ext groups of a point, by using the local-to-global spectral sequence:$$H^i(X, \lExt^j(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^{i+j}(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $i>0$ give nothing. But when $i=0$, we have no differential. So in fact $$\mathrm{Ext}^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p}))$$
+From the Koszul resolution, we see that the latter is just an exterior algebra!
+\begin{remark}{Deformations}{}
+    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\mathcal{O}_Y,\mathcal{O}_Y)$. 
+\end{remark}
+\begin{remark}{Mirror symmetry}{}
+    In mirror symmetry, varieties come in pairs such that the Floer cohomology groups on one side correspond to Ext groups on the other. If we think of $X$ as the moduli space of its skyscraper sheaves, then since Ext groups should match up with self Floer groups, the mirrors to points should be Lagrangians with self Floer cohomology equal to an exterior algebra. But self Floer cohomology is equal to usual cohomology for unobstructed Lagrangians, which motivates the fact that mirror to points we should have (special) Lagrangian tori. This is the basis of the SYZ philosophy.
     
 \end{remark}
 
@@ -409,7 +411,7 @@ Many homogenous vector bundles are exceptional.
 
 Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves.
 
-\begin{remark}
+\begin{remark}{}{}
     Calabi-Yau's don't admit exceptional objects by Serre duality. However, they do admit spherical objects, e.g. $\mathcal{O}_C$ for a rational curve $C$ in a K3 surface.
 \end{remark}
 
@@ -418,7 +420,7 @@ Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves
 \end{definition}
 
 
-For example, $\mathcal{O},\dots,\mathcal{O}(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\mathcal{O}(-n-1)$ which is nonzero. In fact, Beilinson's theorem shows that these form a semiorthogonal decomposition.
+For example, $\mathcal{O},\dots,\mathcal{O}(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\mathcal{O}(-n-1)$ which is nonzero. In fact, Beilinson's theorem shows that these form a full exceptional collection. 
 
 More generally, for a Fano, $\omega_{X}=\mathcal{O}_{X}(-k)$ is antiample. Then $\mathcal{O}, \dots, \mathcal{O}(k-1)$ is exceptional. We will come back to this when we discuss the cubic fourfold.
 
@@ -458,8 +460,6 @@ Notation: we put $E \perp F$ whenever $\mathrm{RHom}(E,F)=0$. This is not a symm
 %In Kapranov's paper, if we take planes $P_+, P_-$ from two families on $Q,$ then $S_+, S_-$ are exceptional and $$\mathcal{D}^b(Q)=\langle S_{+},S_{-}, \mathcal{O}_{Q}, \mathcal{O}_{Q}(1), \mathcal{O}_{Q}(2), \mathcal{O}_{Q}(3)\rangle$$
 %See: Bondal-Orlov on two quadric intersecting, Kuznetsov on cubic fourfold.
 
- Semiorthogonal decompositions
-
 \begin{definition}{Admissible subcategory}{Admissible subcategory}
     A full subcategory $\mathcal{A}$ closed under shifts and cones is admissible if the inclusion admits both a left and a right adjoint.
 \end{definition}
@@ -472,7 +472,9 @@ Nonexample: the subcategory generated by skyscrapers. This has empty orthogonal 
     If $\mathcal{A}$ is admissible and $\mathcal{A}^\perp=0$, then $\mathcal{A}=\mathcal{D}(X)$.
 \end{proposition}
 \begin{proof}[Proof]
-    We first notice that by having adjoints, if $B\in\mathcal{A}^\perp$ then for all $A$ we have $$\mathrm{RHom}(IA, B)=\mathrm{RHom}(A,RB)=0$$By Yoneda, this implies $RB=0$, so $\mathcal{A}^\perp = \ker R$. Similarly, $^\perp \mathcal{A}=\ker L.$ Can use counit of adjunction to get map $IRB\xrightarrow{}B$. The cone is in $\mathcal{A}^\perp=0$, so $B\in \mathcal{A}$.  The reason is that for any $A\in \mathcal{A}$, we have an LES $$\dots\xrightarrow{}\mathrm{Hom}(IA, IRB)\xrightarrow{}\mathrm{Hom}(IA, B)\xrightarrow{}\mathrm{Hom}(IA,cone)\xrightarrow{}\dots$$But $\mathrm{Hom}(IA,IRB)=\mathrm{Hom}(A,RIRB), \mathrm{Hom}(IA,B)=\mathrm{Hom}(A,RB)$ and these two are isomorphic by adjoint triangle. The map is actually given by $R\epsilon, \epsilon: IR\xrightarrow{ }1$.  But $I$ is fully faithful, so $\eta$ is an isomorphism and hence $R\epsilon$ is an isomorphism. 
+    We first notice the general fact that for any admissible category, by having adjoints, if $B\in\mathcal{A}^\perp$ then for all $A$ we have $$\mathrm{RHom}(IA, B)=\mathrm{RHom}(A,RB)=0$$By Yoneda, this implies $RB=0$, so $\mathcal{A}^\perp = \ker R$. Similarly, $^\perp \mathcal{A}=\ker L.$ 
+    
+    We can use the counit of adjunction to get a map $IRB\xrightarrow{}B$. The cone is in $\mathcal{A}^\perp=0$, so $B\in \mathcal{A}$.  The reason is that for any $A\in \mathcal{A}$, we have an LES $$\dots\xrightarrow{}\mathrm{Hom}(IA, IRB)\xrightarrow{}\mathrm{Hom}(IA, B)\xrightarrow{}\mathrm{Hom}(IA,cone)\xrightarrow{}\dots$$But $\mathrm{Hom}(IA,IRB)=\mathrm{Hom}(A,RIRB), \mathrm{Hom}(IA,B)=\mathrm{Hom}(A,RB)$ and these two are isomorphic by adjoint triangle. The map is actually given by $R\epsilon, \epsilon: IR\xrightarrow{ }1$.  But $I$ is fully faithful, so $\eta$ is an isomorphism and hence $R\epsilon$ is an isomorphism. 
 \end{proof}
 
 \begin{remark}{}{}
