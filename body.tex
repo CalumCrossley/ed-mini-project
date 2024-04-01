@@ -421,6 +421,7 @@ Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves
     A collection $E_i$ is exceptional if each $E_i$ is exceptional and there are no homs from right to left: $\mathrm{RHom}(E_{i}, E_{j})=0, i>j$.
 \end{definition}
 
+% TODO: mutations, tangent bundle example
 
 For example, $\mathcal{O},\dots,\mathcal{O}(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\mathcal{O}(-n-1)$ which is nonzero. In fact, Beilinson's theorem shows that these form a full exceptional collection. 
 
@@ -512,6 +513,100 @@ Given a blowup $f:\tilde{X}\xrightarrow{}X$, we still have that $f^*$ is fully f
 
 Compare with the formula for cohomology!
 
+\subsection{Spherical objects and spherical twists}
+
+\begin{definition}{Spherical object}{}
+    A \emph{spherical object} is one which is
+    \begin{enumerate}
+        \item ``Self-dual with a twist'': $E\otimes\omega_X\simeq E$, and
+        \item Has the cohomology of a sphere:
+            \begin{equation*}
+                \Hom_\calD(E,E[i]) = \begin{cases*}
+                    k & if $i=0,\dim X$ \\
+                    0 & otherwise.
+                \end{cases*}
+            \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+Note that 1. implies $\Hom_\calD(E,E[i])\simeq\Hom_\calD(E,E[\dim X-i])^*$ by
+Serre duality. It follows that $E^\vee$ is also spherical because
+$\RlHom(E,\O_X)\otimes\omega_X\simeq\RlHom(E\otimes\omega_X,\O_X)$.
+
+For any $E$ we have the trace map $E^\vee\otimes E\to\O_X$, defined in the usual
+way for locally free sheaves and then extended to the derived category by
+locally free resolutions. This induces a map $q^*E^\vee\otimes p^*E\to\O_\Delta$
+over $X\times X$, since $q^*E^\vee\otimes p^*E$ restricts to $E^\vee\otimes E$
+on the diagonal.
+
+\begin{definition}{Spherical twist}{}
+    The \emph{spherical twist} along $E$ is the Fourier-Mukai transform
+    $T_E:D^b(X)\to D^b(X)$ with kernel given by the cone of the map
+    $q^*E^\vee\otimes p^*E\to\O_\Delta$.
+\end{definition}
+
+\begin{proposition}{}{}
+    The spherical twist of $F$ along $E$ can be computed as the cone on the
+    evaluation map:
+    \begin{equation}\label{STformula}
+        T_E(F)=\cone(\dR\Hom(E,F)\otimes_kE\to F).
+    \end{equation}
+\end{proposition}
+
+\begin{remark}{}{}
+    Taking cones is not functorial, so the spherical twist functor is only
+    defined up to non-unique isomorphism, and the formula in Proposition
+    1.29 does not a priori define a functor. The spherical twist gives a
+    functorial way of choosing the cone in this formula by moving the
+    non-uniqueness into the kernel of a Fourier-Mukai transform.
+\end{remark}
+
+\begin{proof}
+    Since the Fourier-Mukai transform is exact in the kernel the twist of $F$
+    is the cone on $\Phi_{q^*E^\vee\otimes p^*E}(F)\to\Phi_{\O_\Delta}(F)=F$,
+    and
+    \begin{align*}
+        \Phi_{q^*E^\vee\otimes p^*E}(F)
+            &\simeq p_*(q^*(E^\vee\otimes F)\otimes p^*E) \\
+            &\simeq p_*q^*(E^\vee\otimes F)\otimes E \\
+            &\simeq \dR\Hom(E,F)\otimes_kE
+    \end{align*}
+    by the projection and base change formulas.
+\end{proof}
+
+\begin{remark}{}{}
+    If $E$ is an exceptional object, then $T_E(F)\in\langle E\rangle^\perp$ for
+    all $F$. In this case we can view \eqref{STformula} as a kind of
+    Gramm-Schmidt formula, projecting $F$ onto $\langle E\rangle^\perp$ with
+    respect to the ``inner product'' $\RHom(-,-)$ by ``subtracting off''
+    $\RHom(E,F)\otimes_kE$. % TODO: link this with mutations
+\end{remark}
+
+\begin{proposition}{Spherical twists are autoequivalences}{}
+    If $E$ is a spherical object then $T_E:D^b(X)\xrightarrow\sim D^b(X)$ is an
+    autoequivalence.
+\end{proposition}
+
+\begin{proof}
+    The left and right adjoints are given by tensoring the kernel with
+    % TODO: mention this in FM section
+    $q^*\omega_X$ and $p^*\omega_X$, which coincide because
+    $E\otimes\omega_X\simeq E$ and $E^\vee\otimes\omega_X\simeq E^\vee$,
+    recalling that $E^\vee$ is also spherical, so it suffices to show that
+    $T_E$ is fully faithful. (Then taking cones on the counit decomposes
+    $D^b(X)$ into the essential image and the objects sent to zero by the
+    adjoint, but $D^b(X)$ is indecomposable for connected $X$.)
+    % TODO: mention decomposition earlier?
+
+    Note that $\{E\}\cup E^\perp$ is a spanning class (tautological on one side,
+    and follows from Serre duality on the other), so it suffices to check
+    $\Hom(T_E(E),T_E(E))$ and $\Hom(T_E(F),T_E(G))$ for $F,G\in E^\perp$. But
+    $T_E$ restricts to the identity on $E^\perp$ by Proposition 1.29, and
+    $T_E(E)=E[1-\dim X]$ with $\id_E$ mapping to $\id_{E[1-\dim X]}$
+    from $\RHom(E,E)=k\oplus k[\dim X]$, again using Proposition 1.29.
+\end{proof}
+
+% TODO: examples
 
 \section{Flips and flops}
 \input{flops.tex}
