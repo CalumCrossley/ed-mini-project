@@ -2,6 +2,8 @@
 
 \todo{Orlov reconstruction, action on cohomology, HKR isomorphism, mutations}
 
+\todo{notation of base field $k$? have some $\Spec\Z$'s lying around}
+
 \subsection{The derived category of an abelian category}
 \subsubsection{Localization}
 
@@ -12,27 +14,27 @@ In other words, we can always replace $f:X\rightarrow Y, s:Z\rightarrow Y$ by an
 $$\begin{CD} T @>g>> Z \\ @Vs'VV @VVsV \\ X @> >f > Y\end{CD}$$
 
 \begin{definition}{Localization}{Localization}
-    Suppose $\mathcal{C}$ has a localizing class $S$. Then $\mathcal{C}[S^{-1}]$ is the category with objects the same as that of $\mathcal{C}$ and morphisms given by equivalence classes of roofs which we think of as $s^{-1}f$. Two roofs are the same if there is a bigger roof restricting to them (think of this as a larger numerator, or lcm)
+    Suppose $\calC$ has a localizing class $S$. Then $\calC[S^{-1}]$ is the category with objects the same as that of $\calC$ and morphisms given by equivalence classes of roofs which we think of as $s^{-1}f$. Two roofs are the same if there is a bigger roof restricting to them (think of this as a larger numerator, or lcm)
 \end{definition}
 
-Composition is defined by choosing some roof as follows: !insert diagram!
- 
-Under these constructions, morphisms in $S$ become invertible. 
+Composition is defined by choosing some roof as follows: \todo{insert diagram}
+
+Under these constructions, morphisms in $S$ become invertible.
 
 \begin{theorem}{}{Quis form a localizing class}
-    Quasiisomosphism form a localizing class in the homotopy category of an abelian category $K(\mathcal{A})$. We denote the derived category by$$D(\mathcal{A}):=K(\mathcal{A})[Q^{-1}]$$
+    Quasiisomosphism form a localizing class in the homotopy category of an abelian category $K(\calA)$. We denote the derived category by$$D(\calA):=K(\calA)[Q^{-1}]$$
 \end{theorem}
 
 This is an additive category. Moreover, the cohomology functor factors through this.
 
 \begin{definition}{Mapping cone}{Mapping cone}
-    The mapping cone of $f:A^\bullet\xrightarrow{}B^\bullet$ is the complex $A^\bullet[1]\oplus B^\bullet$ and differential $\begin{pmatrix} -d_A & 0 \\ f & d_B
+    The mapping cone of $f:A^\bullet\to B^\bullet$ is the complex $A^\bullet[1]\oplus B^\bullet$ and differential $\begin{pmatrix} -d_A & 0 \\ f & d_B
 \end{pmatrix}$.\end{definition}
 
-The three objects fit into a long exact sequence coming from a distinguished triangle. We see that $f$ is a quasiisomorphism iff $cone(f)=0$. 
+The three objects fit into a long exact sequence coming from a distinguished triangle. We see that $f$ is a quasiisomorphism iff $cone(f)=0$.
 
 \begin{proposition}{}{cones}
-    $\mathrm{cone}(B\xrightarrow{\tau} \mathrm{cone}(f))\simeq A$ in the homotopy category.
+    $\cone(B\xrightarrow{\tau} \cone(f))\simeq A$ in the homotopy category.
 \end{proposition}
 
 This shows that the cone of a cone is the original object. So cones just go around distinguished triangles. One needs to show that the two morphisms described below are homotopy inverses. One is easy: it composes to identity. The other one is also not too bad.
@@ -43,76 +45,78 @@ This shows that the cone of a cone is the original object. So cones just go arou
 %-d_{B}& 0 & 0 \\ 0 & -d_{A} & 0 \\1 & f & d_{B}
 %\end{pmatrix}V @VV-d_{A}V \\ A_{i+2} @> > > B_{i+2}\oplus A_{i+2}\oplus B_{i+1}@> > > A_{i+2}\end{CD}$$
 
-Next, we see that the following diagram commutes:$$\begin{CD} B @> > > \mathrm{cone}(f)@> > > A[-1] \\ @V=VV @V=VV @VVV\\B @> > > \mathrm{cone}(f) @> > > \mathrm{cone(\tau)}\end{CD}$$
-%I.e. the following triangles are the same: 
+Next, we see that the following diagram commutes:$$\begin{CD} B @> > > \cone(f)@> > > A[-1] \\ @V=VV @V=VV @VVV\\B @> > > \cone(f) @> > > \cone(\tau)\end{CD}$$
+%I.e. the following triangles are the same:
 %![[Cone of a cone|center|700]]
 
 Now we can complete the proof that quasiisomorphisms form a localizing class in the homotopy category:
 \begin{proof}
-    The benefit of this is that we can replace $A\rightarrow B\rightarrow \mathrm{cone(f)}$ with $B\rightarrow \mathrm{cone}(f)\rightarrow \mathrm{cone(\tau)}$ and compose $\tau$ with another morphism. Recall that we wanted to show quasiisomorphisms form a localizing class, so we'd like to be able to factorize in two ways: suppose $f$ is a quasiisomorphism and $g$ is any morphism. We'd like to find $?$ such that $?\rightarrow C$ is a quasiisomorphism and the diagram commutes.
+    The benefit of this is that we can replace $A\rightarrow B\rightarrow \cone(f)$ with $B\rightarrow \cone(f)\rightarrow \cone(\tau)$ and compose $\tau$ with another morphism. Recall that we wanted to show quasiisomorphisms form a localizing class, so we'd like to be able to factorize in two ways: suppose $f$ is a quasiisomorphism and $g$ is any morphism. We'd like to find $?$ such that $?\rightarrow C$ is a quasiisomorphism and the diagram commutes.
     $$\begin{CD} ? @> > > C \\ @VVV @VVgV \\ A @> > f> B\end{CD}$$
-    This comes down to the following diagram: 
-    $$\begin{CD} \mathrm{cone}(\tau g)[-1]@> quis> > C @> > > \mathrm{cone}(f) @> > > \mathrm{cone}(\tau g)\\ @VVV @VgVV @V=VV @VVV \\ \mathrm{cone(\tau)[-1]}@> > > B @> \tau> > \mathrm{cone}(f)@> > > \mathrm{cone}(\tau) \\ @VquisVV @V=VV @V=VV @VVV \\ A @> > f > B @> > > \mathrm{cone}(f)@> > > A[1]\end{CD}$$
-    Since $f$ is a quasiisomorphism, we see that $\mathrm{cone}(f)=0$ and hence $\mathrm{cone}(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\mathrm{cone}(\tau g)[-1]$.
-\end{proof} 
+    This comes down to the following diagram:
+    $$\begin{CD} \cone(\tau g)[-1]@> quis> > C @> > > \cone(f) @> > > \cone(\tau g)\\ @VVV @VgVV @V=VV @VVV \\ \cone(\tau)[-1]@> > > B @> \tau> > \cone(f)@> > > \cone(\tau) \\ @VquisVV @V=VV @V=VV @VVV \\ A @> > f > B @> > > \cone(f)@> > > A[1]\end{CD}$$
+    Since $f$ is a quasiisomorphism, we see that $\cone(f)=0$ and hence $\cone(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\cone(\tau g)[-1]$.
+\end{proof}
 
 \subsubsection{Hom sets in the derived category}
 
-Now we want to show that $$\mathrm{Ext}_{\mathcal{A}}^i(A,B)=\mathrm{Hom_{D \mathcal{A}}}(A, B[i])$$
+Now we want to show that $$\Ext_{\calA}^i(A,B)=\Hom_{D(\calA)}(A, B[i])$$
 To compute Ext, we need to replace $A$ by a projective resolution $P^\bullet \rightarrow A$, then Hom into $B$ and take cohomology. Equivalently, can resolve $B$ by injectives $B\rightarrow I^\bullet$, Hom from $A$ and take cohomology.
 
-To do this, first need the following: 
+To do this, first need the following:
 
 \begin{proposition}{}{}
-     If $A\rightarrow B$ is a quasiisomorphism and $I$ is a bounded below complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(B,I)\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I)$$
+     If $A\rightarrow B$ is a quasiisomorphism and $I$ is a bounded below complex of injectives, then $$\Hom_{K(\calA)}(B,I)\simeq \Hom_{K(\calA)}(A,I).$$
 \end{proposition}
 
 To prove this, use general properties about injective objects. Look at e.g. Weibel.
 
-This then implies that if $A$ is arbitrary and $I$ is a complex of injectives, then $$\mathrm{Hom}_{K\mathcal{A}}(A,I)\simeq \mathrm{Hom}_{D\mathcal{A}}(A,I)$$by looking at the description of a morphism in the derived category.
+This then implies that if $A$ is arbitrary and $I$ is a complex of injectives, then $$\Hom_{K(\calA)}(A,I)\simeq \Hom_{D(\calA)}(A,I)$$by looking at the description of a morphism in the derived category.
 
-Now take an injective resolution $B\rightarrow I^\bullet$. We see that $$\mathrm{Hom}_{D\mathcal{A}}(A,B[i])\simeq \mathrm{Hom}_{K\mathcal{A}}(A,I^\bullet[i])$$But this is given by a morphism $f:A\rightarrow I^i$ which should be a chain map: 
+Now take an injective resolution $B\rightarrow I^\bullet$. We see that $$\Hom_{D(\calA)}(A,B[i])\simeq \Hom_{K(\calA)}(A,I^\bullet[i]).$$But this is given by a morphism $f:A\rightarrow I^i$ which should be a chain map:
 $$\begin{CD}0 @> > > A @> > > 0 \\ @VVV @VfVV @VVV \\ I^{i-1} @> > > I^i @> > > I^{i+1} \end{CD}$$
-Hence, we can think of $f$ as a map in $\mathrm{Hom}(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. This completes the comparison between $\mathrm{Ext}^i(A,B)$ and $\mathrm{Hom}_{D\mathcal{A}}(A,B[i])$. 
+Hence, we can think of $f$ as a map in $\Hom(A, I^\bullet)_{i}$ which is closed. Moreover, it is exact precisely when it factors through $I^{i-1}$ which is the same as saying it is nullhomotopic. This completes the comparison between $\Ext^i(A,B)$ and $\Hom_{D(\calA)}(A,B[i])$.
 
 \subsubsection{Derived functors}
-When we have either enough projectives or injectives, then we can restrict to the full subcategory of such objects. 
+When we have either enough projectives or injectives, then we can restrict to the full subcategory of such objects.
 
 \begin{theorem}{}{}
-    Assume $\mathcal{A}$ has enough projectives. Then $$K^{-}(\mathcal{P})\simeq D^{-}(\mathcal{A})$$Dually, if there are enough injectives, $$K^{+}(\mathcal{I})\simeq D^{+}(\mathcal{A})$$
+    Assume $\calA$ has enough projectives. Then $$K^{-}(\mathcal{P})\simeq D^{-}(\calA).$$Dually, if there are enough injectives, $$K^{+}(\mathcal{I})\simeq D^{+}(\calA).$$
 \end{theorem}
 
 This allows for the definition of a derived functor, as follows:
 
-Suppose $F$ is an additive functor between abelian categories $\mathcal{A}, \mathcal{B}$. Then it induces a functor on the homotopy categories, by applying it termwise. If it is exact, then it sends quasiisomorphissms to quasiisomorphisms and commutes with kernels, cokernels etc.
+Suppose $F$ is an additive functor between abelian categories $\calA, \calB$. Then it induces a functor on the homotopy categories, by applying it termwise. If it is exact, then it sends quasiisomorphissms to quasiisomorphisms and commutes with kernels, cokernels etc.
 
-Suppose now that $F$ is left exact, e.g. pushforward functor. Then we can define $RF$, the right derived functor of $F$, by choosing an inverse to the equivalence on the left:  $$\begin{CD} D^+(\mathcal{A)} @> > > D^+(\mathcal{B)} \\ @A A A  @A A A \\ K^+(\mathcal{I}_{A})@> F> >K^+(\mathcal{B}) \end{CD}$$
-Explicitly, we choose an injective resolution and define $$RF(A^\bullet):=F(I^\bullet)$$
+Suppose now that $F$ is left exact, e.g. pushforward functor. Then we can define $\dR F$, the right derived functor of $F$, by choosing an inverse to the equivalence on the left:  $$\begin{CD} D^+(\calA) @> > > D^+(\calB) \\ @A A A  @A A A \\ K^+(\mathcal{I}_{A})@> F> >K^+(\calB) \end{CD}$$
+Explicitly, we choose an injective resolution and define $$\dR F(A^\bullet):=F(I^\bullet)$$
 
 \paragraph{Derived functors in geometry}
-Now let's do some geometry. Have functors: 
+Now let's do some geometry. Have functors:
+
+% TODO: at least briefly introduce $D^b(X)=D^b(\Coh(X))$ as an object of study
 
 \begin{itemize}
-    \item $\Gamma:\mathbf{Qcoh}(X)\xrightarrow{}Ab$
-    \item $\mathrm{Hom}: \mathbf{Qcoh}(X)\times \mathbf{Qcoh}(X)\xrightarrow{ }Ab$
-    \item given $f:X\xrightarrow{ }Y$, have $f_*:\mathbf{Qcoh}(X)\xrightarrow{}\mathbf{Qcoh}(Y)$. For $Y=\mathrm{Spec}(\mathbb{Z})$, pushforward is the same as taking global sections of the sheaf.
-    \item $\lHom:\mathbf{Qcoh}(X)\times \mathbf{Qcoh}(X)\xrightarrow{} \mathbf{Qcoh}(X)$. Notice $\Gamma(\lHom)=\mathrm{Hom}$. These are left exact.
-    \item $\otimes$, $f^*$. These are right exact. Note that $f^{-1}$ is exact, but to get $f^*$ one tensors with the structure sheaf. 
+    \item $\Gamma:\QCoh(X)\to Ab$
+    \item $\Hom: \QCoh(X)\times \QCoh(X)\xrightarrow{ }Ab$
+    \item Given $f:X\xrightarrow{ }Y$, have $f_*:\QCoh(X)\to \QCoh(Y)$. For $Y=\Spec\Z$, pushforward is the same as taking global sections of the sheaf.
+    \item $\lHom:\QCoh(X)\times \QCoh(X)\to  \QCoh(X)$. Notice $\Gamma(\lHom)=\Hom$. These are left exact.
+    \item $\otimes$, $f^*$. These are right exact. Note that $f^{-1}$ is exact, but to get $f^*$ one tensors with the structure sheaf.
 \end{itemize}
 
-Note that $\mathbf{Qcoh}(X)$ has enough injectives, but not a lot of projectives. So can define right derived functors.
+Note that $\QCoh(X)$ has enough injectives, but not a lot of projectives. So can define right derived functors.
 
 We would like to say that, since $g_{*}\circ f_{*}=(g\circ f)_{*}$ that the same holds for their derived versions.
 
 Issue: the pushforward does not respect injectives! We will introduce another class of sheaves, the flasque ones, to make this work. Now, pushforwards respect flasque sheaves! This is an example of what is called an adapted class:
 
 \begin{definition}{Acyclic objects and adapted classes}{Adapted classes}
-     An object is called $F$-acyclic if $R^iF(A)=0, \forall i>0$. A class of objects is adapted to $F$ if it is closed under $\oplus$, all objects in the class are $F$-acyclic and every object in $\mathcal{A}$ can be embedded in an object of the class.
-        
+     An object is called $F$-acyclic if $R^iF(A)=0, \forall i>0$. A class of objects is adapted to $F$ if it is closed under $\oplus$, all objects in the class are $F$-acyclic and every object in $\calA$ can be embedded in an object of the class.
+
 \end{definition}
 
 \begin{theorem}{Composition of derived functors}{Composition of derived functors}
-    Suppose $F:\mathcal{A}\xrightarrow{}\mathcal{B}, G:\mathcal{B}\xrightarrow{}\mathcal{C}$ are two functors such that $F(R_{\mathcal{A}})\subset R_{\mathcal{B}}$, where these are adapted classes for $F$ and $G$ respectively. Then $RG\circ RF = R(G\circ F)$.
+    Suppose $F:\calA\to \calB, G:\calB\to \calC$ are two functors such that $F(R_{\calA})\subset R_{\calB}$, where these are adapted classes for $F$ and $G$ respectively. Then $\dR G\circ\dR F = \dR(G\circ F)$.
 \end{theorem}
 
 Notice that one can throw in all $F$-acyclic objects in the adapted class, but that would cause a problem if we want the inclusion to hold.
@@ -121,19 +125,19 @@ Since pushforwards send flasques to flasques, and flasques are an adapted class,
 
 \paragraph{Derived functors of Hom}
 
-Take $E$ a quasicoherent sheaf. Then local Homs form a left exact functor $\lHom(E,-)$ and we can form its right derived functor $$\RlHom:D^+(\mathbf{Qcoh}(X))\xrightarrow{}D^+(\mathbf{Qcoh}(X))$$
+Take $E$ a quasicoherent sheaf. Then local Homs form a left exact functor $\lHom(E,-)$ and we can form its right derived functor $$\RlHom:D^+(\QCoh(X))\to D^+(\QCoh(X))$$
 
 Crucially, projective varieties have enough vector bundles to resolve any sheaf:
 
 \begin{proposition}{}{}
-    If $X$ is projective, then $\mathbf{Coh}(X)$ has enough locally frees.  
+    If $X$ is projective, then $\Coh(X)$ has enough locally frees.
 \end{proposition}
 
-The reason is that given $F$, there is $n>>0$ such that $F(n)$ is generated by global sections. These are given by maps $\mathcal{O}_{X}\xrightarrow{}F(n)$ and since we have many of them, then we get a surjection $\mathcal{O}_{X}^N\xrightarrow{}F(n)$. Can then untwist. In this case, every bounded above complex of coherent sheaves is quasiisomorphic to a bounded above complex of vector bundles. If $X$ is regular, can just take bounded. Need Hilbert syzygy theorem.
+The reason is that given $F$, there is $n\gg0$ such that $F(n)$ is generated by global sections. These are given by maps $\O_{X}\to F(n)$ and since we have many of them, then we get a surjection $\O_{X}^N\to F(n)$. Can then untwist. In this case, every bounded above complex of coherent sheaves is quasiisomorphic to a bounded above complex of vector bundles. If $X$ is regular, can just take bounded. Need Hilbert syzygy theorem.
 
 Now, $\lHom(E,-)$ takes injectives to flasques. From this, we see that $$\RHom(E,-)=\RG(\RlHom(E,-))$$
 
-What about $\mathbf{R}\lHom(E^\bullet, F^\bullet)$? Note that $\lHom(E^\bullet,-)$ is not a functor between $\mathrm{Qcoh}$, but between homotopy categories. Need lemma:
+What about $\mathbf{R}\lHom(E^\bullet, F^\bullet)$? Note that $\lHom(E^\bullet,-)$ is not a functor between $\QCoh$, but between homotopy categories. Need lemma:
 
 \begin{lemma}{}{}
     If $E^\bullet$ or $F^\bullet$ is acyclic and $F^\bullet$ is a complex of injectives, then $\lHom(E^\bullet, F^\bullet)$ is acyclic.
@@ -141,64 +145,75 @@ What about $\mathbf{R}\lHom(E^\bullet, F^\bullet)$? Note that $\lHom(E^\bullet,-
 
 Recall that the hom between complexes is defined as the complex $$\lHom(E^\bullet, F^\bullet)_{k}=\prod \lHom(E_{i}, F_{i+k})$$
 
-Recall the hom complex $$\mathrm{Hom}^n(A,B)=\prod \mathrm{Hom} (A^i, B^{i+n})$$with differential $df=d_{B}f-(-1)^nfd_{A}$. We see that $Z^0$ is just chain maps, whereas $B^0$ is chain homotopies, so $H^0$ is $\mathrm{Hom}_{\mathcal{K}}(A,B)$, i.e. morphisms up to homotopy. 
+Recall the hom complex $$\Hom^n(A,B)=\prod \Hom (A^i, B^{i+n})$$with differential $df=d_{B}f-(-1)^nfd_{A}$. We see that $Z^0$ is just chain maps, whereas $B^0$ is chain homotopies, so $H^0$ is $\Hom_{K(\calA)}(A,B)$, i.e. morphisms up to homotopy.
 
-This construction is consistent with shifting by $n$. So $$H^n(\mathrm{Hom}^\bullet(A,B))=H^0(\mathrm{Hom}^\bullet(A,B[n])=\mathrm{Hom}_{\mathcal{K}}(A,B[n])$$
-If we want to compute $\mathrm{RHom}(A,B)$, we replace $B$ by a complex of injectives $I$ and then this should just be $\mathrm{Hom}^\bullet(A,I)$. 
+This construction is consistent with shifting by $n$. So $$H^n(\Hom^\bullet(A,B))=H^0(\Hom^\bullet(A,B[n])=\Hom_{K(\calA)}(A,B[n])$$
+If we want to compute $\RHom(A,B)$, we replace $B$ by a complex of injectives $I$ and then this should just be $\Hom^\bullet(A,I)$.
 
-As a corollary, we see that $$H^n\mathrm{RHom}(A,B)\simeq \mathrm{Hom}_{\mathcal{D}}(A,B[n])$$just as we had for objects before, but now for arbitrary complexes of e.g. sheaves.
+As a corollary, we see that $$H^n\RHom(A,B)\simeq \Hom_{D(\calA)}(A,B[n])$$just as we had for objects before, but now for arbitrary complexes of e.g. sheaves.
 
 \paragraph{Compatibilities between derived functors}
 
-Locally frees should be an adapted class for $f^*$. Recall what this means: 
+Locally frees / vector bundles should be an adapted class for $f^*$. Recall what this means:
 \begin{itemize}
     \item should be closed under $\oplus$
     \item everything should be a quotient of a vector bundle
-    \item vector bundles should be $f^*$-acyclic
+    \item should be $f^*$-acyclic
 \end{itemize}
 
 But we don't have enough projectives, so the last condition does not make sense. We need an equivalent one: if $E^\bullet$ is acyclic complex of locally frees, we require that $f^*E^\bullet$ is still acyclic.
+% TODO: move this next to stuff on composition? would be nice to have the stuff about when derived functors are defined and when they can be composed nicely all unified
 
-Recall: to derive $\lHom(\mathcal{F}, -)$ we can resolve second term by injectives, whereas to derive $\lHom(-,\mathcal{G})$ we can resolve first term by vector bundles. Similarly for complexes of sheaves.For the derived tensor product $\mathcal{F}^\bullet\otimes^L \mathcal{G}^\bullet$, have the same story, except need only use locally frees on either side. Have nice properties which can be checked on locally frees, and then taking complexes of locally frees e.g. associativity: $(E^\bullet \otimes F^\bullet ) \otimes G^\bullet \simeq E^\bullet \otimes (F^\bullet \otimes G)$
+Recall: to derive $\lHom(\calF, -)$ we can resolve second term by injectives, whereas to derive $\lHom(-,\calG)$ we can resolve first term by vector bundles. Similarly for complexes of sheaves. For the derived tensor product $\calF^\bullet\Lotimes\calG^\bullet$, have the same story, except need only use locally frees on either side. Have nice properties which can be checked on locally frees, and then taking complexes of locally frees e.g. associativity: $(E^\bullet \otimes F^\bullet ) \otimes G^\bullet \simeq E^\bullet \otimes (F^\bullet \otimes G)$
 
-Since we have an adapted class of locally frees, get left derived $\dL f^*:D^-(\mathbf{Coh}\,Y)\rightarrow D^-(\mathbf{Qcoh X})$. Since pullbacks of vector bundles are vector bundles, we see that $$\dL g^*\circ \dL f^*=\dL (g\circ f)^*$$
+Since we have an adapted class of locally frees, get left derived $\dL f^*:D^-(\Coh Y)\rightarrow D^-(\QCoh X)$. Since pullbacks of vector bundles are vector bundles, we see that $$\dL g^*\circ \dL f^*=\dL (g\circ f)^*$$
 
 %*Exercise:* blow up origin at plane, derive pull back structure sheaf at origin.
 
-We have other compatibilities: 
-$$\begin{gathered} \dL f^*(\mathcal{E}^\bullet \otimes^L \mathcal{F}^\bullet)\simeq \dL f^*\mathcal{E}^\bullet \otimes^L \dL f^* \mathcal{F}^\bullet \\ 
-\RHom(\mathcal{E}^\bullet, \RlHom(\mathcal{F}^\bullet,\mathcal{G}^\bullet))\simeq \RlHom(\mathcal{E}^\bullet\otimes^L \mathcal{ F}, \mathcal{G}^\bullet)\\
-\RlHom(\mathcal{E}^\bullet, \mathcal{F}^\bullet)\otimes^L \mathcal{G}^\bullet
-\simeq \RlHom(\mathcal{E}^\bullet, \mathcal{F}\otimes^L \mathcal{G}^\bullet)\\
-\mathcal{E}^\lor\otimes \mathcal{G}^\bullet \simeq \RlHom(\mathcal{E}^\bullet, \mathcal{G}^\bullet), \mathcal{E^\lor = \RlHom(\mathcal{E}, \mathcal{O}}_{X})\end{gathered} $$
+We have other compatibilities:
+$$\begin{gathered} \dL f^*(\calE^\bullet \Lotimes \calF^\bullet)\simeq \dL f^*\calE^\bullet \Lotimes \dL f^* \calF^\bullet \\
+\RHom(\calE^\bullet, \RlHom(\calF^\bullet,\calG^\bullet))\simeq \RlHom(\calE^\bullet\Lotimes \calF, \calG^\bullet)\\
+\RlHom(\calE^\bullet, \calF^\bullet)\Lotimes \calG^\bullet
+\simeq \RlHom(\calE^\bullet, \calF\Lotimes \calG^\bullet)\\
+\calE^\vee\Lotimes \calG^\bullet \simeq \RlHom(\calE^\bullet, \calG^\bullet), \quad \calE^\vee = \RlHom(\calE, \O_{X})\end{gathered} $$
 
-Also have an adjunction projection formula as usual: 
+Also have an adjunction projection formula as usual:
 $$\begin{gathered}
-    \dR f_{*}\RlHom_{X}(Lf^*\mathcal{E},\mathcal{F})\simeq \RlHom_{Y}(\mathcal{E}, \dR f_{*}\mathcal{F}) \\
-\RlHom_{X}(\dL f^*\mathcal{E}, \mathcal{F})\simeq \RHom_{Y}(\mathcal{E}, \dR f_{*}\mathcal{F})
+    \dR f_{*}\RlHom_{X}(\dL f^*\calE,\calF)\simeq \RlHom_{Y}(\calE, \dR f_{*}\calF) \\
+\RlHom_{X}(\dL f^*\calE, \calF)\simeq \RHom_{Y}(\calE, \dR f_{*}\calF)
 \end{gathered}$$
-Works if $\mathcal{E}$ is injective, $\mathcal{F}$ locally free. The second version comes from the first one by taking global sections. Note that $\Gamma f_{*} \mathcal{G}=\Gamma \mathcal{G}$ and the same holds upon applying derived functors.
+Works if $\calE$ is injective, $\calF$ locally free. The second version comes from the first one by taking global sections. Note that $\Gamma(f_*\calG)=\Gamma(\calG)$ and the same holds upon applying derived functors.
 
 The adjunction formula is a version of the projection formula.
-$$\dR f_{*} (\mathcal{E}\otimes^L \dL f^*\mathcal{F})\simeq (\dR f_{* }\mathcal{E})\otimes^L \mathcal{F}$$
-The projection formula, as well as the other ones, usually requires that $\mathcal{F}$ be locally free, but in the derived setting it works for everything, since we resolve by locally frees! 
+$$\dR f_{*} (\calE\Lotimes \dL f^*\calF)\simeq (\dR f_{* }\calE)\Lotimes \calF$$
+The projection formula, as well as the other ones, usually requires that $\calF$ be locally free, but in the derived setting it works for everything, since we resolve by locally frees!
 
 \begin{theorem}{Cohomology and base change}{Cohomology and base change}
-    Suppose we have a flat morphism $g:Y\xrightarrow{}Z$ and a pullback square $$\begin{CD}W @> \tilde{f}> > Y \\ @V\tilde{g}VV @VVgV \\ X @> >f > Z
+    Suppose we have a flat morphism $g:Y\to Z$ and a pullback square $$\begin{CD}W @> \tilde{f}> > Y \\ @V\tilde{g}VV @VVgV \\ X @> >f > Z
     \end{CD}$$
-    Then $$\dL g^* \dR f_{*}\mathcal{E}=\dR \tilde{f}_{*}\dL \tilde{g}^*\mathcal{E}$$
+    Then $$g^*\circ\dR f_*=\dR\tilde{f}_*\circ\tilde{g}^*$$
 \end{theorem}
 
+Note that $g$ and hence $\tilde g$ being flat means the pullbacks are exact and
+don't need to be derived.
 
 The reason this is true is because it works in the usual case for injective sheaves and flat morphisms.
 
 We can apply this to a classical example, the Poincare bundle on the elliptic curve.
 \begin{example}{Poincare bundle}{}
-When $Z=\mathrm{Spec}\,k$, $W=X\times Y$ then we must have that $$\dR p_{*}q^* \mathcal{E}\simeq g^* \dR f_{*}\mathcal{E}$$where both $f,g$ map to a point. But $\dR f_{*}=\RG$ in this case. The derived category of $\mathrm{Spec}\,k$ is the category of graded vector spaces, where every object can be replaced by its cohomology with zero differential. Hence, the thing on the right is just $$\mathcal{O}_{Y}\otimes_{k} \RG (\mathcal{E})$$where $\RG(\mathcal{E})$ is a graded vector space.
+When $Z=\Spec k$, $W=X\times Y$ then we must have that $$\dR p_{*}q^* \calE\simeq g^* \dR f_{*}\calE$$where both $f,g$ map to a point. But $\dR f_{*}=\RG$ in this case. The derived category of $\Spec k$ is the category of graded vector spaces, where every object can be replaced by its cohomology with zero differential. Hence, the thing on the right is just $$\O_{Y}\otimes_{k} \RG (\calE)$$where $\RG(\calE)$ is a graded vector space.
 
-So for example, when $X$ is an elliptic curve, then if $\mathcal{E}=\mathcal{O}_{X}$ concentrated in degree zero, we have $$\RG(\mathcal{O}_{X})=H^\bullet(X,\mathcal{O}_{X})=k\xrightarrow{0}k$$Then $g^* \dR f_*\mathcal{E}= \mathcal{O}_{Y}\xrightarrow{0}\mathcal{O}_{Y}= \mathcal{O}_{Y}\oplus \mathcal{O}_{Y}[1]$. 
+So for example, when $X$ is an elliptic curve, then if $\calE=\O_{X}$ concentrated in degree zero, we have $$\RG(\O_{X})=H^\bullet(X,\O_{X})=k\xrightarrow{0}k$$Then $g^* \dR f_*\calE= \O_{Y}\xrightarrow{0}\O_{Y}= \O_{Y}\oplus \O_{Y}[1]$.
 
-Now, let $E$ be an elliptic curve and fix $P_0\in E$. Then every degree zero line bundle is given by $\mathcal{O}_{E}(P-P_{0})$. Hence $$\mathrm{Pic^0(E)}\simeq E$$Can make universal bundle over $\mathcal{L}\xrightarrow{} \mathrm{Pic}^0(E)\times E$ given by $\mathcal{L}:=\mathcal{O}_{E\times E}(\Delta-E\times P_{0})$. We see that $$\mathcal{L}|_{P\times E}\simeq \mathcal{O}_{E}(P-P_{0})$$Now, note that $$H^\bullet (E, \mathcal{O}_{E}(P-P_{0}))=\mathrm{Ext}^\bullet(\mathcal{O}_{P_{0}},\mathcal{O}_{P})=\begin{cases}0, P\neq P_{0}\\ k\oplus k[1], P=P_{0}\end{cases} $$which is the skyscraper sheaf computation we did before.
+Now, let $E$ be an elliptic curve and fix $P_0\in E$. Then every degree zero line bundle is given by $\O_{E}(P-P_{0})$. Hence
+$$\Pic^0(E)\simeq E.$$
+Can make universal bundle over $\calL\to  \Pic^0(E)\times E$ given by $\calL:=\O_{E\times E}(\Delta-E\times P_{0})$. We see that
+$$\calL|_{P\times E}\simeq \O_{E}(P-P_{0}).$$
+Now, note that
+$$H^\bullet (E, \O_{E}(P-P_{0}))
+    =\Ext^\bullet(\O_{P_{0}},\O_{P})
+    =\begin{cases}0, & P\neq P_{0} \\ k\oplus k[1], & P=P_{0}\end{cases} $$
+which is the skyscraper sheaf computation we did before.
 
 \end{example}
 
@@ -207,15 +222,15 @@ Now, let $E$ be an elliptic curve and fix $P_0\in E$. Then every degree zero lin
 Have the following diagram, to which we want to apply cohomology and base change: $$\begin{CD}
 P\times E @> > > E\times E\\ @VVV @VV\pi V \\ P @> > > E
 \end{CD}$$
-We have just seen, since pushforward to a point is global sections, that$$\dR \pi_{*}\iota^*\mathcal{L}=H^\bullet(E, \mathcal{O}_{E}(P-P_{0}))$$From the cohomology and base change formula, this must be equal to $\dL \iota^*\dR \pi_{*}\mathcal{L}$. We appeal to the fact that $\dR \pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[-1]$. Moreover, the ideal sheaf sequence is in particular a Koszul resolution: $$0\rightarrow \mathcal{O}_{E}(-P_{0})\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}\mathcal{O}_{{P_{0}}}\xrightarrow{}0$$This is a resolution of locally free sheaves allowing us to compute the derived restriction pullback of $\mathcal{O}_{{P}_{0}}$ which by inspection is exactly $k\xrightarrow{0}k$ if $P=P_0$ and $0$ if not equal, as expected. 
+We have just seen, since pushforward to a point is global sections, that$$\dR \pi_{*}\iota^*\calL=H^\bullet(E, \O_{E}(P-P_{0}))$$From the cohomology and base change formula, this must be equal to $\dL \iota^*\dR \pi_{*}\calL$. We appeal to the fact that $\dR \pi_{*}\calL=\O_{P_{0}}[-1]$. Moreover, the ideal sheaf sequence is in particular a Koszul resolution: $$0\rightarrow \O_{E}(-P_{0})\to \O_{E}\to \O_{{P_{0}}}\to 0$$This is a resolution of locally free sheaves allowing us to compute the derived restriction pullback of $\O_{{P}_{0}}$ which by inspection is exactly $k\xrightarrow{0}k$ if $P=P_0$ and $0$ if not equal, as expected.
 
-% Question: why is $\mathrm{R}\pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[-1]$? Need to ask Ed.
+% Question: why is $\dR\pi_{*}\calL=\O_{P_{0}}[-1]$? Need to ask Ed.
 
 \end{example}
 
 \begin{remark}{Fourier-Mukai transforms}{}
-    What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\mathcal{L}$ on $E\times E$, which defines an endomorphism $\Phi_\mathcal{L}:D^b \mathbf{Coh}(E)\rightarrow D^b \mathbf{Coh}(E), \mathcal{F}\mapsto {\pi_2}_*(\pi_1^* \mathcal{F} \otimes \mathcal{L})$
-    
+    What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\calL$ on $E\times E$, which defines an endomorphism $\Phi_\calL:D^b(\Coh(E))\to D^b(\Coh(E)),\;\calF\mapsto\dR p_*(q^*\calF\otimes\calL)$.
+
 \end{remark}
 
 \subsection{Spectral sequences}
@@ -224,9 +239,9 @@ We have just seen, since pushforward to a point is global sections, that$$\dR \p
 Given a bicomplex, we can take cohomology in vertical or horizontal direction. Then, get new maps which are like a knight's move in chess. Can iterate and get a sequence of complexes whose cohomology approximates the cohomology of the total complex.
 
 Get pages $$E_{r}^{p,q}\xrightarrow{d_{r}} E_{r}^{p+r,q-r+1}$$
-In bounded cases, these eventually become zero. Usually, this happens on the second page. This gives information about the total complex, which has a filtration $$F^{p_{0}} \mathrm{Tot}C^n=\bigoplus_{p\geq p_{0}, p+q=n} C^{p,q}$$Then we claim that $$F^p/F^{p+1} H^n(\mathrm{Tot}\,C)\simeq E_{\infty}^{p,n-p}$$We write this as $$E^{p,q}\implies H^{p+q}(\mathrm{Tot}\,C)$$
+In bounded cases, these eventually become zero. Usually, this happens on the second page. This gives information about the total complex, which has a filtration $$F^{p_{0}} \Tot C^n=\bigoplus_{p\geq p_{0}, p+q=n} C^{p,q}$$Then we claim that $$F^p/F^{p+1} H^n(\Tot C)\simeq E_{\infty}^{p,n-p}$$We write this as $$E^{p,q}\Rightarrow H^{p+q}(\Tot C)$$
 
-Given a commutative ring $R$ and two complexes $A,B$ the tensor product complex is $\bigoplus A^p\otimes B^q$ with Leibniz differential $d(a\otimes b)=da\otimes b + (-1)^p a\otimes db$. 
+Given a commutative ring $R$ and two complexes $A,B$ the tensor product complex is $\bigoplus A^p\otimes B^q$ with Leibniz differential $d(a\otimes b)=da\otimes b + (-1)^p a\otimes db$.
 
 Assume $A$ is a bounded above complex of flat modules and $B$ is acyclic. Then $A\otimes B$ is acyclic. This is since the first page is just $$E_{1}^{p,q}=H^q(A^p\otimes B)=0$$
 This is similar to the statement that if a row or column in a double complex is acyclic, then the vertical and horizontal cohomologies coincide.
@@ -235,20 +250,20 @@ Now we move on to the Grothendieck spectral sequence.
 
 \subsubsection{Computing derived functors: the Grothendieck spectral sequence}
 
-Suppose we know $R^iF(A^p)$ or $R^iF(H^pA)$ for a complex $A$. How can we compute $R^iF(A)$ from this information?
+Suppose we know $R^iF(A^p)$ or $R^iF(\calH^pA)$ for a complex $A$. How can we compute $R^iF(A)$ from this information?
 
 Need the Cartan-Eilenberg complex! This is a bicomplex resolution that looks like %![[Cartan-Eilenberg compex|center]]
 
-One can check that $\mathrm{Tot}\,I \rightarrow A$ is a quasi-isomorphism. So $RF(A)=F(\mathrm{Tot}\,I)=\mathrm{Tot}\,FI$. When we take cohomology, we are interested in the $n$-th cohomology of the total complex, for which we have two spectral sequences: one starts with horizontal differential, and the other with the vertical. 
+One can check that $\Tot I \rightarrow A$ is a quasi-isomorphism. So $RF(A)=F(\Tot I)=\Tot FI$. When we take cohomology, we are interested in the $n$-th cohomology of the total complex, for which we have two spectral sequences: one starts with horizontal differential, and the other with the vertical.
 
-If we start with vertical, then the first page is $$E_{1}^{p,q}=R^qF(A^p)\implies H^nRF(A)$$since we are computing derived functors of $F$. If we start with horizontal, then $$E_{2}^{p,q}=R^qF(H^pA)\implies H^nRF(A)$$
+If we start with vertical, then the first page is $$E_{1}^{p,q}=R^qF(A^p)\Rightarrow \calH^n\dR F(A)$$since we are computing derived functors of $F$. If we start with horizontal, then $$E_{2}^{p,q}=R^qF(\calH^pA)\Rightarrow\calH^n\dR F(A)$$
 
 Now we describe two very important instance of the Grothendieck spectral sequence, the Leray spectral sequence and the local to global spectral sequence.
 
-\begin{example}{Leray spectral sequence}{} Consider $X\xrightarrow{g} Y \xrightarrow{f} Z$. The Leray spectral sequence is as follows: $$R^n(f\circ g)_{*}\mathcal{F}=H^nR(f\circ g)_{*}\mathcal{F}=H^n Rf_{*}\circ Rg_{*} \mathcal{F}$$
+\begin{example}{Leray spectral sequence}{} Consider $X\xrightarrow{g} Y \xrightarrow{f} Z$. The Leray spectral sequence is as follows: $$R^n(f\circ g)_{*}\calF=\calH^n\dR(f\circ g)_{*}\calF=\calH^n(\dR f_*\dR g_*\calF)$$
 
-We are in the situation of trying to compute the n-th derived functor of $F=Rf_*$ of some complex $A=Rg_*\mathcal{F}$. We can apply the second spectral sequence to see that $$E_{2}^{p,q}=R^qf_{*}(R^pg_{*}\mathcal{F})\implies R^n(f\circ g)_{*} \mathcal{F}$$
-When we apply this to $Z=\mathrm{Spec}\,\mathbb{Z}$, then $f_*$ is global sections and $Rf_*$ is sheaf cohomology, as is $R(f\circ g)_*$ which gives us the Leray spectral sequence: $$H^q(Y, R^qg_{*}\mathcal{F})\implies H^{p+q}(X,\mathcal{F})$$
+We are in the situation of trying to compute the n-th derived functor of $F=f_*$ of some complex $A=\dR g_*\calF$. We can apply the second spectral sequence to see that $$E_{2}^{p,q}=R^qf_{*}(R^pg_{*}\calF)\Rightarrow R^n(f\circ g)_{*} \calF$$
+When we apply this to $Z=\Spec\Z$, then $f_*$ is global sections and $\dR f_*$ is sheaf cohomology, as is $\dR(f\circ g)_*$ which gives us the Leray spectral sequence: $$H^q(Y, R^qg_{*}\calF)\Rightarrow H^{p+q}(X,\calF)$$
 \end{example}
 
 
@@ -256,19 +271,21 @@ When we apply this to $Z=\mathrm{Spec}\,\mathbb{Z}$, then $f_*$ is global sectio
 \begin{example}{Local to global spectral sequence}{}
 
 We know from before that $$\RG\circ \RlHom=\RHom$$
-Upon taking cohomology, on the right hand side we get $\mathrm{Ext}^n(\mathcal{F}, \mathcal{G}).$ On the other hand, taking $F=\RG, A=\RlHom(\mathcal{ F}, \mathcal{G})$ then the spectral sequence gives us $$H^q(X, \lExt^p(\mathcal{F, \mathcal{G))}}\implies \mathrm{Ext}^n(\mathcal{F},\mathcal{G)}$$ \end{example}
+Upon taking cohomology, on the right hand side we get $\Ext^n(\calF, \calG).$ On the other hand, taking $F=\Gamma$, $A=\RlHom(\calF, \calG)$ then the spectral sequence gives us $$H^q(X, \lExt^p(\calF, \calG))\Rightarrow \Ext^n(\calF,\calG)$$ \end{example}
 
-As an application, we compute the Ext groups of a point and local Ext of a subvariety. 
+As an application, we compute the Ext groups of a point and local Ext of a subvariety.
 
-More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then
-$\lExt^\bullet(\mathcal{O}_{Y},\mathcal{O}_{Y})$ is computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$ This allows us to compute the self Ext groups of a point, by using the local-to-global spectral sequence:$$H^i(X, \lExt^j(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^{i+j}(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $i>0$ give nothing. But when $i=0$, we have no differential. So in fact $$\mathrm{Ext}^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p}))$$
+More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\calE$, which we can Koszul resolve:
+$$\cdots\to\wedge^2\calE^\vee\to\calE^\vee\to\O_X\to\O_{Y}\to0$$
+i.e. we replace $\O_{Y}={\bigwedge}^\bullet \calE^\vee$. Then
+$\lExt^\bullet(\O_{Y},\O_{Y})$ is computed by applying $\lHom(-,\O_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\O_{Y},\O_{Y})=\lHom({\bigwedge}^i \calE^\vee, \O_{Y})={\bigwedge}^i \calE \otimes \O_{Y}={\bigwedge}^i \calE|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$ This allows us to compute the self Ext groups of a point, by using the local-to-global spectral sequence:$$H^i(X, \lExt^j(\O_{p}, \O_{p}))\Rightarrow \Ext^{i+j}(\O_{p}, \O_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $i>0$ give nothing. But when $i=0$, we have no differential. So in fact $$\Ext^\bullet(\O_{p}, \O_{p})\simeq H^0(X, \lExt^\bullet(\O_{p}, \O_{p}))$$
 From the Koszul resolution, we see that the latter is just an exterior algebra!
 \begin{remark}{Deformations}{}
-    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\mathcal{O}_Y,\mathcal{O}_Y)$. 
+    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\O_Y,\O_Y)$.
 \end{remark}
 \begin{remark}{Mirror symmetry}{}
     In mirror symmetry, varieties come in pairs such that the Floer cohomology groups on one side correspond to Ext groups on the other. If we think of $X$ as the moduli space of its skyscraper sheaves, then since Ext groups should match up with self Floer groups, the mirrors to points should be Lagrangians with self Floer cohomology equal to an exterior algebra. But self Floer cohomology is equal to usual cohomology for unobstructed Lagrangians, which motivates the fact that mirror to points we should have (special) Lagrangian tori. This is the basis of the SYZ philosophy.
-    
+
 \end{remark}
 
 \subsection{Serre duality}
@@ -276,160 +293,186 @@ From the Koszul resolution, we see that the latter is just an exterior algebra!
 The classical statement is as follows:
 
 \begin{proposition}{Classical Serre duality}{Classical Serre duality}
-    If $X$ is smooth projective over alg. closed $k$, and $\mathcal{E}$ is a vector bundle on $X$, then $$H^i(X,\mathcal{E})^*\simeq H^{n-i}(X, \mathcal{E}^\lor\otimes \omega_{X})$$
+    If $X$ is smooth projective over alg. closed $k$, and $\calE$ is a vector bundle on $X$, then $$H^i(X,\calE)^*\simeq H^{n-i}(X, \calE^\vee\otimes \omega_{X})$$
 \end{proposition}
 
-The duality is given by a pairing. Namely, we have a perfect pairing$$H^i(X,\mathcal{E})\otimes H^{n-i}(X,\mathcal{E}^\lor\otimes \omega_{X})\xrightarrow{}H^n(X, \mathcal{E}\otimes \mathcal{E}^\lor\otimes \omega_{X})\xrightarrow{}H^n(X, \omega_{X})\xrightarrow{}k$$
+The duality is given by a pairing. Namely, we have a perfect pairing$$H^i(X,\calE)\otimes H^{n-i}(X,\calE^\vee\otimes \omega_{X})\to H^n(X, \calE\otimes \calE^\vee\otimes \omega_{X})\to H^n(X, \omega_{X})\to k$$
 Also can prove this using Hodge star on vector bundles.
 
-There is a hypercohomology version. If we replace $\mathcal{E}$ by a complex of vector bundles, we define the dual complex as $$\lHom(\mathcal{E},\mathcal{O})^n=\lHom(\mathcal{E}^{-n}, \mathcal{O})$$Have a map $$\mathcal{E}^\lor \otimes \mathcal{E}\xrightarrow{}\mathcal{O}$$
+There is a hypercohomology version. If we replace $\calE$ by a complex of vector bundles, we define the dual complex as $$\lHom(\calE^\bullet,\O_X)^n=\lHom(\calE^{-n}, \O_X)$$Have a map $$\calE^\vee \otimes \calE\to \O_X$$
 
-%*Example:* $\mathcal{E}=V^0\xrightarrow{}W^1$. The dual complex is $W^\lor\xrightarrow{}V^\lor$, where now $W^\lor$ lives in degree $-1$. The tensor complex is $$W^\lor \otimes V \xrightarrow{} V^\lor \otimes V \oplus W^\lor \otimes W \xrightarrow{} V^\lor \otimes W$$The map is the natural one in degree zero. 
+%*Example:* $\calE=V^0\to W^1$. The dual complex is $W^\vee\to V^\vee$, where now $W^\vee$ lives in degree $-1$. The tensor complex is $$W^\vee \otimes V \to  V^\vee \otimes V \oplus W^\vee \otimes W \to  V^\vee \otimes W$$The map is the natural one in degree zero.
 
-So in the same way can construct a pairing: if we define $$\mathbb{H}^i(X,\mathcal{E})=H^i\RG(\mathcal{E)}$$ then get 
+So in the same way can construct a pairing: if we define $$\bbH^i(X,\calE)=\calH^i\RG(\calE)$$ then get
 
 \begin{proposition}{Serre duality for complexes}{Serre duality for complexes}
-        $$\mathbb{H}^i(X,\mathcal{E})\otimes \mathbb{H}^{n-i}(X, \mathcal{E}^\lor \otimes \omega_{X})\xrightarrow{}k$$
+        $$\bbH^i(X,\calE)\otimes \bbH^{n-i}(X, \calE^\vee \otimes \omega_{X})\to k$$
 The claim is that this pairing is still perfect.
 \end{proposition}
 
 There is a stupid truncation where we just kill off any terms after a certain point. Have short exact sequence like %![[Stupid truncation|center|300]]
 Then get LES on hypercohomology and reduce to the case of vector bundles (this method of proof is called devissage).
 
-Recall that in $\mathcal{D}^b\mathbf{Coh}(X)$, any object is represented by a complex of vector bundles. 
+Recall that in $D^b(\Coh X)$, any object is represented by a complex of vector bundles.
 
 There is another form of Serre duality:
 
 \begin{proposition}{Categorical form of Serre duality}{Categorical form of Serre duality}
-    If $A,B\in \mathcal{D}^b\mathbf{Coh}(X)$, then $$\mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(B,A\otimes \omega_{X}[n])$$
+    If $A,B\in D^b(\Coh X)$, then $$\Hom(A,B)^*\simeq \Hom(B,A\otimes \omega_{X}[n])$$
 \end{proposition}
 
-The idea is as follows: we can compute the Homs of the derived category as 
-$$\begin{gathered}
-    \mathrm{Hom}_{\mathcal{D}}(B,A\otimes \omega_{X}[n])\simeq H^n\RHom(B,A\otimes \omega_{X})\\=H^n \RG ( \RlHom(B,A\otimes \omega_{X}))=\\=\mathbb{H}^n(X,B^\lor \otimes A \otimes \omega_{X})
-\end{gathered}$$
+The idea is as follows: we can compute the Homs of the derived category as
+\begin{align*}
+    \Hom_{D^b(X)}(B,A\otimes\omega_X[n])
+        &\simeq \calH^n\RHom(B,A\otimes\omega_X) \\
+        &\simeq \calH^n\RG(\RlHom(B,A\otimes\omega_X)) \\
+        &\simeq \bbH^n(X,B^\vee\Lotimes A\otimes\omega_X).
+\end{align*}
 
-Similarly, $$\begin{gathered}
-\mathrm{Hom}_{\mathcal{D}}(A,B)=H^0\RHom(A,B)=H^0 \RG(X,\RlHom(A,B))=\\=\mathbb{H}^0(X,\RlHom(A,B))=\mathbb{H}^0(X, A^\lor\otimes B)
-\end{gathered}$$
-These are dual by the previous version of Serre duality, applying it to $\mathcal{E}=A^\lor \otimes B$. 
+Similarly,
+\begin{align*}
+    \Hom_{D^b(X)}(A,B)
+        &\simeq \calH^0\RHom(A,B) \\
+        &\simeq \calH^0\RG(X,\RlHom(A,B)) \\
+        &\simeq \bbH^0(X,A^\vee\Lotimes B).
+\end{align*}
+These are dual by the previous version of Serre duality, applying it to $\calE=A^\vee \Lotimes B$.
 
 \begin{definition}{Serre functor}{Serre functor}
-    Define $S:\mathcal{D}(X)\rightarrow \mathcal{D}(X), F\mapsto F\otimes \omega_{X}[n]$. Then have $$\mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(B,S(A))$$
+    Define $S:D^b(X)\rightarrow D^b(X), F\mapsto F\otimes \omega_{X}[n]$. Then have $$\Hom(A,B)^*\simeq \Hom(B,S(A))$$
      A Serre functor is an additive, k-linear autoequivalence obeying the above property
 \end{definition}
 
-Two such functors are canonically equivalent, since $S(A)$ represents the functor $B\mapsto \mathrm{Hom}(A,B)^*$. 
+Two such functors are canonically equivalent, since $S(A)$ represents the functor $B\mapsto \Hom(A,B)^*$.
 
 % Check that $S$ commutes with any autoequivalence: $$\begin{gathered}
-% \mathrm{Hom}(B,SFA)\simeq \mathrm{Hom}(FA,B)^*\\
-% \mathrm{Hom}(B,FSA)\simeq \mathrm{Hom}(F^{-1}B,SA)\simeq \mathrm{Hom}(A, F^{-1}B)^*\simeq \mathrm{Hom}(FA,B)^*
+% \Hom(B,SFA)\simeq \Hom(FA,B)^*\\
+% \Hom(B,FSA)\simeq \Hom(F^{-1}B,SA)\simeq \Hom(A, F^{-1}B)^*\simeq \Hom(FA,B)^*
 % \end{gathered}$$So the two represent the same functor.
 
-% The element $1_A$ corresponds via the isomorphism to some $\tau_A: \mathrm{Hom}(A, S(A))\xrightarrow{}k$, which we call a trace. 
+% The element $1_A$ corresponds via the isomorphism to some $\tau_A: \Hom(A, S(A))\to k$, which we call a trace.
 
-% *Exercise:* given sequence $$A\xrightarrow{x}B\xrightarrow{y}S(A)\xrightarrow{S(x)}S(B)$$then $\mathrm{Tr}(yx)=\mathrm{Tr}(S(x)y)$. 
+% *Exercise:* given sequence $$A\xrightarrow{x}B\xrightarrow{y}S(A)\xrightarrow{S(x)}S(B)$$then $\mathrm{Tr}(yx)=\mathrm{Tr}(S(x)y)$.
 
-The Serre functor allows us to switch between left and right adjoints. Suppose $F$ left adjoint to $G$. Then $SFS^{-1}$ is right adjoint to $G$. 
+The Serre functor allows us to switch between left and right adjoints. Suppose $F$ left adjoint to $G$. Then $SFS^{-1}$ is right adjoint to $G$.
 
-% The point is that the duality pairing is the same as the composition and then the trace: $\mathrm{Tr}(y\circ x)=\mu(x,y)$, where $\mu$ is the duality pairing. Claim we have a commutative diagram, where on the left we send $(x,y)\mapsto(y, Sx)$. 
+% The point is that the duality pairing is the same as the composition and then the trace: $\mathrm{Tr}(y\circ x)=\mu(x,y)$, where $\mu$ is the duality pairing. Claim we have a commutative diagram, where on the left we send $(x,y)\mapsto(y, Sx)$.
 % $$\begin{CD}
-% \mathrm{Hom}(A,B)\otimes \mathrm{Hom}(B,SA)@> > > k\\ @VVV @VVV \\ \mathrm{Hom}(B,SA)\otimes \mathrm{Hom}(SA,SB)@> > > k
+% \Hom(A,B)\otimes \Hom(B,SA)@> > > k\\ @VVV @VVV \\ \Hom(B,SA)\otimes \Hom(SA,SB)@> > > k
 % \end{CD}$$
-% Equivalently, can think about composite isomorphisms $$\mathrm{Hom}(B,SA)\simeq \mathrm{Hom}(A,B)^*\simeq \mathrm{Hom}(SA,SB)^*\simeq \mathrm{Hom}(B,SA)$$
-% The first arrow sends $x\mapsto \mu(x,-)$. However, the leftmost arrow is given by $x\mapsto \mu(-,x)$. Hence, the two are related via $S$ and so $\mathrm{Tr}(yx)=\mu(x,y)=\mu(y,Sx)=\mathrm{Tr}(S(x)y)$. 
+% Equivalently, can think about composite isomorphisms $$\Hom(B,SA)\simeq \Hom(A,B)^*\simeq \Hom(SA,SB)^*\simeq \Hom(B,SA)$$
+% The first arrow sends $x\mapsto \mu(x,-)$. However, the leftmost arrow is given by $x\mapsto \mu(-,x)$. Hence, the two are related via $S$ and so $\mathrm{Tr}(yx)=\mu(x,y)=\mu(y,Sx)=\mathrm{Tr}(S(x)y)$.
 
 \begin{example}{Shriek functor}{Shriek functor} Given $f:X\rightarrow Y$, have that $\dL f^*$ is left adjoint to $\dR f_{*}$. In both categories have Serre functors, so can obtain the right adjoint to the pushforward as $$\begin{gathered}
 f^!(A):=(\dL f^*A\otimes f^*\omega_{Y}^{-1}[-\dim Y])\otimes \omega_{X}[\dim X]=\\=\dL f^*A\otimes (f^*\omega_{Y}^{-1}\otimes \omega_{X})[\dim X -\dim Y]\end{gathered}$$
-We call $\omega_{f}=f^*\omega_{Y}^{-1}\otimes \omega_{X}=f^!\mathcal{O}_{Y}$, the relative dualizing sheaf. Hence get $$\mathrm{Hom}(\dR f_{*}A, B)\simeq \mathrm{Hom}(A, f^!B)$$
+We call $\omega_{f}=f^*\omega_{Y}^{-1}\otimes \omega_{X}=f^!\O_{Y}$, the relative dualizing sheaf. Hence get $$\Hom(\dR f_{*}A, B)\simeq \Hom(A, f^!B)$$
 In fact, there is a sheafified version: $$\RlHom(\dR f_{*}A,B)=\dR f_{*}\RlHom(A,f^!B)$$
-In particular, with $B=\mathcal{O}_{Y},$ get $$(\dR f_{*}\mathcal{F})^\lor\simeq \dR f_{*}(\mathcal{F}, \omega_{f}[\dim X-\dim Y])$$
-Putting $Y=pt$, get usual Serre duality! So this can be seen as a relative version of Serre duality. But in general, cannot take the pieces $R^i$ as dual! Have to keep the whole chain complex.
+In particular, with $B=\O_{Y},$ get $$(\dR f_{*}\calF)^\vee\simeq \dR f_{*}(\calF^\vee\otimes\omega_{f}[\dim X-\dim Y])$$
+Putting $Y=\pt$, get usual Serre duality! So this can be seen as a relative version of Serre duality. But in general, cannot take the pieces $R^i$ as dual! Have to keep the whole chain complex.
 \end{example}
 
-\begin{example}{Poincare bundle again}{} Take the universal line bundle on an elliptic curve. The canonical bundle is trivial, so by relative Serre duality we have $$(\dR \pi_{*}\mathcal{L})^\lor\simeq \dR \pi_{*}\mathcal{L}^{-1}[1]$$Can use Cech resolutions to see that $f_*\mathcal{L}$ is a torsion free sheaf supported at a point, so has to be zero. So $R^0=0$ on both sides. But $R^1\pi_{*}\mathcal{L}=\mathcal{O}_{P_{0}}[1]$ as we saw before, so the duality does not hold termwise, but over the whole complex! This means that there is a group $$\lExt^1(\mathcal{O}_{P_{0}}, \mathcal{O})=\mathcal{O}_{P_{0}}$$There is a generalization of $f^!$ to general nice schemes, if we work with quasicoherent sheaves. Still have duality isomorphisms and the isomorphism $f^!\mathcal{F}\simeq \dL f^*\mathcal{F}\otimes f^!\mathcal{O}$. \end{example}
+\begin{example}{Poincare bundle again}{} Take the universal line bundle on an elliptic curve. The canonical bundle is trivial, so by relative Serre duality we have $$(\dR \pi_{*}\calL)^\vee\simeq \dR \pi_{*}\calL^{-1}[1]$$Can use Cech resolutions to see that $f_*\calL$ is a torsion free sheaf supported at a point, so has to be zero. So $R^0=0$ on both sides. But $R^1\pi_{*}\calL=\O_{P_{0}}[1]$ as we saw before, so the duality does not hold termwise, but over the whole complex! This means that there is a group $$\lExt^1(\O_{P_{0}}, \O)=\O_{P_{0}}$$There is a generalization of $f^!$ to general nice schemes, if we work with quasicoherent sheaves. Still have duality isomorphisms and the isomorphism $f^!\calF\simeq \dL f^*\calF\otimes f^!\O$. \end{example}
 
-%In general, if $p:X\rightarrow pt$, we are interested in $p^!(\mathcal{O}_{pt})=\mathcal{D}_{X}$. But we can compose with an embedding into projective space $i:X\rightarrow \mathbb{P}^n$ and since adjoints are functorial, see that $\mathcal{D}_{X}=i^!\mathcal{D}_{\mathbb{P}^n}=i^!\omega_{\mathbb{P}^n}[n]$. So need to understand $i^!$ for an embedding. But it can actually be defined as a derived functor!
+%In general, if $p:X\rightarrow pt$, we are interested in $p^!(\O_{pt})=\calD_{X}$. But we can compose with an embedding into projective space $i:X\rightarrow \P^n$ and since adjoints are functorial, see that $\calD_{X}=i^!\calD_{\P^n}=i^!\omega_{\P^n}[n]$. So need to understand $i^!$ for an embedding. But it can actually be defined as a derived functor!
 
-%If we have a closed embedding $i:X\rightarrow Y$, there is an abelian version of $i^!$, namely a derived functor of $$\mathcal{F}\mapsto \lHom(i_{*}\mathcal{O}_{X},\mathcal{F})=i_{*}(\mathcal{H}^0i^!\mathcal{F})$$More generally, $$\RlHom(i_{*}\mathcal{O}_{X},\mathcal{F})\simeq i_{*} i^!\mathcal{F}$$If $X$ is Cohen-Macaulay, then we have a formula for the dualizing sheaf: $$i_{*}\omega_{X}\simeq \lExt^{codim X}(i_{*}\mathcal{O}_{X}, \omega_{\mathbb{P}^n})$$
-%So we have that $\mathcal{D}_{X}\simeq \omega_{X}[n]$ and Serre duality becomes $H^i(X,\mathcal{F})^*\simeq H^{n-i}(\mathcal{F}, \omega_{X})$. 
+%If we have a closed embedding $i:X\rightarrow Y$, there is an abelian version of $i^!$, namely a derived functor of $$\calF\mapsto \lHom(i_{*}\O_{X},\calF)=i_{*}(\mathcal{H}^0i^!\calF)$$More generally, $$\RlHom(i_{*}\O_{X},\calF)\simeq i_{*} i^!\calF$$If $X$ is Cohen-Macaulay, then we have a formula for the dualizing sheaf: $$i_{*}\omega_{X}\simeq \lExt^{codim X}(i_{*}\O_{X}, \omega_{\P^n})$$
+%So we have that $\calD_{X}\simeq \omega_{X}[n]$ and Serre duality becomes $H^i(X,\calF)^*\simeq H^{n-i}(\calF, \omega_{X})$.
 
 % example of a (2,3) K3 surface in P4?
 
 \subsection{Fourier-Mukai transforms}
 
 \begin{definition}{Fourier-Mukai functor}{Fourier-Mukai functor}
-    Given $\mathcal{E}\in \mathcal{D}^b\mathrm{Coh}(X\times Y)$, we get a Fourier Mukai functor $$\begin{gathered}
-    FM_{\mathcal{E}}:\mathcal{D}(X)\xrightarrow{}\mathcal{D}(Y)\\
-    \mathcal{F}\mapsto \dR q_{*}(\mathcal{E}\otimes \dL p^*\mathcal{F})
-    \end{gathered}$$  
+    Given $\calE\in D^b(X\times Y)$, we get a Fourier Mukai functor $$\begin{gathered}
+    FM_{\calE}:D^b(X)\to D^b(Y)\\
+    \calF\mapsto \dR p_{*}(\calE\otimes \dL q^*\calF)
+    \end{gathered}$$
+    where $q:X\times Y\to X$, $p:X\times Y\to Y$ are the projections.
 \end{definition}
+
+% TODO: p,q convention here follows Huybrechts, although it's unintuitive. could change to explicit \pi_X,\pi_Y but then that's confusing in X\times X examples
+
+% TODO: what notation should we use for FM transforms? \Phi is pretty typical
+
+\begin{remark}{}{}
+    Since $X\times Y\simeq Y\times X$, an object $\calE\in D^b(X\times Y)$
+    defines two FM transforms; mapping $D^b(X)\to D^b(Y)$ and
+    $D^b(Y)\to D^b(X)$.
+    % Phi notation Phi_E^{X\to Y} and Phi_E^{Y\to X}
+\end{remark}
 
 All of the functors we have so far encountered are FM transforms:
 \begin{itemize}
     \item  given $f:X\rightarrow Y$ with $\Gamma_f\subset X\times Y$, the structure sheaf of the graph is the kernel of the pushforward functor and the pullback functor, depending on the way we go.
 
-    Have $\mathcal{O}_{\Gamma}=(1\times f)_{*}\mathcal{O}_{X}$ and we use the projection formula: $$\begin{gathered}
-q_{*}(\mathcal{O}_{\Gamma}\otimes p^*\mathcal{F})=q_{*}((1\times f)_{*}(\mathcal{O}_{X}\otimes (1\times f)^*p^*\mathcal{F}))=f_{*}\mathcal{F}\end{gathered}$$
+    Have $\O_{\Gamma}=(1\times f)_{*}\O_{X}$ and we use the projection formula: $$\begin{gathered}
+p_{*}(\O_{\Gamma}\otimes q^*\calF)=p_{*}(1\times f)_{*}(\O_{X}\otimes (1\times f)^*q^*\calF)=f_{*}\calF\end{gathered}$$
 
-    \item Tensoring with $\mathcal{G}$ is the Fourier-Mukai transform with respect to $\Delta_{*}\mathcal{G}$.
-    \item Shift functor is induced by $\mathcal{O}_{\Delta}[n]$.
-    \item If $Y$ is a fine moduli space of sheaves on $X$ equipped with a universal sheaf $\mathcal{E}\rightarrow X\times Y$ parametrizing sheaves by restricting to $X\times \{y\}$. We see that the Fourier-Mukai transform w.r.t. the universal sheaf of a skyscraper sheaf $\mathcal{O}_{y}$is $\mathcal{E}|_{X\times \{y\}}$, the sheaf that the point $y\in Y$ parametrizes. Have induced map $$T_{y}Y=\mathrm{Ext}^1(\mathcal{O}_{y},\mathcal{O}_{y})\rightarrow \mathrm{Ext}^1(\mathcal{E}|_{X\times \{y\}},\mathcal{E}|_{X\times \{y\}})$$This is the so-called Kodaira-Spencer map! Deformations of the point gives first-order deformations of the sheaf.
+    \item Tensoring with $\calG$ is the Fourier-Mukai transform with respect to $\Delta_{*}\calG$ where $\Delta:X\to X\times X$ is the diagonal embedding. In particular
+        the identity is induced by $\O_\Delta$.
+    \item Shift functor is induced by $\O_{\Delta}[n]$.
+    \item If $Y$ is a fine moduli space of sheaves on $X$ equipped with a universal sheaf $\calE\rightarrow X\times Y$ parametrizing sheaves by restricting to $X\times \{y\}$. We see that the Fourier-Mukai transform w.r.t. the universal sheaf of a skyscraper sheaf $\O_{y}$ is $\calE|_{X\times \{y\}}$, the sheaf that the point $y\in Y$ parametrizes. Have induced map $$T_{y}Y=\Ext^1(\O_{y},\O_{y})\rightarrow \Ext^1(\calE|_{X\times \{y\}},\calE|_{X\times \{y\}})$$This is the so-called Kodaira-Spencer map! Deformations of the point gives first-order deformations of the sheaf.
 \end{itemize}
 
-Given kernels $\mathcal{E}, \mathcal{E}'$ on $X\times Y$ and $Y\times Z$ respectively, we consider the kernel $\mathcal{E}''=\pi_{*}(\pi^*\mathcal{E}\otimes \pi^*\mathcal{E}')$ on $X\times Z$ by pulling to the triple product and then pushing down. We claim that $$FM(\mathcal{E'})\circ FM(\mathcal{E)}=FM(\mathcal{E}'')$$This is done by using the projection formula a bunch of times and finally an instance of flat base change. Basically, first transform everything to a tensor product on the triple product $X\times Y \times Z$ by using the projection formula. Then use commutativity of diagram using different ways to factorize the projection to $Z$. Finally, use projection formula again and base change for the diamond involving $X\times Y \times Z, X\times Y, Y\times Z, Y$. 
+Given kernels $\calE, \calE'$ on $X\times Y$ and $Y\times Z$ respectively, we consider the kernel $\calE''=\pi_{*}(\pi^*\calE\otimes \pi^*\calE')$ on $X\times Z$ by pulling to the triple product and then pushing down. We claim that $$FM(\calE')\circ FM(\calE)=FM(\calE'')$$This is done by using the projection formula a bunch of times and finally an instance of flat base change. Basically, first transform everything to a tensor product on the triple product $X\times Y \times Z$ by using the projection formula. Then use commutativity of diagram using different ways to factorize the projection to $Z$. Finally, use projection formula again and base change for the diamond involving $X\times Y \times Z, X\times Y, Y\times Z, Y$.
 
-The adjoints of a Fourier-Mukai funcotr are given by the dual kernel together with a Serre functor: given $FM_\mathcal{E}$ going from $X$ to $Y$, have two adjoints given by $FM_{\mathcal{E}^\lor \otimes \pi^* \omega_{X}[\dim X]}$ and $FM_{\mathcal{E}^\lor \otimes \pi^* \omega_{Y}[\dim Y]}$. Need Grothendieck-Verdier duality! We omit the derived notation:
+The adjoints of a Fourier-Mukai functor are given by the dual kernel together with a Serre functor: given $FM_\calE$ going from $X$ to $Y$, have two adjoints given by $FM_{\calE^\vee \otimes \pi^* \omega_{X}[\dim X]}$ and $FM_{\calE^\vee \otimes \pi^* \omega_{Y}[\dim Y]}$. Need Grothendieck-Verdier duality! We omit the derived notation:
 
 $$\begin{gathered}
-\mathrm{Hom}_{Y}(FM(\mathcal{F}), \mathcal{G})=\mathrm{Hom}_{Y} (\pi_{*} (\mathcal{E} \otimes \pi^* \mathcal{F}), \mathcal{G})\simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*\mathcal{F}}, \pi^! \mathcal{G})\simeq \\ \simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*\mathcal{F}}, \pi^*\mathcal{G}\otimes \omega_{\pi})\simeq \simeq \mathrm{Hom}_{X\times Y}(\mathcal{E\otimes \pi^*}\mathcal{F}, \pi^*\mathcal{G} \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \mathrm{Hom}_{X\times Y}(\pi^*\mathcal{F, \mathcal{E}^\lor}\otimes \pi^*\mathcal{G} \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \mathrm{Hom}_{X}(\mathcal{F}, FM(\mathcal{G}))
+\Hom_{Y}(FM(\calF), \calG)=\Hom_{Y} (\pi_{*} (\calE \otimes \pi^* \calF), \calG)\simeq \Hom_{X\times Y}(\calE\otimes \pi^*\calF, \pi^! \calG)\simeq \\ \simeq \Hom_{X\times Y}(\calE\otimes \pi^*\calF, \pi^*\calG\otimes \omega_{\pi})\simeq \Hom_{X\times Y}(\calE\otimes \pi^*\calF, \pi^*\calG \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \Hom_{X\times Y}(\pi^*\calF, \calE^\vee\otimes \pi^*\calG \otimes \pi^* \omega_{X}[\dim X])\simeq \\ \simeq \Hom_{X}(\calF, FM(\calG))
 \end{gathered}$$
 
-From this, we can conclude that if a kernel induces an equivalence, then the dimensions of the two varieties should be the same.
+From this, we can conclude that if a kernel induces an equivalence, then the dimensions of the two varieties should be the same. \todo{uniqueness of kernels}
 
 \begin{theorem}{Orlov}{Orlov's theorem on Fourier-Mukai transforms}
-Every fully faithful exact functor between is induced by a Fourier-Mukai transform. In particularm every equivalence as well.
+Every fully faithful exact functor between is induced by a Fourier-Mukai transform. In particular every equivalence as well.
 \end{theorem}
-There is a generalization by Canonaco and Stellari which requires only that $\mathrm{Ext}^i(F,F)=0, i < 0 \implies \mathrm{Ext}^i(\Phi F,\Phi F)=0$. 
+There is a generalization by Canonaco and Stellari which requires only that $\Ext^i(F,F)=0, i < 0 \implies \Ext^i(\Phi F,\Phi F)=0$.
 
 % We can consider a 2-category with objects smooth projective varieties, morphisms given by Fourier-Mukai transforms via kernels and 2-morphisms are maps of kernels. Orlov's theorem says the functor into the 2-category of triangulated categories is essentially injective.
 
 \subsection{Exceptional collections and semiorthogonal decompositions}
 
 \begin{definition}{Exceptional object}{Exceptional object}
-    An exceptional object is one with the cohomology of a point: $$\mathrm{Hom}_{\mathcal{D}}(E,E)=k, \mathrm{Hom}_{\mathcal{D}}(E,E[i])=0, i\neq 0$$
+    An exceptional object is one with the cohomology of a point:
+    \begin{equation*}
+        \Ext^i(E,E) = \Hom_{D^b(X)}(E,E[i]) = \begin{cases*}
+            k & if $i=0$, \\
+            0 & otherwise.
+        \end{cases*}
+    \end{equation*}
 \end{definition}
 
 
-For example, line bundles on $\mathbb{P}^n$ and more generally on Fanos by Kodaira vanishing. Also, $\mathcal{O}_{E}(t)$ on a blowup at a point with exceptional divisor $E$. This is done by applying LES to the ideal sheaf sequence $$0\xrightarrow{}\mathcal{O}_{\tilde{X}} (-E)\xrightarrow{}\mathcal{O}_{\tilde{X}}\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}0$$Then hom into $\mathcal{O}_{E}$. Have $$\mathrm{Ext}(\mathcal{O}(-E), \mathcal{O}_{E})=H^\bullet_{\tilde{ X}} (\mathcal{O}_{E}(E))\simeq H^\bullet_{E} (\mathcal{O}_{E}(-1))=0$$since $E=\mathbb{P}^{n-1}$. Moreover, since $p^*\mathcal{O}_{X}=\mathcal{O}_{\tilde{X}}$, by adjunction we get $$\Ext(\mathcal{O}_{\tilde{X}}, \mathcal{O}_E)=\Ext(\mathcal{O}_X, p_*\mathcal{O}_E)=\Ext(\mathcal{O}_X, \mathcal{O}_p)=\mathbb{C} \text{ in degree }0$$
+For example, line bundles on $\P^n$ and more generally on Fanos by Kodaira vanishing. Also, $\O_{E}(t)$ on a blowup at a point with exceptional divisor $E$. This is done by applying LES to the ideal sheaf sequence $$0\to \O_{\tilde{X}} (-E)\to \O_{\tilde{X}}\to \O_{E}\to 0$$Then hom into $\O_{E}$. Have $$\Ext^\bullet(\O(-E), \O_{E})=H^\bullet_{\tilde{ X}} (\O_{E}(E))\simeq H^\bullet_{E} (\O_{E}(-1))=0$$since $E=\P^{n-1}$. Moreover, since $p^*\O_{X}=\O_{\tilde{X}}$, by adjunction we get $$\Ext^\bullet(\O_{\tilde{X}}, \O_E)=\Ext^\bullet(\O_X, p_*\O_E)=\Ext^\bullet(\O_X, \O_p)=k$$
 
 Many homogenous vector bundles are exceptional.
 
-\begin{example}{Tangent bundle of projective space}{} 
-    $\mathcal{T}_{\mathbb{P}^n}$ is exceptional. One can probably chase around the LES's associated to the Euler sequence $$0\rightarrow \mathcal{O}\rightarrow \mathcal{O}(1)^{\oplus n+1}\rightarrow \mathcal{T}\rightarrow 0$$
-    We prefer a different approach, using the notion of a (dual) spherical twist (more on this later). Given a spherical object $\mathcal{E}$, we can construct two twists, along the evaluation and coevaluation maps respectively: $$T_\mathcal{E}\mathcal{F}:=\mathrm{cone}(\bigoplus_i \Hom(\mathcal{E},\mathcal{F}[i])\otimes \mathcal{E}[-i]\rightarrow \mathcal{F}), T^\lor_\mathcal{E}\mathcal{F}:=\mathrm{cone}(\mathcal{E}\rightarrow \bigoplus_i \Hom(\mathcal{E},\mathcal{F}[i])\otimes \mathcal{E}[-i] )$$
-    We can see that our version of the Euler sequence implies that $\mathcal{T}=T^\lor_\mathcal{O}(\mathcal{O}(1))$. Similarly, the dual version of the Euler sequence implies that $\Omega=T_{\mathcal{O}(-1)}\mathcal{O}$. Since spherical twists are autoequivalences and preserve endomorphisms, this means that the tangent and cotangent bundles are exceptional, just as the line bundles on projective space.
+\begin{example}{Tangent bundle of projective space}{}
+    $\mathcal{T}_{\P^n}$ is exceptional. One can probably chase around the LES's associated to the Euler sequence $$0\rightarrow \O\rightarrow \O(1)^{\oplus n+1}\rightarrow \mathcal{T}\rightarrow 0$$
+    We prefer a different approach, using the notion of a (dual) spherical twist (more on this later). Given a spherical object $\calE$, we can construct two twists, along the evaluation and coevaluation maps respectively: $$T_\calE\calF:=\cone(\bigoplus_i \Hom(\calE,\calF[i])\otimes \calE[-i]\rightarrow \calF), T^\vee_\calE\calF:=\cone(\calE\rightarrow \bigoplus_i \Hom(\calE,\calF[i])\otimes \calE[-i] )$$
+    We can see that our version of the Euler sequence implies that $\mathcal{T}=T^\vee_\O(\O(1))$. Similarly, the dual version of the Euler sequence implies that $\Omega=T_{\O(-1)}\O$. Since spherical twists are autoequivalences and preserve endomorphisms, this means that the tangent and cotangent bundles are exceptional, just as the line bundles on projective space.
 \end{example}
 
 Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves.
 
 \begin{remark}{}{}
-    Calabi-Yau's don't admit exceptional objects by Serre duality. However, they do admit spherical objects, e.g. $\mathcal{O}_C$ for a rational curve $C$ in a K3 surface.
+    Calabi-Yau's don't admit exceptional objects by Serre duality. However, they do admit spherical objects, e.g. $\O_C$ for a rational curve $C$ in a K3 surface.
 \end{remark}
 
 \begin{definition}{Exceptional collections}{Exceptional collections}
-    A collection $E_i$ is exceptional if each $E_i$ is exceptional and there are no homs from right to left: $\mathrm{RHom}(E_{i}, E_{j})=0, i>j$.
+    A collection $E_i$ is exceptional if each $E_i$ is exceptional and there are no homs from right to left: $\RHom(E_{i}, E_{j})=0, i>j$.
 \end{definition}
 
 % TODO: mutations, tangent bundle example
 
-For example, $\mathcal{O},\dots,\mathcal{O}(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\mathcal{O}(-n-1)$ which is nonzero. In fact, Beilinson's theorem shows that these form a full exceptional collection. 
+For example, $\O,\dots,\O(n)$ on projective space. Cannot have more, since then will have the cohomology of the canonical bundle $\omega=\O(-n-1)$ which is nonzero. In fact, Beilinson's theorem shows that these form a full exceptional collection.
 
-More generally, for a Fano, $\omega_{X}=\mathcal{O}_{X}(-k)$ is antiample. Then $\mathcal{O}, \dots, \mathcal{O}(k-1)$ is exceptional. We will come back to this when we discuss the cubic fourfold.
+More generally, for a Fano, $\omega_{X}=\O_{X}(-k)$ is antiample. Then $\O, \dots, \O(k-1)$ is exceptional. We will come back to this when we discuss the cubic fourfold.
 
-% For a blowup $\tilde{X}\xrightarrow{}\mathbb{P}^2$ we have line bundles $\mathcal{O}_{E}(-1), \mathcal{O}, \mathcal{O}(H), \mathcal{O}(2H)$ and moreover $$\mathrm{R}\Gamma(\mathcal{O}_{\tilde{X}})=\mathrm{R}\Gamma \,\mathrm{R}f_{*}\mathcal{O}_{\tilde{ X}}=\mathrm{R}\Gamma \mathcal{O}_{\mathbb{P}^2}=k[0]$$since the higher pushforwards of a blowup vanish. So the objects are exceptional. They form an exceptional collection since $\mathcal{O}_{\tilde{X}}(H)=f^*\mathcal{O}(1)$ and then we can use adjunction. The exceptional collection downstairs gives us an exceptional collection upstairs. We also need to check $$\mathrm{Ext}_{\tilde{ X}}(\mathcal{O}(tH), \mathcal{O}_{E}(-1))=\mathrm{Ext}_{\mathbb{P}^2}(\mathcal{O}(t), \mathrm{R}f_{*}\mathcal{O}_{E}(-1))=0$$For this, we can use the base change formula to see that $\mathrm{R}f_{*}\mathcal{O}_{E}(-1)=0$ since by base change this is the line bundle on the exceptional divisor pushed down to a point, i.e. the cohomology of the tautological line bundle.
+% For a blowup $\tilde{X}\to \P^2$ we have line bundles $\O_{E}(-1), \O, \O(H), \O(2H)$ and moreover $$\mathrm{R}\Gamma(\O_{\tilde{X}})=\mathrm{R}\Gamma \,\mathrm{R}f_{*}\O_{\tilde{ X}}=\mathrm{R}\Gamma \O_{\P^2}=k[0]$$since the higher pushforwards of a blowup vanish. So the objects are exceptional. They form an exceptional collection since $\O_{\tilde{X}}(H)=f^*\O(1)$ and then we can use adjunction. The exceptional collection downstairs gives us an exceptional collection upstairs. We also need to check $$\Ext_{\tilde{ X}}(\O(tH), \O_{E}(-1))=\Ext_{\P^2}(\O(t), \mathrm{R}f_{*}\O_{E}(-1))=0$$For this, we can use the base change formula to see that $\mathrm{R}f_{*}\O_{E}(-1)=0$ since by base change this is the line bundle on the exceptional divisor pushed down to a point, i.e. the cohomology of the tautological line bundle.
 
-Notation: we put $E \perp F$ whenever $\mathrm{RHom}(E,F)=0$. This is not a symmetric relation! It is on Calabi-Yau's. 
+Notation: we put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! It is on Calabi-Yau's.
 
 \begin{definition}{Full exceptional collection}{Full exceptional collection}
     An exceptional collection is full if you can generate every object by sums, shifts and cones.
@@ -437,78 +480,78 @@ Notation: we put $E \perp F$ whenever $\mathrm{RHom}(E,F)=0$. This is not a symm
 \end{definition}
 
 \begin{theorem}{Beilinson}{Beilinson's theorem}
-    On $\mathbb{P}^n,$ the exceptional collection $\mathcal{O},\dots,\mathcal{O}(n)$ is full.
-\end{theorem} 
+    On $\P^n,$ the exceptional collection $\O,\dots,\O(n)$ is full.
+\end{theorem}
 
-% one method of proof: use Koszul resolution of skyscrapers to see they are contained in this subcategory. Then, find the orthogonal complement is empty, for which we need the collection to be exceptional. Suppose that $\mathrm{RHom}(\mathcal{O}_{p}, \mathcal{F})=0,\forall p \in X$. Use the Grothendieck spectral sequence $$\mathrm{R}^p\mathrm{Hom}(\mathcal{O}_{p}, \mathcal{H}^q \mathcal{F})\implies \mathrm{R}^{p+q}\mathrm{Hom}(\mathcal{O}_{p},\mathcal{F})=0 $$If we choose $q$ maximal with $\mathcal{H}^q\mathcal{F}\neq 0$ and $p\in \mathrm{supp}\,\mathcal{F}$, then we will have a nonzero term in the top right corner of the second page, which survives to infinity. This is a contradiction, and hence either $\mathcal{F}=0$ or all the cohomologies are zero. 
+% one method of proof: use Koszul resolution of skyscrapers to see they are contained in this subcategory. Then, find the orthogonal complement is empty, for which we need the collection to be exceptional. Suppose that $\mathrm{RHom}(\O_{p}, \calF)=0,\forall p \in X$. Use the Grothendieck spectral sequence $$\mathrm{R}^p\Hom(\O_{p}, \mathcal{H}^q \calF)\implies \mathrm{R}^{p+q}\Hom(\O_{p},\calF)=0 $$If we choose $q$ maximal with $\mathcal{H}^q\calF\neq 0$ and $p\in \mathrm{supp}\,\calF$, then we will have a nonzero term in the top right corner of the second page, which survives to infinity. This is a contradiction, and hence either $\calF=0$ or all the cohomologies are zero.
 
 % Junk on blowup of P2
-% Want to show that for a blowup $\mathrm{R}f_{*}\mathcal{O}_{\tilde{X}}=\mathcal{O}_{X}$. By Zariski's main theorem, have that it's true for $R^0$. Have projective bundle $\mathbb{P}^n\xrightarrow{}E\xrightarrow{}Z$ and a SES $$0\xrightarrow{}\mathcal{O}_{\tilde{X}}(-E)\xrightarrow{}\mathcal{O}_{\tilde{ X}}\xrightarrow{}\mathcal{O}_{E}\xrightarrow{ }0$$Hence, $\mathrm{R}f_{*}\mathcal{O}_{E}=\mathcal{O}_{Z}$. When we push down to $X$ under the LES, the first level is the ideal sheaf sequence for $Z$. Can twist by $-E$, hence $\mathcal{O}_{E}(E)=\mathcal{O}_{E}(1)$. Want to show these have no higher pushforwards. In particular, $R^{>0}f_{*}(\mathcal{O}(-nE))=0, n\gg 0$. But $\mathcal{O}_{X}(-E)=\mathcal{O}_{f}(1)$ is relatively ample, so can use Serre vanishing? Not sure.
+% Want to show that for a blowup $\mathrm{R}f_{*}\O_{\tilde{X}}=\O_{X}$. By Zariski's main theorem, have that it's true for $R^0$. Have projective bundle $\P^n\to E\to Z$ and a SES $$0\to \O_{\tilde{X}}(-E)\to \O_{\tilde{ X}}\to \O_{E}\xrightarrow{ }0$$Hence, $\mathrm{R}f_{*}\O_{E}=\O_{Z}$. When we push down to $X$ under the LES, the first level is the ideal sheaf sequence for $Z$. Can twist by $-E$, hence $\O_{E}(E)=\O_{E}(1)$. Want to show these have no higher pushforwards. In particular, $R^{>0}f_{*}(\O(-nE))=0, n\gg 0$. But $\O_{X}(-E)=\O_{f}(1)$ is relatively ample, so can use Serre vanishing? Not sure.
 
-% > [!theoremred] Theorem (Kapranov)  Let $\mathcal{U}\xrightarrow{}\mathrm{Gr}_{k}(n)$ be the tautological bundle over the Grassmanian. Then the Schur functors $\mathrm{Schur}^\lambda \mathcal{U}^\lor$ for $\lambda$ a Young diagram form a full exceptional collection.
+% > [!theoremred] Theorem (Kapranov)  Let $\mathcal{U}\to \mathrm{Gr}_{k}(n)$ be the tautological bundle over the Grassmanian. Then the Schur functors $\mathrm{Schur}^\lambda \mathcal{U}^\vee$ for $\lambda$ a Young diagram form a full exceptional collection.
 
 %Blowup exceptional collection
-%Let's go back to the example of the blowup of $\mathbb{P}^2$ at a point. For any $p\notin E$, we have that $\mathcal{O}_{p}=\mathrm{L}f^*\mathcal{O}_{f(p)}$ which we can Koszul resolve on the base then pull back to get $$\mathcal{O}_{\tilde{X}}(-2H)\xrightarrow{}\mathcal{O}_{\tilde{ X}}(-H)^2\xrightarrow{}\mathcal{O}_{\tilde{X}}\xrightarrow{}\mathcal{O}_{p}$$So these skyscraper sheaves are in the span of $\mathcal{O},\mathcal{O}(H),\mathcal{O}(2H)$, after twisting by $2H$. When $p\in E$, then $f(p)$ is in the center. By exercise, have $$\mathrm{L}_{i}f^*\mathcal{O}_{f(p)}=\begin{cases}
-%\mathcal{O}_{E},i=0 \\
-%\mathcal{O}_{E}(-1), i=1
+%Let's go back to the example of the blowup of $\P^2$ at a point. For any $p\notin E$, we have that $\O_{p}=\mathrm{L}f^*\O_{f(p)}$ which we can Koszul resolve on the base then pull back to get $$\O_{\tilde{X}}(-2H)\to \O_{\tilde{ X}}(-H)^2\to \O_{\tilde{X}}\to \O_{p}$$So these skyscraper sheaves are in the span of $\O,\O(H),\O(2H)$, after twisting by $2H$. When $p\in E$, then $f(p)$ is in the center. By exercise, have $$\mathrm{L}_{i}f^*\O_{f(p)}=\begin{cases}
+%\O_{E},i=0 \\
+%\O_{E}(-1), i=1
 %\end{cases}$$
-%Hence, have a map $\mathcal{O}_{E}(-1)[1]\xrightarrow{}\mathrm{L}f^*\mathcal{O}_{f(p)}$ since all complexes admit a map from their last cohomology and a map to their first cohomology. The cone of this map has to be $\mathcal{O}_{E}$ by looking at the LES in cohomology. 
+%Hence, have a map $\O_{E}(-1)[1]\to \mathrm{L}f^*\O_{f(p)}$ since all complexes admit a map from their last cohomology and a map to their first cohomology. The cone of this map has to be $\O_{E}$ by looking at the LES in cohomology.
 
-%Finally, have a SES $$0\rightarrow \mathcal{O}_{E}(-1)\xrightarrow{}\mathcal{O}_{E}\xrightarrow{}\mathcal{O}_{p}\xrightarrow{}0$$This shows that the exceptional collection is full. 
+%Finally, have a SES $$0\rightarrow \O_{E}(-1)\to \O_{E}\to \O_{p}\to 0$$This shows that the exceptional collection is full.
 
-%Quadric in P5 Have that $\omega_{Q}=\mathcal{O}(-4)$ so have exceptional collection of line bundles up to degree 4. We will show this is not full. This contains a plane $P\subset Q$. Consider $\mathcal{O}_{P}(1)$. Then $$\mathrm{RHom}(\mathcal{O}_{Q}(3), \mathcal{O}_{P}(1))=\mathrm{R\Gamma}(\mathcal{O}_{P}(-2))=0$$Similarly with $\mathcal{O}_{Q}(2)$. However, with $\mathcal{O}_{Q}(1)$ get $\mathrm{R}\Gamma (\mathcal{O}_{P})=k$. So it is not orthogonal! Consider the kernel of the restriction morphism $$0\xrightarrow{}\mathcal{I}_{P/Q}(1)\xrightarrow{}\mathcal{O}_{Q}(1)\xrightarrow{}\mathcal{O}_{P}(1)\xrightarrow{}0$$We claim that the ideal sheaf is orthogonal to the line bundles. Up to a shift, this is a cone of two things which were already orthogonal to $\mathcal{O}(2), \mathcal{O}(3)$ but orthogonality is closed under taking cones. So we need only worry about $\mathcal{O}(1)$. Then use LES to conclude that $\mathrm{Ext}^\bullet(\mathcal{O}_{Q}(1), \mathcal{I}(1))=0$. What about $\mathcal{O}_{Q}$?
+%Quadric in P5 Have that $\omega_{Q}=\O(-4)$ so have exceptional collection of line bundles up to degree 4. We will show this is not full. This contains a plane $P\subset Q$. Consider $\O_{P}(1)$. Then $$\mathrm{RHom}(\O_{Q}(3), \O_{P}(1))=\mathrm{R\Gamma}(\O_{P}(-2))=0$$Similarly with $\O_{Q}(2)$. However, with $\O_{Q}(1)$ get $\mathrm{R}\Gamma (\O_{P})=k$. So it is not orthogonal! Consider the kernel of the restriction morphism $$0\to \mathcal{I}_{P/Q}(1)\to \O_{Q}(1)\to \O_{P}(1)\to 0$$We claim that the ideal sheaf is orthogonal to the line bundles. Up to a shift, this is a cone of two things which were already orthogonal to $\O(2), \O(3)$ but orthogonality is closed under taking cones. So we need only worry about $\O(1)$. Then use LES to conclude that $\Ext^\bullet(\O_{Q}(1), \mathcal{I}(1))=0$. What about $\O_{Q}$?
 
-%Via the LES again, we can conclude that $\mathrm{Ext}^\bullet(\mathcal{O}_{Q}, \mathcal{I})=k^3$ concentrated in degree 3, given by the three linear forms cutting out $P$. So not orthogonal and play the same game again: $$0\xrightarrow{}\mathcal{S}\xrightarrow{}\mathcal{O}_{Q}^3\xrightarrow{}\mathcal{I}\xrightarrow{}0$$Then $\mathcal{S}$ is orthogonal to $\mathcal{O}, \mathcal{O}(1),\dots,\mathcal{O}(3)$. It is of rank $2$ so is nonzero. It is a spinor bundle? Moreover, it is exceptional - see exercises.
+%Via the LES again, we can conclude that $\Ext^\bullet(\O_{Q}, \mathcal{I})=k^3$ concentrated in degree 3, given by the three linear forms cutting out $P$. So not orthogonal and play the same game again: $$0\to \mathcal{S}\to \O_{Q}^3\to \mathcal{I}\to 0$$Then $\mathcal{S}$ is orthogonal to $\O, \O(1),\dots,\O(3)$. It is of rank $2$ so is nonzero. It is a spinor bundle? Moreover, it is exceptional - see exercises.
 
-%In Kapranov's paper, if we take planes $P_+, P_-$ from two families on $Q,$ then $S_+, S_-$ are exceptional and $$\mathcal{D}^b(Q)=\langle S_{+},S_{-}, \mathcal{O}_{Q}, \mathcal{O}_{Q}(1), \mathcal{O}_{Q}(2), \mathcal{O}_{Q}(3)\rangle$$
+%In Kapranov's paper, if we take planes $P_+, P_-$ from two families on $Q,$ then $S_+, S_-$ are exceptional and $$\calD^b(Q)=\langle S_{+},S_{-}, \O_{Q}, \O_{Q}(1), \O_{Q}(2), \O_{Q}(3)\rangle$$
 %See: Bondal-Orlov on two quadric intersecting, Kuznetsov on cubic fourfold.
 
 \begin{definition}{Admissible subcategory}{Admissible subcategory}
-    A full subcategory $\mathcal{A}$ closed under shifts and cones is admissible if the inclusion admits both a left and a right adjoint.
+    A full subcategory $\calA$ closed under shifts and cones is admissible if the inclusion admits both a left and a right adjoint.
 \end{definition}
 
-For example, the image of a fully faithful functor $\mathcal{D}(Y)\xrightarrow{}\mathcal{D}(X)$ which is induced by a FM kernel, so has adjoints given by Serre functors.
+For example, the image of a fully faithful functor $D^b(Y)\to D^b(X)$ which is induced by a FM kernel, so has adjoints given by Serre functors.
 
 Nonexample: the subcategory generated by skyscrapers. This has empty orthogonal complement, but everything in it has finite support. But if one has an admissible subcategory with empty orthogonal, it actually generates the whole category.
 
 \begin{proposition}{}{}
-    If $\mathcal{A}$ is admissible and $\mathcal{A}^\perp=0$, then $\mathcal{A}=\mathcal{D}(X)$.
+    If $\calA$ is admissible and $\calA^\perp=0$, then $\calA=\calD(X)$.
 \end{proposition}
 \begin{proof}[Proof]
-    We first notice the general fact that for any admissible category, by having adjoints, if $B\in\mathcal{A}^\perp$ then for all $A$ we have $$\mathrm{RHom}(IA, B)=\mathrm{RHom}(A,RB)=0$$By Yoneda, this implies $RB=0$, so $\mathcal{A}^\perp = \ker R$. Similarly, $^\perp \mathcal{A}=\ker L.$ 
-    
-    We can use the counit of adjunction to get a map $IRB\xrightarrow{}B$. The cone is in $\mathcal{A}^\perp=0$, so $B\in \mathcal{A}$.  The reason is that for any $A\in \mathcal{A}$, we have an LES $$\dots\xrightarrow{}\mathrm{Hom}(IA, IRB)\xrightarrow{}\mathrm{Hom}(IA, B)\xrightarrow{}\mathrm{Hom}(IA,cone)\xrightarrow{}\dots$$But $\mathrm{Hom}(IA,IRB)=\mathrm{Hom}(A,RIRB), \mathrm{Hom}(IA,B)=\mathrm{Hom}(A,RB)$ and these two are isomorphic by adjoint triangle. The map is actually given by $R\epsilon, \epsilon: IR\xrightarrow{ }1$.  But $I$ is fully faithful, so $\eta$ is an isomorphism and hence $R\epsilon$ is an isomorphism. 
+    We first notice the general fact that for any admissible category, by having adjoints, if $B\in\calA^\perp$ then for all $A$ we have $$\RHom(IA, B)=\RHom(A,RB)=0$$By Yoneda, this implies $RB=0$, so $\calA^\perp = \ker R$. Similarly, $^\perp \calA=\ker L.$
+
+    We can use the counit of adjunction to get a map $IRB\to B$. The cone is in $\calA^\perp=0$, so $B\in \calA$.  The reason is that for any $A\in \calA$, we have an LES $$\dots\to \Hom(IA, IRB)\to \Hom(IA, B)\to \Hom(IA,cone)\to \dots$$But $\Hom(IA,IRB)=\Hom(A,RIRB), \Hom(IA,B)=\Hom(A,RB)$ and these two are isomorphic by adjoint triangle. The map is actually given by $R\epsilon, \epsilon: IR\xrightarrow{ }1$.  But $I$ is fully faithful, so $\eta$ is an isomorphism and hence $R\epsilon$ is an isomorphism.
 \end{proof}
 
 \begin{remark}{}{}
-     Given an exceptional $E$, can think of it as an object on $\mathcal{D}(pt\times X)$ and its induced map $FM_{E}:\mathcal{D}(pt)\xrightarrow{}\mathcal{D}(X)$ is fully faithful, sending a vector space $V\mapsto V\otimes E$. The endomorphisms on both sides agree: $\mathrm{Ext}^\bullet(k,k)=k=\mathrm{Ext}^\bullet(E,E)$. The right adjoint is given by the kernel $E^\lor$ so it sends $F\mapsto \pi_* (E^\lor \otimes F)=\Ext^\bullet(E,F)$, since derived projection is taking cohomology. The counit provides us with an evaluation map $$E\otimes \Ext^\bullet(E,F)\xrightarrow{ev}F$$In general, objects of $\mathcal{D}(X)$ correspond to functors from $\mathcal{D}(pt)$ and exceptionals correspond to fully faithful functors. We will see that spherical twists come from taking cones on the (co)evaluation maps.
+     Given an exceptional $E$, can think of it as an object on $D^b(\pt\times X)$ and its induced map $FM_{E}:D^b(\pt)\to D^b(X)$ is fully faithful, sending a vector space $V\mapsto V\otimes E$. The endomorphisms on both sides agree: $\Ext^\bullet(k,k)=k=\Ext^\bullet(E,E)$. The right adjoint is given by the kernel $E^\vee$ so it sends $F\mapsto \pi_* (E^\vee \otimes F)=\Ext^\bullet(E,F)$, since derived projection is taking cohomology. The counit provides us with an evaluation map $$E\otimes \Ext^\bullet(E,F)\xrightarrow{\ev}F$$In general, objects of $D^b(X)$ correspond to functors from $D^b(\pt)$ and exceptionals correspond to fully faithful functors. We will see that spherical twists come from taking cones on the (co)evaluation maps.
 \end{remark}
 
 
 \begin{definition}{Semi-orthogonal decomposition}{Semi-orthogonal decomposition}
-    A semiorthogonal decomposition is a sequence of admissible subcategories $\mathcal{A}_{i}$ such that $\mathcal{A}_{j}\perp \mathcal{A}_{i}, i<j$ and they generate $\mathcal{D}(X)$.
+    A semiorthogonal decomposition is a sequence of admissible subcategories $\calA_{i}$ such that $\calA_{j}\perp \calA_{i}, i<j$ and they generate $D^b(X)$.
 \end{definition}
 
 
 \begin{proposition}{Projective bundle formula for derived categories}{Projective bundle formula for derived categories}
-    Given vector bundle $E\rightarrow X$ of rank $n+1$ we have a semiorthogonal decomposition $$\mathcal{D}(\mathbb{P}(E))=\langle f^*\mathcal{D}(X), f^*\mathcal{D}(X)\otimes \mathcal{O}(1),\dots, f^*\mathcal{D}(X)\otimes \mathcal{O}(n)\rangle$$
+    Given vector bundle $E\rightarrow X$ of rank $n+1$ we have a semiorthogonal decomposition $$D^b(\P(E))=\langle f^*D^b(X), f^*D^b(X)\otimes \O(1),\dots, f^*D^b(X)\otimes \O(n)\rangle$$
 \end{proposition}
 
 \begin{proof}
-    We see that $f^*$ is fully faithful: $$\RHom(f^*a,f^*b)=\RHom(a, f_{*} (f^*b\otimes \mathcal{O}_{\mathbb{P}(E)}))=\RHom(a, b)$$since $f_*\mathcal{O}_{\mathbb{P}(E)}=\mathcal{O}_{X}$. So each of the bits is admissible. Now need to show there are no Rhoms: $$\begin{gathered}
-\RHom(f^*a\otimes \mathcal{O}(i), f^*b\otimes \mathcal{O}(j))=\RHom(a, f_{*}(f^*b\otimes \mathcal{O}(j-i)))=\\
-=\RHom(a, b\otimes f_{*}\mathcal{O}(j-i))=0
-\end{gathered}$$for $i<j$. Finally, need to show generation. For a point $p\in \mathbb{P}(E)$, have Koszul resolution on the fibers. But a fiber has $\mathcal{O}_{F}=f^*\mathcal{O}_{q}$ where $f(F)=q$. So can generate everything fiberwise via Beilinson.  
+    We see that $f^*$ is fully faithful: $$\RHom(f^*a,f^*b)=\RHom(a, f_{*} (f^*b\otimes \O_{\P(E)}))=\RHom(a, b)$$since $f_*\O_{\P(E)}=\O_{X}$. So each of the bits is admissible. Now need to show there are no Rhoms: $$\begin{gathered}
+\RHom(f^*a\otimes \O(i), f^*b\otimes \O(j))=\RHom(a, f_{*}(f^*b\otimes \O(j-i)))=\\
+=\RHom(a, b\otimes f_{*}\O(j-i))=0
+\end{gathered}$$for $i<j$. Finally, need to show generation. For a point $p\in \P(E)$, have Koszul resolution on the fibers. But a fiber has $\O_{F}=f^*\O_{q}$ where $f(F)=q$. So can generate everything fiberwise via Beilinson.
 \end{proof}
 
-This allows us to talk about blowups in general! Since over the exceptional locus we have a projective bundle. 
+This allows us to talk about blowups in general! Since over the exceptional locus we have a projective bundle.
 
-Given a blowup $f:\tilde{X}\xrightarrow{}X$, we still have that $f^*$ is fully faithful, so we have an admissible subcategory $f^*\mathcal{D}(X)$. Moreover, have a fully faithful functor $\varphi_{t}:\mathcal{D}(Z)\xrightarrow{}\mathcal{D}(\tilde{X})$ given by sending $F$ to $j_{*}(f^*F\otimes \mathcal{O}_{E}(tE)), t\in \mathbb{Z}$. This is a Fourier-Mukai transform with kernel $\mathcal{O}_{E}(tE)$.
+Given a blowup $f:\tilde{X}\to X$, we still have that $f^*$ is fully faithful, so we have an admissible subcategory $f^*D^b(X)$. Moreover, have a fully faithful functor $\varphi_{t}:D^b(Z)\to D^b(\tilde{X})$ given by sending $F$ to $j_{*}(f^*F\otimes \O_{E}(tE)), t\in \Z$. This is a Fourier-Mukai transform with kernel $\O_{E}(tE)$.
 
 %*Exercise:* find the right adjoint of this and show it composes to identity.
 
 \begin{theorem}{Bondal-Orlov blowup formula}{Bondal-Orlov blowup formula}
-    $$\mathcal{D}(\tilde{X})=\langle \varphi_{{k-1}}\mathcal{D}(Z),\dots,\varphi_{1}\mathcal{D}(Z), f^*\mathcal{D}(X)\rangle$$
+    $$D^b(\tilde{X})=\langle \varphi_{{k-1}}D^b(Z),\dots,\varphi_{1}D^b(Z), f^*D^b(X)\rangle$$
 \end{theorem}
 
 Compare with the formula for cohomology!
@@ -518,47 +561,50 @@ Compare with the formula for cohomology!
 \begin{definition}{Spherical object}{}
     A \emph{spherical object} is one which is
     \begin{enumerate}
-        \item ``Self-dual with a twist'': $E\otimes\omega_X\simeq E$, and
-        \item Has the cohomology of a sphere:
+        \item ``Self-dual with a twist'': $\calE\otimes\omega_X\simeq\calE$, and
+        \item ``Has the cohomology of a sphere'':
             \begin{equation*}
-                \Hom_\calD(E,E[i]) = \begin{cases*}
-                    k & if $i=0,\dim X$ \\
-                    0 & otherwise.
-                \end{cases*}
+                \Ext^i(\calE,\calE)
+                    = \Hom_{D^b(X)}(\calE,\calE[i])
+                    = \begin{cases*}
+                        k & if $i=0,\dim X$ \\
+                        0 & otherwise.
+                    \end{cases*}
             \end{equation*}
     \end{enumerate}
 \end{definition}
 
-Note that 1. implies $\Hom_\calD(E,E[i])\simeq\Hom_\calD(E,E[\dim X-i])^*$ by
-Serre duality. It follows that $E^\vee$ is also spherical because
-$\RlHom(E,\O_X)\otimes\omega_X\simeq\RlHom(E\otimes\omega_X,\O_X)$.
+Note that 1. implies $\Hom_{D^b(X)}(\calE,\calE[i])\simeq\Hom_{D^b(X)}(\calE,\calE[\dim X-i])^*$
+by Serre duality. It follows that $\calE^\vee$ is also spherical because
+$\RlHom(\calE,\O_X)\otimes\omega_X\simeq\RlHom(\calE\otimes\omega_X,\O_X)$.
 
-For any $E$ we have the trace map $E^\vee\otimes E\to\O_X$, defined in the usual
-way for locally free sheaves and then extended to the derived category by
-locally free resolutions. This induces a map $q^*E^\vee\otimes p^*E\to\O_\Delta$
-over $X\times X$, since $q^*E^\vee\otimes p^*E$ restricts to $E^\vee\otimes E$
-on the diagonal.
+For any $\calE$ we have the trace map $\calE^\vee\otimes\calE\to\O_X$, defined
+in the usual way for locally free sheaves and then extended to the derived
+category by locally free resolutions. This induces a map
+$q^*\calE^\vee\otimes p^*\calE\to\O_\Delta$ over $X\times X$, since
+$q^*\calE^\vee\otimes p^*\calE$ restricts to $\calE^\vee\otimes\calE$ on the
+diagonal.
 
 \begin{definition}{Spherical twist}{}
-    The \emph{spherical twist} along $E$ is the Fourier-Mukai transform
-    $T_E:D^b(X)\to D^b(X)$ with kernel given by the cone of the map
-    $q^*E^\vee\otimes p^*E\to\O_\Delta$.
+    The \emph{spherical twist} along $\calE$ is the Fourier-Mukai transform
+    $T_\calE:D^b(X)\to D^b(X)$ with kernel given by the cone of the map
+    $q^*\calE^\vee\otimes p^*\calE\to\O_\Delta$.
 \end{definition}
 
-\begin{proposition}{}{}
-    The spherical twist of $F$ along $E$ can be computed as the cone on the
-    evaluation map:
-    \begin{equation}\label{STformula}
-        T_E(F)=\cone(\dR\Hom(E,F)\otimes_kE\to F).
+\begin{proposition}[label=prop:twistformula]{}{}
+    The spherical twist of $\calF$ along $\calE$ can be computed as the cone on
+    the evaluation map:
+    \begin{equation}\label{eqn:twistformula}
+        T_\calE(\calF)=\cone(\dR\Hom(\calE,\calF)\otimes_k\calE\to\calF).
     \end{equation}
 \end{proposition}
 
 \begin{remark}{}{}
     Taking cones is not functorial, so the spherical twist functor is only
-    defined up to non-unique isomorphism, and the formula in Proposition
-    1.29 does not a priori define a functor. The spherical twist gives a
-    functorial way of choosing the cone in this formula by moving the
-    non-uniqueness into the kernel of a Fourier-Mukai transform.
+    defined up to non-unique isomorphism, and the formula in
+    Proposition~\ref{prop:twistformula} does not a priori define a functor. The
+    spherical twist gives a functorial way of choosing the cone in this formula
+    by moving the non-uniqueness into the kernel of a Fourier-Mukai transform.
 \end{remark}
 
 \begin{proof}
@@ -576,7 +622,7 @@ on the diagonal.
 
 \begin{remark}{}{}
     If $E$ is an exceptional object, then $T_E(F)\in\langle E\rangle^\perp$ for
-    all $F$. In this case we can view \eqref{STformula} as a kind of
+    all $F$. In this case we can view \eqref{eqn:twistformula} as a kind of
     Gramm-Schmidt formula, projecting $F$ onto $\langle E\rangle^\perp$ with
     respect to the ``inner product'' $\RHom(-,-)$ by ``subtracting off''
     $\RHom(E,F)\otimes_kE$. % TODO: link this with mutations
@@ -601,9 +647,10 @@ on the diagonal.
     Note that $\{E\}\cup E^\perp$ is a spanning class (tautological on one side,
     and follows from Serre duality on the other), so it suffices to check
     $\Hom(T_E(E),T_E(E))$ and $\Hom(T_E(F),T_E(G))$ for $F,G\in E^\perp$. But
-    $T_E$ restricts to the identity on $E^\perp$ by Proposition 1.29, and
-    $T_E(E)=E[1-\dim X]$ with $\id_E$ mapping to $\id_{E[1-\dim X]}$
-    from $\RHom(E,E)=k\oplus k[\dim X]$, again using Proposition 1.29.
+    $T_E$ restricts to the identity on $E^\perp$ by
+    Proposition~\ref{prop:twistformula}, and $T_E(E)=E[1-\dim X]$ with $\id_E$
+    mapping to $\id_{E[1-\dim X]}$ from $\RHom(E,E)=k\oplus k[\dim X]$, again
+    using Proposition~\ref{prop:twistformula}.
 \end{proof}
 
 % TODO: examples

@@ -1,67 +1,29 @@
-\usepackage{graphicx}
 \usepackage{tcolorbox}
-%\usepackage[dvipsnames]{xcolor}
 \tcbuselibrary{theorems}
-\usepackage{mdframed}
-\usepackage{amsmath, amsfonts, amsthm, amscd, bbm, thmtools, hyperref}
+
 \usepackage{pgfplots}
-\usepackage[all]{xy}
-\usepackage{mathtools}
 \pgfplotsset{width=\columnwidth,compat=1.13}
+
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+
 \usepackage{float}
 \usepackage{titling}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{tikz-cd}
-\usepackage{euscript}
-\usepackage{mathtools}
-\usepackage{stmaryrd}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{decorations.pathmorphing,shapes}
-\usetikzlibrary{patterns, patterns.meta}
-\usetikzlibrary {intersections,pgfplots.fillbetween} 
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{fadings}
-\usetikzlibrary{calc}
+
 \usepackage{hyperref}
-
-\DeclareMathOperator{\image}{im} 
-\DeclareMathOperator{\ind}{ind}
-\DeclareMathOperator{\cokernel}{coker} 
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\lExt}{\mathcal{E}\mathit{xt}} %local Ext
-\DeclareMathOperator{\lHom}{\mathcal{H}\mathit{om}} %local Hom
-\DeclareMathOperator{\dL}{\mathbf{L}} %derived left
-\DeclareMathOperator{\dR}{\mathbf{R}} %derived right
-\DeclareMathOperator{\RHom}{\mathbf{R}Hom} %derived usual Hom
-\DeclareMathOperator{\RlHom}{\mathbf{R}\mathcal{H}\mathit{om}} %derived local Hom
-\DeclareMathOperator{\RG}{\mathbf{R}\Gamma} %derived global sections
-\DeclareMathOperator{\cone}{cone}
-
-\DeclareMathOperator*{\ulalim}{\underleftarrow\lim}
-\graphicspath{{images/}}
-\setcounter{section}{-1}
-
 \definecolor{maincolor}{RGB}{122, 17, 49}
-\hypersetup{linkcolor = maincolor, linkbordercolor=maincolor, citebordercolor = maincolor} %colorlink removes boxes
+\hypersetup{linkcolor=maincolor, linkbordercolor=maincolor, citebordercolor=maincolor} %colorlink removes boxes
+
+\setcounter{section}{-1}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
 
 \numberwithin{equation}{section}
 
-%\newtheorem{theorem}{Theorem}[subsection]
-%\numberwithin{theorem}{subsection}% Reset theorem counter with every section
-
-%\theoremstyle{definition}
-%\newtheorem{definition}[theorem]{Definition}
-%\numberwithin{definition}{section}% Reset theorem counter with every section
-
-%\mdfdefinestyle{theoremstyle}{linecolor=Emerald, linewidth=2pt, frametitlerule=true, frametitlebackgroundcolor=gray!20, innertopmargin=\topskip
-%} \mdtheorem[style=theoremstyle]{definition}{Definition}
-
-%\mdfdefinestyle{theoremstyle}{ linecolor=Aquamarine, linewidth=2pt, frametitlerule=true, frametitlebackgroundcolor=gray!20, innertopmargin=\topskip
-%} \mdtheorem[style=theoremstyle]{theorem}{Theorem}
-
- 
 \newtcbtheorem[number within=section]{theorem}{Theorem} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
 
 \newtcbtheorem[use counter from = theorem]{definition}{Definition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{dfn}
@@ -80,32 +42,47 @@
 
 \newtcbtheorem[no counter]{remark}{Remark} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{rem}
 
-%\newtheorem{lemma}[theorem]{Lemma}
-%\numberwithin{lemma}{section}% Reset theorem counter with every section
-%\newtheorem{prop}[theorem]{Proposition}
-%\numberwithin{prop}{section}% Reset theorem counter with every section
-%\newtheorem{cor}[theorem]{Corollary}
-%\numberwithin{cor}{section}% Reset theorem counter with every section
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\lExt}{\mathcal{E}\mathit{xt}} %local Ext
+\DeclareMathOperator{\lHom}{\mathcal{H}\mathit{om}} %local Hom
+\DeclareMathOperator{\dL}{\mathbf{L}} %derived left
+\DeclareMathOperator{\dR}{\mathbf{R}} %derived right
+\DeclareMathOperator{\RHom}{\mathbf{R}Hom} %derived usual Hom
+\DeclareMathOperator{\RlHom}{\mathbf{R}\mathcal{H}\mathit{om}} %derived local Hom
+\DeclareMathOperator{\RG}{\mathbf{R}\Gamma} %derived global sections
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
 
-
-\newcommand{\half}{\frac{1}{2}}
-\newcommand{\dbyd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\vsig}{\vec{\sigma}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\calD}{\mathcal{D}}
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
-\newcommand{\comp}{\circ}
+\newcommand{\A}{\mathbb{A}}
+\renewcommand{\P}{\mathbb{P}}
 \renewcommand{\O}{\mathcal{O}}
-\renewcommand{\u}{{u_1}}
-\renewcommand{\v}{{u_2}}
-\newcommand{\laplace}{\Delta}
-\renewcommand{\line}[2]{{\overrightarrow{#1,#2}}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calL}{\mathcal{L}}
+
+\newcommand{\Lotimes}{\otimes^{\dL}}
 \newcommand{\id}{\mathrm{id}}
+\newcommand{\pt}{\mathrm{pt}}
+\newcommand{\ev}{\mathrm{ev}}
 
 \newcommand{\todo}[1]{{\color{red}\textbf{TODO!: #1}}}
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-
-\renewcommand{\.}{\,.}
