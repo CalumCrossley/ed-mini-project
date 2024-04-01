@@ -1,5 +1,6 @@
 \section{Foundational material}
- Orlov reconstruction, action on cohomology, blowup formula, HKR isomorphism, spherical twists
+
+\todo{Orlov reconstruction, action on cohomology, HKR isomorphism, mutations}
 
 \subsection{The derived category of an abelian category}
 \subsubsection{Localization}
@@ -259,7 +260,8 @@ Upon taking cohomology, on the right hand side we get $\mathrm{Ext}^n(\mathcal{F
 
 As an application, we compute the Ext groups of a point and local Ext of a subvariety. 
 
-More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then the sheaf Ext's $\lExt(\mathcal{O}_{Y},\mathcal{O}_{Y})$ are computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$ This allows us to compute the self Ext groups of a point, by using the local-to-global spectral sequence:$$H^i(X, \lExt^j(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^{i+j}(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $i>0$ give nothing. But when $i=0$, we have no differential. So in fact $$\mathrm{Ext}^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p}))$$
+More precisely, let $Y\subset X$ be a subvariety given by the zero locus of a section of $\mathcal{E}$, which we can Koszul resolve: $$\xrightarrow{}\mathcal{E}^\lor\xrightarrow{}\mathcal{O}_{X}\xrightarrow{}\mathcal{O}_{Y}\xrightarrow{}0$$i.e. we replace $\mathcal{O}_{Y}={\bigwedge}^\bullet \mathcal{E}^\lor$. Then
+$\lExt^\bullet(\mathcal{O}_{Y},\mathcal{O}_{Y})$ is computed by applying $\lHom(-,\mathcal{O}_{Y})$ to the complex and taking cohomology. But once we restrict to $Y$, the maps become zero since they are given by the defining function for $Y$. Hence, the complex is formal and we get $$\lExt^i(\mathcal{O}_{Y},\mathcal{O}_{Y})=\lHom({\bigwedge}^i \mathcal{E}^\lor, \mathcal{O}_{Y})={\bigwedge}^i \mathcal{E} \otimes \mathcal{O}_{Y}={\bigwedge}^i \mathcal{E}|_{Y}={\bigwedge}^i \mathcal{N}_{{Y/X}}$$ This allows us to compute the self Ext groups of a point, by using the local-to-global spectral sequence:$$H^i(X, \lExt^j(\mathcal{O}_{p}, \mathcal{O}_{p}))\implies \mathrm{Ext}^{i+j}(\mathcal{O}_{p}, \mathcal{O}_{p})$$The local homs will be supported at $p$. So it has no higher cohomology i.e. the cases $i>0$ give nothing. But when $i=0$, we have no differential. So in fact $$\mathrm{Ext}^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p})\simeq H^0(X, \lExt^\bullet(\mathcal{O}_{p}, \mathcal{O}_{p}))$$
 From the Koszul resolution, we see that the latter is just an exterior algebra!
 \begin{remark}{Deformations}{}
     We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\mathcal{O}_Y,\mathcal{O}_Y)$. 
