@@ -1,6 +1,5 @@
 cf. Huybrechts
 \begin{proof}
-[ADD strong collection definition]
 
 First, we check that $\left< \mathcal{O}, \dots, \mathcal{O} (n) \right>$ is an exceptional collection. 
 
@@ -19,7 +18,12 @@ since $H^{l}(\mathbb{P}^{n}, \mathcal{O}(m))=0$ for any $m<0$ or $l \neq 0$. Hen
 
 Now, it remains to show that the sequence is full. That is, it generates all of $D(\mathbb{P}^{n})$.  Consider the projection of the product to each component 
 
-IMG
+\[\begin{tikzcd}
+	& {\mathbb P^n \times \mathbb P^n} \\
+	{\mathbb P^n} && {\mathbb P^n}
+	\arrow["q"', from=1-2, to=2-1]
+	\arrow["p", from=1-2, to=2-3]
+\end{tikzcd}\]
 
 We use the notation $\mathcal{O}(-1)\boxtimes \Omega (1) = q^{*}\mathcal{O}(-1)\otimes p^{*}\Omega (1)$. We have from HAR the Euler sequence $$0 \to \Omega(1)\to \mathcal{O}^{n+1}\to \mathcal{O}(1)$$
 Noting that $p^{*}\mathcal{O} \simeq q^{*}\mathcal{O} \simeq \mathcal{O}_{\mathbb{P}\times \mathbb{P}}$, we can form the composition of the exact sequence under $p^*$ and $q^*$ respectively, giving $$p^{*}\Omega (1)\to \mathcal{O}_{\mathbb{P}\times \mathbb{P}}^{n+1} \to q^{*}\mathcal{O}(1)$$
