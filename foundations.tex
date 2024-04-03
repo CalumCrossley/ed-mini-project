@@ -754,4 +754,23 @@ diagonal.
     using Proposition~\ref{prop:twistformula}.
 \end{proof}
 
-% TODO: examples
+\subsection{Action on cohomology}
+
+\begin{proposition}{Action of spherical twist on cohomology}{}
+    $$T_{\mathcal{E}}^H(v)=v-\langle v(\mathcal{E}),v\rangle v(\mathcal{E})$$
+where we have the Mukai pairing.
+\end{proposition}
+ \begin{proof}
+ The proof is as follows: 
+ $$\text{kernel}=\mathrm{cone}(q^*\mathcal{E}^\lor\otimes p^* \mathcal{E}\xrightarrow{}\mathcal{O}_{\Delta})$$
+ 
+ The Mukai vector of this is $$\Theta=v(\mathcal{O}_{\Delta})-q^*v(\mathcal{E}^\lor)p^*v(\mathcal{E})$$
+ ut $v(\mathcal{O}_{\Delta})=[\Delta]$. So the action on cohomology is
+\begin{gather*}
+T_{\mathcal{E}}^H(v)=p_{*}(\Theta \cup q^*v)=v-p_{*}(p^*v(\mathcal{E})q^*v(\mathcal{E}^\lor)q^* v)=\\=v-v(\mathcal{E)}\int _{X} v.v(\mathcal{E}^\lor)
+\end{gather*}
+
+\end{proof}
+
+
+
