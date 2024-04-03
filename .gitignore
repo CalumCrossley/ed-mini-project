@@ -7,3 +7,9 @@
 *.pdf
 *.toc
 *.out
+
+# bibtex
+*.bbl
+*.bcf
+*.blg
+*.run.xml
