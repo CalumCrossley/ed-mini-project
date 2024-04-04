@@ -8,6 +8,13 @@
 *.toc
 *.out
 
+*.synctex(busy)
+*.synctex.gz
+
+# listings
+*.markdown.in
+*.markdown.lua
+
 # bibtex
 *.bbl
 *.bcf
