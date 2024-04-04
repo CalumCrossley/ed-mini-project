@@ -121,6 +121,27 @@ In a subsequent section, we will explore different known examples where this is 
 
 We now embark on the proof that the Kuznetsov component is what is called a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of a K3 surface.
 
+Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
+
+The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
+
+Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
+
+On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the left object as $\Phi_{\O(-i)\boxtimes \O(i)}F$. More precisely, by using the projection and base change formulas:
+\begin{gather*}
+    \Phi_{\O(-i)\boxtimes \O(i)}F=p_* (p^*\O(i)\otimes q^* \O(-i)q^*F)\simeq p_* q^* F(-i)\otimes \O(i)\simeq\\
+    \simeq \O_X \otimes \RG (F(-i))\otimes \O(i)\simeq \RG \RlHom(\O(i),F) \otimes O(i)=\RHom(\O(i),F) \otimes \O(i)
+\end{gather*}
+
+Hence, we can conclude that $\mL_{\O(i)}$ is given by a Fourier-Mukai transform with kernel $$[\O(-i)\boxtimes \O(i)\rightarrow \O_\Delta]$$
+
+Now, define $$\bf{O}:=\mL_\O \circ (-\otimes \O(1))$$
+We see that by \ref{cor:Autoequivalences and mutations}, $$\bf{O}^{n+2-d}\simeq \mL_\O \circ \mL_{\O(1)}\circ ... \circ \mL_{\O(n+1-d)}\circ (-\otimes \O(n+2-d))=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega ^{-1})$$
+
+But by \ref{lemma:Serre functors of admissible subcategories}, we know that the inverse of the Serre functor of $\calA_X$ is given by $$\calS_{\calA_X}^{-1} =  \mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ \calS_X ^{-1}=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega^{-1})[-n]$$
+
+We can thus conclude that $$\calS_{\calA_X}^{-1} = \bf{O}^{n+2-d}\circ [-n]$$
+
 
 
 \subsection{Examples: Pfaffian cubics, cubics containing a plane, nodal cubics}

@@ -922,7 +922,7 @@ We can do the same thing in derived categories, except that homs are not symmetr
 The main point is that there are two projection functors to the subcategory $\langle E \rangle$ given by $F\mapsto\RHom(E,F)\otimes E$ and $F\mapsto\RHom(F,E)^\lor\otimes E$, of which we take the cone. These two projections are universal, in the sense that they are the two adjoints of the inclusion functor $\iota:\langle E \rangle \to D^b(X)$. Another way to say this is that $\langle E \rangle$ is an admissible subcategory, which roughly means a subcategory equipped with projection functors.
 
 \begin{definition}{Admissible subcategory}{Admissible subcategory}
-    A full subcategory $\calA$ closed under shifts and cones is admissible if the inclusion $\iota$ admits both a left $\iota^*$ and a right adjoint $\iota^!$.
+    A full subcategory $\calA$ closed under shifts and cones is admissible if the inclusion $\iota_*$ admits both a left $\iota^*$ and a right adjoint $\iota^!$.
 \end{definition}
 
 For example, the image of a fully faithful functor $D^b(Y)\to D^b(X)$ which is induced by a FM kernel, which has adjoints given by Serre functors. \todo{reference}
@@ -936,31 +936,95 @@ Now, we can proceed in the exact analogous way to define orthogonal projection f
 \begin{definition}{Mutations}{Mutations}
     There are two functors
     \begin{equation*}
-        \mL_\calA(F) \coloneqq \cone(\iota\iota^!\to F)\in \calA^\perp, \quad
-        \mR_\calA(F) \coloneqq \cone(F\to \iota\iota^* F )[-1]\in \lperp\calA
+        \mL_\calA(F) \coloneqq \cone(\iota_*\iota^!\to F)\in \calA^\perp, \quad
+        \mR_\calA(F) \coloneqq \cone(F\to \iota_*\iota^* F )[-1]\in \lperp\calA
     \end{equation*}
-    which are in fact the adjoints of the inclusions $\calA^\perp \subset D^b(X)$ and $\lperp\calA\subset D^b(X)$.
+    which are in fact the left and right adjoints of the inclusions $\calA^\perp \subset D^b(X)$ and $\lperp\calA\subset D^b(X)$. Moreover, the two define inverse equivalences $\mathcal{A}^\perp \simeq \lperp{}\mathcal{A}$
 \end{definition}
 
-Note that if $F\in \calA$, then both $F\simeq \iota\iota^* F \simeq \iota\iota^! F$ so the cone is actually zero. Hence, both of these functors vanish on $\calA$ and in fact $\mL_\calA$ lands in $\calA^\perp$ whereas $\mR_\calA$ lands in $\lperp\calA$:
 \begin{proof}
-    We consider the long exact sequence associated to $\cone(\iota\iota^!F\to F)$. For any $A\in \calA$ we have
+    \textbf{Step 1}: We first show the mutation functors land in the orthogonal categories
+
+    Note that if $F\in \calA$, then both $F\simeq \iota_*\iota^* F \simeq \iota_*\iota^! F$ so the cone is actually zero. Hence, both of these functors vanish on $\calA$ and in fact $\mL_\calA$ lands in $\calA^\perp$ whereas $\mR_\calA$ lands in $\lperp\calA$, by considering the long exact sequence associated to $\cone(\iota_*\iota^!F\to F)$. For any $A\in \calA$ we have
     \begin{gather*}
-        \Hom_{D^b(X)}(A, \iota\iota^!F)
-            \simeq \Hom_{D^b(X)}(\iota A, \iota\iota^!F)\simeq \\
-            \simeq \Hom_\calA(A, \iota^!F)\simeq \Hom_{D^b(X)}(\iota A, F)
+        \Hom_{D^b(X)}(A, \iota_*\iota^!F)
+            \simeq \Hom_{D^b(X)}(\iota_* A, \iota_*\iota^!F)\simeq \\
+            \simeq \Hom_\calA(A, \iota^!F)\simeq \Hom_{D^b(X)}(\iota_* A, F)
             \simeq \Hom_{D^b(X)}(A, F)
     \end{gather*}
-    This implies by the LES that $\Hom(A,\cone(\iota\iota^!F\to F))=0$.
+    This implies by the LES that $\Hom(A,\cone(\iota_*\iota^!F\to F))=0$.
+
+    \textbf{Step 2}: Now we show the mutation functors are adjoint to inclusions.
+
+    Recall that the mutation functors fit into exact triangles $$k_*\mR_\calA (E)\rightarrow E \rightarrow \iota_* \iota^* E,\, \iota_* \iota^! E \rightarrow E \rightarrow j_*\mL_\calA(E)$$
+    where $j_*: \calA^\perp \rightarrow \calD, k_*: \lperp{}\calA\rightarrow \calD$ are the inclusions.
+
+    By the third axiom of triangulated categories, if we have a morphism $E\rightarrow j_*F$, we can fill in 
+    \begin{center}
+    \begin{tikzcd}
+        \iota_* \iota^! E \arrow[r] \arrow[d] & E \arrow[r] \arrow[d] & j_*\mL_\calA E \arrow[d, dotted] \\
+        0 \arrow[r]                           & j_* F \arrow[r]       & j_* F                        
+        \end{tikzcd}
+    \end{center}
+    
+    This gives us a map $$\Hom_\calD(E, j_*F)\rightarrow \Hom_\calD(j_*\mL_\calA E, j_*F)\simeq \Hom_{\calA^\perp}(\mL_\calA E, F)$$
+    
+    Similarly, we can get a map in the opposite direction, which is inverse to this one, showing that $\mL_\calA \dashv j_*$. In a similar way we can show $k_* \dashv \mR_\calA$. Another way to show this is as follows:
+    \begin{gather*}
+        \Hom_{\calA^\perp}(\mL_\calA E, F)\simeq \Hom_\calD(j_*\mL_\calA E, j_*F) \simeq \\
+        \simeq \Hom_\calD (\mathrm{cone}(\iota_* \iota^! E \rightarrow E), j_*F)\simeq \mathrm{cone}\big(\Hom_\calD(\iota_* \iota^! E, j_* F)\rightarrow \Hom_\calD(E, j_*F)\big)\simeq \\
+        \simeq \mathrm{cone}(0\rightarrow \Hom_\calD(E, j_*F))\simeq \Hom_\calD(E, j_*F)
+    \end{gather*}
+    The reason being that $\Hom(\iota_* \iota^! E, j_* F)=0$ since $\iota_* \iota^! E\in \calA, j_*F \in \calA^\perp$. 
+
+    \textbf{Step 3}: Now we show they induce equivalences between the left and right orthogonals.
+
+    Firstly, we see that $\mL_\calA j_* F = \mathrm{cone}(\iota_* \iota^! j_* F \rightarrow j_* F)$. But this is just $j_* F$ since $\iota_* \iota^! j_* F=0$, which is true since $\ker \iota^! = \calA^\perp $. So $\mL_\calA$ is the identity on $\calA^\perp$ and zero on $\calA$, and similarly for $\mR_\calA$. 
+
+    Let $F\in \lperp{}\calA$. We observe that since $\mL$ and $\mR$ are adjoint to inclusions, which are exact, then they themselves must be exact. So we can turn the exact triangle $$\iota_* \iota^! F \rightarrow F \rightarrow j_*\mL_\calA(F)$$
+    into $$\mR_\calA(\iota_* \iota^! F) \rightarrow \mR_\calA F \rightarrow \mR_\calA (j_*\mL_\calA(F))$$
+
+    But $\mR_\calA$ vanishes on $\calA$, so we get that the first object is zero and hence the restrictions $\mR \mL F \simeq \mR F\simeq F$, since we picked $F\in \lperp{}\calA$ where $R$ acts as the identity. We can do the same in reverse to show that $\mL|_{\lperp{}\calA}: \lperp{}\calA \rightarrow \calA^\perp, \mR_{\calA^\perp}: \calA^\perp \rightarrow \lperp{}\calA$ are inverse equivalences.
+
+
+    %Recall that a general pair of adjoint functors defines an equivalence on the subcategories where the unit, resp. counit, are isomorphisms. In our case for $\mL_\calA$, the left hand side will just be $\calA^\perp$. On the other hand, the subcategory where the the counit is an isomorphism consists of all $F\in \calD, F\simeq j_* \mL_\calA F$. But from the exact triangle we see that this is equivalent to $\iota_* \iota^! F=0$ i.e. $\iota^! F=0$. We thus see that the induced equivalence is between $\calA^\perp$ and $\ker \iota^!$. 
 \end{proof}
 
 \begin{corollary}{}{}
-    If $\calA$ is admissible and $\calA^\perp=0$, then $\calA=D^b(X)$.
+    If $\calA$ is admissible and $\calA^\perp=0$, then $\calA=\calD^b(X)$.
 \end{corollary}
 
 \begin{proof}
-    If $\calA^\perp=0$, then $\mL_\calA(F)=0$ and hence $F\simeq \iota \iota^! F\in \calA$.
+    If $\calA^\perp=0$, then $\mL_\calA(F)=0$ and hence $F\simeq \iota_* \iota^! F\in \calA$.
 \end{proof}
+
+\begin{corollary}{Autoequivalences and mutations}{Autoequivalences and mutations}
+    If $\Phi$ is any autoequivalence of $\calD$, then $\Phi \circ \mL_\calA = \mL_{\Phi\calA} \circ \Phi$, and similarly for $\mR_\calA$.
+\end{corollary}
+\begin{proof}
+    We first note that this obviously holds on $\calA \subset \calD$, where both sides vanish. On $\lperp{}\calA$, we have the following diagram: 
+    \begin{center}
+    \begin{tikzcd}
+        \lperp{}\calA \arrow[d, "\Phi"'] \arrow[r, "\mL_\calA"] & \calA ^\perp \arrow[d, "\Phi"]        \\
+        \Phi(\lperp{}A) \arrow[d, "\simeq"']                    & \Phi(\calA^\perp) \arrow[d, "\simeq"] \\
+        \lperp{} \Phi\calA \arrow[r, "\mL_{\Phi\calA}"']         & (\Phi\calA)^\perp                    
+        \end{tikzcd}
+    \end{center}
+
+    So again everything commutes as it should (since autoequivalences commute with taking orthogonal complements).
+    
+    Finally, another definition of being admissible is by saying that any object $X\in \calD$ fits into an exact triangle $A\rightarrow X \rightarrow B$, with $A\in\calA, B\in \lperp{}\calA$. Then, we can apply $\Phi \circ \mL_\calA $ respectively $\mL_{\Phi\calA} \circ \Phi$ to this triangle. Since both of these vanish on $\calA$ we then see that $\Phi\mL_\calA B \simeq \Phi \mL_\calA X $ while also $\mL_{\Phi\calA} \Phi B \simeq \mL_{\Phi\calA} \Phi X$. We know the result holds on $B\in \lperp{}\calA$ so it holds for $X$ as well.
+
+\end{proof}
+
+\begin{lemma}{Serre functors of admissible subcategories}{Serre functors of admissible subcategories}
+    An admissible subcategory $\calA\subset \calD$ admits a Serre functor if $\calD$ does, and it is given by $$\calS_\calA = \iota^! \circ \calS_\calD \circ \iota_*$$
+    Moreover, $\calA^\perp$ is also admissible and its Serre functor can be described as $$\calS_{\calA^\perp}=\calS_\calD \circ \mR_\calA|_{\calA^\perp}$$  
+  \end{lemma}
+  \begin{proof}
+    The first of these follows by a straightforward chase around adjunctions. The second one follows since given $X,Y \in \calA^\perp,$ then $$\Hom(X, \calS_\calD \mR_\calA Y)\simeq \Hom(\mR_\calA Y, X)^*\simeq \Hom(\mL_\calA \mR_\calA Y, X)^*\simeq \Hom(Y,X)^*$$where we use the fact that $\mL \mR =id$ on $\calA^\perp$ and furthermore the exact triangle $\iota_* \iota^! \mR_\calA Y \rightarrow \mR_\calA Y \rightarrow \mL_\calA \mR_\calA Y$, combined with the fact that $\Hom(\iota_* \iota^! \mR_\calA Y,X)=0, X\in \calA^\perp$ tells us that $\Hom(\mR_\calA Y, X)\simeq \Hom(\mL_\calA \mR_\calA Y, X)$.
+ \end{proof}
+
 
 %\begin{remark}{}{}
      %Given an exceptional $E$, can think of it as an object on $D^b(\pt\times X)$ and its induced map $FM_{E}:D^b(\pt)\to D^b(X)$ is fully faithful, sending a vector space $V\mapsto V\otimes E$. The endomorphisms on both sides agree: $\Ext^\bullet(k,k)=k=\Ext^\bullet(E,E)$. The right adjoint is given by the kernel $E^\vee$ so it sends $F\mapsto \pi_* (E^\vee \otimes F)=\Ext^\bullet(E,F)$, since derived projection is taking cohomology. The counit provides us with an evaluation map $$E\otimes \Ext^\bullet(E,F)\xrightarrow{\ev}F$$In general, objects of $D^b(X)$ correspond to functors from $D^b(\pt)$ and exceptionals correspond to fully faithful functors. We will see that spherical twists come from taking cones on the (co)evaluation maps.
