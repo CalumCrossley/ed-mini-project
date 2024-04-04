@@ -48,19 +48,25 @@
 \DeclareMathOperator{\Tot}{Tot}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\lExt}{\mathcal{E}\mathit{xt}} %local Ext
-\DeclareMathOperator{\lHom}{\mathcal{H}\mathit{om}} %local Hom
-\DeclareMathOperator{\dL}{\mathbf{L}} %derived left
-\DeclareMathOperator{\dR}{\mathbf{R}} %derived right
-\DeclareMathOperator{\RHom}{\mathbf{R}Hom} %derived usual Hom
-\DeclareMathOperator{\RlHom}{\mathbf{R}\mathcal{H}\mathit{om}} %derived local Hom
-\DeclareMathOperator{\RG}{\mathbf{R}\Gamma} %derived global sections
+\DeclareMathOperator{\lExt}{\mathcal{E}\mathit{xt}} % local Ext
+\DeclareMathOperator{\lHom}{\mathcal{H}\mathit{om}} % local Hom
+\newcommand{\dL}{\mathbf{L}} % derived left
+\newcommand{\dR}{\mathbf{R}} % derived right
+\newcommand{\mL}{\mathbb{L}} % left mutation
+\newcommand{\mR}{\mathbb{R}} % right mutation
+\DeclareMathOperator{\RHom}{\dR Hom} % derived usual Hom
+\DeclareMathOperator{\RlHom}{\dR\mathcal{H}\mathit{om}} % derived local Hom
+\DeclareMathOperator{\RG}{\dR\Gamma} % derived global sections
+\newcommand{\Lotimes}{\otimes^\dL} % derived tensor product
+\newcommand{\lperp}[1]{\prescript{\perp}{}{#1}} % left orthogonal
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Proj}{Proj}
 \DeclareMathOperator{\Pic}{Pic}
-\DeclareMathOperator{\Coh}{\mathbf{Coh}}
-\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\Coh}{Coh}
+\DeclareMathOperator{\QCoh}{QCoh}
+\newcommand{\Ab}{\mathrm{Ab}}
 
+% letters
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -79,10 +85,15 @@
 \newcommand{\calF}{\mathcal{F}}
 \newcommand{\calG}{\mathcal{G}}
 \newcommand{\calL}{\mathcal{L}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calT}{\mathcal{T}}
 
-\newcommand{\Lotimes}{\otimes^{\dL}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\pt}{\mathrm{pt}}
-\newcommand{\ev}{\mathrm{ev}}
+% names
+\newcommand{\id}{\mathrm{id}} % identity
+\newcommand{\pt}{\mathrm{pt}} % point
+\newcommand{\ev}{\mathrm{ev}} % evaluation
+\newcommand{\qi}{\mathrm{q.i.}} % quasiisomorphism
 
 \newcommand{\todo}[1]{{\color{red}\textbf{TODO!: #1}}}

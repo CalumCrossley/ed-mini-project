@@ -4,6 +4,9 @@
 \usepackage{kpfonts}
 \usepackage[T1]{fontenc}
 
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+
 \usepackage{geometry}
 \geometry{a4paper, left=30mm, right=30mm, top=20mm, bottom=20mm}
 
@@ -35,6 +38,8 @@
 \input{conclusion.tex}
 %\newpage
 %\input{appendix.tex}
-%\input{bib.tex}
+\newpage
+\emergencystretch=1em
+\printbibliography
 
 \end{document}
