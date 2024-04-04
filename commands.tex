@@ -4,6 +4,31 @@
 \usepackage{pgfplots}
 \pgfplotsset{width=\columnwidth,compat=1.13}
 
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 \usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{amscd}
@@ -35,6 +60,8 @@
 \newtcbtheorem[use counter from = theorem]{lemma}{Lemma} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{lemma}
 
 \newtcbtheorem[no counter]{ob}{Observation} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{ob}
+
+\newtcbtheorem[no counter]{conjecture}{Conjecture} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{conj}
 
 \newtcbtheorem[no counter]{example}{Example} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{ex}
 
