@@ -121,11 +121,14 @@ In a subsequent section, we will explore different known examples where this is 
 
 We now embark on the proof that the Kuznetsov component is what is called a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of a K3 surface.
 
-Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
+Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
+
+\subsubsection{The kernel of the Serre functor}
 
 The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
 
 Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
+\todo{Give explanation why ev is the unit and why mutations compose}
 
 On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the left object as $\Phi_{\O(-i)\boxtimes \O(i)}F$. More precisely, by using the projection and base change formulas:
 \begin{gather*}
@@ -135,12 +138,98 @@ On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the lef
 
 Hence, we can conclude that $\mL_{\O(i)}$ is given by a Fourier-Mukai transform with kernel $$[\O(-i)\boxtimes \O(i)\rightarrow \O_\Delta]$$
 
-Now, define $$\bf{O}:=\mL_\O \circ (-\otimes \O(1))$$
-We see that by \ref{cor:Autoequivalences and mutations}, $$\bf{O}^{n+2-d}\simeq \mL_\O \circ \mL_{\O(1)}\circ ... \circ \mL_{\O(n+1-d)}\circ (-\otimes \O(n+2-d))=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega ^{-1})$$
+Now, define $$\mathbf{O}:=\mL_\O \circ (-\otimes \O(1))$$
+We see that by \ref{cor:Autoequivalences and mutations}, $$\mathbf{O}^{n+2-d}\simeq \mL_\O \circ \mL_{\O(1)}\circ ... \circ \mL_{\O(n+1-d)}\circ (-\otimes \O(n+2-d))=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega ^{-1})$$
 
 But by \ref{lemma:Serre functors of admissible subcategories}, we know that the inverse of the Serre functor of $\calA_X$ is given by $$\calS_{\calA_X}^{-1} =  \mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ \calS_X ^{-1}=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega^{-1})[-n]$$
 
-We can thus conclude that $$\calS_{\calA_X}^{-1} = \bf{O}^{n+2-d}\circ [-n]$$
+We can thus conclude that $$\calS_{\calA_X}^{-1} = \mathbf{O}^{n+2-d}\circ [-n]$$
+
+If we put $T:=\mathbf{O}|_{\calA_X}$, then we can conclude that $$\calS_{\calA_X}=T^{d-n-2}\circ [n]$$
+
+Recall that $\mL_\O$ had kernel given by $[\O \boxtimes \O \rightarrow \O_\Delta]$. We can compose this with the kernel for $-\otimes \O(1)$ which is $\O_\Delta(1)$ to see that the kernel for $T$ is given by $K_1;=[\O(1)\boxtimes \O \rightarrow \O_\Delta(1)]$. 
+
+Our ultimate aim is to show that a suitable power of the Serre functor is just a shift functor, so we need to understand the kernel for $T^i, i=1,2,\dots, $. So we need to convolute $K_1$ with itself multiple times. 
+
+\todo{Do we have compositions of FM kernels? Also, need to talk about preserving exactness}
+
+Firstly, composing with a Fourier-Mukai transform preserves exact triangles, so the same holds for the kernels. We can compose the triangle for $K_1$ with $\O(1)\boxtimes \O, \O_\Delta(1)$ on the left and $K_1$ on the right respectively to get three exact triangles \begin{gather*}
+    (\O(1)\boxtimes \O) \circ K_1 \rightarrow (\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) \rightarrow (\O(1)\boxtimes \O) \circ \O_\Delta(1)\\
+    \O_\Delta(1)\circ K_1 \rightarrow \O_\Delta(1) \circ (\O(1)\boxtimes \O)  \rightarrow \O_\Delta(1) \circ \O_\Delta(1)\\
+    K_1 \circ K_1  \rightarrow (\O(1)\boxtimes \O)\circ K_1 \rightarrow \O_\Delta(1)\circ K_1
+\end{gather*}
+
+We can compute some of these: for example, the middle convolution on the first row is given by $$(\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) ={\pi_{13}}_*\big(\O(1)\boxtimes \O \boxtimes \O \otimes \O \boxtimes \O(1) \boxtimes O\big)=\big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1))$$
+as pushing down is the same as cohomology on the fibers. This is the only computation that involves any cohomology: the others are given by tensoring with the diagonal, which turns the first two triangles into: \begin{gather*}
+    (\O(1)\boxtimes \O) \circ K_1 \rightarrow \big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1)) \rightarrow \O(1)\boxtimes \O(1)\\
+    \O_\Delta(1)\circ K_1 \rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)
+\end{gather*}
+
+Now recall the Euler sequence on $\mathbb{P}^{n+1}$, which says that there is an exact triangle $$\Omega(1)\rightarrow \O^{n+2}\rightarrow \O(1)$$
+Since the cohomology of $O(1)$ is $n+2$-dimensional, we can read off from the first exact triangle that $ (\O(1)\boxtimes \O) \circ K_1\simeq \O(1) \otimes \Omega(1)$. We can now plug this into the second object in the last triangle, as well as replace the last object in the third triangle by the second triangle to get: $$K_1 \circ K_1 \rightarrow \O(1)\boxtimes \Omega(1)\rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)$$
+
+We show by induction that the kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega^{i-1}(i-1)\rightarrow \dots \rightarrow \O(i-1)\boxtimes \Omega(1)\rightarrow \O(i)\boxtimes \O \rightarrow \O_\Delta(i)$$
+
+Assume it holds for $i$. Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence tha $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
+
+Now we need to use a variant of the Euler sequence: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
+\todo{This I found in Arupura's book, Corollary 17.1.3}
+
+This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
+
+\subsubsection{The main theorem}
+Now we are ready to prove the main theorem:
+
+\begin{theorem}{Shift functor}{}
+    The functor $T$ has $T^d=[2]$.
+\end{theorem}
+
+\begin{proof}
+    In the course of the proof, we write $\P=\mathbb{P}^{n+1}$. Firstly, let's recall the Koszul resolution of $X$ in $\mathbb{P}^{n+1}$ and $X\times X\subset \P\times \P$. Since $X$ is given by a section of $\O(d)$ and $X\times X$ by a section of $\O(d) \boxtimes O \oplus \O \boxtimes \O(d)$, we have the following resolutions: \begin{gather*}
+        0\rightarrow \O(-d)\rightarrow \O_\P \rightarrow \iota_* \O_X\rightarrow 0\\
+        0\rightarrow \O(-d,-d)\rightarrow \O(-d,0)\oplus \O(0,-d)\rightarrow \O_{\P\times \P}\rightarrow (\iota\times \iota)_* \O_{X\times X}\rightarrow 0
+    \end{gather*}
+
+    We wish to understand the derived pullback $(\iota\times \iota)^* \O_{\Delta_\P} $. Instead, let us first consider $(\iota\times \iota)^*(\iota\times \iota)^* \O_{\Delta_\P} \simeq (\iota\times \iota)_* \O_{X\times X} \otimes \O_{\Delta_\P}$, by the projection formula. This derived tensor product is given by tensoring the Koszul resolution above with the diagonal. The resulting complex is $$\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)^{\oplus 2}\rightarrow \O_{\Delta_\P}$$
+    The first map is injective, and this is just the sum of the two resolutions $\O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_\P}\rightarrow \O_{\Delta_X}$ and $\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_X}(-d)$. We conclude that $L_{-1}=\calH^{-1}=\O_{\Delta_X}(-d), L_0=\calH^{0}=\O_{\Delta_X}$. Now we note that $\iota$ is a closed embedding, hence exact and conservative, so we can ignore it.
+
+    This now allows us to write down an exact triangle $$\O_{\Delta_X}(-d)[1]\simeq \calH^{-1}[1]\rightarrow (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \calH^0\simeq \O_{\Delta_X}$$
+    We can rotate and twist by $d$ to get the exact triangle 
+    \begin{equation}\label{eqn:derivedtriangle}
+        (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \O_{\Delta_X}(d)\rightarrow \O_{\Delta_X}[2]
+    \end{equation}
+
+    Now recall the Beilinson resolution of the diagonal, which we restrict to $X\times X$:\begin{gather*}
+        0 \rightarrow \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\\
+        \rightarrow \O(1)\boxtimes \Omega^{d-1}(d-1)\rightarrow \dots \rightarrow \O(d)\boxtimes \O \rightarrow \O_\Delta
+    \end{gather*}
+
+    We splice it into the top bit, where all the $\O$'s are non-positive, and the positive bit below, which is just the kernel $K_d$. Let us call $K'_d$ the complex which is $K_d$ without the diagonal. Then we have an exact triangle $$K'_d \rightarrow \O_{\Delta_X}(d)\rightarrow K_d$$
+
+    We now compare this with triangle \ref{eqn:derivedtriangle}, by using the natural map $K'_d \rightarrow (\iota\times \iota)^*\O_{\Delta_\P}$ coming from Beilinson's resolution, and the identity map in the middle, which can be extended to a map $K_d \rightarrow \O_{\Delta_X}[2]$ by the axioms of triangulated categories: 
+
+    \begin{center}\begin{tikzcd}
+        K'_d \arrow[d] \arrow[r]                      & \O_{\Delta_X}(d) \arrow[d] \arrow[r] & K_d \arrow[d, dashed] \\
+        (\iota\times \iota)^*\O_{\Delta_\P} \arrow[r] & \O_{\Delta_X}(d) \arrow[r]           & {\O_{\Delta_X}[2]}   
+        \end{tikzcd}\end{center}
+
+    Finally, we compare the effect of taking these as Fourier-Mukai kernels. We know that $\Phi_{K_d}=T^d$ and $\Phi_{\O_\Delta [2]}=[2]$ and we claim that they are isomorphic by the dotted arrow. To see this, we show that the other vertical arrows induce isomorphisms on Fourier-Mukai transforms.
+
+    The middle bit is obvious, however to compare $\Phi_{K'_d}$ and $\Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ we simply look again into the Beilinson resolution: we have that \begin{gather*}
+        [ \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\rightarrow K'_d]=(\iota\times \iota)^*\O_{\Delta_\P}
+    \end{gather*}
+
+    However, for any $\calE_i=\O(d-i)\boxtimes \Omega^i(i)$ with $i=d,d+1,\dots,n+1,$ its Fourier-Mukai transform on $A\in \calA_X$ vanishes, by using the projection formula, base change and the fact that $\calA_X$ is orthogonal to $\O,\dots, \O(n+1-d)$:$$\Phi_{\calE_i}(A)=q_*(p^*A\otimes p^* \O(d-i)\otimes q^* \Omega^i(i))=\Omega^i(i)\otimes q_*p^* A(d-i)=\Omega^i(i) \otimes \RHom(\O(i-d),A)=0$$ We conclude that $\Phi_{K'_d}\simeq \Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ and hence $T^d=[2]$.
+\end{proof}
+
+\begin{corollary}{Kuznetsov}{}
+    If $2d>n+1$, then $\calA_X$ is a fractional Calabi-Yau category whose Serre functor obeys $\calS_{\calA_X}^{d/c}=[(n+2)(d-2)/c]$, where $c=\gcd(d,n+2)$.\newline
+
+
+    In the special case that $X$ is a cubic fourfold, $n=4,d=3$ hence $\calS=T^{-3}\circ [4]=[2]$. More generally, whenever $d|n+2$, the component is Calabi-Yau.
+\end{corollary}
+
+
 
 
 
