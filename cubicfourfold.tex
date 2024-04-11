@@ -36,23 +36,7 @@ A Hodge isometry respects the intersection pairing and the Hodge decomposition.
 
 %Also: moduli of sheaves
 
-\subsection{The cubic fourfold}
-
-Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
-
-\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
-The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
-\end{proposition}
-
-The first statement will be proved in the subsequent section. To prove the second statement about the Hochschild cohomology, we first need to understand the Hodge diamond.
-
-\todo{HKR isomorphism}
-\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
-    $$HH^k(\mathcal{D}(X))=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(\mathcal{D}(X))=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
-    
-\end{theorem}
-
-\subsubsection{Hodge diamond}
+\subsection{Hodge theory of cubic fourfolds}
 
 Let us first think about the Hodge diamond of $X$. Embed $\mathbb{P}^5$ via the Veronese embedding in $\mathbb{P}V_{3,5+1}$, the space of degree 3 polynomials in 6 variables. Then, a hyperplane section of the image of $\mathbb{P}^5$ consists of a linear relation between the basis of monomials of this vector space, and hence is precisely a cubic fourfold $X$. The Lefschetz hyperplane theorem states that then $$H^\bullet(\mathbb{P}^5)\xrightarrow{}H^\bullet (X) \text{ iso for }\bullet<4$$
 We thus see, by Poincare duality, that $b_{1}=b_{3}=b_{5}=b_{7}=0$. Similarly, $b_{2}=b_{6}=1$ and must be given by $h^{1,1}$ by Hodge theory. We have that $H^2(X;\mathbb{Z})=\mathbb{Z}$ and the LES from the exponential sequence tells us that $$H^1(X,\mathcal{O}_{X})\xrightarrow{}H^1(X,\mathcal{O}_{X}^*)\xrightarrow{}H^2(X,\mathbb{Z})\xrightarrow{}H^2(X,\mathcal{O}_{X})$$
@@ -117,7 +101,78 @@ A cubic fourfold is rational if and only if it contains a smooth projective K3 s
 
 In a subsequent section, we will explore different known examples where this is true, and connect the derived categories viewpoint of Kuznetsov with the Hodge-theoretic perspective of Hasset through the paper of Addington-Thomas.
 
-\subsection{The Kuznetsov component is a CY2 category}
+\todo{Include global Torelli theorem (Voisin) and Hasset theorem on Hodge theory and divisors in the moduli space}
+
+
+\subsection{Fundamental example: cubics containing a plane}
+We begin with the case of cubic fourfolds containing a plane $P\simeq \mathbb{P}^2$. These form a divisor $\calC_8$ in the moduli space of all cubic fourfolds of special importance, as we will see in the review of Addington-Thomas. They also play a central role in Voisin's proof of the global Torelli theorem.
+
+Consider $P\subset X \subset \P^5$ a cubic fourfold containing a plane $P$. The variety parametrizing $3$-planes containing $P$ is also a plane, and $X$ intersects such a $3$ plane in $P$ combined with a quadric $Q$, since generically the intersection of $X$ with a 3-plane should be degree $3$.
+
+More precisely, we can blowup $P$ in $\P^5$ which resolves the rational map defined by the linear system $\calI_P \otimes \O(1)$ to a map defined by the complete linear system $\calI_E \otimes \tau^*\O(1)$.
+
+\begin{center}
+\begin{tikzcd}
+    \P \calN_{P/ \P^5} \simeq E \arrow[d] \arrow[r] & \mathrm{Bl}_P \P^5 \arrow[d, "\tau"] \arrow[rd] &      \\
+    P \arrow[r]                             & \P^5 \arrow[r, dotted, "\phi"]                          & \P^2
+    \end{tikzcd}
+\end{center}
+
+By definition, this means that $\phi^* \O(1)=\calI_E \otimes \tau^*\O(1)$.
+
+If $P$ is given by $[0:0:0:a:b:c]$ then the first rational map sends a point $z \mapsto [z_0:z_1:z_2]$ since these are the linear forms vanishing on $P$. This is then resolved by blowing up $P$ and essentially projecting down from the $\P^2$ fiber in the projectivized normal bundle, which is trivial:  $$E \simeq P \times \P^2 \xrightarrow{\phi = \pi_2} \P^2$$
+
+We can think of the blowup in this simplified setting as the set $$\mathrm{Bl}_P \P^5 = \{p\in \P^5, q\in \P^2 |\, p_iq_j=p_jq_i, 0\leq i,j \leq 2\} \subset \P^5 \times \P^2$$
+which comes equipped with two projection maps to $\P^5$ and $\P^2$ which are the blowup and resolution maps, respectively. We can clearly see that over $\P^2$, this is a projective bundle by looking at the affine cone over $\P^5$: $$\{ a\in \A^6, q\in \P^2|\,a_iq_j=a_jq_i, 0\leq i,j \leq 2\}\rightarrow \P^2$$
+
+We can see that the coordinates $a_3, a_4, a_5$ are unconstrained, so give us a copy of the trivial bundle $\O^{\oplus 3}$. The other three coordinates give us precisely the tautological bundle: $$\O(-1)=((a_0,a_1,a_2)\in \A^3, q\in \P^2|\, (a_0, a_1, a_1)\in q)$$
+
+Hence, we conclude that $$\mathrm{Bl}_P \P^5 = \P (\O(-1)\oplus \O^{\oplus 3})$$
+
+However, this isomorphism is slightly non-canonical: a coordinate-free alternative is to put $\calF = \phi_* \tau^* \O(1)$ which gives $\mathrm{Bl}_P \P^5 = \P \calF^*$.
+
+Now, we restrict to $X$: the blowup $\tilde{X}:=\mathrm{Bl}_P X$ is the strict transform of $X$ in $\mathrm{Bl}_P \P^5$. If $F$ is the defining function of $X$, which is a cubic, we expect generically the fiber of $\tilde{X}\rightarrow \P^2$ to be a quadric, since the blowup only gives a linear condition. The reason for this is that $\tau^*F \in H^0(\tau^* \O(3) \otimes \calI_E)$ since $F$ vanishes on $P$ and hence $\tilde{X}$ is defined as the zero locus of a section of the line bundle $\calL := \tau^* \O(3) \otimes \calI_E$. To understand the fibers of $\tilde{X}$ we push this line bundle down to $\P^2$: $$\phi_*(\tau^* \O(3) \otimes \calI_E)=\phi_* \tau^* \O(2) \otimes \O(1)$$
+
+But the point now is that since $\mathrm{Bl}=\P \calF^*$, then $\calF =\phi_* \O_\phi(1)$ is relative $O(1)$. Pushing down means taking cohomology on the fibers, but then $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. All in all, we see that $$\phi_* \calL = \mathrm{Sym}^2 \calF \otimes \O(1)\subset\lHom (\calF^* , \calF \otimes \O(1))$$
+
+We see that the fiber over $q \in \P^2$ is the residual quadric defined by the quadratic form $q$ corresponding to $F$ which is a section of $\mathrm{Sym}^2\calF$. This quadric is smooth, unless we are in the discriminant locus where $\det(q)$=0. This is a section of the bundle $\Hom(\det(\calF^*), \det (\calF\otimes \O(1))\simeq \O(6) $ since $\det \calF=1$ and $\det \calF\otimes \O(1)= \det (\O(2) \oplus \O(1)^{\oplus 3})=5$. So the discriminant locus is a sextic curve $C$!
+
+We thus have a map $\tilde{X}\rightarrow \P^2$ whose fibers are quadrics, namely the residual quadrics complementary to $P$ in the intersection between the 3-plane spanned by $P$ and $q$ with $X$. They degenerate to singular ones over the sextic curve.
+
+Now, a generic quadric is isomorphic to $\P^1 \times \P^1$ and has exactly two rulings, parametrized by the Fano variety of lines $$F(\P^1 \times \P^1)=\P^1 \coprod \P^1$$
+A singular quadric is a cone, so has exactly one ruling: $$F(Q)=\P^1$$
+
+If we define $S$ to be the space of rulings on the fibers, we see that it is a double cover of $\P^2$ branched along the sextic curve. Moreover, the relative Fano variety parametrizing lines in the fibers is a $\P^1$ bundle over this: $$\tilde{F} \rightarrow S \rightarrow \P^2$$
+
+In fact, this $S$ is a K3 surface: its canonical bundle is given by $$K_S = \pi^*(K_{\P^2}+\frac{1}{2}C)=0$$
+
+We have universal lines $$\calL = \{ x,L | \, x\in L\} \subset X \times F, \tilde{\calL} = \{ x,L | \, x\in L\} \subset X \times \tilde{F},$$
+fitting into a diagram: 
+\begin{center}
+    \begin{tikzcd}
+        & \calL_{\tilde{F}} \arrow[ld] \arrow[rd] \arrow[d] &                     \\
+\tilde{F} \arrow[d] & \calL \arrow[ld] \arrow[rd]                       & \tilde{X} \arrow[d] \\
+F                   &                                                   & X                  
+\end{tikzcd}
+\end{center}
+
+We will see how this correspondence allows us to define a Fourier-Mukai transform $\Phi_{\calI(1)}: \calD (\tilde{F})\rightarrow \calD (X)$ which sends a twisted subcategory $\calD(S,\beta)$ isomorphically to the Kuznetsov component.
+
+\subsection{Derived view of the cubic fourfold}
+
+Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
+
+\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
+The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
+\end{proposition}
+
+The first statement will be proved in the subsequent section. To prove the second statement about the Hochschild cohomology, we first need to understand the Hodge diamond.
+
+\todo{HKR isomorphism}
+\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
+    $$HH^k(\mathcal{D}(X))=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(\mathcal{D}(X))=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
+    
+\end{theorem}
 
 We now embark on the proof that the Kuznetsov component is what is called a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of a K3 surface.
 
@@ -177,7 +232,7 @@ Now we need to use a variant of the Euler sequence: $$\Omega^{k+1}(k+1)\rightarr
 
 This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
 
-\subsubsection{The main theorem}
+\subsubsection{The Kuznetsov component is a CY2 category}
 Now we are ready to prove the main theorem:
 
 \begin{theorem}{Shift functor}{}
@@ -229,13 +284,10 @@ Now we are ready to prove the main theorem:
     In the special case that $X$ is a cubic fourfold, $n=4,d=3$ hence $\calS=T^{-3}\circ [4]=[2]$. More generally, whenever $d|n+2$, the component is Calabi-Yau.
 \end{corollary}
 
+\subsection{Kuznetsov component of known examples is geometric}
+Here, maybe include a proof e.g. by Addington-Lehn that the Kuznetsov component is geometric.
 
-
-
-
-\subsection{Examples: Pfaffian cubics, cubics containing a plane, nodal cubics}
-
-\subsection{Addington-Thomas}
+\subsection{Connecting the Hodge theoretic and derived viewpoints: the paper of Addington-Thomas}
 
 
 
