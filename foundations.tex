@@ -31,8 +31,6 @@ Under these constructions, morphisms in $S$ become invertible.
     \end{equation*}
 \end{theorem}
 
-\todo{Verdier quotients}
-
 This is an additive category. Moreover, the cohomology functor factors through this.
 
 \begin{definition}{Mapping cone}{Mapping cone}
@@ -86,6 +84,30 @@ Now we can complete the proof that quasiisomorphisms form a localizing class in 
     \end{equation*}
     Since $f$ is a quasiisomorphism, we see that $\cone(f)=0$ and hence $\cone(\tau g)$ must be quasiisomorphic to $C[1]$. So we put $?=\cone(\tau g)[-1]$.
 \end{proof}
+
+\subsubsection{The quotient viewpoint}
+
+It is natural to ask which objects in $K(\calA)$ become zero in $D(\calA)$. Such
+a complex must be acyclic, since cohomology lifts to $D(\calA)$, and then the
+map from the zero complex is a quasi-isomorphism so this suffices. In fact one
+can view $D(\calA)$ as the quotient of $K(\calA)$ by the subcategory of acyclic
+complexes.
+
+\begin{definition}{}{}\label{defn:verdierquotient}
+    If $\calC$ is a triangulated category, and $\calD$ is a triangulated
+    subcategory, then the morphisms in $\calC$ whose cones are objects of
+    $\calD$ form a localizing class $\Sigma$. We then define the quotient
+    $\calC/\calD\coloneqq\calC[\Sigma^{-1}]$.
+\end{definition}
+
+\todo{say what triangulated category means, and why this is a
+localizing class}
+
+\begin{remark}
+    In particular $0\to d$ becomes an isomorphism for any $d\in\calD$, since the
+    cone is $d$, and so $\calD$ maps to zero in $\calC/\calD$. In fact
+    $\calC/\calD$ is the universal triangulated category with this property.
+\end{remark}
 
 \subsubsection{Hom sets in the derived category}
 
