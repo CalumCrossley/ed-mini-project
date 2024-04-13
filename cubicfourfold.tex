@@ -91,6 +91,26 @@ This gives the correct answer $21$! All in all, the Hodge diamond looks like:
   \end{tikzcd}
 \end{center}
 
+\begin{theorem}{Global Torelli for cubic fourfolds}{Global Torelli for cubic fourfolds}
+    
+\end{theorem}
+
+\begin{theorem}{Hasset divisors}{}
+
+\end{theorem}
+
+\subsection{Derived view of the cubic fourfold}
+
+There is a categorical viewpoint on the cubic fourfold, due to Kuznetsov.
+
+Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
+
+\todo{HKR isomorphism}
+\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
+    $$HH^k(\mathcal{D}(X))=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(\mathcal{D}(X))=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
+    
+\end{theorem}
+
 We see that, by \ref{th:HKR}, the Hochschild homology is $HH_\bullet(X)=\mathbb{C}[-2]\oplus \mathbb{C}^{25}\oplus \mathbb{C}[2]$. On the other hand, Hochschild homology is additive with respect to semiorthogonal decomposition, and the three exceptional objects contribute to three copies of $\mathbb{C}$ in degree zero, so we see that $HH_\bullet(\mathcal{A}_X)=\mathbb{C}[-2]\oplus \mathbb{C}^{22}\oplus \mathbb{C}[2]$, which is exactly the Hochschild homology of a K3 surface.
 
 These properties of the category $\mathcal{A}_X$ made people suspect that there is an honest, geometric K3 surface inside of $X$. All known cases of cubic fourfolds containing a K3 surface are birational to $\mathbb{P}^4$, which led Kuznetsov to conjecture:
@@ -101,11 +121,18 @@ A cubic fourfold is rational if and only if it contains a smooth projective K3 s
 
 In a subsequent section, we will explore different known examples where this is true, and connect the derived categories viewpoint of Kuznetsov with the Hodge-theoretic perspective of Hasset through the paper of Addington-Thomas.
 
-\todo{Include global Torelli theorem (Voisin) and Hasset theorem on Hodge theory and divisors in the moduli space}
-
-
 \subsection{Fundamental example: cubics containing a plane}
 We begin with the case of cubic fourfolds containing a plane $P\simeq \mathbb{P}^2$. These form a divisor $\calC_8$ in the moduli space of all cubic fourfolds of special importance, as we will see in the review of Addington-Thomas. They also play a central role in Voisin's proof of the global Torelli theorem.
+
+\begin{remark}{Remark}{}
+    The reason the divisor is denoted $\calC_8$ is because the intersection form of the lattice spanned by $P$ and $h^2$ is a matrix $\begin{pmatrix}
+        3 & 1 \\
+        1 & 3
+    \end{pmatrix}$ of determinant $8$.
+    
+\end{remark}
+
+\subsubsection{Geometric constructions}
 
 Consider $P\subset X \subset \P^5$ a cubic fourfold containing a plane $P$. The variety parametrizing $3$-planes containing $P$ is also a plane, and $X$ intersects such a $3$ plane in $P$ combined with a quadric $Q$, since generically the intersection of $X$ with a 3-plane should be degree $3$.
 
@@ -137,44 +164,68 @@ But the point now is that since $\mathrm{Bl}=\P \calF^*$, then $\calF =\phi_* \O
 
 We see that the fiber over $q \in \P^2$ is the residual quadric defined by the quadratic form $q$ corresponding to $F$ which is a section of $\mathrm{Sym}^2\calF$. This quadric is smooth, unless we are in the discriminant locus where $\det(q)$=0. This is a section of the bundle $\Hom(\det(\calF^*), \det (\calF\otimes \O(1))\simeq \O(6) $ since $\det \calF=1$ and $\det \calF\otimes \O(1)= \det (\O(2) \oplus \O(1)^{\oplus 3})=5$. So the discriminant locus is a sextic curve $C$!
 
-We thus have a map $\tilde{X}\rightarrow \P^2$ whose fibers are quadrics, namely the residual quadrics complementary to $P$ in the intersection between the 3-plane spanned by $P$ and $q$ with $X$. They degenerate to singular ones over the sextic curve.
+Let us summarize what we have done so far:
 
-Now, a generic quadric is isomorphic to $\P^1 \times \P^1$ and has exactly two rulings, parametrized by the Fano variety of lines $$F(\P^1 \times \P^1)=\P^1 \coprod \P^1$$
-A singular quadric is a cone, so has exactly one ruling: $$F(Q)=\P^1$$
+\begin{proposition}{Blowup quadric fibration}{Blowup quadric fibration}
+    The blowup of a cubic fourfold $\tilde{X}$ at a plane projects to $\P^2$ with quadric fibers, namely the residual quadrics complementary to $P$ in the intersection between the 3-plane spanned by $P$ and $q$ with $X$. They degenerate to singular ones over a sextic curve $C$.
+\end{proposition}
 
-If we define $S$ to be the space of rulings on the fibers, we see that it is a double cover of $\P^2$ branched along the sextic curve. Moreover, the relative Fano variety parametrizing lines in the fibers is a $\P^1$ bundle over this: $$\tilde{F} \rightarrow S \rightarrow \P^2$$
 
-In fact, this $S$ is a K3 surface: its canonical bundle is given by $$K_S = \pi^*(K_{\P^2}+\frac{1}{2}C)=0$$
+Now, a generic quadric is isomorphic to $\P^1 \times \P^1$ and has exactly two rulings, parametrized by the connected components of the Fano variety of lines $$\scrF(\P^1 \times \P^1)=\P^1 \coprod \P^1$$
+A singular quadric is a cone, so has exactly one ruling: $$\scrF(Q)=\P^1$$
 
-We have universal lines $$\calL = \{ x,L | \, x\in L\} \subset X \times F, \tilde{\calL} = \{ x,L | \, x\in L\} \subset X \times \tilde{F},$$
+If we define $S$ to be the space of rulings on the fibers, we see that it is a double cover of $\P^2$ branched along the sextic curve. Moreover, the relative Fano variety parametrizing lines in the fibers is a $\P^1$ bundle over this: $$\tscrF \rightarrow S \rightarrow \P^2$$
+In other words, for every $y\in \P^2$, the fiber of $\tscrF$ is equal to $\scrF(Q_y)$, the Fano variety of lines in the residual quadric corresponding to $y$.
+
+In fact, this $S$ is a K3 surface: since it is a double cover of $\P^2$, it has $h^{0,1}(S)=h^{0,1}(\P^2)=0$ and its canonical bundle is given by $$K_S = \pi^*(K_{\P^2}+\frac{1}{2}C)=\pi^*(-3H +\frac{1}{2}6H)=0$$
+
+The Fano varieties carry a universal line  $$\scrL = \{ (x,L)\in X\times \scrF | \, x\in L\} \subset X \times \scrF$$
+and similarly a pullback to $\tscrF$ given by $\tscrL = \{ x,L | \, x\in L\} \subset X \times \tscrF,$
 fitting into a diagram: 
 \begin{center}
     \begin{tikzcd}
-        & \calL_{\tilde{F}} \arrow[ld] \arrow[rd] \arrow[d] &                     \\
-\tilde{F} \arrow[d] & \calL \arrow[ld] \arrow[rd]                       & \tilde{X} \arrow[d] \\
-F                   &                                                   & X                  
+        & \tscrL \arrow[ld] \arrow[rd] \arrow[d] &                     \\
+\tscrF \arrow[d] & \ \arrow[ld] \arrow[rd]   \scrL                   & \tilde{X} \arrow[d] \\
+\scrF                   &                                                   & X                  
 \end{tikzcd}
 \end{center}
 
-We will see how this correspondence allows us to define a Fourier-Mukai transform $\Phi_{\calI(1)}: \calD (\tilde{F})\rightarrow \calD (X)$ which sends a twisted subcategory $\calD(S,\beta)$ isomorphically to the Kuznetsov component.
+\begin{remark}{Brauer-Severi varieties}{}
+    We have seen that $\tscrF\rightarrow S$ is a $\P^1$ bundle. There is a cohomological obstruction $\alpha \in H^2(S, \O_S^\times)$ to this being a projectivized vector bundle, which can be seen by locally trivializing and trying to glue over an open cover. However, there is an $\alpha$-twisted vector bundle $\calE$ such that $\tscrF=\P \calE$ and a sheaf of Azumaya algebras $\calB_0 = \mathrm{End}\,\calE$ whose Brauer class is $\alpha$.  Even more is true: the pushforward to $\P^2$ defined as $\pi_* \calB_0 = \calC_0$ is the sheaf of even Clifford algebras corresponding to $(\calF^*, q)$: $$\calC_0=\O \oplus \bigwedge\nolimits^2 \calF^*(-1)\oplus \bigwedge\nolimits^4\calF^*(-2)$$ whose center $\mathcal{Z}$ realizes $S=\calS pec\, \mathcal{Z}$ as a relative Spec of a sheaf of algebras. For more on this, consult Bernardara et al.
+    
+\end{remark}
 
-\subsection{Derived view of the cubic fourfold}
+In the next section, we will see how the above correspondence allows us to define a Fourier-Mukai transform $\Phi_{\calI(1)}: \calD (\tscrF)\rightarrow \calD (X)$ which sends a twisted subcategory $\calD(S,\alpha)$ isomorphically to the Kuznetsov component.
 
-Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
+\subsubsection{Twisted sheaves on the K3 surface $S$}
 
-\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
-The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
+We have seen that to every cubic fourfold containing a plane, we can associate some K3 surface by blowing up the plane and realizing $S$ as the variety of rulings on the fibers of the quadric fibration $\tilde{X}\rightarrow \P^2$. Given that the Kuznetsov component looks like the derived category of a K3 surface, it is natural to conjecture that these two are related. In this section, we review two approaches to proving the following: 
+\begin{proposition}{Kuznetsov}{Kuznetsov twisted K3}
+    There is an equvalence between the derived category of twisted sheaves on $S$ and the Kuznetsov component: $$\calD(S,\alpha)\simeq \calA_X$$
 \end{proposition}
 
-The first statement will be proved in the subsequent section. To prove the second statement about the Hochschild cohomology, we first need to understand the Hodge diamond.
+\begin{proof}[Proof 1]
+    The original approach is due to Kuznetsov (Derived category of cubic fourfolds). The point is that on the one hand, the blowup formula \ref{th:Bondal-Orlov blowup formula} shows that $$\calD(\tilde{X})\simeq \langle \calD(P), \calD(X)  \rangle $$
+    This has $6$ exceptional objects and the category $\calA_X$.
+    On the other hand, Kuznetsov's work on quadric fibrations shows that there is another semiorthogonal decomposition $$\calD(\tilde{X})=\langle \calD(S,\alpha), \calD(P), \calD(P) \otimes \O(1)\rangle$$
+    This also has $6$ exceptional objects, together with the category $\calD(S,\alpha)$.
 
-\todo{HKR isomorphism}
-\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
-    $$HH^k(\mathcal{D}(X))=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(\mathcal{D}(X))=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
+    A sequence of mutations then identifies the two categories in question.
+\end{proof}
+
+\begin{proof}[Proof 2]
     
-\end{theorem}
+    
+\end{proof}
 
-We now embark on the proof that the Kuznetsov component is what is called a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of a K3 surface.
+
+\subsection{The Kuznetsov component is CY2}
+We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
+
+%\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
+ %   The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
+%  \end{proposition}
+    
 
 Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
 
@@ -232,7 +283,7 @@ Now we need to use a variant of the Euler sequence: $$\Omega^{k+1}(k+1)\rightarr
 
 This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
 
-\subsubsection{The Kuznetsov component is a CY2 category}
+\subsubsection{The main result}
 Now we are ready to prove the main theorem:
 
 \begin{theorem}{Shift functor}{}
@@ -284,10 +335,9 @@ Now we are ready to prove the main theorem:
     In the special case that $X$ is a cubic fourfold, $n=4,d=3$ hence $\calS=T^{-3}\circ [4]=[2]$. More generally, whenever $d|n+2$, the component is Calabi-Yau.
 \end{corollary}
 
-\subsection{Kuznetsov component of known examples is geometric}
-Here, maybe include a proof e.g. by Addington-Lehn that the Kuznetsov component is geometric.
-
 \subsection{Connecting the Hodge theoretic and derived viewpoints: the paper of Addington-Thomas}
+
+So far we have seen a countable union of divisors in the moduli space of cubic fourfolds with a distinguished divisor $\calC_8$. Addington-Thomas show that all the other $\calC_i$ meet this nontrivially. The cubic fourfolds in these divisors are the conjecturally rational ones. 
 
 
 
