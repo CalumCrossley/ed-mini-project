@@ -1,3 +1,179 @@
+\subsection{Orlov's blow up formula}
+
+Let $Z$ be a smooth subvariety of $Y$ of codimension $c$. Consider the blow up $X = \mathrm{Bl}_{Z}(Y)$ which fits into the fibered square below, with $E$ the projectivisation $\mathbb{P} (\mathcal{N})$ of the normal bundle $\mathcal{N}_{Z/Y}$. 
+
+\[\begin{tikzcd}[column sep=2.25em]
+	{E } & X \\
+	Z & {Y}
+	\arrow["p"', from=1-1, to=2-1]
+	\arrow["\pi", from=1-2, to=2-2]
+	\arrow["i", hook, from=1-1, to=1-2]
+	\arrow["j"', hook, from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Note that the blow-up has projective fibres, so $\pi_{*}\mathcal{O}_{X}= \mathcal{O}_Y$. Taking the fibre product $X \times Z$, for integer $k$ we can consider $\mathcal{O}_{E}(kE)$ as an element of the product, so can define the collection of Fourier Mukai transforms indexed by the integers, $$\Phi_{k}:= i_{*}\left( \mathcal{O}_{E}(kE)\otimes p^{*}(- ) \right): D(Z)\to D(X) .$$
+
+By properties of Fourier Mukai transforms, $\Phi_k$ has left and right adjoints. Moreover, $\Phi_k$ is fully faithful, which can be seen by verifying that the composition of $\Phi_k$ with its right adjoint $\Phi_{k}^{!}:= p_{*}(\mathcal{O}_{E}(-kE)\otimes i^{!}(-))$ is isomorphic to the identity on $D(Z)$. Moreover the right adjoint allows us to see the $D(Z)$ as an admissible subcategory of $D(X)$ under $\Phi_k$. Consider the fact from HUYBRECHTS.
+
+\begin{proposition}
+    Suppose $f: S \to T$ is a projectiv emorphism of smooth projective varieties. If $f_{*}\mathcal{O}_{S} = \mathcal{O}_T$ , then the pullback $$f^{*}: D(T)\to D(S)$$is fully faithful and induces an equivalence of $D(T)$ with an admissible triangulated subcategory of $D(S)$.
+
+\end{proposition}
+
+Hence we can see $D(Y)$ as an admissible subcategory of $D(X)$ under $\pi^*$. Denote the images $\mathcal{D}_{-k}=\mathrm{Im}(\Phi_{k})$ and $\mathcal{D}_{0}= \pi^{*}D(Y)$ which are admissible in $D(X)$. 
+
+\begin{lemma}
+    The sequence $$\mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1},\mathcal{D}_0$$is a sequence of semiorthogonal admissible subcategories in $D(X)$.
+\end{lemma}
+
+
+\begin{proof}
+We already know that each component is admissible. To see that they are orthogonal in the left direction, take integers $-c+1 \leq l <k <0$, and $\mathcal{E}, \mathcal{F}\in D(Z)$. Let $i^*$ be the left adjoint to $i_*$. The we have $$\mathrm{Hom}(i_{*}\left( p^{*}\mathcal{F}\otimes \mathcal{O}_{E}(-kE) \right), i_{*}\left( p^{*}\mathcal{E}\otimes \mathcal{O}_{E}(-lE) \right)  ) \simeq \mathrm{Hom}(i^{*}i_{*}p^{*}\mathcal{F}, p^{*}\mathcal{E}\otimes \mathcal{O}_{E}((k-l)E))$$
+
+From HUY, corollary 11.4, we have a distinguished triangle $$p^{*}\mathcal{F}\otimes  \mathcal{O}_{E}(-E)[1]\to i^{*}i_{*}p^{*}\mathcal{F}\to p^{*}\mathcal{F}\to p^{*}\mathcal{F}\otimes \mathcal{O}_E(-E)[2]$$
+So using the projection formula the above is equal to
+
+\begin{align*}
+\mathrm{Hom}(p^{*}\mathcal{F},p^{*}\mathcal{E} \otimes  \mathcal{O}_{E}((k-l)E)) &\simeq \mathrm{Hom}(\mathcal{F},p_{*}(p^{*}\mathcal{E} \otimes  \mathcal{O}_{E}((k-l)E)))  \\
+&\simeq \mathrm{Hom}(\mathcal{F},\mathcal{E} \otimes p_{*} \mathcal{O}_{E}((k-l)E)) 
+\end{align*}
+
+Since the fibres of $p$ are $\mathbb{P}^{c-1}$, then if $-c+1<l-k<0$, $p_{*}\mathcal{O}_{E}((k-l)E)=0$. Hence the above is equal to 0, so $\mathrm{Hom}(\mathcal{F},\mathcal{E} \otimes p_{*} \mathcal{O}_{E}((k-l)E)) =0$, and $\mathcal{D}_{l}\subset \mathcal{D_k}^\perp$.
+
+Now take $\mathcal{E}\in D(Y)$, and $\mathcal{F}\in D(Z)$. Similarly, we have
+\begin{align*}
+\mathrm{Hom}(\pi^{*}\mathcal{E},i_{*}(p^{*}\mathcal{F}\otimes \mathcal{O}_{E}(-lE))) &\simeq \mathrm{Hom}(\mathcal{E},\pi_{*}i_{*}(p^{*}\mathcal{F}\otimes \mathcal{O}_{E}(-lE))) \\
+&\simeq \mathrm{Hom}(\mathcal{E},j_{*}p_{*}(p^{*}\mathcal{F}\otimes \mathcal{O}_{E}(-lE)))  \\
+&\simeq \mathrm{Hom}(\mathcal{E},j_{*}(\mathcal{F}\otimes p_{*}\mathcal{O}_{E}(-lE))) 
+\end{align*}
+but as $-c+1\leq l<0$, $p_{*}\mathcal{O}_{E}(-lE)=0$. Hence $\mathcal{D}_{l}\subset D_{0}^\perp$. We have shown that the collection $\mathcal{D}_{-c+1},\dots,\mathcal{D}_0$ is semiorthogonal.  
+\end{proof}
+
+\begin{theorem}
+    Let $Z$ be a smooth subvariety of $Y$ of codimension $c$, and $X = \mathrm{Bl}_{Z}(Y)$. Then we have a semi orthogonal decomposition $$ D(X) = \left< \mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1}, \mathcal{D}_0 \right> $$
+\end{theorem}
+
+The proof follows directly from the lemma, and the assertion that this collection does indeed generate $D(X)$, which is shown in ORLOV (Projective bundles, monoidal transformations, and derived categories of coherent sheaves).
+
+\subsection{Standard flip}
+
+Let $X$ be a smooth variety of dimension and a subvariety $Y \simeq \mathbb{P}^k$ with normal bundle $\mathcal{ N}_{Y/X}\simeq \mathcal{O}(-1)^{\oplus l+1}$ , where  $l = \mathrm{codim}\mathbb{P}^{k}-1$. Assume $l \leq k$. Consider the blow-up $\pi:\tilde{X}\to X$ along $Y$, so that the exceptional locus $\tilde{Y} = \mathbb{P}(\mathcal{N})$ is isomorphic to $\mathbb{P}^{k}\times \mathbb{P}^l$. 
+
+We get a contraction $\pi^{+}: \tilde{X}\to X^+$ that realizes $\tilde{X}$ as a new blow-up by projecting to the $\mathbb{P}^{l}$ component of the exceptional locus, giving a new variety $X^+$ with $Y^{+}\simeq \mathbb{P}^{l}\subset X^{+}$ that fits into the following diagram. 
+
+\[\begin{tikzcd}
+	&& {\tilde Y} \\
+	& {} & {\tilde X} \\
+	Y & X && {X^+} & {Y^+}
+	\arrow["{i^+}"', hook', from=3-5, to=3-4]
+	\arrow["i", hook, from=3-1, to=3-2]
+	\arrow["\pi"', from=2-3, to=3-2]
+	\arrow["{\pi^+}", from=2-3, to=3-4]
+	\arrow["j", hook, from=1-3, to=2-3]
+	\arrow["p"', from=1-3, to=3-1]
+	\arrow["{p^+}", from=1-3, to=3-5]
+\end{tikzcd}\]
+
+Where $\pi$ (resp. $\pi^+$) restricted to $\tilde{Y}$ is equal to $p$ (resp. $p^+$) This is the construction of the standard flip. If further $l = k$, this is the standard flop. 
+
+By the adjunction formula, the restriction of the canonical sheaf $\omega_X$ to $Y$ is given by $$
+\omega_{X}\mid_{\mathbb{P}^{k}} \simeq \mathcal{O}(l-k)$$ and the canonical sheaf of a blow-up is given by the formula $$\omega_{\tilde{X}} \simeq \pi^{*}\omega_{X}\otimes \mathcal{O}_{\tilde{X}}(l \tilde{Y})$$
+
+Moreover, the restriction $\mathcal{O}_{\tilde{X}}(\tilde{Y}) \mid_{\tilde{Y}} \simeq p^{*}\mathcal{O}_{Y}(-1)\otimes p^{+*}\mathcal{O}_{Y^+}(-1)$. Hence we have that 
+
+\begin{align*}
+\omega_{\tilde{X}}\mid_{E} &\simeq \left( \pi^{*}\omega_{X}\otimes \mathcal{O}_{\tilde{X}}(l \tilde{Y}) \right) \Big|_{\tilde{Y}}  \\
+&\simeq p^{*}(\omega_{X}\big|_{Y})\otimes  \mathcal{O}_{\tilde{X}}( \tilde{Y})\Big|_{\tilde{Y}}  \\
+&\simeq p^{*} \mathcal{O}_Y(l-k) \otimes p^{*}\mathcal{O}_{Y}(-l) \otimes p^{+*}\mathcal{O}_{Y^{+}(-l)} \\
+&\simeq p^{*} \mathcal{O}_Y(-k) \otimes p^{+*}\mathcal{O}_{Y^+}(-l) 
+\end{align*}
+
+which we will denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$. 
+
+We claim that the pull and push along these flipping contractions yield a fully faithful functor, which is an equivalence if $l = k$. Hence we have the following proposition. 
+
+\begin{theorem}
+    For the standard flip as described above, the composition $$
+\pi_{*}\pi^{+*}: D^{b}(X^+)\to D^{b}(X)
+$$ is full and faithful, with an equivalence in the case of $l =k$. 
+\end{theorem}
+
+In the above case of the standard flop, the equivalence of derived categories is induced by the standard blow up and blow down. In the next section, we will see the effect of more birational transformations on the derived category in the case of toric varieties, in particular those described by GIT quotients. 
+
+\subsection{Semi-orthogonal decomposition of GIT quotients}
+
+\subsubsection{Toric Geometry}
+
+Let us recall some basics of Toric geometry. 
+
+\subsubsection{Wall Crossings}
+
+
+cf. 
+Kite-Segal: Discriminants and Semi-orthogonal decompositions
+Ballard-Favero-Kartzakov: VGIT and Derived categories
+
+
+Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. Denote $\det V = \sum_i q_i$, where $q_i$ is the $i^\mathrm{th}$ column of the weight matrix $Q$. 
+
+\begin{definition}
+    Given a reductive, linear algebraic group $G$, we call a one parameter subgroup of $G$ (the image of) an injective homomorphism $\lambda : \mathbb{G}_{m}\to G$. If $G$ acts on a space $V$, this induces an action of $\mathbb{G}_m$ on $V$ defined by $\lambda$, of which we denote the fixed locus $V^\lambda$. 
+\end{definition}
+
+
+Consider a toric GIT problem defined by the action of a group $T$ on a vector space $V$. Let $C_+$ and $C_-$ be adjacent chambers of the secondary fan in $L^{*}_\mathbb{R}$ separated by a wall $W$. Assume that $\det V$ is on the $C_{+}$ side of the adjoining wall $W$. The wall $W$ corresponds to an orthogonal (primitive) one-parameter subgroup $\lambda_{W}\in L$.
+
+We can define a value $\kappa = (\det V)(\lambda_W)$. Let $\lambda_W$ be such that $\kappa \geq 0$, so is pointing to the $C_+$ 'side' of the wall. $\kappa$ is a combinatorial value which will (roughly) tell us which chamber admits the 'bigger' GIT quotients. 
+
+Let $X_+$ (resp. $X_-$) be the GIT quotient $V // _{\theta_{+}}T$ (resp. $V // _{\theta_{-}}T$ ) corresponding to the chosen generic stability condition $\theta_{+}\in C_+$ (resp. $\theta_-$).  Recall from the previous section that GIT quotients are invariant across stability conditions in the interior of a given chamber. 
+
+We can define a somewhat 'smaller' GIT problem associated to a subset $S \subset \{ 1,\dots,n \}$, or more specifically a subset $Q_S$ of the weights corresponding to the set $S$, which in our case are the $s_i$ columns of the weight matrix for $s_{i}\in S$. These weights generate a sublattice $L_{S}^{*}\subset L_\mathbb{R}^*$, determining what we call a Higgs GIT problem, defined by the exact sequence $$M_{S}\to \mathbb{Z}^{S}\xrightarrow{Q_{S}}L_{S}^{*}$$
+
+From this we will now form a strictly lower dimensional variety $Z$ which give components in a SOD of $X_+$. First, we form a Higgs GIT problem, which defines the GIT quotient of the fixed locus $V^{\lambda_{W}}$ by the $T/\lambda_W$. Here, our subset $Q_S$  is the collection of weights which are orthogonal to $\lambda_W$, that is, the weights which lie in the space spanned by $W$. We can see that lattice $L_S^*$ is exactly the character lattice for the action of $T/\lambda_W$, since the the weights span the space orthogonal to $\lambda_W$. Moreover, the subspace of $V$ fixed by $\lambda_W$ corresponds to the lattice $\mathbb{Z}^S$ in the exact sequence. We choose a character $\theta_W$ in the chamber of $L_{S}^*$ define by the cone generated by $W$, to form the quotient $$Z = V^{\lambda_{W}} / /_{\theta_{W}} \left( T/ \lambda_{W}\right) . $$
+
+Hence we get the theorem due to HL and BFK.
+
+\begin{theorem}
+    Consider GIT quotients $X_{+},X_{-}$  related by a wall crossing across the wall W as described above. 
+
+If $\kappa > 0$, we have a semi-orthogonal decomposition given by $$D(X_{+}) = \left< D(X_{-}),D(Z) , \dots, D(Z)  \right>$$with $\kappa$ copies of $D(Z)$ appearing.
+
+If $\kappa = 0$, the wall crossing induces a flop, and we have an equivalence of categories $$D(X_{+})\simeq D(X_-).$$
+\end{theorem}
+
+This theorem was proved in BFK in much greater generality than used here, where such a decomposition holds for a smooth quasi-projective variety acted upon by a linear algebraic group, and a wall-crossing between two G-equivariant line bundles. However, to state the theorem in full generality requires more technical machinery than is necessary for the toric case for the purposes of our examples below. 
+
+For ease of notation, we will denote the factor of $D(X)$ in a semi-orthogonal decomposition just as $X$. 
+
+\begin{example}
+    Recall Beilinson's exceptional collection which forms a SOD of $D(\mathbb{P}^n)$. Since $\mathbb{P}^n$ is a toric variety, we can realise it as the GIT quotient with respect to the usual action of $\mathbb{C}^*$ on $V = \mathbb{C}^{n+1}$. So the weights are $\begin{pmatrix}1 & 1 &\dots &1\end{pmatrix}$, with $\det V = n+1$. The wall crossing to $X_{-}=\emptyset$, retrieves the decomposition $\left< pt, \dots,pt \right>$ with $n+1$ copies of the derived category of a point, corresponding to the exceptional collection of line bundles on $\mathbb{P}^n$. 
+\end{example}
+
+\begin{example}
+    Consider the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-1)$. There are two stability conditions which can define toric GIT quotients, with $X_+$ corresponding to the chamber with the weights $(1,1)$, i.e. take the unstable locus to be $x=y= 0$, or $X_-$ corresponding to the chamber with -1, i.e. take unstable locus $z = 0$. With these stability conditions we have $$X_{+}= \mathcal{O}(-1)_{\mathbb{P}^{1}} \qquad X_{-}= \mathbb{C}^2, $$ Hence we get the have the decomposition $$D(\mathcal{O}(-1)_{\mathbb{P}^{1}})= \left< \mathbb{C}^{2}, pt \right> $$ which recovers Orlov's blow-up formula, as $X_+$ is the blow-up of $\mathbb{C}^2$ at a point.
+\end{example}
+
+\begin{example}
+    Now consider the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-2)$ corresponding to coordinates $x_{1},x_{2},y_1,y_2$ .  Since $\det V = 0$, any wall crossing will give us a flop. Indeed, we have stability conditions, giving quotients $$X_{+}= \mathcal{O}_{\mathbb{P}^{1}}(-2) \qquad X_{-}= [\mathbb{C}^{2}/ \mathbb{Z}_2]  $$where $[\mathbb{C}^2/\mathbb{Z}_2]$ is the orbifold with the action of $\mathbb{Z}_2$. The theorem thus gives us a derived equivalence $$D(\mathcal{O}_{\mathbb{P}^{1}}(-2))\simeq D([\mathbb{C}^{2}/\mathbb{Z}_{2}])$$
+\end{example}
+
+
+The above theorem immediately yields a method for calculating a semi-orthogonal decomposition which is 'maximally refined', in that none of its components can be factored further through wall-crossings. This follows a similar algorithm to the MMP for toric GIT quotients. 
+
+Starting with some fixed stability condition $\theta _1$ and its corresponding variety $X_1$, a wall crossing across the wall $W$ (away from $\det V$) gives the decomposition into $X_2$, the variety defined by the wall crossing, and $\kappa$ copies of the variety $Z_W$, the variety defined by the Higgs GIT problem for $W$. We can perform repeated wall crossings to decompose $X_2$ until a minimal model $X_{min}$ is reached. We will then be left with a factor of $X_{min}$ , and factors corresponding to the GIT problems $V^{\lambda_{W}} / / \lambda_{W}$ for each wall $W$ crossed, and can hence repeat the process of decomposition on each of the remaining non-minimal factors.
+
+Consider the example presented in Kite Segal
+
+ADD ALGORITHM EXAMPLE
 
 
 
+We are interested in finding examples of nontrivial equivalences of derived categories induced by flops, which in the toric picture can be seen by considering the Calabi-Yau case.
+
+\begin{definition}
+    A toric GIT problem with weights $Q$ is said to be Calabi-Yau if $$\det V = \sum_{q \in Q} q = 0$$
+\end{definition}
+
+From this, it is clear that $\kappa = 0$ for all walls $W$ in the secondary fan, so any wall crossing induces a flop on the GIT quotients. Moreover, this gives us a way to see the nontrivial autoequivalences which come from these wall crossings. In particular, we will see that these autoequivalences have a nice interpretation as twists around spherical functors. 
+
+\subsection{Windows and Spherical functors}
