@@ -15,14 +15,14 @@ Note that the blow-up has projective fibres, so $\pi_{*}\mathcal{O}_{X}= \mathca
 
 By properties of Fourier Mukai transforms, $\Phi_k$ has left and right adjoints. Moreover, $\Phi_k$ is fully faithful, which can be seen by verifying that the composition of $\Phi_k$ with its right adjoint $\Phi_{k}^{!}:= p_{*}(\mathcal{O}_{E}(-kE)\otimes i^{!}(-))$ is isomorphic to the identity on $D(Z)$. Moreover the right adjoint allows us to see the $D(Z)$ as an admissible subcategory of $D(X)$ under $\Phi_k$. Consider the fact from HUYBRECHTS.
 
-\begin{proposition}
+\begin{proposition}{}{}
     Suppose $f: S \to T$ is a projectiv emorphism of smooth projective varieties. If $f_{*}\mathcal{O}_{S} = \mathcal{O}_T$ , then the pullback $$f^{*}: D(T)\to D(S)$$is fully faithful and induces an equivalence of $D(T)$ with an admissible triangulated subcategory of $D(S)$.
 
 \end{proposition}
 
 Hence we can see $D(Y)$ as an admissible subcategory of $D(X)$ under $\pi^*$. Denote the images $\mathcal{D}_{-k}=\mathrm{Im}(\Phi_{k})$ and $\mathcal{D}_{0}= \pi^{*}D(Y)$ which are admissible in $D(X)$. 
 
-\begin{lemma}
+\begin{lemma}{}{}
     The sequence $$\mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1},\mathcal{D}_0$$is a sequence of semiorthogonal admissible subcategories in $D(X)$.
 \end{lemma}
 
@@ -49,7 +49,7 @@ Now take $\mathcal{E}\in D(Y)$, and $\mathcal{F}\in D(Z)$. Similarly, we have
 but as $-c+1\leq l<0$, $p_{*}\mathcal{O}_{E}(-lE)=0$. Hence $\mathcal{D}_{l}\subset D_{0}^\perp$. We have shown that the collection $\mathcal{D}_{-c+1},\dots,\mathcal{D}_0$ is semiorthogonal.  
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     Let $Z$ be a smooth subvariety of $Y$ of codimension $c$, and $X = \mathrm{Bl}_{Z}(Y)$. Then we have a semi orthogonal decomposition $$ D(X) = \left< \mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1}, \mathcal{D}_0 \right> $$
 \end{theorem}
 
@@ -92,7 +92,7 @@ which we will denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$.
 
 We claim that the pull and push along these flipping contractions yield a fully faithful functor, which is an equivalence if $l = k$. Hence we have the following proposition. 
 
-\begin{theorem}
+\begin{theorem}{}{}
     For the standard flip as described above, the composition $$
 \pi_{*}\pi^{+*}: D^{b}(X^+)\to D^{b}(X)
 $$ is full and faithful, with an equivalence in the case of $l =k$. 
@@ -116,7 +116,7 @@ Ballard-Favero-Kartzakov: VGIT and Derived categories
 
 Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. Denote $\det V = \sum_i q_i$, where $q_i$ is the $i^\mathrm{th}$ column of the weight matrix $Q$. 
 
-\begin{definition}
+\begin{definition}{}{}
     Given a reductive, linear algebraic group $G$, we call a one parameter subgroup of $G$ (the image of) an injective homomorphism $\lambda : \mathbb{G}_{m}\to G$. If $G$ acts on a space $V$, this induces an action of $\mathbb{G}_m$ on $V$ defined by $\lambda$, of which we denote the fixed locus $V^\lambda$. 
 \end{definition}
 
@@ -133,7 +133,7 @@ From this we will now form a strictly lower dimensional variety $Z$ which give c
 
 Hence we get the theorem due to HL and BFK.
 
-\begin{theorem}
+\begin{theorem}{}{}
     Consider GIT quotients $X_{+},X_{-}$  related by a wall crossing across the wall W as described above. 
 
 If $\kappa > 0$, we have a semi-orthogonal decomposition given by $$D(X_{+}) = \left< D(X_{-}),D(Z) , \dots, D(Z)  \right>$$with $\kappa$ copies of $D(Z)$ appearing.
@@ -145,15 +145,15 @@ This theorem was proved in BFK in much greater generality than used here, where 
 
 For ease of notation, we will denote the factor of $D(X)$ in a semi-orthogonal decomposition just as $X$. 
 
-\begin{example}
+\begin{example}{}{}
     Recall Beilinson's exceptional collection which forms a SOD of $D(\mathbb{P}^n)$. Since $\mathbb{P}^n$ is a toric variety, we can realise it as the GIT quotient with respect to the usual action of $\mathbb{C}^*$ on $V = \mathbb{C}^{n+1}$. So the weights are $\begin{pmatrix}1 & 1 &\dots &1\end{pmatrix}$, with $\det V = n+1$. The wall crossing to $X_{-}=\emptyset$, retrieves the decomposition $\left< pt, \dots,pt \right>$ with $n+1$ copies of the derived category of a point, corresponding to the exceptional collection of line bundles on $\mathbb{P}^n$. 
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
     Consider the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-1)$. There are two stability conditions which can define toric GIT quotients, with $X_+$ corresponding to the chamber with the weights $(1,1)$, i.e. take the unstable locus to be $x=y= 0$, or $X_-$ corresponding to the chamber with -1, i.e. take unstable locus $z = 0$. With these stability conditions we have $$X_{+}= \mathcal{O}(-1)_{\mathbb{P}^{1}} \qquad X_{-}= \mathbb{C}^2, $$ Hence we get the have the decomposition $$D(\mathcal{O}(-1)_{\mathbb{P}^{1}})= \left< \mathbb{C}^{2}, pt \right> $$ which recovers Orlov's blow-up formula, as $X_+$ is the blow-up of $\mathbb{C}^2$ at a point.
 \end{example}
 
-\begin{example}
+\begin{example}{}{}
     Now consider the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-2)$ corresponding to coordinates $x_{1},x_{2},y_1,y_2$ .  Since $\det V = 0$, any wall crossing will give us a flop. Indeed, we have stability conditions, giving quotients $$X_{+}= \mathcal{O}_{\mathbb{P}^{1}}(-2) \qquad X_{-}= [\mathbb{C}^{2}/ \mathbb{Z}_2]  $$where $[\mathbb{C}^2/\mathbb{Z}_2]$ is the orbifold with the action of $\mathbb{Z}_2$. The theorem thus gives us a derived equivalence $$D(\mathcal{O}_{\mathbb{P}^{1}}(-2))\simeq D([\mathbb{C}^{2}/\mathbb{Z}_{2}])$$
 \end{example}
 
@@ -170,7 +170,7 @@ ADD ALGORITHM EXAMPLE
 
 We are interested in finding examples of nontrivial equivalences of derived categories induced by flops, which in the toric picture can be seen by considering the Calabi-Yau case.
 
-\begin{definition}
+\begin{definition}{}{}
     A toric GIT problem with weights $Q$ is said to be Calabi-Yau if $$\det V = \sum_{q \in Q} q = 0$$
 \end{definition}
 
