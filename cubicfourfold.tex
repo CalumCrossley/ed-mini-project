@@ -160,7 +160,19 @@ However, this isomorphism is slightly non-canonical: a coordinate-free alternati
 
 Now, we restrict to $X$: the blowup $\tilde{X}:=\mathrm{Bl}_P X$ is the strict transform of $X$ in $\mathrm{Bl}_P \P^5$. If $F$ is the defining function of $X$, which is a cubic, we expect generically the fiber of $\tilde{X}\rightarrow \P^2$ to be a quadric, since the blowup only gives a linear condition. The reason for this is that $\tau^*F \in H^0(\tau^* \O(3) \otimes \calI_E)$ since $F$ vanishes on $P$ and hence $\tilde{X}$ is defined as the zero locus of a section of the line bundle $\calL := \tau^* \O(3) \otimes \calI_E$. To understand the fibers of $\tilde{X}$ we push this line bundle down to $\P^2$: $$\phi_*(\tau^* \O(3) \otimes \calI_E)=\phi_* \tau^* \O(2) \otimes \O(1)$$
 
-But the point now is that since $\mathrm{Bl}=\P \calF^*$, then $\calF =\phi_* \O_\phi(1)$ is relative $O(1)$. Pushing down means taking cohomology on the fibers, but then $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. All in all, we see that $$\phi_* \calL = \mathrm{Sym}^2 \calF \otimes \O(1)\subset\lHom (\calF^* , \calF \otimes \O(1))$$
+But the point now is that since $\mathrm{Bl}=\P \calF^*$, then $\calF =\phi_* \O_\phi(1)$ is relative $O(1)$. Pushing down means taking cohomology on the fibers, but then $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. 
+
+\begin{remark}{Relative line bundles on projective bundles}{Relative line bundles on projective bundles}
+    More generally \cite[Remark~13.36]{Wedhorn}, given a projective bundle $\pi:\P\calE \rightarrow B$ which can be defined as a relative Proj of a sheaf of algebras $\underline{\Proj}\, \mathrm{Sym}^\bullet \calE$, we have the following fact: $$\pi_* \O_{\P\calE}(d)=\mathrm{Sym}^d \calE$$ 
+
+    In particular, $\pi_*\O(1)=\calE$. We also have a relative Euler sequence: $$0\rightarrow \O\rightarrow \pi^* \calE \otimes \O_{\pi}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$since $$\calT_\pi:=\calT_{\P\calE/B}\simeq \lHom(\O_{\pi}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{\pi}(-1),\mathcal{Q}\oplus \O_{\pi}(-1))}{\lHom (\O_{\pi}(-1), \O_{\pi}(-1))}\simeq \frac{\lHom(\O_{\pi}(-1), \pi^* \calE)}{ \O}$$  
+
+    By twisting by $-1$ and taking determinants, we see that $$\pi^* \det \calE \simeq \O_\pi(-1) \otimes \det(\calT_\pi\otimes \O_\pi(-1))\simeq \O_\pi(-k-1) \otimes \det(\calT_\pi)$$and so $$\omega_\pi\simeq \pi^* \det \calE^* \otimes \O_{\pi}(-k-1)$$
+
+    Moreover, the derived pushforward is given by $\pi_* \omega_\pi\simeq \O_B[-1]$, and so we conclude that $\pi_* \O_\pi(-k-1) \simeq \det \calE^*[-1]$. 
+ \end{remark}
+
+All in all, we see that $$\phi_* \calL = \mathrm{Sym}^2 \calF \otimes \O(1)\subset\lHom (\calF^* , \calF \otimes \O(1))$$
 
 We see that the fiber over $q \in \P^2$ is the residual quadric defined by the quadratic form $q$ corresponding to $F$ which is a section of $\mathrm{Sym}^2\calF$. This quadric is smooth, unless we are in the discriminant locus where $\det(q)$=0. This is a section of the bundle $\Hom(\det(\calF^*), \det (\calF\otimes \O(1))\simeq \O(6) $ since $\det \calF=1$ and $\det \calF\otimes \O(1)= \det (\O(2) \oplus \O(1)^{\oplus 3})=5$. So the discriminant locus is a sextic curve $C$!
 
@@ -179,13 +191,13 @@ In other words, for every $y\in \P^2$, the fiber of $\tscrF$ is equal to $\scrF(
 
 In fact, this $S$ is a K3 surface: since it is a double cover of $\P^2$, it has $h^{0,1}(S)=h^{0,1}(\P^2)=0$ and its canonical bundle is given by $$K_S = \pi^*(K_{\P^2}+\frac{1}{2}C)=\pi^*(-3H +\frac{1}{2}6H)=0$$
 
-The Fano varieties carry a universal line  $$\scrL = \{ (x,L)\in X\times \scrF | \, x\in L\} \subset X \times \scrF$$
-and similarly a pullback to $\tscrF$ given by $\tscrL = \{ x,L | \, x\in L\} \subset X \times \tscrF,$
+The Fano varieties carry a universal $\P^1$-bundle $$\scrP = \{ (x,L)\in X\times \scrF | \, x\in L\} \subset X \times \scrF$$
+and similarly a pullback to $\tscrF$ given by $\tscrP = \{ x,L | \, x\in L\} \subset X \times \tscrF,$
 fitting into a diagram: 
 \begin{center}
     \begin{tikzcd}
-        & \tscrL \arrow[ld] \arrow[rd] \arrow[d] &                     \\
-\tscrF \arrow[d] & \ \arrow[ld] \arrow[rd]   \scrL                   & \tilde{X} \arrow[d] \\
+        & \tscrP \arrow[ld] \arrow[rd] \arrow[d] &                     \\
+\tscrF \arrow[d] & \ \arrow[ld] \arrow[rd]   \scrP                   & \tilde{X} \arrow[d] \\
 \scrF                   &                                                   & X                  
 \end{tikzcd}
 \end{center}
@@ -197,7 +209,7 @@ fitting into a diagram:
 
 In the next section, we will see how the above correspondence allows us to define a Fourier-Mukai transform $\Phi_{\calI(1)}: \calD (\tscrF)\rightarrow \calD (X)$ which sends a twisted subcategory $\calD(S,\alpha)$ isomorphically to the Kuznetsov component.
 
-\subsubsection{Twisted sheaves on the K3 surface $S$}
+\subsubsection{Twisted sheaves on the K3 surface}
 
 We have seen that to every cubic fourfold containing a plane, we can associate some K3 surface by blowing up the plane and realizing $S$ as the variety of rulings on the fibers of the quadric fibration $\tilde{X}\rightarrow \P^2$. Given that the Kuznetsov component looks like the derived category of a K3 surface, it is natural to conjecture that these two are related. In this section, we review two approaches to proving the following: 
 \begin{proposition}{Kuznetsov}{Kuznetsov twisted K3}
@@ -214,10 +226,32 @@ We have seen that to every cubic fourfold containing a plane, we can associate s
 \end{proof}
 
 \begin{proof}[Proof 2]
-    
-    
-\end{proof}
+A second approach is found in \cite[\S7]{huybrechts_geometry_2023} by using a Fourier-Mukai kernel. The universal line $\tscrP\subset X \times \tscrF$ has an ideal sheaf $\calI$ and we consider $$\Phi_{\calI(1)}: \calD(X)\rightarrow \calD(\tscrF)$$
 
+Now, a theorem of Bernardara \cite{bernardara_semiorthogonal_2005} extends the projective bundle formula to Brauer-Severi varieties and we have a semiorthogonal decomposition $$\calD(\tscrP)=\langle \calD(S,\alpha), \calD(S)\rangle$$
+
+The $\calD(S)$ is included via the projection $\pi^*$ and the twisted $\calD(S,\alpha)$ is included via $\pi^*\otimes \O_\pi(-1)$: we have to tensor by a relative twisted $\O(-1)$ so as to untwist and land in the honest derived category. We can consider the adjoint $\Psi$ of $\Phi$ and compose it with the inclusion  $\calD(S,\alpha)\hookrightarrow \calD(\tscrP)$ to get $$\Psi':\calD(S,\alpha)\rightarrow \calD(X)$$
+
+The claim is that this lands in the Kuznetsov component and is a full and faithful functor. The fact that both are indecomposable Calabi-Yau 2 categories then completes the proof.
+
+To show the first, we need to show that $\Psi'(E)\in \calA_X= \langle \O, \O(1), \O(2)\rangle ^\perp = \lperp ( \langle \O, \O(1), \O(2)\rangle\otimes \O(-3))$ by Serre duality. In other words, by adjointness we want $$\Hom(\Psi(E), \O(-i))=0 \iff \Hom (E, \Phi \O(-i))=0 \iff \Phi \O(-i) \in \calD(S,\alpha)^\perp, i=1,2,3$$
+
+The ideal sheaf sequence $$0\rightarrow \calI \rightarrow \O_{X\times \tscrF}\rightarrow \O_{\tscrP}\rightarrow 0$$ implies that we have a triangle of FM functors $$\Phi_{\cal I}\rightarrow \Phi_{\O_{X\times \tscrF}}\rightarrow \Phi_{\O_{\tscrP}}$$
+
+Applying this to $\O_X(-1)$ we see that $\Phi_{\O_{X\times \tscrF}(1)}\O(-1)=\Phi_{\O_{X\times \tscrF}}(\O_X)=\O$ by base change on the product since $H^\bullet(X, \O_X)=k$ and similarly $\Phi_{\O_{\tscrP}(1)}(\O_X(-1))=\Phi_{\O_{\tscrP}}(\O_X)=\O$ since it is a $\P^1$ bundle. The two are isomorphic, and hence $\Phi(\O(-1))=0$ as the cone of an isomorphism.
+
+Similarly, applying it to $\O_X(-2)$, we first see that $\Phi_{\O_{X\times \tscrF}}(\O_X(-1))=0$ since this is doing cohomology on the fibers $H^\bullet(X, \O_X(-1))=H^\bullet(X, \omega_X \otimes \O_X(2))=0$ by Bott vanishing. Moreover, $\Phi_{\O_{\tscrP}}(\O_X(-1))=0$ since this is cohomology on the $\P^1$ fibers, and $H^\bullet(\P^1, \O(-1))=0$.
+
+Finally, we need to consider $\O_X(-3)$. We still have Bott vanishing for $X$ i.e. $\Phi_{\O_{X\times \tscrF}}(\O_X(-2))=0$ since $H^\bullet(X, \O_X(-2))=H^\bullet(X, \omega_X \otimes \O_X(1))=0$. However, the cohomology of $\O(-2)$ on the $\P^1$ fibers is nonzero, so we only have that $\Phi \O(-3)\simeq \Phi_{\O_{\tscrP}}(\O(-2))[-1]$. Explicitly, by Remark \ref{rem:Relative line bundles on projective bundles}, we have 
+$$\Phi_{\O_{\tscrP}}(\O(-2))=p_* \O_p(-2)= \det \calS[-1]=\O_{\tscrF} (-1)[-1]$$
+where $\calS$ is the sheaf on $\tscrF$ such that $\tscrP = \P \calS^*$. The desired vanishing is thus equivalent via Serre duality to $$0 = \Hom(E, \Phi \O(-3))=\Hom(E, \O_{\tscrF} (-1)[-2])\iff 0=\Hom(\O_{\tscrF} (-1), E\otimes \omega_{\tscrF})$$
+
+We only need to show this for skyscrapers. But they are embedded via $p^* \otimes \O_\pi(-1)$ so a skyscraper $\O_x \in \calD(S,\alpha)$ corresponds to $\O_{F_x}(-1)$, and so we are reduced to showing $$\Hom(\O_{\tscrF}(-1), \O_{F_x}(-1)\otimes\omega_{\tscrF})\simeq H^\bullet(F_x, \O_{F_x}(-1) \otimes \O_{F_x}(-2)\otimes \O_{\tscrF}(-1)|_{F_x})=H^\bullet(\P^1, \O(-1))=0$$since the embedding $\P^1 \simeq F_x \subset \tscrF$ is of degree $2$, i.e. it pulls back the Plucker polarization coming from the tautological line $\O(1)$ on $\P \bigwedge^2 \mathbb{C}^6$ to $\O(2)$.
+
+The final step in the proof consists of showing that $\Psi'$ is fully faithful, which requires the use of a criterion by Bondal-Orlov, and explicitly computing some Ext groups. 
+
+\end{proof}
+\todo{Finish the proof}
 
 \subsection{The Kuznetsov component is CY2}
 We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
@@ -278,8 +312,7 @@ We show by induction that the kernel $K_1^i$ fits into a sequence $$K_1^i\righta
 
 Assume it holds for $i$. Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence tha $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
 
-Now we need to use a variant of the Euler sequence: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
-\todo{This I found in Arupura's book, Corollary 17.1.3}
+Now we need to use a variant of the Euler sequence, \cite[Corollary 17.1.3]{arapura_algebraic_2012}: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
 
 This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
 
