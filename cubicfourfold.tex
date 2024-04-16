@@ -1,20 +1,43 @@
+In this section, we will review the deep link between K3 surfaces and cubic fourfolds. 
+
+ A theorem of Hasset describes the so called \emph{special cubic fourfolds}, which are cubic fourfolds containing a surface $T$ which is not a complete intersection. They form a countable union of divisors $\calC_d$ in the moduli space $\P H^0(\O(3))/\P GL(6)$ of cubic fourfolds which are expected to be the rational cubic fourfolds (the intuition is that for a cubic fourfold to be rational, one has to blow up a surface at some point) and have associated K3 surfaces: the primitive cohomology of a K3 surface embeds as the complement $\langle h^2, T\rangle^\perp$. 
+
+Alternatively, Kuznetsov has considered the derived category of a cubic fourfold and found a component $\calA_X$. He showed that Pfaffian cubics and nodal cubics have $\calA_X$ derived equivalent to K3 surfaces and conjectured \cite{KuznetsovDerivedCubic} that $X$ is rational if and only if $\calA_X \simeq \calD(S)$ for some K3 surface $S$.
+
+The two viewpoints, the Hodge theoretic of Hassett and derived categorical of Kuznetsov, were shown to be equivalent by \cite{addington_hodge_2014}: in other words, ...
+
+In this section, we will briefly describe the Hodge theory and Torelli theorems for K3 surfaces and cubic fourfolds. After that, we will show that the Kuznetsov component is a Calabi-Yau 2 category and show that the cubic fourfolds containing a plane $\calC_8$ are derived equivalent to a twisted K3 surface, which is an honest K3 surface when $X\in \calC_8 \cap \calC_d$ for some other $d$ on Hasset's list. Finally, we quickly sketch Addington-Thomas' paper.
+
+
+
 \subsection{A quick review of K3 surfaces}
 \begin{definition}{K3 surface}{K3 surface}
-A K3 surface is a compact complex surface with $\omega_{X}$ trivial and $H^1(X,\mathcal{O}_{X})=0$.
+A K3 surface is a compact complex surface with $\omega_{S}$ trivial and $H^1(S,\mathcal{O}_{S})=0$.
 \end{definition}
 
-Firstly, spaces derived equivalent to K3 surfaces are also K3 surfaces: their dimensions have to be the same because the Serre functors are isomorphic and hence the orders of the canonical bundles are the same. Similarly, by passage to cohomology, we know that $$\bigoplus_{p-q=i}H^{p,q}(X)\simeq \bigoplus_{p-q=i}H^{p,q}(Y)$$
+Firstly, spaces derived equivalent to K3 surfaces are also K3 surfaces: their dimensions have to be the same because the Serre functors are isomorphic and hence the orders of the canonical bundles are the same. Similarly, by passage to cohomology, we know that $$\bigoplus_{p-q=i}H^{p,q}(S)\simeq \bigoplus_{p-q=i}H^{p,q}(S')$$
 Hence, since $h^{0,1}=h^{1,2}$ by Hodge symmetry and Serre duality, we see that both are zero.
 
-Computations using Riemann-Roch show that $c_2=e(X)=24$. Then Poincare duality shows $b_2=22$. 
+Computations using Riemann-Roch show that $$2=\chi(S,\O_S)=\frac{c_1^2+c_2}{12}\implies c_2(S)=e(S)=24$$
+Then Poincare duality shows $b_2=22$. 
 
-The Hodge decomposition tells us that $$H^2(X,\mathbb{C})=H^{2,0}\oplus H^{1,1}\oplus H^{0,2}$$But both $h^{2,0}=h^{0,2}=1$ and hence $h^{1,1}=20$. 
+The Hodge decomposition tells us that $$H^2(S,\mathbb{C})=H^{2,0}\oplus H^{1,1}\oplus H^{0,2}$$But both $h^{2,0}=h^{0,2}=1$ and hence $h^{1,1}=20$.  The Hodge diamond is thus: \[\begin{tikzcd}[row sep=tiny, column sep=tiny]
+    &   & 1  &   &   \\
+    & 0 &    & 0 &   \\
+  1 &   & 20 &   & 1 \\
+    & 0 &    & 0 &   \\
+    &   & 1  &   &  
+  \end{tikzcd}\]
+
+Moreover, the intersection lattice is $H^2(X,\mathbb{X})=\Lambda=(-E_8)^{\oplus 2}\oplus U^{\oplus 3}$ and $H^2(S,\mathbb{Z})=(1,20,1)$ has signature $(3,19)$.
+
+The Hodge structure on a K3 surface is then essentially determined by $H^{2,0}(S)\subset H^2(S;\mathbb{C})=\Lambda\otimes \mathbb{C}$. Thus, we can consider the period map $$P: \mathcal{M} \rightarrow \P \Lambda \otimes \mathbb{C}$$that sends a K3 surface $S$ to the line $H^{2,0}(S)$.  In fact, a nonzero vector in $H^{2,0}$ has $u^2=0, u \overline{u}>0$, which is the defining equation for the period domain. The local Torelli theorem shows that this is surjective and a local homeomorphism. It is not a global isomorphism: one has to mod out by the automorphisms of the lattice $\Lambda$. In fact, it is known that K3 surfaces are determined by the period map, i.e. by their Hodge structure:
 
 \begin{theorem}{Global Torelli}{Global Torelli}
 Two K3 surfaces are isomorphic if and only if there is a Hodge isometry $H^2(X,\mathbb{C})\simeq H^2(Y,\mathbb{C})$.
 \end{theorem}
 
-A Hodge isometry respects the intersection pairing and the Hodge decomposition. 
+%A Hodge isometry respects the intersection pairing and the Hodge decomposition. 
 
 %Because the canonical bundle of $\mathbb{P}^1$ is $\mathcal{O}(-2)$ and is also isomorphic to the normal bundle by adjunction, we see that $$C\cdot C=\int _{C}c_{1}(\mathcal{O}(-2)) =-2$$
 %Such curves define a reflection on the cohomology: $$\begin{gathered}
@@ -42,11 +65,11 @@ Let us first think about the Hodge diamond of $X$. Embed $\mathbb{P}^5$ via the 
 We thus see, by Poincare duality, that $b_{1}=b_{3}=b_{5}=b_{7}=0$. Similarly, $b_{2}=b_{6}=1$ and must be given by $h^{1,1}$ by Hodge theory. We have that $H^2(X;\mathbb{Z})=\mathbb{Z}$ and the LES from the exponential sequence tells us that $$H^1(X,\mathcal{O}_{X})\xrightarrow{}H^1(X,\mathcal{O}_{X}^*)\xrightarrow{}H^2(X,\mathbb{Z})\xrightarrow{}H^2(X,\mathcal{O}_{X})$$
 But the first term is 0, since it is a summand of $H^1(X;\mathbb{C})=0$. The second term is $\mathrm{Pic}(X)$ and the map is $c_1$ which lands in $H^{1,1}$. Since $c_1(K_X)=-3$ it is nonzero, so since $\mathbb{C}=H^2(X;\mathbb{C})=H^{2,0}\oplus H^{1,1}\oplus H^{0,2}$ the only option is for $h^{2,0}=h^{0,2}=0$ and $\mathrm{Pic}(X)=\mathbb{Z}$ generated by a hyperplane. 
 
-Now, the interesring bit is the fourth row, the middle dimensional cohomology. By using the normal bundle, we have that $$c(T_{X})(1+3x)=(1+x)^6=\iota^* c(T_{\mathbb{P}^5})$$We compute $c_1=3x, c_2=6x^2, c_3=2x^3, c_4=9x^4$. Then by Gauss-Bonnet, $$b_{4}+4=\chi(X)=\langle 9x^4, [X] \rangle= 27 $$since $pd(X)=3\omega$. We conclude that $b_4=23$. 
+Now, the interesting bit is the fourth row, the middle dimensional cohomology. By using the normal bundle sequence, we have that $$c(T_{X})(1+3x)=(1+x)^6=\iota^* c(T_{\mathbb{P}^5})$$We compute $c_1=3x, c_2=6x^2, c_3=2x^3, c_4=9x^4$. Then by Gauss-Bonnet, $$b_{4}+4=\chi(X)=\langle 9x^4, [X] \rangle= 27 $$since $pd(X)=3\omega$. We conclude that $b_4=23$. 
 
 We also have that $H^0(X, \Omega^4)=H^0(X, \mathcal{O}_{X}(-3))=0$ so $h^{4,0}=h^{0,4}=0$. The only bit left is to determine $h^{1,3}=h^{3,1}$. 
 
-Can try Hirzebruch-Riemann-Roch for the cotangent bundle of $X$, by computing $$\chi(\Omega_{X})=-h^{1,1}-h^{1,3}=\int _{X}\mathrm{ch(\Omega_{X})}\mathrm{td}(T_{X})=3\int _{\mathbb{P}^5} \omega \,\mathrm{ch}(\Omega_{\mathbb{P}^5}-\mathcal{O}(-3)) \mathrm{td}(T_{\mathbb{P}^5}-\mathcal{O}(3))  $$
+Now we can use Hirzebruch-Riemann-Roch for the cotangent bundle of $X$, by computing $$\chi(\Omega_{X})=-h^{1,1}-h^{1,3}=\int _{X}\mathrm{ch(\Omega_{X})}\mathrm{td}(T_{X})=3\int _{\mathbb{P}^5} \omega \,\mathrm{ch}(\Omega_{\mathbb{P}^5}-\mathcal{O}(-3)) \mathrm{td}(T_{\mathbb{P}^5}-\mathcal{O}(3))  $$
 Because I am lazy, I used the Macaulay 2 code: 
 
 \begin{lstlisting}[language=Python]
@@ -91,46 +114,167 @@ This gives the correct answer $21$! All in all, the Hodge diamond looks like:
   \end{tikzcd}
 \end{center}
 
+The primitive cohomology of the cubic fourfold looks like $(0,1,20,1,0)$ and has signature $(20,2)$ which looks similar to the K3 $H^2(S,\mathbb{Z})$, but that one has signature $(3,19)$. 
+
+We can see that $H^{3,1}\simeq \mathbb{C}$ and similarly to the K3 case we have a period map which to each cubic fourfolds associates a line in the local period domain, which is one of the connected components of the quadric hypersurface $Q\subset \P \Lambda$ defined by $u^2=0$ together with the condition that $-(u, \overline{v})$ is a positive hermitian form. We factor out by automorphisms $\Gamma^+$ of $H^4(X,\mathbb{Z})$ which preserve $(-,-)$ and the hyperplane squared $h^2$, and moreover stabilize $\tilde{\calD}$. The resulting map is $$\mathcal{M}_{\text{cubic fourfolds}}\rightarrow \calD : = \tilde{\calD}/\Gamma^+$$
+
+Voisin \cite{voisin_theoreme_2008} proved the following theorem, by considering the cubic fourfolds containing a plane:
+
 \begin{theorem}{Global Torelli for cubic fourfolds}{Global Torelli for cubic fourfolds}
-    
+    The period map for cubic fourfolds is injective.
 \end{theorem}
 
-\begin{theorem}{Hasset divisors}{}
+We finish off the Hodge theoretic section by a review of the results of Hassett's paper \cite{hassett_special_2000}. 
 
+The essential idea is as follows: a generic cubic fourfold $X$ has $H^{2,2}_{prim}(X;\mathbb{Z})=0$, but there is a class of \emph{special cubic fourfolds} which contain some integral class $T$. This allows us to pass to a codimension $1$ subspace of $H^{2,2}(X)$ which has a chance of being Hodge isometric to the primitive cohomology of a K3 surface (recall that the issue was that a priori they have different signatures). Explicitly, we have $\langle h^2, T\rangle ^\perp \subset H^{2,2}(X)$ and $H^2_{prim}(S)$ both of signature $(2,19)$. Hassett determines exactly when they could be Hodge isometric:
+
+\begin{theorem}{Hassett}{Hassett}
+    There is a Noether-Lefschetz divisor $\calC_d$ in the moduli space of cubic fourfolds, where $d=disc\langle h^2, T\rangle$ for $T\subset X$ a surface not homologous to a complete intersection. This is nonempty precisely when $d>6$ and $d\equiv 0,2 \mod 6$. Moreover, these special cubic fourfolds have an associated K3 surface in the sense above precisely when $d$ is not divisible by $4,9$ or any odd prime $p\equiv -1 \mod 3$
 \end{theorem}
+
+The slightly awkward condition will be rephrased later, when we review Addington-Thomas.
 
 \subsection{Derived view of the cubic fourfold}
 
-There is a categorical viewpoint on the cubic fourfold, due to Kuznetsov.
+We now shift gears and look at cubic fourfolds through a derived lens.
 
 Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
 
-\todo{HKR isomorphism}
-\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
-    $$HH^k(\mathcal{D}(X))=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(\mathcal{D}(X))=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
-    
-\end{theorem}
-
 We see that, by \ref{th:HKR}, the Hochschild homology is $HH_\bullet(X)=\mathbb{C}[-2]\oplus \mathbb{C}^{25}\oplus \mathbb{C}[2]$. On the other hand, Hochschild homology is additive with respect to semiorthogonal decomposition, and the three exceptional objects contribute to three copies of $\mathbb{C}$ in degree zero, so we see that $HH_\bullet(\mathcal{A}_X)=\mathbb{C}[-2]\oplus \mathbb{C}^{22}\oplus \mathbb{C}[2]$, which is exactly the Hochschild homology of a K3 surface.
 
-These properties of the category $\mathcal{A}_X$ made people suspect that there is an honest, geometric K3 surface inside of $X$. All known cases of cubic fourfolds containing a K3 surface are birational to $\mathbb{P}^4$, which led Kuznetsov to conjecture:
+These properties of the category $\mathcal{A}_X$ make it possible that there is an honest, geometric K3 surface associated to $X$. All known cases of cubic fourfolds with associated K3 surfaces are birational to $\mathbb{P}^4$, which led Kuznetsov to conjecture:
 
 \begin{conjecture}{}{Kuznetsov's conjecture}
-A cubic fourfold is rational if and only if it contains a smooth projective K3 surface $S$ such that $\mathcal{D}(S)\simeq \mathcal{A}_X$.
+A cubic fourfold is rational if and only if it there is a K3 surface $S$ such that $\mathcal{D}(S)\simeq \mathcal{A}_X$.
 \end{conjecture}
 
-In a subsequent section, we will explore different known examples where this is true, and connect the derived categories viewpoint of Kuznetsov with the Hodge-theoretic perspective of Hasset through the paper of Addington-Thomas.
+In the subsequent section, we will explain why the Kuznetsov component is a CY2 category and later on focus on the fundamental example of cubics containing a plane.
+
+\subsection{The Kuznetsov component is CY2}
+
+We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
+
+%\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
+ %   The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
+%  \end{proposition}
+    
+
+Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
+
+\subsubsection{The kernel of the Serre functor}
+
+The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
+
+Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
+\todo{Give explanation why ev is the unit and why mutations compose}
+
+On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the left object as $\Phi_{\O(-i)\boxtimes \O(i)}F$. More precisely, by using the projection and base change formulas:
+\begin{gather*}
+    \Phi_{\O(-i)\boxtimes \O(i)}F=p_* (p^*\O(i)\otimes q^* \O(-i)q^*F)\simeq p_* q^* F(-i)\otimes \O(i)\simeq\\
+    \simeq \O_X \otimes \RG (F(-i))\otimes \O(i)\simeq \RG \RlHom(\O(i),F) \otimes O(i)=\RHom(\O(i),F) \otimes \O(i)
+\end{gather*}
+
+Hence, we can conclude that $\mL_{\O(i)}$ is given by a Fourier-Mukai transform with kernel $$[\O(-i)\boxtimes \O(i)\rightarrow \O_\Delta]$$
+
+Now, define $$\mathbf{O}:=\mL_\O \circ (-\otimes \O(1))$$
+We see that by \ref{cor:Autoequivalences and mutations}, $$\mathbf{O}^{n+2-d}\simeq \mL_\O \circ \mL_{\O(1)}\circ ... \circ \mL_{\O(n+1-d)}\circ (-\otimes \O(n+2-d))=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega ^{-1})$$
+
+But by \ref{lemma:Serre functors of admissible subcategories}, we know that the inverse of the Serre functor of $\calA_X$ is given by $$\calS_{\calA_X}^{-1} =  \mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ \calS_X ^{-1}=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega^{-1})[-n]$$
+
+We can thus conclude that $$\calS_{\calA_X}^{-1} = \mathbf{O}^{n+2-d}\circ [-n]$$
+
+If we put $T:=\mathbf{O}|_{\calA_X}$, then we can reinterpret this as $$\calS_{\calA_X}=T^{d-n-2}\circ [n]$$
+
+Recall that $\mL_\O$ had kernel given by $[\O \boxtimes \O \rightarrow \O_\Delta]$. We can compose this with the kernel for $-\otimes \O(1)$ which is $\O_\Delta(1)$ to see that the kernel for $T$ is given by $K_1=[\O(1)\boxtimes \O \rightarrow \O_\Delta(1)]$, i.e. we have an exact triangle $K_1 \rightarrow  \O(1)\boxtimes \O \rightarrow \O_\Delta(1)$. 
+
+Our ultimate aim is to show that a suitable power of the Serre functor is just a shift functor, so we need to understand the kernel for $T^i, i=1,2,\dots, $. So we need to convolute $K_1$ with itself multiple times. 
+
+\todo{Do we have compositions of FM kernels? Also, need to talk about preserving exactness}
+
+\begin{proposition}{Kernel of Serre functor of Kuznetsov component}{}   
+The kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega^{i-1}(i-1)\rightarrow \dots \rightarrow \O(i-1)\boxtimes \Omega(1)\rightarrow \O(i)\boxtimes \O \rightarrow \O_\Delta(i)$$
+\end{proposition}
+\begin{proof}
+    We show this by induction.
+    
+    Firstly, composing with a Fourier-Mukai transform preserves exact triangles, so the same holds for the kernels. We can compose the triangle for $K_1$ with $\O(1)\boxtimes \O, \O_\Delta(1)$ on the left and $K_1$ on the right respectively to get three exact triangles \begin{gather*}
+        (\O(1)\boxtimes \O) \circ K_1 \rightarrow (\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) \rightarrow (\O(1)\boxtimes \O) \circ \O_\Delta(1)\\
+        \O_\Delta(1)\circ K_1 \rightarrow \O_\Delta(1) \circ (\O(1)\boxtimes \O)  \rightarrow \O_\Delta(1) \circ \O_\Delta(1)\\
+        K_1 \circ K_1  \rightarrow (\O(1)\boxtimes \O)\circ K_1 \rightarrow \O_\Delta(1)\circ K_1
+    \end{gather*}
+    
+    We can compute some of these: for example, the middle convolution on the first row is given by $$(\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) ={\pi_{13}}_*\big(\O(1)\boxtimes \O \boxtimes \O \otimes \O \boxtimes \O(1) \boxtimes O\big)=\big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1))$$
+    as pushing down is the same as cohomology on the fibers. This is the only computation that involves any cohomology: the others are given by tensoring with the diagonal, which turns the first two triangles into: \begin{gather*}
+        (\O(1)\boxtimes \O) \circ K_1 \rightarrow \big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1)) \rightarrow \O(1)\boxtimes \O(1)\\
+        \O_\Delta(1)\circ K_1 \rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)
+    \end{gather*}
+    
+    Now recall the Euler sequence on $\mathbb{P}^{n+1}$, which says that there is an exact triangle $$\Omega(1)\rightarrow \O^{n+2}\rightarrow \O(1)$$
+    Since the cohomology of $O(1)$ is $n+2$-dimensional, we can read off from the first exact triangle that $ (\O(1)\boxtimes \O) \circ K_1\simeq \O(1) \otimes \Omega(1)$. We can now plug this into the second object in the last triangle, as well as replace the last object in the third triangle by the second triangle to get: $$K_1 \circ K_1 \rightarrow \O(1)\boxtimes \Omega(1)\rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)$$
+    
+    Assume it holds for $i$ (we have just shown it holds for $i=2$). Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence tha $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
+    
+    Now we need to use a variant of the Euler sequence, \cite[Corollary 17.1.3]{arapura_algebraic_2012}: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
+    
+    This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
+\end{proof}
+
+\subsubsection{The main result}
+
+\begin{theorem}{Shift functor}{}
+    The functor $T$ has $T^d=[2]$.
+\end{theorem}
+
+\begin{proof}
+    In the course of the proof, we write $\P=\mathbb{P}^{n+1}$. Firstly, let's recall the Koszul resolution of $X$ in $\mathbb{P}^{n+1}$ and $X\times X\subset \P\times \P$. Since $X$ is given by a section of $\O(d)$ and $X\times X$ by a section of $\O(d) \boxtimes O \oplus \O \boxtimes \O(d)$, we have the following resolutions: \begin{gather*}
+        0\rightarrow \O(-d)\rightarrow \O_\P \rightarrow \iota_* \O_X\rightarrow 0\\
+        0\rightarrow \O(-d,-d)\rightarrow \O(-d,0)\oplus \O(0,-d)\rightarrow \O_{\P\times \P}\rightarrow (\iota\times \iota)_* \O_{X\times X}\rightarrow 0
+    \end{gather*}
+
+    We wish to understand the derived pullback $(\iota\times \iota)^* \O_{\Delta_\P} $. Instead, let us first consider $(\iota\times \iota)^*(\iota\times \iota)^* \O_{\Delta_\P} \simeq (\iota\times \iota)_* \O_{X\times X} \otimes \O_{\Delta_\P}$, by the projection formula. This derived tensor product is given by tensoring the Koszul resolution above with the diagonal. The resulting complex is $$\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)^{\oplus 2}\rightarrow \O_{\Delta_\P}$$
+    The first map is injective, and this is just the sum of the two resolutions $\O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_\P}\rightarrow \O_{\Delta_X}$ and $\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_X}(-d)$. We conclude that $L_{-1}=\calH^{-1}=\O_{\Delta_X}(-d), L_0=\calH^{0}=\O_{\Delta_X}$. Now we note that $\iota$ is a closed embedding, hence exact and conservative, so we can ignore it.
+
+    This now allows us to write down an exact triangle $$\O_{\Delta_X}(-d)[1]\simeq \calH^{-1}[1]\rightarrow (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \calH^0\simeq \O_{\Delta_X}$$
+    We can rotate and twist by $d$ to get the exact triangle 
+    \begin{equation}\label{eqn:derivedtriangle}
+        (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \O_{\Delta_X}(d)\rightarrow \O_{\Delta_X}[2]
+    \end{equation}
+
+    Now recall the Beilinson resolution of the diagonal, which we restrict to $X\times X$:\begin{gather*}
+        0 \rightarrow \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\\
+        \rightarrow \O(1)\boxtimes \Omega^{d-1}(d-1)\rightarrow \dots \rightarrow \O(d)\boxtimes \O \rightarrow \O_\Delta
+    \end{gather*}
+
+    We splice it into the top bit, where all the $\O$'s are non-positive, and the positive bit below, which is just the kernel $K_d$. Let us call $K'_d$ the complex which is $K_d$ without the diagonal. Then we have an exact triangle $$K'_d \rightarrow \O_{\Delta_X}(d)\rightarrow K_d$$
+
+    We now compare this with triangle \ref{eqn:derivedtriangle}, by using the natural map $K'_d \rightarrow (\iota\times \iota)^*\O_{\Delta_\P}$ coming from Beilinson's resolution, and the identity map in the middle, which can be extended to a map $K_d \rightarrow \O_{\Delta_X}[2]$ by the axioms of triangulated categories: 
+
+    \begin{center}\begin{tikzcd}
+        K'_d \arrow[d] \arrow[r]                      & \O_{\Delta_X}(d) \arrow[d] \arrow[r] & K_d \arrow[d, dashed] \\
+        (\iota\times \iota)^*\O_{\Delta_\P} \arrow[r] & \O_{\Delta_X}(d) \arrow[r]           & {\O_{\Delta_X}[2]}   
+        \end{tikzcd}\end{center}
+
+    Finally, we compare the effect of taking these as Fourier-Mukai kernels. We know that $\Phi_{K_d}=T^d$ and $\Phi_{\O_\Delta [2]}=[2]$ and we claim that they are isomorphic by the dotted arrow. To see this, we show that the other vertical arrows induce isomorphisms on Fourier-Mukai transforms.
+
+    The middle bit is obvious, however to compare $\Phi_{K'_d}$ and $\Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ we simply look again into the Beilinson resolution: we have that \begin{gather*}
+        [ \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\rightarrow K'_d]=(\iota\times \iota)^*\O_{\Delta_\P}
+    \end{gather*}
+
+    However, for any $\calE_i=\O(d-i)\boxtimes \Omega^i(i)$ with $i=d,d+1,\dots,n+1,$ its Fourier-Mukai transform on $A\in \calA_X$ vanishes, by using the projection formula, base change and the fact that $\calA_X$ is orthogonal to $\O,\dots, \O(n+1-d)$:$$\Phi_{\calE_i}(A)=q_*(p^*A\otimes p^* \O(d-i)\otimes q^* \Omega^i(i))=\Omega^i(i)\otimes q_*p^* A(d-i)=\Omega^i(i) \otimes \RHom(\O(i-d),A)=0$$ We conclude that $\Phi_{K'_d}\simeq \Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ and hence $T^d=[2]$.
+\end{proof}
+
+\begin{corollary}{Kuznetsov}{}
+    If $2d>n+1$, then $\calA_X$ is a fractional Calabi-Yau category whose Serre functor obeys $\calS_{\calA_X}^{d/c}=[(n+2)(d-2)/c]$, where $c=\gcd(d,n+2)$.
+
+    ~
+
+    In the special case that $X$ is a cubic fourfold, $n=4,d=3$ hence $\calS=T^{-3}\circ [4]=[2]$. More generally, whenever $d|n+2$, the component is Calabi-Yau.
+\end{corollary}
 
 \subsection{Fundamental example: cubics containing a plane}
-We begin with the case of cubic fourfolds containing a plane $P\simeq \mathbb{P}^2$. These form a divisor $\calC_8$ in the moduli space of all cubic fourfolds of special importance, as we will see in the review of Addington-Thomas. They also play a central role in Voisin's proof of the global Torelli theorem.
+We now study the case of cubic fourfolds containing a plane $P\simeq \mathbb{P}^2$. These form a divisor $\calC_8$ in the moduli space of all cubic fourfolds of special importance, as we will see in the review of Addington-Thomas. They also play a central role in Voisin's proof of the global Torelli theorem.
 
-\begin{remark}{Remark}{}
-    The reason the divisor is denoted $\calC_8$ is because the intersection form of the lattice spanned by $P$ and $h^2$ is a matrix $\begin{pmatrix}
-        3 & 1 \\
-        1 & 3
-    \end{pmatrix}$ of determinant $8$.
-    
-\end{remark}
+Note that they do not belong on Hassett's list of cubic fourfolds with associated K3 surfaces: in fact, we will see that their Kuznetsov component is equivalent to $\calD(S,\alpha)$, the twisted derived category of a K3 surface $S$ relative to a Brauer class $\alpha\in H^2(S, \O_S^*)$. When the Brauer class vanishes, the cubic fourfold is rational and there is a different surface $T\neq P$ inside of $X$ which places it in $\calC_8\cap \calC_d$ with $d$ on Hassett's list, which is consistent with the predictions about associated K3 surfaces and rationality.
 
 \subsubsection{Geometric constructions}
 
@@ -253,125 +397,12 @@ The final step in the proof consists of showing that $\Psi'$ is fully faithful, 
 \end{proof}
 \todo{Finish the proof}
 
-\subsection{The Kuznetsov component is CY2}
-We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
-
-%\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
- %   The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
-%  \end{proposition}
-    
-
-Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
-
-\subsubsection{The kernel of the Serre functor}
-
-The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
-
-Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
-\todo{Give explanation why ev is the unit and why mutations compose}
-
-On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the left object as $\Phi_{\O(-i)\boxtimes \O(i)}F$. More precisely, by using the projection and base change formulas:
-\begin{gather*}
-    \Phi_{\O(-i)\boxtimes \O(i)}F=p_* (p^*\O(i)\otimes q^* \O(-i)q^*F)\simeq p_* q^* F(-i)\otimes \O(i)\simeq\\
-    \simeq \O_X \otimes \RG (F(-i))\otimes \O(i)\simeq \RG \RlHom(\O(i),F) \otimes O(i)=\RHom(\O(i),F) \otimes \O(i)
-\end{gather*}
-
-Hence, we can conclude that $\mL_{\O(i)}$ is given by a Fourier-Mukai transform with kernel $$[\O(-i)\boxtimes \O(i)\rightarrow \O_\Delta]$$
-
-Now, define $$\mathbf{O}:=\mL_\O \circ (-\otimes \O(1))$$
-We see that by \ref{cor:Autoequivalences and mutations}, $$\mathbf{O}^{n+2-d}\simeq \mL_\O \circ \mL_{\O(1)}\circ ... \circ \mL_{\O(n+1-d)}\circ (-\otimes \O(n+2-d))=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega ^{-1})$$
-
-But by \ref{lemma:Serre functors of admissible subcategories}, we know that the inverse of the Serre functor of $\calA_X$ is given by $$\calS_{\calA_X}^{-1} =  \mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ \calS_X ^{-1}=\mL_{\langle \O, \dots, \O(n+1-d) \rangle} \circ (-\otimes \omega^{-1})[-n]$$
-
-We can thus conclude that $$\calS_{\calA_X}^{-1} = \mathbf{O}^{n+2-d}\circ [-n]$$
-
-If we put $T:=\mathbf{O}|_{\calA_X}$, then we can conclude that $$\calS_{\calA_X}=T^{d-n-2}\circ [n]$$
-
-Recall that $\mL_\O$ had kernel given by $[\O \boxtimes \O \rightarrow \O_\Delta]$. We can compose this with the kernel for $-\otimes \O(1)$ which is $\O_\Delta(1)$ to see that the kernel for $T$ is given by $K_1;=[\O(1)\boxtimes \O \rightarrow \O_\Delta(1)]$. 
-
-Our ultimate aim is to show that a suitable power of the Serre functor is just a shift functor, so we need to understand the kernel for $T^i, i=1,2,\dots, $. So we need to convolute $K_1$ with itself multiple times. 
-
-\todo{Do we have compositions of FM kernels? Also, need to talk about preserving exactness}
-
-Firstly, composing with a Fourier-Mukai transform preserves exact triangles, so the same holds for the kernels. We can compose the triangle for $K_1$ with $\O(1)\boxtimes \O, \O_\Delta(1)$ on the left and $K_1$ on the right respectively to get three exact triangles \begin{gather*}
-    (\O(1)\boxtimes \O) \circ K_1 \rightarrow (\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) \rightarrow (\O(1)\boxtimes \O) \circ \O_\Delta(1)\\
-    \O_\Delta(1)\circ K_1 \rightarrow \O_\Delta(1) \circ (\O(1)\boxtimes \O)  \rightarrow \O_\Delta(1) \circ \O_\Delta(1)\\
-    K_1 \circ K_1  \rightarrow (\O(1)\boxtimes \O)\circ K_1 \rightarrow \O_\Delta(1)\circ K_1
-\end{gather*}
-
-We can compute some of these: for example, the middle convolution on the first row is given by $$(\O(1)\boxtimes \O)  \circ (\O(1)\boxtimes \O) ={\pi_{13}}_*\big(\O(1)\boxtimes \O \boxtimes \O \otimes \O \boxtimes \O(1) \boxtimes O\big)=\big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1))$$
-as pushing down is the same as cohomology on the fibers. This is the only computation that involves any cohomology: the others are given by tensoring with the diagonal, which turns the first two triangles into: \begin{gather*}
-    (\O(1)\boxtimes \O) \circ K_1 \rightarrow \big(\O(1)\boxtimes \O\big) \otimes H^\bullet(\O(1)) \rightarrow \O(1)\boxtimes \O(1)\\
-    \O_\Delta(1)\circ K_1 \rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)
-\end{gather*}
-
-Now recall the Euler sequence on $\mathbb{P}^{n+1}$, which says that there is an exact triangle $$\Omega(1)\rightarrow \O^{n+2}\rightarrow \O(1)$$
-Since the cohomology of $O(1)$ is $n+2$-dimensional, we can read off from the first exact triangle that $ (\O(1)\boxtimes \O) \circ K_1\simeq \O(1) \otimes \Omega(1)$. We can now plug this into the second object in the last triangle, as well as replace the last object in the third triangle by the second triangle to get: $$K_1 \circ K_1 \rightarrow \O(1)\boxtimes \Omega(1)\rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)$$
-
-We show by induction that the kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega^{i-1}(i-1)\rightarrow \dots \rightarrow \O(i-1)\boxtimes \Omega(1)\rightarrow \O(i)\boxtimes \O \rightarrow \O_\Delta(i)$$
-
-Assume it holds for $i$. Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence tha $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
-
-Now we need to use a variant of the Euler sequence, \cite[Corollary 17.1.3]{arapura_algebraic_2012}: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
-
-This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
-
-\subsubsection{The main result}
-Now we are ready to prove the main theorem:
-
-\begin{theorem}{Shift functor}{}
-    The functor $T$ has $T^d=[2]$.
-\end{theorem}
-
-\begin{proof}
-    In the course of the proof, we write $\P=\mathbb{P}^{n+1}$. Firstly, let's recall the Koszul resolution of $X$ in $\mathbb{P}^{n+1}$ and $X\times X\subset \P\times \P$. Since $X$ is given by a section of $\O(d)$ and $X\times X$ by a section of $\O(d) \boxtimes O \oplus \O \boxtimes \O(d)$, we have the following resolutions: \begin{gather*}
-        0\rightarrow \O(-d)\rightarrow \O_\P \rightarrow \iota_* \O_X\rightarrow 0\\
-        0\rightarrow \O(-d,-d)\rightarrow \O(-d,0)\oplus \O(0,-d)\rightarrow \O_{\P\times \P}\rightarrow (\iota\times \iota)_* \O_{X\times X}\rightarrow 0
-    \end{gather*}
-
-    We wish to understand the derived pullback $(\iota\times \iota)^* \O_{\Delta_\P} $. Instead, let us first consider $(\iota\times \iota)^*(\iota\times \iota)^* \O_{\Delta_\P} \simeq (\iota\times \iota)_* \O_{X\times X} \otimes \O_{\Delta_\P}$, by the projection formula. This derived tensor product is given by tensoring the Koszul resolution above with the diagonal. The resulting complex is $$\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)^{\oplus 2}\rightarrow \O_{\Delta_\P}$$
-    The first map is injective, and this is just the sum of the two resolutions $\O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_\P}\rightarrow \O_{\Delta_X}$ and $\O_{\Delta_\P}(-2d)\rightarrow \O_{\Delta_\P}(-d)\rightarrow \O_{\Delta_X}(-d)$. We conclude that $L_{-1}=\calH^{-1}=\O_{\Delta_X}(-d), L_0=\calH^{0}=\O_{\Delta_X}$. Now we note that $\iota$ is a closed embedding, hence exact and conservative, so we can ignore it.
-
-    This now allows us to write down an exact triangle $$\O_{\Delta_X}(-d)[1]\simeq \calH^{-1}[1]\rightarrow (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \calH^0\simeq \O_{\Delta_X}$$
-    We can rotate and twist by $d$ to get the exact triangle 
-    \begin{equation}\label{eqn:derivedtriangle}
-        (\iota\times \iota)^*\O_{\Delta_\P}\rightarrow \O_{\Delta_X}(d)\rightarrow \O_{\Delta_X}[2]
-    \end{equation}
-
-    Now recall the Beilinson resolution of the diagonal, which we restrict to $X\times X$:\begin{gather*}
-        0 \rightarrow \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\\
-        \rightarrow \O(1)\boxtimes \Omega^{d-1}(d-1)\rightarrow \dots \rightarrow \O(d)\boxtimes \O \rightarrow \O_\Delta
-    \end{gather*}
-
-    We splice it into the top bit, where all the $\O$'s are non-positive, and the positive bit below, which is just the kernel $K_d$. Let us call $K'_d$ the complex which is $K_d$ without the diagonal. Then we have an exact triangle $$K'_d \rightarrow \O_{\Delta_X}(d)\rightarrow K_d$$
-
-    We now compare this with triangle \ref{eqn:derivedtriangle}, by using the natural map $K'_d \rightarrow (\iota\times \iota)^*\O_{\Delta_\P}$ coming from Beilinson's resolution, and the identity map in the middle, which can be extended to a map $K_d \rightarrow \O_{\Delta_X}[2]$ by the axioms of triangulated categories: 
-
-    \begin{center}\begin{tikzcd}
-        K'_d \arrow[d] \arrow[r]                      & \O_{\Delta_X}(d) \arrow[d] \arrow[r] & K_d \arrow[d, dashed] \\
-        (\iota\times \iota)^*\O_{\Delta_\P} \arrow[r] & \O_{\Delta_X}(d) \arrow[r]           & {\O_{\Delta_X}[2]}   
-        \end{tikzcd}\end{center}
-
-    Finally, we compare the effect of taking these as Fourier-Mukai kernels. We know that $\Phi_{K_d}=T^d$ and $\Phi_{\O_\Delta [2]}=[2]$ and we claim that they are isomorphic by the dotted arrow. To see this, we show that the other vertical arrows induce isomorphisms on Fourier-Mukai transforms.
-
-    The middle bit is obvious, however to compare $\Phi_{K'_d}$ and $\Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ we simply look again into the Beilinson resolution: we have that \begin{gather*}
-        [ \O (d-n-1)\boxtimes \Omega^{n+1}(n+1)\rightarrow \dots \rightarrow \O \boxtimes \Omega^{d}(d)\rightarrow K'_d]=(\iota\times \iota)^*\O_{\Delta_\P}
-    \end{gather*}
-
-    However, for any $\calE_i=\O(d-i)\boxtimes \Omega^i(i)$ with $i=d,d+1,\dots,n+1,$ its Fourier-Mukai transform on $A\in \calA_X$ vanishes, by using the projection formula, base change and the fact that $\calA_X$ is orthogonal to $\O,\dots, \O(n+1-d)$:$$\Phi_{\calE_i}(A)=q_*(p^*A\otimes p^* \O(d-i)\otimes q^* \Omega^i(i))=\Omega^i(i)\otimes q_*p^* A(d-i)=\Omega^i(i) \otimes \RHom(\O(i-d),A)=0$$ We conclude that $\Phi_{K'_d}\simeq \Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ and hence $T^d=[2]$.
-\end{proof}
-
-\begin{corollary}{Kuznetsov}{}
-    If $2d>n+1$, then $\calA_X$ is a fractional Calabi-Yau category whose Serre functor obeys $\calS_{\calA_X}^{d/c}=[(n+2)(d-2)/c]$, where $c=\gcd(d,n+2)$.
-
-    ~
-
-    In the special case that $X$ is a cubic fourfold, $n=4,d=3$ hence $\calS=T^{-3}\circ [4]=[2]$. More generally, whenever $d|n+2$, the component is Calabi-Yau.
-\end{corollary}
-
 \subsection{Connecting the Hodge theoretic and derived viewpoints: the paper of Addington-Thomas}
 
 So far we have seen a countable union of divisors in the moduli space of cubic fourfolds with a distinguished divisor $\calC_8$. Addington-Thomas show that all the other $\calC_i$ meet this nontrivially. The cubic fourfolds in these divisors are the conjecturally rational ones. 
+
+- Reformulation of Hassett condition
+- Deformation theory away from $\calC_8$
 
 
 
