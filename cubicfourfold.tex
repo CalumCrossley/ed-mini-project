@@ -150,7 +150,7 @@ A cubic fourfold is rational if and only if it there is a K3 surface $S$ such th
 
 In the subsequent section, we will explain why the Kuznetsov component is a CY2 category and later on focus on the fundamental example of cubics containing a plane.
 
-\subsection{The Kuznetsov component is CY2}
+\subsubsection{The Kuznetsov component is CY2}
 
 We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
 
@@ -159,9 +159,9 @@ We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 categor
 %  \end{proposition}
     
 
-Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,...,\O(n+1-d)$ are all exceptional and have an orthogonal complement which describes $$\calD(X)=\langle \calA_X,\O,...,\O(n+1-d) \rangle $$
+Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. By adjunction, its canonical bundle is given by $\O(d-n-2)$ and hence its Serre functor is $\otimes \,\O(d-n-2)[n] $. Moreover, the line bundles $\O,\dots,\O(n+1-d)$ are all exceptional and have an orthogonal complement which gives $$\calD(X)=\langle \calA_X,\O,\dots,\O(n+1-d) \rangle $$
 
-\subsubsection{The kernel of the Serre functor}
+\paragraph*{The kernel of the Serre functor}
 
 The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
 
@@ -187,11 +187,9 @@ If we put $T:=\mathbf{O}|_{\calA_X}$, then we can reinterpret this as $$\calS_{\
 
 Recall that $\mL_\O$ had kernel given by $[\O \boxtimes \O \rightarrow \O_\Delta]$. We can compose this with the kernel for $-\otimes \O(1)$ which is $\O_\Delta(1)$ to see that the kernel for $T$ is given by $K_1=[\O(1)\boxtimes \O \rightarrow \O_\Delta(1)]$, i.e. we have an exact triangle $K_1 \rightarrow  \O(1)\boxtimes \O \rightarrow \O_\Delta(1)$. 
 
-Our ultimate aim is to show that a suitable power of the Serre functor is just a shift functor, so we need to understand the kernel for $T^i, i=1,2,\dots, $. So we need to convolute $K_1$ with itself multiple times. 
+Our ultimate aim is to show that a suitable power of the Serre functor is just a shift functor, so we need to understand the kernel for $T^i, i=1,2,\dots, $. For this purpose, we need to convolute $K_1$ with itself multiple times. 
 
-\todo{Do we have compositions of FM kernels? Also, need to talk about preserving exactness}
-
-\begin{proposition}{Kernel of Serre functor of Kuznetsov component}{}   
+\begin{proposition}{Kernel of Serre functor of Kuznetsov component}{Kernel of Serre functor of Kuznetsov component}   
 The kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega^{i-1}(i-1)\rightarrow \dots \rightarrow \O(i-1)\boxtimes \Omega(1)\rightarrow \O(i)\boxtimes \O \rightarrow \O_\Delta(i)$$
 \end{proposition}
 \begin{proof}
@@ -210,16 +208,33 @@ The kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega
     \end{gather*}
     
     Now recall the Euler sequence on $\mathbb{P}^{n+1}$, which says that there is an exact triangle $$\Omega(1)\rightarrow \O^{n+2}\rightarrow \O(1)$$
-    Since the cohomology of $O(1)$ is $n+2$-dimensional, we can read off from the first exact triangle that $ (\O(1)\boxtimes \O) \circ K_1\simeq \O(1) \otimes \Omega(1)$. We can now plug this into the second object in the last triangle, as well as replace the last object in the third triangle by the second triangle to get: $$K_1 \circ K_1 \rightarrow \O(1)\boxtimes \Omega(1)\rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)$$
+    Since the cohomology of $O(1)$ is $n+2$-dimensional, we can read off from the first exact triangle that $ (\O(1)\boxtimes \O) \circ K_1\simeq \O(1) \boxtimes \Omega(1)$. We can now plug this into the second object in the last triangle, as well as replace the last object in the third triangle by the second triangle to get: $$K_1 \circ K_1 \rightarrow \O(1)\boxtimes \Omega(1)\rightarrow \O(2)\boxtimes \O \rightarrow \O_\Delta(2)$$
     
-    Assume it holds for $i$ (we have just shown it holds for $i=2$). Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence tha $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
+    Now, assume the statement holds for $i$ (we have just shown it holds for $i=2$). Then we can apply $-\circ K_1$. We notice by the same argument that $\O_\Delta(i)\circ K_1= [\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]$ and also using cohomology on the fibers and the Euler sequence that $\big( \O(i)\boxtimes O\big)\circ K_1=\O(i)\boxtimes \Omega^1(1)$. What we need to understand is the other parts $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1$. This can be done by applying $\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ -$ to the triangle defining $K_1$. What we get is the following: $$\big(\O(i-k)\boxtimes \Omega^k(k)\big)\circ K_1 \rightarrow \O(i-k)\boxtimes \O \otimes H^\bullet(\Omega^k(k+1))\rightarrow \O(i-k)\boxtimes \Omega^k(k+1)$$
     
     Now we need to use a variant of the Euler sequence, \cite[Corollary 17.1.3]{arapura_algebraic_2012}: $$\Omega^{k+1}(k+1)\rightarrow \O^{\binom{n+2}{k+1}}\rightarrow \Omega^k(k+1)$$
     
-    This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction.
+    This, together with a computation of the cohomology of $\Omega^k(k+1)$ having dimension $\binom{n+2}{k+1}$ (it has only $H^0$ using Bott vanishing etc.), tells us that $\big(\O(i-k)\boxtimes \Omega^{k}(k)\big) \circ K_1=\O(i-k)\boxtimes \Omega^{k+1}(k+1)$. This completes the induction, which is illustrated in the picture below, where the squiggly arrows denote convolution with $K_1$:
+        \[\begin{tikzcd}
+            {K_1^i} & {\O(1)\boxtimes \Omega^{i-1}(i-1)} & \dots & {\O(i)\boxtimes \O} & {\O_\Delta(i)} \\
+            {K_1^{i+1}} & {\O(1)\boxtimes \Omega^{i}(i)} & \dots & {\O(1)\boxtimes \Omega(1)} & {[\O(i+1)\boxtimes \O \rightarrow \O_\Delta(i+1)]} \\
+            & {}
+            \arrow[from=1-1, to=1-2]
+            \arrow[from=1-2, to=1-3]
+            \arrow[from=1-3, to=1-4]
+            \arrow[from=1-4, to=1-5]
+            \arrow[from=2-1, to=2-2]
+            \arrow[squiggly, from=1-1, to=2-1]
+            \arrow[squiggly, from=1-2, to=2-2]
+            \arrow[squiggly, from=1-3, to=2-3]
+            \arrow[from=2-2, to=2-3]
+            \arrow[squiggly, from=1-4, to=2-4]
+            \arrow[squiggly, from=1-5, to=2-5]
+            \arrow[from=2-4, to=2-5]
+            \arrow[from=2-3, to=2-4]
+        \end{tikzcd}\]
 \end{proof}
-
-\subsubsection{The main result}
+\paragraph*{The main result}
 
 \begin{theorem}{Shift functor}{}
     The functor $T$ has $T^d=[2]$.
@@ -245,7 +260,7 @@ The kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega
         \rightarrow \O(1)\boxtimes \Omega^{d-1}(d-1)\rightarrow \dots \rightarrow \O(d)\boxtimes \O \rightarrow \O_\Delta
     \end{gather*}
 
-    We splice it into the top bit, where all the $\O$'s are non-positive, and the positive bit below, which is just the kernel $K_d$. Let us call $K'_d$ the complex which is $K_d$ without the diagonal. Then we have an exact triangle $$K'_d \rightarrow \O_{\Delta_X}(d)\rightarrow K_d$$
+    We splice it into the top bit, where all the $\O$'s are non-positive, and the positive bit below, which is just the kernel $K_d$, by \ref{prop:Kernel of Serre functor of Kuznetsov component}. Let us call $K'_d$ the complex which is $K_d$ without the diagonal bit at the end. Then we have an exact triangle $$K'_d \rightarrow \O_{\Delta_X}(d)\rightarrow K_d$$
 
     We now compare this with triangle \ref{eqn:derivedtriangle}, by using the natural map $K'_d \rightarrow (\iota\times \iota)^*\O_{\Delta_\P}$ coming from Beilinson's resolution, and the identity map in the middle, which can be extended to a map $K_d \rightarrow \O_{\Delta_X}[2]$ by the axioms of triangulated categories: 
 
@@ -263,6 +278,7 @@ The kernel $K_1^i$ fits into a sequence $$K_1^i\rightarrow \O(1)\boxtimes \Omega
     However, for any $\calE_i=\O(d-i)\boxtimes \Omega^i(i)$ with $i=d,d+1,\dots,n+1,$ its Fourier-Mukai transform on $A\in \calA_X$ vanishes, by using the projection formula, base change and the fact that $\calA_X$ is orthogonal to $\O,\dots, \O(n+1-d)$:$$\Phi_{\calE_i}(A)=q_*(p^*A\otimes p^* \O(d-i)\otimes q^* \Omega^i(i))=\Omega^i(i)\otimes q_*p^* A(d-i)=\Omega^i(i) \otimes \RHom(\O(i-d),A)=0$$ We conclude that $\Phi_{K'_d}\simeq \Phi_{(\iota\times \iota)^*\O_{\Delta_\P}}$ and hence $T^d=[2]$.
 \end{proof}
 
+As an immediate corollary we get:
 \begin{corollary}{Kuznetsov}{}
     If $2d>n+1$, then $\calA_X$ is a fractional Calabi-Yau category whose Serre functor obeys $\calS_{\calA_X}^{d/c}=[(n+2)(d-2)/c]$, where $c=\gcd(d,n+2)$.
 
@@ -280,7 +296,7 @@ Note that they do not belong on Hassett's list of cubic fourfolds with associate
 
 Consider $P\subset X \subset \P^5$ a cubic fourfold containing a plane $P$. The variety parametrizing $3$-planes containing $P$ is also a plane, and $X$ intersects such a $3$ plane in $P$ combined with a quadric $Q$, since generically the intersection of $X$ with a 3-plane should be degree $3$.
 
-More precisely, we can blowup $P$ in $\P^5$ which resolves the rational map defined by the linear system $\calI_P \otimes \O(1)$ to a map defined by the complete linear system $\calI_E \otimes \tau^*\O(1)$.
+More precisely, we can blowup $P$ in $\P^5$ which resolves the rational map defined by the linear system $\calI_P \otimes \O(1)$ to a map defined by the complete linear system $\calI_E \otimes \tau^*\O(1)$. 
 
 \begin{center}
 \begin{tikzcd}
@@ -291,12 +307,12 @@ More precisely, we can blowup $P$ in $\P^5$ which resolves the rational map defi
 
 By definition, this means that $\phi^* \O(1)=\calI_E \otimes \tau^*\O(1)$.
 
-If $P$ is given by $[0:0:0:a:b:c]$ then the first rational map sends a point $z \mapsto [z_0:z_1:z_2]$ since these are the linear forms vanishing on $P$. This is then resolved by blowing up $P$ and essentially projecting down from the $\P^2$ fiber in the projectivized normal bundle, which is trivial:  $$E \simeq P \times \P^2 \xrightarrow{\phi = \pi_2} \P^2$$
+If $P=\P V$, $V\oplus W =\C^6$ and we choose coordinates so that $V=\mathbb{V}(z_0,z_1,z_2)$, then the map $\P^5\rightarrow \P W\simeq \P^2$ is given by $z \mapsto [z_0:z_1:z_2]$ since these are the linear forms vanishing on $P$. This is then resolved by blowing up $P$ and essentially projecting down from the $\P^2$ fiber in the projectivized normal bundle, which is trivial:  $$E \simeq P \times \P^2 \xrightarrow{\phi = \pi_2} \P^2$$
 
 We can think of the blowup in this simplified setting as the set $$\mathrm{Bl}_P \P^5 = \{p\in \P^5, q\in \P^2 |\, p_iq_j=p_jq_i, 0\leq i,j \leq 2\} \subset \P^5 \times \P^2$$
 which comes equipped with two projection maps to $\P^5$ and $\P^2$ which are the blowup and resolution maps, respectively. We can clearly see that over $\P^2$, this is a projective bundle by looking at the affine cone over $\P^5$: $$\{ a\in \A^6, q\in \P^2|\,a_iq_j=a_jq_i, 0\leq i,j \leq 2\}\rightarrow \P^2$$
 
-We can see that the coordinates $a_3, a_4, a_5$ are unconstrained, so give us a copy of the trivial bundle $\O^{\oplus 3}$. The other three coordinates give us precisely the tautological bundle: $$\O(-1)=((a_0,a_1,a_2)\in \A^3, q\in \P^2|\, (a_0, a_1, a_1)\in q)$$
+We can see that the coordinates $a_3, a_4, a_5$ are unconstrained, so give us a copy of the trivial bundle $\O^{\oplus 3}$. The other three coordinates give us precisely the tautological bundle: $$\O(-1)=\{(a_0,a_1,a_2)\in \A^3, q\in \P^2|\, (a_0, a_1, a_1)\in q\}$$
 
 Hence, we conclude that $$\mathrm{Bl}_P \P^5 = \P (\O(-1)\oplus \O^{\oplus 3})$$
 
@@ -349,13 +365,13 @@ fitting into a diagram:
 \end{center}
 
 \begin{remark}{Brauer-Severi varieties}{}
-    We have seen that $\tscrF\rightarrow S$ is a $\P^1$ bundle. There is a cohomological obstruction $\alpha \in H^2(S, \O_S^\times)$ to this being a projectivized vector bundle, which can be seen by locally trivializing and trying to glue over an open cover. However, there is an $\alpha$-twisted vector bundle $\calE$ such that $\tscrF=\P \calE$ and a sheaf of Azumaya algebras $\calB_0 = \mathrm{End}\,\calE$ whose Brauer class is $\alpha$.  Even more is true: the pushforward to $\P^2$ defined as $\pi_* \calB_0 = \calC_0$ is the sheaf of even Clifford algebras corresponding to $(\calF^*, q)$: $$\calC_0=\O \oplus \bigwedge\nolimits^2 \calF^*(-1)\oplus \bigwedge\nolimits^4\calF^*(-2)$$ whose center $\mathcal{Z}$ realizes $S=\calS pec\, \mathcal{Z}$ as a relative Spec of a sheaf of algebras. For more on this, consult Bernardara et al.
+    We have seen that $\tscrF\rightarrow S$ is a $\P^1$ bundle. There is a cohomological obstruction $\alpha \in H^2(S, \O_S^\times)$ to this being a projectivized vector bundle, which can be seen by locally trivializing and trying to glue over an open cover. However, there is an $\alpha$-twisted vector bundle $\calE$ such that $\tscrF=\P \calE$ and a sheaf of Azumaya algebras $\calB_0 = \mathrm{End}\,\calE$ whose Brauer class is $\alpha$.  Even more is true: the pushforward to $\P^2$ defined as $\pi_* \calB_0 = \calC_0$ is the sheaf of even Clifford algebras corresponding to $(\calF^*, q)$: $$\calC_0=\O \oplus \bigwedge\nolimits^2 \calF^*(-1)\oplus \bigwedge\nolimits^4\calF^*(-2)$$ whose center $\mathcal{Z}$ realizes $S=\calS pec\, \mathcal{Z}$ as a relative Spec of a sheaf of algebras. For more on this, consult \cite{auel_fibrations_2014}. In fact, Kuznetsov \cite{KuznetsovDerivedCubic} shows that $$\calD(\P^2, \calB_0)\simeq \calD(S, \alpha)$$
     
 \end{remark}
 
 In the next section, we will see how the above correspondence allows us to define a Fourier-Mukai transform $\Phi_{\calI(1)}: \calD (\tscrF)\rightarrow \calD (X)$ which sends a twisted subcategory $\calD(S,\alpha)$ isomorphically to the Kuznetsov component.
 
-\subsubsection{Twisted sheaves on the K3 surface}
+\subsubsection{Twisted sheaves on the associated K3 surface}
 
 We have seen that to every cubic fourfold containing a plane, we can associate some K3 surface by blowing up the plane and realizing $S$ as the variety of rulings on the fibers of the quadric fibration $\tilde{X}\rightarrow \P^2$. Given that the Kuznetsov component looks like the derived category of a K3 surface, it is natural to conjecture that these two are related. In this section, we review two approaches to proving the following: 
 \begin{proposition}{Kuznetsov}{Kuznetsov twisted K3}
@@ -398,6 +414,22 @@ The final step in the proof consists of showing that $\Psi'$ is fully faithful, 
 
 \end{proof}
 \todo{Finish the proof}
+
+\paragraph*{Family version}
+
+This is an aside remark, which explains that one can use Homological Projective Duality and study the problem above in a $\P^1$-family. This was done in \cite{calabrese_derived_2016} and bears the following structure: 
+
+Firstly, suppose we have a pencil of cubic fourfolds. This produces universal cubic hypersurface $$\mathcal{H}\rightarrow \P^1$$whose fiber over $t$ is the associated cubic fourfold to $t$. This also has a Kuznetsov component and an SOD $$\calD(\mathcal{H})=\langle \calA_{\mathcal{H}}, \pi^* \calD\P^1(i,0); i=3,4,5 \rangle $$
+
+Homological Projective Duality prescribes an equivalence $$\calA_{\mathcal{H}} \simeq \calD(\mathcal{X})$$where $\mathcal{X}$ is the base locus of the linear system.
+
+Consider, in particular, a pencil of cubics containing our fixed plane $P$. This is equivalent to choosing two sections $s_0,s_\infty$ of the linear system defining $\tilde{X}$ which is $\calI_E\otimes \tau^* \O(3)$. The base locus $\mathcal{X}=\{s_0=s_\infty=0\}$ of this sub-linear system is a $(3,3)$ complete intersection in $\P^5$, which is a Calabi-Yau threefold.
+
+Then, in fact, the universal hypersurface is given by $$\mathcal{H}=\mathrm{Bl}_\mathcal{X}(\mathrm{Bl}_P\P^5)\subset {Bl}_P\P^5\times \P^1 \rightarrow \P^2 \times \P^1$$
+which we can think of as a quadric fibration over $\P W\times \P^1$. Work of Kuznetsov then shows that $$\calD(\mathcal{X}) \simeq \calD(\P^2 \times \P^1, \calC_0)$$ where $\calC_0$ is the associated Azumaya algebra to the quadric fibration. 
+
+Before, we had that $$\calD(\P^2, \calB_0)\simeq \calD(S, \alpha)$$ for the K3 surface $S$, but now we can study it in families to produce a $\P^1$-family of K3 surfaces $Y$, which is also a Calabi-Yau threefold, obtained similarly as a Stein factorization (modulo some details on the singularities). Then we have that $$\calD(\P^2 \times \P^1, \calC_0)\simeq \calD(Y, \alpha)$$ by work of Kuznetsov, which allows us to conclude that $$\calD(\mathcal{X})\simeq \calD(Y,\alpha)$$
+
 
 \subsection{Connecting the Hodge theoretic and derived viewpoints: the paper of Addington-Thomas}
 
