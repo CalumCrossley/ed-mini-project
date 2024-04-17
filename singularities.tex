@@ -101,13 +101,11 @@ its singular locus, and in fact this is true; $D_\Sg(U)\simeq D_\Sg(X)$ for a
 formal neighbourhood $U$ of the singular locus. See
 \cite[Prop~1.14]{OrlovSingularities} and \cite[\S6]{Shipman}.
 
-\subsection{Matrix factorizations and Kn\"orrer periodicity}
-
-\subsubsection{Triangulated categories of matrix factorizations}
+\subsection{Matrix factorizations}
 
 Consider the cone $Z=\{xy=z^2\}\subset\A^3$. Looking at the structure sheaf of
 the line $L=\{x=z=0\}\subset Z$, we are led to a periodic projective resolution
-\begin{equation*}
+\begin{equation}\label{eqn:coneMF}
     \cdots \to
     \O_Z^2 \xrightarrow{\begin{pmatrix}
         y & -z \\ -z & x
@@ -122,7 +120,7 @@ the line $L=\{x=z=0\}\subset Z$, we are led to a periodic projective resolution
         x & z
     \end{pmatrix}}
     \O_L\to0,
-\end{equation*}
+\end{equation}
 arising from a factorization of $xy-z^2$ into matrices:
 \begin{equation*}
     \begin{pmatrix}
@@ -172,7 +170,7 @@ triangulated homotopy category.
     $\Z_2$-grading, having a natural forgetful functor $D^b(X)\to\MF(X,0)$.
 \end{remark}
 
-\begin{example}{}{}
+\begin{example}{}{knorrerbase}
      Suppose $X=\A^2$, with $W=xy$. The obvious factorization of $W$ gives an
      object
      \begin{equation*}
@@ -215,14 +213,52 @@ triangulated homotopy category.
     \cite{OrlovTheorem}, \cite{Ed}.
 \end{remark}
 
-\todo{example of resolving a point on a cubic curve. the point moves, changing the matrix factorization, but not the homotopy type}
+\todo{move this to graded MFs + Orlov's theorem section}
 
-\subsubsection{Comparing categories of singularities and matrix factorizations}
+\begin{example}{}{cubicMF}
+    Consider a cubic curve $C=\{f=0\}\subset\P^2$, and a point $p\in C$. If
+    $p=[0:0:1]$ we can write $f=xP+yQ=\det\begin{pmatrix}
+        x & y \\ -Q & P
+    \end{pmatrix}$, from which we get a matrix factorization
+    \begin{equation*}
+        \begin{tikzcd}[ampersand replacement=\&,column sep=huge]
+            \O_{\A^3}^2 \ar[shift left]{r}{\begin{pmatrix}
+                    x & y \\ -Q & P
+            \end{pmatrix}} \&
+            \O_{\A^3}^2, \ar[shift left]{l}{\begin{pmatrix}
+                    P & -y \\ Q & x
+            \end{pmatrix}}
+        \end{tikzcd}
+    \end{equation*}
+    on the cone $\A^3$ over $\P^2$. (We could view this as a matrix
+    factorization on $\P^2$, but that requires twisting by $\O(1)$, leading to
+    the notion of a \emph{graded} matrix factorization.) This cone $Z$ over $C$
+    has a line $L$ corresponding to $p$, and this gives a resolution
+    \begin{equation*}
+        \cdots \to
+        \O_Z^2 \xrightarrow{\begin{pmatrix}
+                x & y \\ -Q & P
+        \end{pmatrix}}
+        \O_Z^2 \xrightarrow{\begin{pmatrix}
+                P & -y \\ Q & x
+        \end{pmatrix}}
+        \O_Z^2 \xrightarrow{\begin{pmatrix}
+            x & y
+        \end{pmatrix}} \O_Z \to \O_L \to 0.
+    \end{equation*}
+    % TODO: independent of P,Q choice up to homotopy
+    As we vary $p$, and correspondingly $L$, the ideal sheaf deforms
+    non-trivially, so we expect to get matrix factorizations of distinct
+    homotopy types. Note that this factorization of a matrix determinant
+    generalizes via the adjugate construction: $\adj(A)A=A\adj(A)=\det(A)I$.
+\end{example}
 
-Suppose $W\ne0$, and consider the hypersurface $Y=\{W=0\}\subset X$. For a
-matrix factorization $(\calE^\bullet,d^\bullet)\in\MF(X,W)$ we have the sheaf
-$K=\coker(\calE^0\to\calE^1)$, which is supported on $Y$ since it is annhilated
-by $W$.
+\subsection{Comparing categories of singularities and matrix factorizations}
+
+Now we describe how to obtain a periodic resolution from a matrix factorization,
+as in \eqref{eqn:coneMF}. We will resolve the cokernel
+$\calE^0\to\calE^1\to K\to0$. Writing $Y=\{W=0\}\subset X$, we have that $K$ is
+supported on $Y$, since it is annhilated by $W$:
 \begin{equation*}
     \begin{tikzcd}
         K_0 \ar[r,"W"] & K_0 \\
@@ -231,12 +267,32 @@ by $W$.
         & \calE^0 \ar[u,"d^0"'] \ar[uu,bend right=60,"0"']
     \end{tikzcd}
 \end{equation*}
-Restricting to $Y$ we have $0\to K_1\to\calE^0/W\to\calE^1/W\to K\to0$.
+Suppose that $Y=\{W=0\}\subset X$ is a Cartier divisor, i.e. $W$ is not a
+zero-divisor. Restricting the exact sequence to $Y$, we then have
+\begin{equation*}
+    0 \to d^1\calE^1/W\calE^1
+        \to \calE^0/W\calE^0 \xrightarrow{d^0|_Y} \calE^1/W\calE^1 \to K \to 0.
+\end{equation*}
+Here the kernel of $d^0|_Y$ is the image of $d^1$ since $W=d^1d^0$ and we can
+cancel $W$. Repeating the same argument for $d^1|_Y$, we then get a locally free
+resolution of $K$ in $\Coh(Y)$:
+\begin{equation*}
+    \cdots \to \calE^0/W\calE^0 \to \calE^1/W\calE^1
+        \to \calE^0/W\calE^0 \to \calE^1/W\calE^1 \to K \to 0.
+\end{equation*}
 
 \begin{proposition}{}{}
-    This induces a functor $F_0:\MF(X,W)\to D_\Sg(Y)$, and moreover it is an
-    exact equivalence.
+    Associating $K\in\Coh(Y)$ to the matrix factorization $\calE^\bullet$
+    defines a functor $\MF(X,W)\to D_\Sg(Y)$ which is an exact equivalence.
 \end{proposition}
+
+\begin{remark}{}{}
+    We could define a similar functor by taking the cokernel of $d^1$ instead of
+    $d^0$. These give distinct objects of $D^b(Y)$ (consider
+    Example~\ref{ex:knorrerbase}), but both are given by the same periodic
+    locally free resolution up to a shift and an appended perfect complex, so
+    the results in $D_\Sg(Y)$ only differ by a shift.
+\end{remark}
 
 \begin{proof}
     A map of matrix factorizations $\calE^\bullet\to\calF^\bullet$ is
@@ -276,7 +332,7 @@ Restricting to $Y$ we have $0\to K_1\to\calE^0/W\to\calE^1/W\to K\to0$.
     \end{itemize}
 \end{proof}
 
-\subsubsection{Kn\"orrer periodicity}
+\subsection{Kn\"orrer periodicity}
 
 Generalizing the example of $\MF(\A^2,xy)$, given a matrix factorization of a
 function $W=MN=NM$, we can produce a factorization of $W+xy$ as follows:
@@ -307,7 +363,7 @@ adjunction $\calE|_Y=\calN_{Y/X}$, and we get an inclusion
 $i:\P\calN^\vee_{Y/X}\hookrightarrow\tilde Y$. Write $q:\tilde Y\to X$ for the
 projection.
 
-\begin{theorem}{Orlov}{}
+\begin{theorem}{Orlov \cite{OrlovKnorrer}}{}
     The Fourier--Mukai transform $\Phi_Z=\dR i_*q^*:D^b(Y)\to D^b(\tilde Y)$
     induces an equivalence $D_\Sg(Y)\simeq D_\Sg(\tilde Y)$.
 \end{theorem}
