@@ -7,6 +7,10 @@
 \usepackage{biblatex}
 \addbibresource{bibliography.bib}
 
+% push hbox warnings in bibliography under the rug
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+
 \usepackage{geometry}
 \geometry{a4paper, left=30mm, right=30mm, top=20mm, bottom=20mm}
 
