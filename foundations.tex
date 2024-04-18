@@ -1077,6 +1077,20 @@ We finish by mentioning a few facts about semiorthogonal decompositions coming f
     is the identity, by the fact that $\beta^!$ is right adjoint to $\beta$, as well as the condition that $\beta^!\beta=1$. 
 \end{proof}
 
+\begin{example}{Relative exceptional SOD}{Relative exceptional SOD}
+Let $f:X\rightarrow Y$ be a map and $\calE$ be a relative exceptional object. Then we have an adjunction \[\begin{tikzcd}
+	{\calD (Y)} & {\calD (X)}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "{\calE \otimes f^*-}", curve={height=-12pt}, from=1-1, to=1-2]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{f_* \lHom (\calE ,-)}", curve={height=-12pt}, from=1-2, to=1-1]
+	\arrow["\dashv"{marking, allow upside down}, draw=none, from=0, to=1]
+\end{tikzcd}\]
+and moreover the composition is the identity, by assumption that $\calE$ is relative exceptional: $$f_* \lHom(\calE, \calE \otimes f_* \calF)=f_*\lHom(\calE, \calE)\otimes \calF = \calF$$
+
+Hence, we can apply \ref{prop:Associated semiorthogonal decompositions} and get the following s.o.d.:
+
+$$\calD(Y)=\langle \ker f_*\lHom(\calE,-), \calE\otimes f^*\calD(X)\rangle$$
+\end{example}
+
 \todo{braid action of mutations on semi-orthogonal decompositions}
 
 \subsubsection{The projective bundle and blowup formulas}
@@ -1091,6 +1105,8 @@ We now focus on two important semiorthogonal decompositions associated to projec
 \end{proposition}
 
 \begin{proof}
+    \textbf{Step 1}: orthogonality.
+
     We see that $p^*$ is fully faithful:
     \begin{equation*}
         \RHom(p^*F,p^*G) = \RHom(F,p_*(p^*G\otimes\O_{\P(E)})) = \RHom(F,G)
@@ -1103,7 +1119,9 @@ We now focus on two important semiorthogonal decompositions associated to projec
             = \RHom(F,p_*(p^*G\otimes \O(j-i))) = \\
             = \RHom(F,G\otimes p_*\O(j-i)) = 0, \text{ since } j-i\in \{-1,-2,...,-r\}
     \end{gather*}
-for $i<j$. Finally, need to show generation. 
+for $i<j$. We coul also have argued using \ref{ex:Relative exceptional SOD} by applying it many times to the relative exceptional line bundles $\O(i)$: the fact they are relative exceptional follows from the fact that $p_*\O_{\P\calE}=\O_B$ for a projective bundle.
+
+\textbf{Step 2}: We now show generation.
 
 One way to show this is as follows: For a point $p\in\P(\calE)$, have Koszul resolution on the fibers. But a fiber has $\O_F=p^*\O_q$ where $p(F)=q$. So can generate everything fiberwise via Beilinson.
 
