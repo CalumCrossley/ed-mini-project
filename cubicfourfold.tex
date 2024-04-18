@@ -320,11 +320,11 @@ However, this isomorphism is slightly non-canonical: a coordinate-free alternati
 
 Now, we restrict to $X$: the blowup $\tilde{X}:=\mathrm{Bl}_P X$ is the strict transform of $X$ in $\mathrm{Bl}_P \P^5$. If $F$ is the defining function of $X$, which is a cubic, we expect generically the fiber of $\tilde{X}\rightarrow \P^2$ to be a quadric, since the blowup only gives a linear condition. The reason for this is that $\tau^*F \in H^0(\tau^* \O(3) \otimes \calI_E)$ since $F$ vanishes on $P$ and hence $\tilde{X}$ is defined as the zero locus of a section of the line bundle $\calL := \tau^* \O(3) \otimes \calI_E$. To understand the fibers of $\tilde{X}$ we push this line bundle down to $\P^2$: $$\phi_*(\tau^* \O(3) \otimes \calI_E)=\phi_* \tau^* \O(2) \otimes \O(1)$$
 
-But the point now is that since $\mathrm{Bl}=\P \calF^*$, then $\calF =\phi_* \O_\phi(1)$ is relative $O(1)$. Pushing down means taking cohomology on the fibers, but then $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. 
+Pushing down means taking cohomology on the fibers, hence $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. 
 
 \begin{remark}{Relative line bundles on projective bundles}{Relative line bundles on projective bundles}
 
-    More generally \cite[Remark~13.36]{Wedhorn}, given a projective bundle $\pi:\P\calE \rightarrow B$ which can be defined as a relative Proj of a sheaf of algebras $\underline{\Proj}\, \mathrm{Sym}^\bullet \calE$, we have the following fact: $$\pi_* \O_{\P\calE}(d)=\mathrm{Sym}^d \calE$$ 
+    More generally \cite[Remark~13.36]{Wedhorn}, given a projective bundle $\pi:\P\calE^\lor \rightarrow B$ which can be defined as a relative Proj of a sheaf of algebras $\underline{\Proj}\, \mathrm{Sym}^\bullet \calE$, we have the following fact: $$\pi_* \O_{\P\calE}(d)=\mathrm{Sym}^d \calE$$ 
 
     In particular, $\pi_*\O(1)=\calE$. Recall the relative Euler sequence: $$0\rightarrow \O\rightarrow \pi^* \calE \otimes \O_{\pi}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$
     %since $$\calT_\pi:=\calT_{\P\calE/B}\simeq \lHom(\O_{\pi}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{\pi}(-1),\mathcal{Q}\oplus \O_{\pi}(-1))}{\lHom (\O_{\pi}(-1), \O_{\pi}(-1))}\simeq \frac{\lHom(\O_{\pi}(-1), \pi^* \calE)}{ \O}$$  
@@ -348,7 +348,7 @@ Let us summarize what we have done so far:
 Now, a generic quadric is isomorphic to $\P^1 \times \P^1$ and has exactly two rulings, parametrized by the connected components of the Fano variety of lines $$\scrF(\P^1 \times \P^1)=\P^1 \coprod \P^1$$
 A singular quadric is a cone, so has exactly one ruling: $$\scrF(Q)=\P^1$$
 
-If we define $S$ to be the space of rulings on the fibers, we see that it is a double cover of $\P^2$ branched along the sextic curve. Moreover, the relative Fano variety parametrizing lines in the fibers is a $\P^1$ bundle over this: $$\tscrF \rightarrow S \rightarrow \P^2$$
+If we define $S$ to be the space of rulings on the fibers, we see that it is a double cover of $\P^2$ branched along the sextic curve. Moreover, the relative Fano variety parametrizing lines in the fibers is a $\P^1$ bundle over this: $$\tscrF \xrightarrow{\pi_S} S \xrightarrow{\pi} \P^2$$
 In other words, for every $y\in \P^2$, the fiber of $\tscrF$ is equal to $\scrF(Q_y)$, the Fano variety of lines in the residual quadric corresponding to $y$.
 
 In fact, this $S$ is a K3 surface: since it is a double cover of $\P^2$, it has $h^{0,1}(S)=h^{0,1}(\P^2)=0$ and its canonical bundle is given by $$K_S = \pi^*(K_{\P^2}+\frac{1}{2}C)=\pi^*(-3H +\frac{1}{2}6H)=0$$
@@ -388,29 +388,74 @@ We have seen that to every cubic fourfold containing a plane, we can associate s
 \end{proof}
 
 \begin{proof}[Proof 2]
-A second approach is found in \cite[\S7]{huybrechts_geometry_2023} by using a Fourier-Mukai kernel. The universal line $\tscrP\subset X \times \tscrF$ has an ideal sheaf $\calI$ and we consider $$\Phi_{\calI(1)}: \calD(X)\rightarrow \calD(\tscrF)$$
+A second approach is found in \cite[\S7]{huybrechts_geometry_2023} by using a Fourier-Mukai kernel. 
 
-Now, a theorem of Bernardara \cite{bernardara_semiorthogonal_2005} extends the projective bundle formula to Brauer-Severi varieties and we have a semiorthogonal decomposition $$\calD(\tscrP)=\langle \calD(S,\alpha), \calD(S)\rangle$$
+\textbf{Step 1}: We first choose a kernal and define a functor witnessing the desired equivalence.
 
-The $\calD(S)$ is included via the projection $\pi^*$ and the twisted $\calD(S,\alpha)$ is included via $\pi^*\otimes \O_\pi(-1)$: we have to tensor by a relative twisted $\O(-1)$ so as to untwist and land in the honest derived category. We can consider the adjoint $\Psi$ of $\Phi$ and compose it with the inclusion  $\calD(S,\alpha)\hookrightarrow \calD(\tscrP)$ to get $$\Psi':\calD(S,\alpha)\rightarrow \calD(X)$$
+The universal line $\tscrP\subset X \times \tscrF$ has an ideal sheaf $\calI$ and we consider the Fourier-Mukai transform associated to the correspondence: 
+\[\begin{tikzcd}
+    & X\times \tscrF \arrow[ld, "\pi_X"'] \arrow[rd, "\pi_{\tscrF}"] &        \\
+  X &                                                                & \tscrF
+  \end{tikzcd}\]
+$$\Phi_{\calI(1)}: \calD(X)\rightarrow \calD(\tscrF)$$
+
+Now, a theorem of Bernardara \cite{bernardara_semiorthogonal_2005} extends the projective bundle formula to Brauer-Severi varieties and we can apply it to the $\P^1$-bundle $\tscrF\xrightarrow{\pi_S} S$ hence have a semiorthogonal decomposition $$\calD(\tscrF)=\langle \calD(S,\alpha), \calD(S)\rangle$$
+
+The $\calD(S)$ is included via the projection $\pi_S^*$ to $S$ and the twisted $\calD(S,\alpha)$ is included via $\pi_S^*\otimes \O_{\pi_S}(-1)$: we have to tensor by a relative twisted $\O_{\pi_S}(-1)$ so as to untwist and land in the honest derived category. We can consider the adjoint $\Psi$ of $\Phi$ and compose it with the inclusion  $\calD(S,\alpha)\hookrightarrow \calD(\tscrF)$ to get $$\Psi':\calD(S,\alpha)\rightarrow \calD(X)$$
 
 The claim is that this lands in the Kuznetsov component and is a full and faithful functor. The fact that both are indecomposable Calabi-Yau 2 categories then completes the proof.
 
-To show the first, we need to show that $\Psi'(E)\in \calA_X= \langle \O, \O(1), \O(2)\rangle ^\perp = \lperp ( \langle \O, \O(1), \O(2)\rangle\otimes \O(-3))$ by Serre duality. In other words, by adjointness we want $$\Hom(\Psi(E), \O(-i))=0 \iff \Hom (E, \Phi \O(-i))=0 \iff \Phi \O(-i) \in \calD(S,\alpha)^\perp, i=1,2,3$$
+\textbf{Step 2}: We show that $\im \Psi'\subset \calA_X$.
+
+We need that $\Psi'(E)\in \calA_X= \langle \O, \O(1), \O(2)\rangle ^\perp = \lperp ( \langle \O, \O(1), \O(2)\rangle\otimes \O(-3))$ by Serre duality. In other words, by adjointness we want $$\Hom(\Psi(E), \O(-i))=0 \iff \Hom (E, \Phi \O(-i))=0 \iff \Phi \O(-i) \in \calD(S,\alpha)^\perp, i=1,2,3$$
 
 The ideal sheaf sequence $$0\rightarrow \calI \rightarrow \O_{X\times \tscrF}\rightarrow \O_{\tscrP}\rightarrow 0$$ implies that we have a triangle of FM functors $$\Phi_{\cal I}\rightarrow \Phi_{\O_{X\times \tscrF}}\rightarrow \Phi_{\O_{\tscrP}}$$
 
-Applying this to $\O_X(-1)$ we see that $\Phi_{\O_{X\times \tscrF}(1)}\O(-1)=\Phi_{\O_{X\times \tscrF}}(\O_X)=\O$ by base change on the product since $H^\bullet(X, \O_X)=k$ and similarly $\Phi_{\O_{\tscrP}(1)}(\O_X(-1))=\Phi_{\O_{\tscrP}}(\O_X)=\O$ since it is a $\P^1$ bundle. The two are isomorphic, and hence $\Phi(\O(-1))=0$ as the cone of an isomorphism.
+Applying this to $\O_X(-1)$ we see that $\Phi_{\O_{X\times \tscrF}(1)}\O(-1)=\Phi_{\O_{X\times \tscrF}}(\O_X)=\O$ by base change on the product since $H^\bullet(X, \O_X)=\C$ and similarly $\Phi_{\O_{\tscrP}(1)}(\O_X(-1))=\Phi_{\O_{\tscrP}}(\O_X)=\O$ since $\tscrP\rightarrow \tscrF$ is a $\P^1$ bundle. The two are isomorphic, and hence $\Phi(\O(-1))=0$ as the cone of an isomorphism.
 
 Similarly, applying it to $\O_X(-2)$, we first see that $\Phi_{\O_{X\times \tscrF}}(\O_X(-1))=0$ since this is doing cohomology on the fibers $H^\bullet(X, \O_X(-1))=H^\bullet(X, \omega_X \otimes \O_X(2))=0$ by Bott vanishing. Moreover, $\Phi_{\O_{\tscrP}}(\O_X(-1))=0$ since this is cohomology on the $\P^1$ fibers, and $H^\bullet(\P^1, \O(-1))=0$.
 
 Finally, we need to consider $\O_X(-3)$. We still have Bott vanishing for $X$ i.e. $\Phi_{\O_{X\times \tscrF}}(\O_X(-2))=0$ since $H^\bullet(X, \O_X(-2))=H^\bullet(X, \omega_X \otimes \O_X(1))=0$. However, the cohomology of $\O(-2)$ on the $\P^1$ fibers is nonzero, so we only have that $\Phi \O(-3)\simeq \Phi_{\O_{\tscrP}}(\O(-2))[-1]$. Explicitly, by Remark \ref{rem:Relative line bundles on projective bundles}, we have 
-$$\Phi_{\O_{\tscrP}}(\O(-2))=p_* \O_p(-2)= \det \calS[-1]=\O_{\tscrF} (-1)[-1]$$
-where $\calS$ is the sheaf on $\tscrF$ such that $\tscrP = \P \calS^*$. The desired vanishing is thus equivalent via Serre duality to $$0 = \Hom(E, \Phi \O(-3))=\Hom(E, \O_{\tscrF} (-1)[-2])\iff 0=\Hom(\O_{\tscrF} (-1), E\otimes \omega_{\tscrF})$$
+$$\Phi_{\O_{\tscrP}}(\O(-2))={\pi_{\tscrF}}_* \O_{\pi_{\tscrF}}(-2)=\O_{\tscrF} (-1)[-1]$$
+The desired vanishing is thus equivalent via Serre duality to $$0 = \Hom(E, \Phi \O(-3))=\Hom(E, \O_{\tscrF} (-1)[-2])\iff 0=\Hom(\O_{\tscrF} (-1), E\otimes \omega_{\tscrF})$$
 
-We only need to show this for skyscrapers. But they are embedded via $p^* \otimes \O_\pi(-1)$ so a skyscraper $\O_x \in \calD(S,\alpha)$ corresponds to $\O_{F_x}(-1)$, and so we are reduced to showing $$\Hom(\O_{\tscrF}(-1), \O_{F_x}(-1)\otimes\omega_{\tscrF})\simeq H^\bullet(F_x, \O_{F_x}(-1) \otimes \O_{F_x}(-2)\otimes \O_{\tscrF}(-1)|_{F_x})=H^\bullet(\P^1, \O(-1))=0$$since the embedding $\P^1 \simeq F_x \subset \tscrF$ is of degree $2$, i.e. it pulls back the Plucker polarization coming from the tautological line $\O(1)$ on $\P \bigwedge^2 \mathbb{C}^6$ to $\O(2)$.
+We only need to show this for skyscrapers. But they are embedded via $\pi_S^* \otimes \O_{\pi_S}(-1)$ so a skyscraper $\O_x \in \calD(S,\alpha)$ corresponds to $\O_{F_x}(-1)$, and so we are reduced to showing $$\Hom(\O_{\tscrF}(-1), \O_{F_x}(-1)\otimes\omega_{\tscrF})\simeq H^\bullet(F_x, \O_{F_x}(-1) \otimes \O_{F_x}(-2)\otimes \O_{\tscrF}(-1)|_{F_x})=H^\bullet(\P^1, \O(-1))=0$$since the embedding $\P^1 \simeq F_x \subset \tscrF$ is of degree $2$, i.e. it pulls back the Plucker polarization coming from the tautological line $\O(1)$ on $\P \bigwedge^2 \mathbb{C}^6$ to $\O(2)$.
 
-The final step in the proof consists of showing that $\Psi'$ is fully faithful, which requires the use of a criterion by Bondal-Orlov, and explicitly computing some Ext groups. 
+\textbf{Step 3}: The final step in the proof consists of showing that $\Psi'$ is fully faithful, which requires the use of the criterion by Bondal-Orlov \ref{prop:Generation criterion}. 
+
+Firstly, we identify the kernel for $\Psi'$. By \ref{prop:Adjoints of FM transform}, we know that is must be $\calI(1)^\vee \otimes \pi_X^* \omega_X [3]$. The generation criterion then requires to check what happens on skyscrapers $\O_s, s\in S$. Explicitly, $$\Psi'\O_s={\pi_X}_* ( \calI(1)^\vee \otimes \omega_X \boxtimes \O \otimes \pi_{\tscrF}^*\O_s)[3]$$
+
+By the way we've set things up, the pullup is twisted by the way $\calD(S,\alpha)$ includes into $\calD(\tscrF)$, namely: $\pi^*_{\tscrF}\O_s=\O_{F_s}(-1)$ where $F_s \simeq \P^1$ is the fiber over $s$ in the $\P^1$ bundle $\tscrF\rightarrow S$. Hence, the object in question is $$\Psi'\O_s={\pi_X}_*(\calI_s(1)^\vee \otimes (\omega_{\tscrF}\otimes \O_{F_s}(-1))\boxtimes \O_X)[3]$$
+
+Here, $\calI_s$ is the ideal sheaf of the subvariety $\tscrP_s \subset X \times F_s$, since tensoring with the skyscraper has made everything supported on a fiber. Under the projection $\pi_s: F_s\times X \rightarrow X$, the relative canonical sheaf is just $\omega_{\tscrF}\boxtimes \O_X$. Hence, we can apply Grothendieck-Verdier duality \ref{ex:Shriek functor}:
+
+\begin{gather*}
+    {\pi_s}_*(\calI_s(1)^\vee \otimes \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq 
+    {\pi_s}_*\lHom(\calI_s\otimes \O\boxtimes \O_X(1), \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq \\
+    {\pi_s}_*\lHom(\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \omega_{\pi})[3]\simeq
+    \lHom(({\pi_s}_*)\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \O[2])\simeq\\
+    ({\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O))^\vee\otimes \O_X(-1) [2]
+\end{gather*}
+
+We thus need to understand ${\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O)$. This is really the Fourier-Mukai transform of $\O_{F_s}(1)$ with kernel $\calI_s$, which fits into the triangle $$\calI_s\rightarrow \O_{X\times F_s}\rightarrow \O_{\tscrP_s}$$and hence we have a triangle $$\Phi_{\calI_s}(\O_{F_s}(1))\rightarrow \Phi_{\O_{X\times F_s}}(\O_{F_s}(1))\rightarrow \Phi_{\O_{\tscrP_s}}(\O_{F_s}(1))$$
+
+Hence, we see that $$(\Psi'\O_s)^\vee\otimes \O_X(-1)[2]\simeq {\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O)\simeq \ker[H^0(X,\O_{F_s}(1))\otimes \O_X \rightarrow \O_Q(1)]:=K_s$$
+where $Q$ is the residual quadric in $X$ corresponding to $s$.
+
+The only thing left is to check the Bondal-Orlov criterion on $K_s$, since $$\Ext^i(\Psi'\O_s, \Psi'\O_t)\simeq \Ext^i(K_s,K_t)$$
+
+The fact that $\Ext^0(K_s,K_s)=\C$ follows from $\dots$
+
+$\Ext^i(K_s,K_s)$ vanishes for $i<0$ since this is a sheaf and the case $i>2$ follows by Serre duality.
+
+When $s\neq t$, we need to check vanishing of $\Ext^0(K_s, K_t)$ which then implies by Serre duality vanishing of $\Ext^2(K_s, K_t)$. The final step, to check $\Ext^1(K_s, K_t)=0$, is given by a computation of the Euler characteristic: we know that since $H^0(X,\O_{F_s}(1))=\C^2$, that $K_s=2\O_X-\O_Q(1)$ in the Grothendieck ring. Therefore,
+
+$$\chi(K_s,K_t)=4\chi(\O_X,\O_X)-2\chi(\O_X,\O_Q(1))+2\chi(\O_Q(1),\O_X)-\chi(\O_Q,\O_Q)=0$$
+
+
+
+
+
 
 \end{proof}
 \todo{Finish the proof}

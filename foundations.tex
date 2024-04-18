@@ -713,6 +713,19 @@ From this, we can conclude that if a kernel induces an equivalence, then the dim
     Every fully faithful exact functor between is induced by a Fourier-Mukai transform. In particular every equivalence as well.
 \end{theorem}
 
+We also cite the following useful criterion, due to Bondal-Orlov \cite{bondal_semiorthogonal_1995}:
+\begin{proposition}{Generation criterion}{Generation criterion}
+    A Fourier-Mukai transform with kernel $\calE$ is fully faithful if and only if \begin{gather*}
+        \Hom (\Phi_\calE \O_x, \Phi_\calE \O_y[i])=\begin{cases*}
+           \C, \text{ if }x=y, i=0\\
+           0, \text{ if }x\neq y \text{ or } i<0 \text{ or } i> \dim(X)
+        \end{cases*}
+    \end{gather*}
+    
+\end{proposition}
+
+The proof is slightly technical and can be found in \cite[\S7][Proposition~7.1]{Huybrechts}
+
 \todo{uniqueness of kernels and reference for Orlov's theorem}
 
 
