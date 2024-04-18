@@ -160,17 +160,75 @@ The above theorem immediately yields a method for calculating a semi-orthogonal 
 
 Starting with some fixed stability condition $\theta _1$ and its corresponding variety $X_1$, a wall crossing across the wall $W$ (away from $\det V$) gives the decomposition into $X_2$, the variety defined by the wall crossing, and $\kappa$ copies of the variety $Z_W$, the variety defined by the Higgs GIT problem for $W$. We can perform repeated wall crossings to decompose $X_2$ until a minimal model $X_{min}$ is reached. We will then be left with a factor of $X_{min}$ , and factors corresponding to the GIT problems $V^{\lambda_{W}} / / \lambda_{W}$ for each wall $W$ crossed, and can hence repeat the process of decomposition on each of the remaining non-minimal factors.
 
-ADD EXAMPLE
+ADD MORI PROGRAM EXAMPLE
 
-We are interested in finding examples of nontrivial equivalences of derived categories induced by flops, which in the toric picture can be seen by considering the Calabi-Yau case.
-
-\begin{definition}{}{}
-    A toric GIT problem with weights $Q$ is said to be Calabi-Yau if $$\det V = \sum_{q \in Q} q = 0$$
-\end{definition}
-
-From this, it is clear that $\kappa = 0$ for all walls $W$ in the secondary fan, so any wall crossing induces a flop on the GIT quotients. Moreover, this gives us a way to see the nontrivial autoequivalences which come from these wall crossings. In particular, we will see that these autoequivalences have a nice interpretation as twists around spherical functors. 
+We are interested in finding examples of nontrivial equivalences of derived categories induced by flops, which in the toric picture can be seen by considering the Calabi-Yau case.From this, it is clear that $\kappa = 0$ for all walls $W$ in the secondary fan, so any wall crossing induces a flop on the GIT quotients. Moreover, this gives us a way to see the nontrivial autoequivalences which come from these wall crossings. In particular, we will see that these autoequivalences have a nice interpretation as twists around spherical functors. 
 
 \subsection{Windows and Spherical functors}
+
+First, we want to make some generalizations on the theory of spherical objects. Recall that a spherical object $\mathcal{E} \in D(X)$ satisfies the property that $$\mathrm{Hom}(\mathcal{E}, \mathcal{E}[i])= \begin{cases}
+\mathbb{C} & i=0,\mathrm{dim}X  \\
+0 & \text{otherwise}
+\end{cases}$$
+and the spherical twist of an object $\mathcal{F}$ around $\mathcal{E}$ is an autoequivalence defined as the cone $$T_\mathcal{E} = C(\mathrm{Hom}(\mathcal{E},\mathcal{F})\otimes \mathcal{E}\xrightarrow{ev} \mathcal{F})$$
+We define spherical functors analogously.
+
+
+
+\begin{definition}
+	A \emph{functorial exact triangle} is a 'triangle' of exact functors $F_{1}, F_{2}, F_{3} : \mathcal{C}\to \mathcal{D}$,    equipped with natural transformations $$
+F_{1}(-)\to F_{2}(-)\to F_{3}(-)\to F_{1}(-)[1]
+$$ such that for every object $\mathcal{F}\in \mathcal{C}$,   we get the exact triangle in $\mathcal{D}$ given by $$
+F_{1}(\mathcal{F})\to F_{2}(\mathcal{F})\to F_{3}(\mathcal{F})\to F_{1}(\mathcal{F})[1]
+$$
+\end{definition}
+
+Consider an adjoint pair of exact functors $L \dashv R$. Let $\eta : \mathrm{Id}_\mathcal{D}\to R\circ L$ be the unit and $\epsilon : L\circ R \to \mathrm{Id}_\mathcal{C}$ the counit. 
+
+\begin{definition}
+A functor between triangulated categories $F: \mathcal{A}\to \mathcal{B}$ is called \emph{spherical} if it admits an adjunction $F^{*}\dashv F$ and  functorial exact triangles 
+\begin{align}
+F^{*}F \xrightarrow{\epsilon} \mathrm{Id}_\mathcal{A}&\to T \to F^{*}F [1] \\
+C\to \mathrm{Id}_\mathcal{B}&\xrightarrow{\eta} F F^{*}\to C[1]
+\end{align} such that $T$ and $C$ are equivalences. Then we call $T$ (resp. $C$) the \emph{spherical twist}(resp. \emph{cotwist}) along $F$. 
+\end{definition}
+
+
+Let $X_+$ and $X_-$ be two toric varieties related by a flop induced from a wall crossing in a Calabi-Yau GIT problem. In the formulation of the wall-crossing decomposition, we get a variety $Z$ from the wall $W$ which may appear in as a factor. $Z$ is the toric variety arising from the GIT problem induced by a character on the ray spanned by the wall. In HALPERN LEISTNER SHIPMAN, they show that we have countably infinitely many equivalences $\psi_{i}: D(X_{-})\xrightarrow{\sim} D(X_{+})$  such that the autoequivalence $\psi_{i+1}^{-1}\circ \psi_i$ of $D(X_{-})$ is a spherical twist around a spherical functor $$F : \mathcal{G}\to D(X_{-})$$ for a category $\mathcal{G}$ (to be defined later).
+
+We examine this twist in more detail for the case of the standard flop (cf. Segal-Donovan) before stating the more general theorem. 
+
+Recall once more the action of $T = \mathbb{C}^*$ on $V = \mathbb{C}^4$  acting on coordinates $x_{1}, x_{2}, y_{1},y_{2}$ with weights $\begin{pmatrix}1&1&-1&-1\end{pmatrix}$ respectively. So $X_+$ and $X_-$ are both isomorphic to $\mathcal{O}(-1)_{\mathbb{P}^1}^{\oplus_{2}}$, related by a flop along the zero section $\mathbb{P}^1_{x_{1},x_{2}}$ or vice versa. Clearly their derived categories are equivalent. Since $X_+$ and $X_-$ are the quotients of $V$ minus an unstable locus ($x_{1}= x_{2}= 0$ or $y_{1}= y_{2}=0$)  by $T = C^{*}$, we can view them as sub-quotient stacks of the Artin quotient stack $\mathcal{X}=[V/T]$. Thus we can consider the derived category of $T$-equivariant sheaves on $V$, which we denote $D(\mathcal{X})$. We thus have the inclusions $$i_{\pm}: X_{\pm}\to \mathcal{X}$$
+
+Note that $D(\mathcal{X})$ contains the line bundles $\mathcal{O}(i)$ (corresponding to characters of $\mathbb{C}^*$).  Hence we define subcategories of $D(\mathcal{X})$ by $$
+\mathcal{W}_{t}= \left< \mathcal{O}(t), \mathcal{O}(t+1) \right> $$ for any $t \in \mathbb{Z}$. We can restrict the pullback of the inclusions to get equivalences $$i^{*_{\pm}}:\mathcal{W}_{t} \xrightarrow{\sim} D(X_{\pm})$$
+This equivalence can be verified by considering that $X_\pm$ is a quasi-projective variety, so we can make use of Beilinson's theorem stating that $\mathcal{O}(t), \mathcal{O}(t+1)$ is a strong, full, exceptional collection on $\mathbb{P}^1$, so the direct summands of the bundle $\mathcal{O}(t)\oplus \mathcal{O}(t+1)$ generate  $D(\mathcal{O}(-1)_{\mathbb{P}^{1}}^{\oplus {2}})$.  Hence we can define the equivalence and then autoequivalence $$\psi_{t}:= i_{+}\circ i_{-}^{*}: D(X_{-})\to D(X_{+}) \qquad \Phi_{t}:= \psi_{t-1}^{-1}\psi_{t}: D(X_{-})\to D(X_{-})$$
+
+We call $\mathcal{W}_t$ a window subcategory, in that $D(X_{-})$is passing through a smaller intermediate than the whole of $D(\mathcal{X})$. Moreover, the autoequivalence can be composed from passing through any two windows, i.e. $$w_{l,t}:= \psi_{l}^{-1}\psi_t $$
+This is called the 'window shift'. 
+
+\begin{remark}{}{}
+	 The method from this examples can be generalized to the action of $\mathbb{C}^*$ on $\mathbb{C}^k$ so long as the GIT problem is still Calabi-Yau. Assuming the sum of the positive weights is $d$ (so the sum of the negative weights is $-d$), window shift autoequivalences can be constructed with the subcategory $$\mathcal{W}_{t}= \left< \mathcal{O}(t),\dots, \mathcal{O}(t+d-1) \right> $$
+\end{remark}
+
+Consider the effect of $\Phi_t$ on our generators $\mathcal{O}(t)$ and $\mathcal{O}(t+1)$. Clearly $\psi_t$ sends both line bundles to themselves on $X_{+}$. Next we apply $\psi_{t-1}^{-1}$, but first both line bundles need to be resolved in such a way that they are written in terms of $\mathcal{O}(t-1)$ and $\mathcal{O}(t)$. We already have this for $\mathcal{O}(t)$. For $\mathcal{O}(t+1)$, the pullback of the Euler sequence on the zero section $\mathbb{P}^1$ gives the Koszul resolution $$0\to \mathcal{O}(2)\xrightarrow{\begin{pmatrix}x_2\\-x_{1}\end{pmatrix}}\mathcal{O}(1)^{\oplus 2}\xrightarrow{\begin{pmatrix}x_{1}&x_2\end{pmatrix}} \mathcal{O}$$ hence $\mathcal{O}(t+1)$ is quasi-isomorphic to the complex $\left[ \mathcal{O}(t)^{\oplus{2}}\to \mathcal{O}(t-1) \right]$. Hence we have image of each generator under $\Phi_t$, 
+
+\begin{align*}
+\mathcal{O}(t) &\mapsto \mathcal{O}(t)\\
+\mathcal{\mathcal{O}(t+1)}&\mapsto\left[ \mathcal{O}(t)^{\oplus 2}\to \mathcal{O}(t-1) \right][-1] .
+\end{align*}
+
+We can see that to compute the image of an arbitrary object in $\mathcal{E} \in D(X_-)$ under any window-shift functor, it requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve its image of in terms of generators of the second. This becomes more difficult in the general case. In SEGAL-DONOVAN, an endofunctor on the ambient quotient stack $\mathcal{T}: D(\mathcal{X})\to D(\mathcal{X})$ which carries identifies objects from one window with another. We call this a transfer functor. 
+
+ADD CONSTRUCTION and DIAGRAM
+
+Consider the restricted version of this  $$\left\{ pt \right\} \xleftarrow{\pi} \mathbb{P}^{1}\xrightarrow{j} X_{-}$$
+
+CITE Segal and Donovan proved that this functor restricts to an autoequivalence $T: D(X_{-})\to D(X_-)$ which is the spherical twist around the functor $R := \pi_{*}j^{!} : D(X_{-})\to D(\left\{ pt \right\})$ with left adjoint $L := j_{*} \pi^{*}: D( \left\{ pt \right\})\to D(X_{-})$. That is, $T$ fits into a functorial exact triangle $$L\circ R \xrightarrow{\epsilon} \mathrm{Id}_{D(X_{-})} \to T\to L\circ R[1]$$ Where $T$ is the cone on the counit $\epsilon$.  
+
+To relate this back to the usual reference of spherical twist from REF FOUNDATION SECTION, we look at the functorial exact triangle object-wise, to see that for each object $\mathcal{E}\in D(X_-)$, $T_F$ is the cone $$T_{F}(E) = \mathrm{Cone}\left( \mathrm{Hom}(\mathcal{O}_{\mathbb{P}^{1}},\mathcal{E}) \otimes  \mathcal{O}_{\mathbb{P}^{1}} \to \mathcal{E}\right) $$
+
+Remark on generalization:
 
 
 
