@@ -713,6 +713,19 @@ From this, we can conclude that if a kernel induces an equivalence, then the dim
     Every fully faithful exact functor between is induced by a Fourier-Mukai transform. In particular every equivalence as well.
 \end{theorem}
 
+We also cite the following useful criterion, due to Bondal-Orlov \cite{bondal_semiorthogonal_1995}:
+\begin{proposition}{Generation criterion}{Generation criterion}
+    A Fourier-Mukai transform with kernel $\calE$ is fully faithful if and only if \begin{gather*}
+        \Hom (\Phi_\calE \O_x, \Phi_\calE \O_y[i])=\begin{cases*}
+           \C, \text{ if }x=y, i=0\\
+           0, \text{ if }x\neq y \text{ or } i<0 \text{ or } i> \dim(X)
+        \end{cases*}
+    \end{gather*}
+    
+\end{proposition}
+
+The proof is slightly technical and can be found in \cite[\S7][Proposition~7.1]{Huybrechts}
+
 \todo{uniqueness of kernels and reference for Orlov's theorem}
 
 
@@ -1097,7 +1110,7 @@ $$\calD(Y)=\langle \ker f_*\lHom(\calE,-), \calE\otimes f^*\calD(X)\rangle$$
 We now focus on two important semiorthogonal decompositions associated to projective bundles and blowups.
 
 \paragraph*{Projective bundle formula}
-\begin{proposition}{Projective bundle formula for derived categories}{Projective bundle formula for derived categories}
+\begin{proposition}[label=prop:projbundleformula]{Projective bundle formula for derived categories}{Projective bundle formula for derived categories}
     Given a vector bundle $p:\P\calE\to B$ of rank $r+1$ we have a semiorthogonal decomposition
     \begin{equation*}
         D^b(\P(\calE)) = \langle p^*D^b(B),p^*D^b(B)\otimes\O_p(1),\ldots,p^*D^b(B)\otimes\O_p(r)\rangle
@@ -1138,7 +1151,7 @@ In the exact analogous way, this shows that the pieces generate the full categor
 This allows us to talk about blowups, since over the exceptional locus they are given by a projective bundle.
 
 \paragraph*{Twisted projective bundle formula}
-We quickly mention a twisted version of the projective bundle formula, due to Bernardara \cite{bernardara_semiorthogonal_2005}. In general, a projective space bundle $\P^r \rightarrow P\rightarrow B$ need not be a projectivized vector bundle - it is only locally so. Let's say that over an open cover $\mathcal{U}$, $P|_U\simeq \P \calE_U$. Then, on overlaps we have isomorphisms $\P\calE_U \simeq \P \calE_V$ but in order to lift this to an isomorphism of vector bundles $\calE_U \simeq \calE_V$, we need a choice of lift from $\P\mathrm{GL}(r,U\cap V)$ to $\mathrm{GL}(r,U\cap V)$. This choice is not canonical, and hence on triple overlaps we get an obstruction cocycle $\alpha \in \Gamma(\C^\times, U\cap V \cap W)$ i.e. an element of $H^2(B,\O_B^\times)$. This element is called the \emph{Brauer class of the Brauer-Severi variety }$P$. 
+We quickly mention a twisted version of the projective bundle formula due to Bernardara \cite{bernardara_semiorthogonal_2005}. In general, a projective space bundle $\P^r \rightarrow P\rightarrow B$ need not be a projectivized vector bundle - it is only locally so. Let's say that over an open cover $\mathcal{U}$, $P|_U\simeq \P \calE_U$. Then, on overlaps we have isomorphisms $\P\calE_U \simeq \P \calE_V$ but in order to lift this to an isomorphism of vector bundles $\calE_U \simeq \calE_V$, we need a choice of lift from $\P\mathrm{GL}(r,U\cap V)$ to $\mathrm{GL}(r,U\cap V)$. This choice is not canonical, and hence on triple overlaps we get an obstruction cocycle $\alpha \in \Gamma(\C^\times, U\cap V \cap W)$ i.e. an element of $H^2(B,\O_B^\times)$. This element is called the \emph{Brauer class of the Brauer-Severi variety }$P$.
 
 What we get is a twisted vector bundle $(\calE, \alpha)$ such that the gluing cocycles with values in $\mathrm{GL}(r)$ satisfy $$\psi_{12} \circ \psi_{23}=\alpha \psi_{13}$$
 
@@ -1186,7 +1199,7 @@ Note that the blow-up has projective fibres, so $\pi_{*}\mathcal{O}_{X}= \mathca
 
 By properties of Fourier Mukai transforms, $\Phi_k$ has left and right adjoints. Moreover, $\Phi_k$ is fully faithful, which can be seen by verifying that the composition of $\Phi_k$ with its right adjoint $\Phi_{k}^{!}:= p_{*}(\mathcal{O}_{E}(-kE)\otimes i^{!}(-))$ is isomorphic to the identity on $D(Z)$. Moreover the right adjoint allows us to see the $D(Z)$ as an admissible subcategory of $D(X)$ under $\Phi_k$. Consider the fact from~\cite*{Huybrechts}.
 
-\begin{proposition}{}{}
+\begin{proposition}[label=prop:ffpullback]{}{}
     Suppose $f: S \to T$ is a projective morphism of smooth projective varieties. If $f_{*}\mathcal{O}_{S} = \mathcal{O}_T$ , then the pullback $$f^{*}: D(T)\to D(S)$$is fully faithful and induces an equivalence of $D(T)$ with an admissible triangulated subcategory of $D(S)$.
 \end{proposition}
 
@@ -1218,7 +1231,7 @@ Now take $\mathcal{E}\in D(Y)$, and $\mathcal{F}\in D(Z)$. Similarly, we have
 but as $-c+1\leq l<0$, $p_{*}\mathcal{O}_{E}(-lE)=0$. Hence $\mathcal{D}_{l}\subset D_{0}^\perp$. We have shown that the collection $\mathcal{D}_{-c+1},\dots,\mathcal{D}_0$ is semiorthogonal.  
 \end{proof}
 
-\begin{theorem}{Bondal-Orlov blowup formula}{Bondal-Orlov blowup formula}
+\begin{theorem}[label=thm:blowupformula]{Bondal-Orlov blowup formula}{Bondal-Orlov blowup formula}
     Let $Z$ be a smooth subvariety of $Y$ of codimension $c$, and $X = \mathrm{Bl}_{Z}(Y)$. Then we have a semi orthogonal decomposition $$ D(X) = \left< \mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1}, \mathcal{D}_0 \right> $$
 \end{theorem}
 
@@ -1313,7 +1326,9 @@ diagonal.
     (Then taking cones on the counit decomposes $D^b(X)$ into the essential
     image and the objects sent to zero by the adjoint, but $D^b(X)$ is
     indecomposable for connected $X$.)
-    % TODO: mention decomposition earlier?
+    \todo{define spanning classes}
+
+    \todo{sort out this proof}
 
     Note that $\{\calE\}\cup\calE^\perp$ is a spanning class (tautological on
     one side, and follows from Serre duality on the other), so it suffices to
