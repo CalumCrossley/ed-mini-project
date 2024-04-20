@@ -1,5 +1,6 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
+\tcbuselibrary{breakable}
 
 \usepackage{quiver}
 
@@ -65,7 +66,7 @@
 
 \newtcbtheorem[no counter]{conjecture}{Conjecture} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=white, fonttitle = \upshape\bfseries,  fontupper=\itshape}{conj}
 
-\newtcbtheorem[use counter from = theorem]{example}{Example} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{ex}
+\newtcbtheorem[use counter from = theorem]{example}{Example} {breakable, theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{ex}
 
 \newtcbtheorem[no counter]{technicalities}{Technicalities} {theorem style = plain, colback=maincolor!10!white, coltitle=black, colframe=white, fonttitle = \upshape\itshape}{tech}
 
