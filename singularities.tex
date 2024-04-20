@@ -89,7 +89,7 @@ local complete intersections in smooth varieties.
 \end{proposition}
 
 \begin{proposition}[label=prop:DSgHom]{\cite[Prop 1.21]{OrlovSingularities}}{}
-    If $\calF,\calG\in\Coh(X)$ satisfy
+    Suppose $X$ is Gorenstein. If $\calF,\calG\in\Coh(X)$ satisfy
     $\lExt^i(\calF,\O_X)=0$ for $i>0$ and $\lExt^i(\calP,\calG)=0$ for $i>N$ and
     any locally free sheaf $\calP$, then
     \begin{equation*}
@@ -204,8 +204,10 @@ triangulated homotopy category.
 The collapse from $\Z$-graded chain complexes when $d^2=0$ to only having the
 $\Z_2$-grading when $d^2=W$ is somewhat unfortunate, and one might prefer to
 work instead with $\Z$-graded complexes where $W$ somehow has degree 2. This
-leads to the notion of \emph{graded matrix factorizations}; see
-\ref{subsec:GMF}.
+leads to the notion of \emph{graded matrix factorizations}, and an important
+result due to Orlov relating matrix factorizations of a homogeneous polynomial
+and the derived category of the corresponding projective variety
+\cite{OrlovTheorem}.
 
 \begin{example}{}{knorrerbase}
      Suppose $X=\A^2$, with $W=xy$. The obvious factorization of $W$ gives an
@@ -408,7 +410,6 @@ function $W=MN=NM$, we can produce a factorization of $W+xy$ as follows:
         M & x \\ -y & N
     \end{pmatrix}.
 \end{equation*}
-In fact this is somehow the only way matrix factorizations of $W+xy$ can arise.
 
 \begin{theorem}{Kn\"orrer periodicity}{}
     $\MF(X\times\A^2,W+xy)\simeq\MF(X,W)$ by this construction.
@@ -429,9 +430,12 @@ In fact this is somehow the only way matrix factorizations of $W+xy$ can arise.
             z & -x \\ y & z
         \end{pmatrix}\begin{pmatrix}
             z & x \\ -y & z
-        \end{pmatrix}
+        \end{pmatrix},
     \end{equation*}
-    as in \eqref{eqn:coneMF}.
+    so the image in $D_\Sg(Z)$ is the cokernel sheaf
+    $\O^2/\langle(z,y),(-x,z)\rangle\simeq\O_{\{z=x=0\}}$ from the short exact
+    sequence $\O^2/\langle(z,y),(-x,z)\rangle\xrightarrow{(z\;x)}\O_Z
+    \to\O_{\{z=x=0\}}\to0$, as in \eqref{eqn:coneMF}.
 \end{example}
 
 In terms of derived categories of singularities, we can formulate a more general
@@ -566,7 +570,7 @@ follows.
     \cite{kuznetsov_hpd_2005}.
 \end{remark}
 
-\subsection{Graded matrix factorizations and Orlov's theorem}\label{subsec:GMF}
+%\subsection{Graded matrix factorizations and Orlov's theorem}\label{subsec:GMF}
 
 %\begin{example}{}{cubicMF}
 %    Consider a cubic curve $C=\{f=0\}\subset\P^2$, and a point $p\in C$. If
