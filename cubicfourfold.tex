@@ -86,7 +86,7 @@ coTX = coT - coNX
 Q = 3 *  w*ch(coTX)*todd(TX)
 print  integral  Q
 \end{lstlisting}
-This gives the answer -2, which implies $h^{1,3}=1$.
+This gives the answer $-2$, which implies $h^{1,3}=1$.
 
 Can try to compute $h^{2,2}$ similarly: again by Hirzebruch-Riemann-Roch
 $$h^{2,2}=\chi(\Omega_{X}^2)=\int_{X} \mathrm{ch}(\Omega^2_{X})\mathrm{td}(TX)  $$
@@ -138,7 +138,7 @@ The slightly awkward condition will be rephrased later, when we review Addington
 
 We now shift gears and look at cubic fourfolds through a derived lens.
 
-Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \mathbf{D}^b(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
+Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \calD(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
 
 We see that, by \ref{th:HKR}, the Hochschild homology is $HH_\bullet(X)=\mathbb{C}[-2]\oplus \mathbb{C}^{25}\oplus \mathbb{C}[2]$. On the other hand, Hochschild homology is additive with respect to semiorthogonal decomposition, and the three exceptional objects contribute to three copies of $\mathbb{C}$ in degree zero, so we see that $HH_\bullet(\mathcal{A}_X)=\mathbb{C}[-2]\oplus \mathbb{C}^{22}\oplus \mathbb{C}[2]$, which is exactly the Hochschild homology of a K3 surface.
 
@@ -152,7 +152,7 @@ In the subsequent section, we will explain why the Kuznetsov component is a CY2 
 
 \subsubsection{The Kuznetsov component is CY2}
 
-We now embark on the proof that the Kuznetsov component is a Calab-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
+We now embark on the proof that the Kuznetsov component is a Calabi-Yau 2 category. What this means is that it has a Serre functor which is just given by shifting by $2$, as would be the case if it were the derived category of an honest K3 surface.
 
 %\begin{proposition}{Kuznetsov component is CY2}{Kuznetsov component is CY2}
  %   The category $\mathcal{A}_{X}$ is a CY2 category with Hochschild homology the same as that of a K3 surface. Therefore, it is indecomposable and the semiorthogonal decomposition is maximal.
