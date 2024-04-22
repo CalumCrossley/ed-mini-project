@@ -805,12 +805,12 @@ We put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! Ho
 \end{definition}
 
 \begin{theorem}{Beilinson}{Beilinson's theorem}
-    On $\P^n$, the exceptional collection $\O,\dots,\O(n)$ is full.
+    On $\P^n$, $\O,\dots,\O(n)$ is a full strong exceptional collection.
 \end{theorem}
 
 \begin{proof}
     \textbf{Step 1}:
-    First, we check that $\langle\O,\dots,\O(n)\rangle$ is an exceptional collection.
+    First, we check that $\langle\O,\dots,\O(n)\rangle$ is a strong and exceptional collection.
 
     Consider the morphisms between two elements, where $0\leq j\leq i \leq n$
     \begin{align*}
@@ -1275,7 +1275,7 @@ Note that the blow-up has projective fibres, so $\pi_{*}\mathcal{O}_{X}= \mathca
 
 By properties of Fourier Mukai transforms, $\Phi_k$ has left and right adjoints. Moreover, $\Phi_k$ is fully faithful, which can be seen by verifying that the composition of $\Phi_k$ with its right adjoint $\Phi_{k}^{!}:= p_{*}(\mathcal{O}_{E}(-kE)\otimes i^{!}(-))$ is isomorphic to the identity on $D^b(Z)$. Moreover the right adjoint allows us to see the $D^b(Z)$ as an admissible subcategory of $D^b(X)$ under $\Phi_k$. Consider the fact from~\cite*{Huybrechts}.
 
-\begin{proposition}[label=prop:ffpullback]{}{}
+\begin{proposition}[label=prop:ffpullback]{\cite*{Huybrechts}}{}
     Suppose $f: S \to T$ is a projective morphism of smooth projective varieties. If $f_{*}\mathcal{O}_{S} = \mathcal{O}_T$ , then the pullback $$f^{*}: D^b(T)\to D^b(S)$$is fully faithful and induces an equivalence of $D^b(T)$ with an admissible triangulated subcategory of $D^b(S)$.
 \end{proposition}
 
@@ -1307,7 +1307,7 @@ Now take $\mathcal{E}\in D^b(Y)$, and $\mathcal{F}\in D^b(Z)$. Similarly, we hav
 but as $-c+1\leq l<0$, $p_{*}\mathcal{O}_{E}(-lE)=0$. Hence $\mathcal{D}_{l}\subset D_{0}^\perp$. We have shown that the collection $\mathcal{D}_{-c+1},\dots,\mathcal{D}_0$ is semiorthogonal.
 \end{proof}
 
-\begin{theorem}[label=thm:blowupformula]{Bondal-Orlov blowup formula}{Bondal-Orlov blowup formula}
+\begin{theorem}[label=thm:blowupformula]{Bondal-Orlov blowup formula~\cite*{bondal_semiorthogonal_1995}}{Bondal-Orlov blowup formula}
     Let $Z$ be a smooth subvariety of $Y$ of codimension $c$, and $X = \mathrm{Bl}_{Z}(Y)$. Then we have a semi orthogonal decomposition $$ D^b(X) = \left< \mathcal{D}_{-c+1},\dots,\mathcal{D}_{-1}, \mathcal{D}_0 \right> $$
 \end{theorem}
 
