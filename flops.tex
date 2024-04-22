@@ -33,7 +33,7 @@ Moreover, the restriction $\mathcal{O}_{\tilde{X}}(\tilde{Y}) \mid_{\tilde{Y}} \
 
 which we denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$. Hence we have the following theorem. 
 
-\begin{theorem}{\cite*{Huybrechts}}{}
+\begin{theorem}{\cite{Huybrechts}}{}
     For the standard flip as described above, the composition $$
 \pi_{*}\pi^{+*}: \mathcal{D}^{b}(X^+)\to \mathcal{D}^{b}(X)
 $$ is full and faithful, with an equivalence in the case of $l =k$. 
@@ -139,7 +139,7 @@ We say a variety is a minimal model if has nef canonical divisor. In the GIT pic
 
 \subsubsection{Wall Crossing Formula}
 
-cf.~\cite*{Kite_2022,ballard2014variation} Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus.
+cf.~\cite{Kite_2022,ballard2014variation} Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus.
 
 Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. Denote $\det V = \sum_i q_i$, where $q_i$ is the $i^\mathrm{th}$ column of the weight matrix $Q$. 
 
@@ -162,7 +162,7 @@ This GIT problem gives us a strictly lower dimensional variety $Z$, which is a G
 	Given a wall $W$ in the secondary fan, define the Wall Datum as the tuple $(Z, \mu)$, where $\mu = (\det V)(\lambda_W)$ and $Z = V^{\lambda_{W}} / /_{\theta_{W}} \left( T/ \lambda_{W}\right)$ as described above. 
 \end{definition}
 
-Hence we get the theorem due to~\cite*{halpernleistner2014derived} and~\cite*{ballard2014variation}.
+Hence we get the theorem due to~\cite{halpernleistner2014derived} and~\cite{ballard2014variation}.
 
 \begin{theorem}{Wall Crossing Formula}{wall crossing formula}
 Consider GIT quotients $X_{+},X_{-}$  related by a wall crossing across W  with wall datum $(Z, \mu)$ as described above. 
@@ -172,10 +172,10 @@ If $\mu > 0$, we have a semi-orthogonal decomposition given by $$\mathcal{D}(X_{
 If $\mu = 0$, the wall crossing induces a flop, and we have an equivalence of categories $$\mathcal{D}(X_{+})\simeq \mathcal{D}(X_-).$$
 \end{theorem}
 
-This theorem was proved in~\cite*{ballard2014variation} in much greater generality than used here, where such a decomposition holds for a smooth quasi-projective variety acted upon by a linear algebraic group, and a wall-crossing between two G-equivariant line bundles. However, to state the theorem in full generality requires more technical machinery than is necessary for the toric case for the purposes of our examples below. 
+This theorem was proved in~\cite{ballard2014variation} in much greater generality than used here, where such a decomposition holds for a smooth quasi-projective variety acted upon by a linear algebraic group, and a wall-crossing between two G-equivariant line bundles. However, to state the theorem in full generality requires more technical machinery than is necessary for the toric case for the purposes of our examples below. 
 
 \begin{example}{}{}
-    Recall Beilinson's exceptional collection~\cite*{Beilinson1978} which forms a SOD of $\mathcal{D}(\mathbb{P}^n)$. Since $\mathbb{P}^n$ is a toric variety, we can realise it as the GIT quotient with respect to the usual action of $\mathbb{C}^*$ on $V = \mathbb{C}^{n+1}$. So the weights are $\begin{pmatrix}1 & 1 &\dots &1\end{pmatrix}$, with $\det V = n+1$. The wall crossing to $X_{-}=\emptyset$, retrieves the decomposition $\left< pt, \dots,pt \right>$ with $n+1$ copies of the derived category of a point, corresponding to the exceptional collection of line bundles on $\mathbb{P}^n$. 
+    Recall Beilinson's exceptional collection~\cite{Beilinson1978} which forms a SOD of $\mathcal{D}(\mathbb{P}^n)$. Since $\mathbb{P}^n$ is a toric variety, we can realise it as the GIT quotient with respect to the usual action of $\mathbb{C}^*$ on $V = \mathbb{C}^{n+1}$. So the weights are $\begin{pmatrix}1 & 1 &\dots &1\end{pmatrix}$, with $\det V = n+1$. The wall crossing to $X_{-}=\emptyset$, retrieves the decomposition $\left< pt, \dots,pt \right>$ with $n+1$ copies of the derived category of a point, corresponding to the exceptional collection of line bundles on $\mathbb{P}^n$. 
 \end{example}
 
 \begin{example}{}{}
@@ -193,7 +193,7 @@ The above theorem immediately yields a method for calculating a semi-orthogonal 
 
 Starting with some fixed stability condition $\theta _1$ and its corresponding variety $X_1$, a wall crossing across the wall $W$ (away from $\det V$) gives the decomposition into $X_2$, the variety defined by the wall crossing, and $\mu$ copies of the variety $Z_W$, the variety defined by the wall datum for $W$. We can perform repeated wall crossings to decompose $X_2$ until a minimal model $X_{min}$ is reached. We will then be left with a factor of $X_{min}$ , and factors corresponding to the GIT problems $V^{\lambda_{W}} / / \lambda_{W}$ for each wall $W$ crossed, and can hence repeat the process of decomposition on each of the remaining non-minimal factors.
 
-\begin{example}{Running the toric Mori program \cite*{Kite_2022}}{}
+\begin{example}{Running the toric Mori program \cite{Kite_2022}}{}
 	Let $(\mathbb{C}^*)^2$ act on $\mathbb{C}^6$ with weights $$Q = \begin{pmatrix}
 		1&1&-1&0&0&0\\ 0&0&1&1&1&-1
 	\end{pmatrix}$$
@@ -292,9 +292,9 @@ C\to \mathrm{Id}_\mathcal{B}&\xrightarrow{\eta} F F^{*}\to C[1]
 \end{align*} such that $T$ and $C$ are equivalences. Then we call $T$ (resp. $C$) the spherical twist(resp. cotwist) along $F$. 
 \end{definition}
 
-Let $X_+$ and $X_-$ be two toric varieties related by a flop induced from a wall crossing in a Calabi-Yau GIT problem. In the formulation of the wall-crossing decomposition, we get a variety $Z$ from the wall $W$ which may appear in as a factor. $Z$ is the toric variety arising from the GIT problem induced by a character on the ray spanned by the wall. In ~\cite*{halpernleistner2016autoequivalences}, they show that we have countably infinitely many equivalences $\psi_{i}: \mathcal{D}(X_{-})\xrightarrow{\sim} \mathcal{D}(X_{+})$  such that the autoequivalence $\psi_{i+1}^{-1}\circ \psi_i$ of $\mathcal{D}(X_{-})$ is a spherical twist around a spherical functor $$F : \mathcal{G}\to \mathcal{D}(X_{-})$$ for a category $\mathcal{G}$ (to be defined later).
+Let $X_+$ and $X_-$ be two toric varieties related by a flop induced from a wall crossing in a Calabi-Yau GIT problem. In the formulation of the wall-crossing decomposition, we get a variety $Z$ from the wall $W$ which may appear in as a factor. $Z$ is the toric variety arising from the GIT problem induced by a character on the ray spanned by the wall. In ~\cite{halpernleistner2016autoequivalences}, they show that we have countably infinitely many equivalences $\psi_{i}: \mathcal{D}(X_{-})\xrightarrow{\sim} \mathcal{D}(X_{+})$  such that the autoequivalence $\psi_{i+1}^{-1}\circ \psi_i$ of $\mathcal{D}(X_{-})$ is a spherical twist around a spherical functor $$F : \mathcal{G}\to \mathcal{D}(X_{-})$$ for a category $\mathcal{G}$ (to be defined later).
 
-We examine this twist in more detail for the case of the standard flop (cf.~\cite*{donovan_window_2014}) before stating the more general theorem. 
+We examine this twist in more detail for the case of the standard flop (cf.~\cite{donovan_window_2014}) before stating the more general theorem. 
 
 Recall once more the action of $T = \mathbb{C}^*$ on $V = \mathbb{C}^4$  acting on coordinates $x_{1}, x_{2}, y_{1},y_{2}$ with weights $\begin{pmatrix}1&1&-1&-1\end{pmatrix}$ respectively. So $X_+$ and $X_-$ are both isomorphic to $\mathcal{O}(-1)_{\mathbb{P}^1}^{\oplus_{2}}$, related by a flop along the zero section $\mathbb{P}^1_{x_{1},x_{2}}$ or vice versa. Clearly their derived categories are equivalent. Since $X_+$ and $X_-$ are the quotients of $V$ minus an unstable locus ($x_{1}= x_{2}= 0$ or $y_{1}= y_{2}=0$)  by $T = C^{*}$, we can view them as sub-quotient stacks of the Artin quotient stack $\mathfrak{X}=[V/T]$, with derived category $\mathcal{D}(\mathfrak{X})$. We thus have the inclusions $$
 i_{\pm}: X_{\pm}\to \mathcal{X}
@@ -325,7 +325,7 @@ $$so $\mathcal{O}(t+1)$ is quasi-isomorphic to the complex $\left[ \mathcal{O}(t
 \mathcal{\mathcal{O}(t+1)}&\mapsto\left[ \mathcal{O}(t)^{\oplus 2}\to \mathcal{O}(t-1) \right][-1] .
 \end{align*}
 
-We can see that computing the image of an arbitrary object in $\mathcal{E} \in \mathcal{D}(X_-)$ under $\Phi_t$ requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve $\psi_{t}(\mathcal{E})$ in terms of generators of the second. This becomes more difficult in the general case.  \cite*{donovan_window_2014} shows the existence of an endofunctor on the ambient quotient stack $\mathfrak{T}: \mathcal{D}(\mathfrak{X})\to \mathcal{D}(\mathfrak{X})$ which identifies objects from one window with another, called the Transfer Functor. To see it in action, let's consider the case of $t = 1$.
+We can see that computing the image of an arbitrary object in $\mathcal{E} \in \mathcal{D}(X_-)$ under $\Phi_t$ requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve $\psi_{t}(\mathcal{E})$ in terms of generators of the second. This becomes more difficult in the general case.  \cite{donovan_window_2014} shows the existence of an endofunctor on the ambient quotient stack $\mathfrak{T}: \mathcal{D}(\mathfrak{X})\to \mathcal{D}(\mathfrak{X})$ which identifies objects from one window with another, called the Transfer Functor. To see it in action, let's consider the case of $t = 1$.
 
 Since both $X_-$ and $X_+$ have exceptional locus $\mathbb{P}^1$, which can both be contracted to a point giving us the following maps $$
 \left\{ pt \right\} \xleftarrow{\pi} \mathbb{P}^{1}\xrightarrow{j} X_{-}
@@ -341,7 +341,7 @@ L\circ R \xrightarrow{\epsilon} \mathrm{Id}_{\mathcal{D}(X_{-})} \to T\to L\circ
 $$Where $T$ is the cone on the counit $\epsilon$. 
 
 
-\begin{theorem}{\cite*{donovan_window_2014}}{}
+\begin{theorem}{\cite{donovan_window_2014}}{}
 	 $T$ is the same as $\Phi_1$. 
 \end{theorem}
 
@@ -409,12 +409,12 @@ T_{F}(E) = \mathrm{Cone}\left( \mathrm{Hom}(\mathcal{O}_{\mathbb{P}^{1}},\mathca
 $$ 
 
 \begin{remark}{}{}
-	This is just one example of a much more general statement about window shifts, and flops in general.~\cite*{donovan_window_2014} prove the theorem for Grassmannian flops, which includes the case of the standard flop we just saw. Indeed, for  vector spaces $V$ and $S$ of dimension $d$ and $r \leq d$ respectively, the associated quotient stack for the GIT problem is $$
+	This is just one example of a much more general statement about window shifts, and flops in general.~\cite{donovan_window_2014} prove the theorem for Grassmannian flops, which includes the case of the standard flop we just saw. Indeed, for  vector spaces $V$ and $S$ of dimension $d$ and $r \leq d$ respectively, the associated quotient stack for the GIT problem is $$
 	\left[ \mathrm{Hom} (S,V) \oplus \mathrm{Hom}(V,S)/\mathrm{GL}(S) \right] 
 	$$where the standard flop is the case when $d = 2$, $r=1$.
 	\end{remark}
 
-Indeed, the presentation of flop autoequivalences as spherical twists is not limited to GIT quotoients, as proved for a certain simplicity of wall crossings in~\cite*{halpernleistner2016autoequivalences}. Barbocovi~\cite{barbacovi_spherical_2021} proves this fact for any flop which induces a derived equivalence, as summarised below.
+Indeed, the presentation of flop autoequivalences as spherical twists is not limited to GIT quotoients, as proved for a certain simplicity of wall crossings in~\cite{halpernleistner2016autoequivalences}. Barbocovi~\cite{barbacovi_spherical_2021} proves this fact for any flop which induces a derived equivalence, as summarised below.
 
 Let $X_{-}\xleftarrow{p} \hat{X} \xrightarrow{q} X+$ be a flop. Moreover, assume that $p_{*}\mathcal{O}_{\hat{X}}= O_{X_-}$, $q_{*}\mathcal{O}_{\hat{X}}= O_{X_+}$,  and that there are derived equivalences$$
 q_{*}p^{*}: \mathcal{D}(X_{-})\to \mathcal{D}(X_{+}), \qquad p_{*}q^{*}: \mathcal{D}(X_{+})\to \mathcal{D}(X_{-})
