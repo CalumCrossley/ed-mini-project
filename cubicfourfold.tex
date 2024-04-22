@@ -18,15 +18,18 @@ Hence, since $h^{0,1}=h^{1,2}$ by Hodge symmetry and Serre duality, we see that 
 Computations using Riemann-Roch show that $$2=\chi(S,\O_S)=\frac{c_1^2+c_2}{12}\implies c_2(S)=e(S)=24$$
 Then Poincare duality shows $b_2=22$. 
 
-The Hodge decomposition tells us that $$H^2(S,\mathbb{C})=H^{2,0}\oplus H^{1,1}\oplus H^{0,2}$$But both $h^{2,0}=h^{0,2}=1$ and hence $h^{1,1}=20$.  The Hodge diamond is thus: \[\begin{tikzcd}[row sep=tiny, column sep=tiny]
+The Hodge decomposition tells us that $$H^2(S,\mathbb{C})=H^{2,0}\oplus H^{1,1}\oplus H^{0,2}$$But both $h^{2,0}=h^{0,2}=1$ and hence $h^{1,1}=20$.  The Hodge diamond is thus: 
+\begin{figure}[H]
+\[\begin{tikzcd}[row sep=tiny, column sep=tiny]
     &   & 1  &   &   \\
     & 0 &    & 0 &   \\
   1 &   & 20 &   & 1 \\
     & 0 &    & 0 &   \\
     &   & 1  &   &  
   \end{tikzcd}\]
-
-Moreover, the intersection lattice is $H^2(X,\mathbb{X})=\Lambda=(-E_8)^{\oplus 2}\oplus U^{\oplus 3}$ and $H^2(S,\mathbb{Z})=(1,20,1)$ has signature $(3,19)$.
+  \caption{Hodge diamond of K3 surface}
+\end{figure}
+Moreover, the intersection lattice is $H^2(X,\mathbb{Z})=\Lambda=(-E_8)^{\oplus 2}\oplus U^{\oplus 3}$ and $H^2(S,\mathbb{Z})=(1,20,1)$ has signature $(3,19)$.
 
 The Hodge structure on a K3 surface is then essentially determined by $H^{2,0}(S)\subset H^2(S;\mathbb{C})=\Lambda\otimes \mathbb{C}$. Thus, we can consider the period map $$P: \mathcal{M} \rightarrow \P \Lambda \otimes \mathbb{C}$$that sends a K3 surface $S$ to the line $H^{2,0}(S)$.  In fact, a nonzero vector in $H^{2,0}$ has $u^2=0, u \overline{u}>0$, which is the defining equation for the period domain. The local Torelli theorem shows that this is surjective and a local homeomorphism. It is not a global isomorphism: one has to mod out by the automorphisms of the lattice $\Lambda$. In fact, it is known that K3 surfaces are determined by the period map, i.e. by their Hodge structure:
 
@@ -97,6 +100,7 @@ print integral A
 %can add caption by declaring caption = ...
 This gives the correct answer $21$! All in all, the Hodge diamond looks like: 
 
+\begin{figure}[H]
 \begin{center}
 \begin{tikzcd}[row sep=tiny, column sep=tiny]
     &   &   &   & 1  &   &   &   &   \\
@@ -110,7 +114,8 @@ This gives the correct answer $21$! All in all, the Hodge diamond looks like:
     &   &   &   & 1  &   &   &   &  
   \end{tikzcd}
 \end{center}
-
+\caption{Hodge diamond of cubic fourfold}
+\end{figure}
 The primitive cohomology of the cubic fourfold looks like $(0,1,20,1,0)$ and has signature $(20,2)$ which looks similar to the K3 $H^2(S,\mathbb{Z})$, but that one has signature $(3,19)$. 
 
 We can see that $H^{3,1}\simeq \mathbb{C}$ and similarly to the K3 case we have a period map which to each cubic fourfolds associates a line in the local period domain, which is one of the connected components of the quadric hypersurface $Q\subset \P \Lambda$ defined by $u^2=0$ together with the condition that $-(u, \overline{v})$ is a positive hermitian form. We factor out by automorphisms $\Gamma^+$ of $H^4(X,\mathbb{Z})$ which preserve $(-,-)$ and the hyperplane squared $h^2$, and moreover stabilize $\tilde{\calD}$. The resulting map is $$\mathcal{M}_{\text{cubic fourfolds}}\rightarrow \calD : = \tilde{\calD}/\Gamma^+$$
@@ -135,7 +140,7 @@ The slightly awkward condition will be rephrased later, when we review Addington
 
 We now shift gears and look at cubic fourfolds through a derived lens.
 
-Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \calD(X)|\,\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
+Take a cubic fourfold $X$ in $\mathbb{P}^5$. This has canonical bundle $K_{X}=-3H$ so is a Fano of index 3. By using Kodaira vanishing, one can show that $$\mathcal{O}_{X}(-2H), \mathcal{O}_{X}(-H), \mathcal{O}_{X}$$form an exceptional collection. The orthogonal complement is given by $$\mathcal{A}_{X}=\{\mathcal{F}\in \calD(X)\mid\mathrm{Ext}^\bullet(\mathcal{O}_{X}(-iH), \mathcal{F})=0\}$$This component, named after Kuznetsov, is very interesting, as it looks like the derived category of a K3 surface.
 
 We see that, by \ref{th:HKR}, the Hochschild homology is $HH_\bullet(X)=\mathbb{C}[-2]\oplus \mathbb{C}^{25}\oplus \mathbb{C}[2]$. On the other hand, Hochschild homology is additive with respect to semiorthogonal decomposition, and the three exceptional objects contribute to three copies of $\mathbb{C}$ in degree zero, so we see that $HH_\bullet(\mathcal{A}_X)=\mathbb{C}[-2]\oplus \mathbb{C}^{22}\oplus \mathbb{C}[2]$, which is exactly the Hochschild homology of a K3 surface.
 
@@ -449,7 +454,7 @@ $$\chi(K_s,K_t)=\underbrace{4\chi(\O_X,\O_X)}_4-\underbrace{2\chi(\O_X,\O_Q(1))}
     )\mathrm{td}(Q)$ on $Q$.
 \end{remark}
 
-\paragraph*{Family version}
+\paragraph*{Varying in a pencil}
 
 This is an aside remark, which explains that one can use Homological Projective Duality and study the problem above in a $\P^1$-family. This was done in \cite{calabrese_derived_2016} and produces a derived equivalence between two Calabi-Yau threefolds.
 

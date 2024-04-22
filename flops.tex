@@ -23,19 +23,17 @@ By the adjunction formula, the restriction of the canonical sheaf $\omega_X$ to 
 \omega_{X}\mid_{\mathbb{P}^{k}} \simeq \mathcal{O}(l-k)$$ and the canonical sheaf of a blow-up is given by the formula $$\omega_{\tilde{X}} \simeq \pi^{*}\omega_{X}\otimes \mathcal{O}_{\tilde{X}}(l \tilde{Y})$$
 
 Moreover, the restriction $\mathcal{O}_{\tilde{X}}(\tilde{Y}) \mid_{\tilde{Y}} \simeq p^{*}\mathcal{O}_{Y}(-1)\otimes p^{+*}\mathcal{O}_{Y^+}(-1)$. Hence we have that 
-
 \begin{align*}
 \omega_{\tilde{X}}\mid_{E} &\simeq \left( \pi^{*}\omega_{X}\otimes \mathcal{O}_{\tilde{X}}(l \tilde{Y}) \right) \Big|_{\tilde{Y}}  \\
 &\simeq p^{*}(\omega_{X}\big|_{Y})\otimes  \mathcal{O}_{\tilde{X}}( \tilde{Y})\Big|_{\tilde{Y}}  \\
 &\simeq p^{*} \mathcal{O}_Y(l-k) \otimes p^{*}\mathcal{O}_{Y}(-l) \otimes p^{+*}\mathcal{O}_{Y^{+}(-l)} \\
 &\simeq p^{*} \mathcal{O}_Y(-k) \otimes p^{+*}\mathcal{O}_{Y^+}(-l) 
 \end{align*}
-
 which we denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$. Hence we have the following theorem. 
 
 \begin{theorem}{\cite{Huybrechts}}{}
     For the standard flip as described above, the composition $$
-\pi_{*}\pi^{+*}: \mathcal{D}^{b}(X^+)\to \mathcal{D}^{b}(X)
+\pi_{*}\pi^{+*}: \mathcal{D}(X^+)\to \mathcal{D}(X)
 $$ is full and faithful, with an equivalence in the case of $l =k$. 
 \end{theorem}
 
@@ -138,9 +136,6 @@ $$This is an example of the Atiyah flop, related by a blow up and its flopping c
 We say a variety is a minimal model if has nef canonical divisor. In the GIT picture, we say a GIT quotient is minimal if $-\det V$ lies in the closure of the chamber corresponding to the variety. 
 
 \subsubsection{Wall Crossing Formula}
-
-cf.~\cite{Kite_2022,ballard_mori_2013} Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus.
-
 Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. Denote $\det V = \sum_i q_i$, where $q_i$ is the $i^\mathrm{th}$ column of the weight matrix $Q$. 
 
 \begin{definition}{1-Parameter Subgroup}{1-PS}
@@ -179,7 +174,7 @@ This theorem was proved in~\cite{ballard2014variation} in much greater generalit
 \end{example}
 
 \begin{example}{}{}
-	Recall the wall crossing of example~\ref*{ex:Atiyah Flop}, where the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-1)$ gives $$X_{+}= \mathcal{O}(-1)_{\mathbb{P}^{1}} \qquad X_{-}= \mathbb{C}^2, $$ The wall crossing formula gives us the decomposition $$\mathcal{D}(\mathcal{O}(-1)_{\mathbb{P}^{1}})= \left< \mathbb{C}^{2}, pt \right> $$ which recovers Orlov's blow-up formula from theorem~\ref*{thm:blowupformula}.
+	Recall the wall crossing of example~\ref*{ex:Atiyah Flop}, where the action of $\mathbb{C}^{*}$ on $\mathbb{C}^3$ with weights $(1,1,-1)$ gives $$X_{+}= \mathcal{O}(-1)_{\mathbb{P}^{1}} \qquad X_{-}= \mathbb{C}^2, $$ The wall crossing formula gives us the decomposition $$\mathcal{D}(\mathcal{O}(-1)_{\mathbb{P}^{1}})= \left< \mathbb{C}^{2}, pt \right> $$ which recovers Orlov's blow-up formula from theorem~\ref{th:Bondal-Orlov blowup formula}.
 \end{example}
 
 \begin{example}{}{}
@@ -293,7 +288,7 @@ Let $X_+$ and $X_-$ be two toric varieties related by a flop induced from a wall
 We examine this twist in more detail for the case of the standard flop (cf.~\cite{donovan_window_2014}) before stating the more general theorem. 
 
 Recall once more the action of $T = \mathbb{C}^*$ on $V = \mathbb{C}^4$  acting on coordinates $x_{1}, x_{2}, y_{1},y_{2}$ with weights $\begin{pmatrix}1&1&-1&-1\end{pmatrix}$ respectively. So $X_+$ and $X_-$ are both isomorphic to $\mathcal{O}(-1)_{\mathbb{P}^1}^{\oplus_{2}}$, related by a flop along the zero section $\mathbb{P}^1_{x_{1},x_{2}}$ or vice versa. Clearly their derived categories are equivalent. Since $X_+$ and $X_-$ are the quotients of $V$ minus an unstable locus ($x_{1}= x_{2}= 0$ or $y_{1}= y_{2}=0$)  by $T = C^{*}$, we can view them as sub-quotient stacks of the Artin quotient stack $\mathfrak{X}=[V/T]$, with derived category $\mathcal{D}(\mathfrak{X})$. We thus have the inclusions $$
-i_{\pm}: X_{\pm}\to \mathcal{X}
+i_{\pm}: X_{\pm}\to \mathfrak{X}
 $$
 Note that $\mathcal{D}(\mathfrak{X})$ contains the line bundles $\mathcal{O}(i)$ (corresponding to characters of $\mathbb{C}^*$).  Hence we define subcategories of $\mathcal{D}(\mathfrak{X})$ by $$
  \mathcal{W}_{t}= \left< \mathcal{O}(t), \mathcal{O}(t+1) \right> 
@@ -303,7 +298,7 @@ $$
 This equivalence can be verified by considering that $X_\pm$ is a quasi-projective variety, so we can make use of Beilinson's theorem stating that $\mathcal{O}(t), \mathcal{O}(t+1)$ is a strong, full, exceptional collection on $\mathbb{P}^1$, so the direct summands of the bundle $\mathcal{O}(t)\oplus \mathcal{O}(t+1)$ generate  $\mathcal{D}(\mathcal{O}(-1)_{\mathbb{P}^{1}}^{\oplus {2}})$.  Hence we can define the equivalence and then autoequivalence $$
 \psi_{t}:= i_{+}\circ i_{-}^{*}: \mathcal{D}(X_{-})\to \mathcal{D}(X_{+}) \qquad \Phi_{t}:= \psi_{t-1}^{-1}\psi_{t}: \mathcal{D}(X_{-})\to \mathcal{D}(X_{-})
 $$
-We call $\mathcal{W}_t$ a window subcategory, in that $\mathcal{D}(X_{-})$is passing through a smaller intermediate than the whole of $\mathcal{D}(\mathfrak{X})$. Moreover, the autoequivalence can be composed from passing through any two windows, i.e. $$
+We call $\mathcal{W}_t$ a window subcategory, in that $\mathcal{D}(X_{-})$ is passing through a smaller intermediate than the whole of $\mathcal{D}(\mathfrak{X})$. Moreover, the autoequivalence can be composed from passing through any two windows, i.e. $$
 w_{l,t}:= \psi_{l}^{-1}\psi_t
 $$
 This is called the `window shift'. 
@@ -321,7 +316,7 @@ $$so $\mathcal{O}(t+1)$ is quasi-isomorphic to the complex $\left[ \mathcal{O}(t
 \mathcal{\mathcal{O}}(t+1)&\mapsto\left[ \mathcal{O}(t)^{\oplus 2}\to \mathcal{O}(t-1) \right][-1] .
 \end{align*}
 
-We can see that computing the image of an arbitrary object in $\mathcal{E} \in \mathcal{D}(X_-)$ under $\Phi_t$ requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve $\psi_{t}(\mathcal{E})$ in terms of generators of the second. This becomes more difficult in the general case.  \cite{donovan_window_2014} shows the existence of an endofunctor on the ambient quotient stack $\mathfrak{T}: \mathcal{D}(\mathfrak{X})\to \mathcal{D}(\mathfrak{X})$ which identifies objects from one window with another, called the Transfer Functor. To see it in action, let's consider the case of $t = 1$.
+We can see that computing the image of an arbitrary object in $\mathcal{E} \in \mathcal{D}(X_-)$ under $\Phi_t$ requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve $\psi_{t}(\mathcal{E})$ in terms of generators of the second. This becomes more difficult in the general case.  \cite{donovan_window_2014} shows the existence of an endofunctor on the ambient quotient stack $\mathfrak{T}: \mathcal{D}(\mathfrak{X})\to \mathcal{D}(\mathfrak{X})$ which identifies objects from one window with another, called the \emph{Transfer Functor}. To see it in action, let's consider the case of $t = 1$.
 
 Since both $X_-$ and $X_+$ have exceptional locus $\mathbb{P}^1$, which can both be contracted to a point giving us the following maps $$
 \left\{ pt \right\} \xleftarrow{\pi} \mathbb{P}^{1}\xrightarrow{j} X_{-}
