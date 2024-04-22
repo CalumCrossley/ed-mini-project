@@ -139,7 +139,7 @@ We say a variety is a minimal model if has nef canonical divisor. In the GIT pic
 
 \subsubsection{Wall Crossing Formula}
 
-cf.~\cite{Kite_2022,ballard2014variation} Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus.
+cf.~\cite{Kite_2022,ballard_mori_2013} Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus.
 
 Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. Denote $\det V = \sum_i q_i$, where $q_i$ is the $i^\mathrm{th}$ column of the weight matrix $Q$. 
 
@@ -149,11 +149,11 @@ Let $V$ be a vector space of dimension $n$, and let $T$ be an algebraic torus. D
 
 Consider a toric GIT problem defined by the action of a group $T$ on a vector space $V$. Let $C_+$ and $C_-$ be adjacent chambers of the secondary fan in $\mathbb{L}^{\vee}_\mathbb{R}$ separated by a wall $W$. Assume that $\det V$ is on the $C_{+}$ side of the adjoining wall $W$. The wall $W$ corresponds to an orthogonal (primitive) one-parameter subgroup $\lambda_{W}\in \mathbb{L}$.
 
-We can define a value $\mu = (\det V)(\lambda_W)$. Let $\lambda_W$ be such that $\mu \geq 0$, so is pointing to the $C_-$ side of the wall. $\mu$ is a combinatorial value which will (roughly) tell us which chamber admits the 'bigger' GIT quotients. 
+We can define a value $\mu = (\det V)(\lambda_W)$. Let $\lambda_W$ be such that $\mu \geq 0$, so is pointing to the $C_-$ side of the wall. $\mu$ is a combinatorial value which will (roughly) tell us which chamber admits the `bigger' GIT quotients. 
 
 Let $X_+$ (resp. $X_-$) be the GIT quotient $V // _{\theta_{+}}T$ (resp. $V // _{\theta_{-}}T$ ) corresponding to the chosen generic stability condition $\theta_{+}\in C_+$ (resp. $\theta_-$).  Recall from the previous section that GIT quotients are invariant across stability conditions in the interior of a given chamber. 
 
-We can define a somewhat 'smaller' GIT problem associated to a subset $S \subset \{ 1,\dots,n \}$, or more specifically a subset $Q_S$ of the weights corresponding to the set $S$, which in our case are the $s_i$ columns of the weight matrix for $s_{i}\in S$. These weights generate a sublattice $L_{S}^\vee\subset L_\mathbb{R}^\vee$, allowing us to define a GIT problem from the exact sequence $$M_{S}\to \mathbb{Z}^{S}\xrightarrow{Q_{S}}L_{S}^{\vee}$$
+We can define a somewhat `smaller' GIT problem associated to a subset $S \subset \{ 1,\dots,n \}$, or more specifically a subset $Q_S$ of the weights corresponding to the set $S$, which in our case are the $s_i$ columns of the weight matrix for $s_{i}\in S$. These weights generate a sublattice $L_{S}^\vee\subset L_\mathbb{R}^\vee$, allowing us to define a GIT problem from the exact sequence $$M_{S}\to \mathbb{Z}^{S}\xrightarrow{Q_{S}}L_{S}^{\vee}$$
 
 This GIT problem gives us a strictly lower dimensional variety $Z$, which is a GIT quotient of the fixed locus $V^{\lambda_{W}}$ by $T/\lambda_W$ (where here $T/ \lambda_W$ is the quotient by the image of $\mathbb{G}_m$ under $\lambda$). Here, our subset $Q_S$  is the collection of weights which are orthogonal to $\lambda_W$, that is, the weights which lie in the space spanned by $W$. We can see that lattice $\mathbb{L}_S^\vee$ is exactly the character lattice for the action of $T/\lambda_W$, since the the weights span the space orthogonal to $\lambda_W$. Moreover, the subspace of $V$ fixed by $\lambda_W$ corresponds to the lattice $\mathbb{Z}^S$ in the exact sequence. We choose a character $\theta_W$ in the interior of the wall $W$, to form the quotient $$Z = V^{\lambda_{W}} / /_{\theta_{W}} \left( T/ \lambda_{W}\right) . $$
 
@@ -189,7 +189,7 @@ This theorem was proved in~\cite{ballard2014variation} in much greater generalit
 
 \subsubsection{Homological Mori Program}
 
-The above theorem immediately yields a method for calculating a semi-orthogonal decomposition which is 'maximally refined', in that none of its components can be factored further through wall-crossings. This follows a similar algorithm to the toric Mori program. Indeed, in such a GIT problem, a sequence of adjacent wall crossings come from sequences of birational operations, specifically directed flips, flops and divisorial contractions. This sequence can be seen by considering a path $\gamma : [0,1] \to \mathbb{L}^\vee$ in the cocharacter lattice, such that $\gamma(0)$ is in the ample cone of the secondary fan,$\gamma$ does not intersect a codimension 2 cone in $\mathbb{L}^\vee$, and $\gamma(1)$ is outside the support of the fan. Such a path $\gamma$ is called a run of the toric Mori program.
+The above theorem immediately yields a method for calculating a semi-orthogonal decomposition which is `maximally refined', in that none of its components can be factored further through wall-crossings. This follows a similar algorithm to the toric Mori program. Indeed, in such a GIT problem, a sequence of adjacent wall crossings come from sequences of birational operations, specifically directed flips, flops and divisorial contractions. This sequence can be seen by considering a path $\gamma : [0,1] \to \mathbb{L}^\vee$ in the cocharacter lattice, such that $\gamma(0)$ is in the ample cone of the secondary fan,$\gamma$ does not intersect a codimension 2 cone in $\mathbb{L}^\vee$, and $\gamma(1)$ is outside the support of the fan. Such a path $\gamma$ is called a run of the toric Mori program.
 
 Starting with some fixed stability condition $\theta _1$ and its corresponding variety $X_1$, a wall crossing across the wall $W$ (away from $\det V$) gives the decomposition into $X_2$, the variety defined by the wall crossing, and $\mu$ copies of the variety $Z_W$, the variety defined by the wall datum for $W$. We can perform repeated wall crossings to decompose $X_2$ until a minimal model $X_{min}$ is reached. We will then be left with a factor of $X_{min}$ , and factors corresponding to the GIT problems $V^{\lambda_{W}} / / \lambda_{W}$ for each wall $W$ crossed, and can hence repeat the process of decomposition on each of the remaining non-minimal factors.
 
@@ -236,8 +236,6 @@ Starting with some fixed stability condition $\theta _1$ and its corresponding v
 	\draw (425.14,51.51) node [anchor=north west][inner sep=0.75pt]  [rotate=-0.04] [align=left] {$\displaystyle \centerdot \chi _{3}$};
 	% Text Node
 	\draw (412.05,177.11) node [anchor=north west][inner sep=0.75pt]  [rotate=-0.04] [align=left] {$\displaystyle \centerdot \chi _{3}$};
-	
-	
 	\end{tikzpicture}
 	
 \end{centering}
@@ -263,7 +261,6 @@ $$
 
 We are interested in finding examples of nontrivial equivalences of derived categories induced by flops, which in the toric picture can be seen by considering the Calabi-Yau case.From this, it is clear that $\mu = 0$ for all walls $W$ in the secondary fan, so any wall crossing induces a flop on the GIT quotients. Moreover, this gives us a way to see the nontrivial autoequivalences which come from these wall crossings. In particular, we will see that these autoequivalences have a nice interpretation as twists around spherical functors. 
 
-
 \subsection{Windows and Spherical functors}
 
 First, we want to make some generalizations on the theory of spherical objects. Recall that a spherical object $\mathcal{E} \in \mathcal{D}(X)$ satisfies the property that $$\mathrm{Hom}(\mathcal{E}, \mathcal{E}[i])= \begin{cases}
@@ -273,9 +270,8 @@ First, we want to make some generalizations on the theory of spherical objects. 
 and the spherical twist of an object $\mathcal{F}$ around $\mathcal{E}$ is an autoequivalence defined as the cone $$T_\mathcal{E} = C(\mathrm{Hom}(\mathcal{E},\mathcal{F})\otimes \mathcal{E}\xrightarrow{ev} \mathcal{F})$$
 We define spherical functors analogously.
 
-
 \begin{definition}{}{}
-	A functorial exact triangle is a 'triangle' of exact functors $F_{1}, F_{2}, F_{3} : \mathcal{C}\to \mathcal{D}$,    equipped with natural transformations $$
+	A functorial exact triangle is a `triangle' of exact functors $F_{1}, F_{2}, F_{3} : \mathcal{C}\to \mathcal{D}$,    equipped with natural transformations $$
 F_{1}(-)\to F_{2}(-)\to F_{3}(-)\to F_{1}(-)[1]
 $$ such that for every object $\mathcal{F}\in \mathcal{C}$,   we get the exact triangle in $\mathcal{D}$ given by $$
 F_{1}(\mathcal{F})\to F_{2}(\mathcal{F})\to F_{3}(\mathcal{F})\to F_{1}(\mathcal{F})[1]
@@ -310,7 +306,7 @@ $$
 We call $\mathcal{W}_t$ a window subcategory, in that $\mathcal{D}(X_{-})$is passing through a smaller intermediate than the whole of $\mathcal{D}(\mathfrak{X})$. Moreover, the autoequivalence can be composed from passing through any two windows, i.e. $$
 w_{l,t}:= \psi_{l}^{-1}\psi_t
 $$
-This is called the 'window shift'. 
+This is called the `window shift'. 
 
 \begin{remark}{}{}
 	The method from this examples can be generalized to the action of $\mathbb{C}^*$ on $\mathbb{C}^k$ so long as the GIT problem is still Calabi-Yau. Assuming the sum of the positive weights is $d$ (so the sum of the negative weights is $-d$), window shift autoequivalences can be constructed with the subcategory $$\mathcal{W}_{t}= \left< \mathcal{O}(t),\dots, \mathcal{O}(t+d-1) \right> $$
@@ -322,7 +318,7 @@ Consider the effect of $\Phi_t$ on our generators $\mathcal{O}(t)$ and $\mathcal
 $$so $\mathcal{O}(t+1)$ is quasi-isomorphic to the complex $\left[ \mathcal{O}(t)^{\oplus{2}}\to \mathcal{O}(t-1) \right]$, and we have image of each generator under $\Phi_t$ . 
 \begin{align*}
 \mathcal{O}(t) &\mapsto \mathcal{O}(t)\\
-\mathcal{\mathcal{O}(t+1)}&\mapsto\left[ \mathcal{O}(t)^{\oplus 2}\to \mathcal{O}(t-1) \right][-1] .
+\mathcal{\mathcal{O}}(t+1)&\mapsto\left[ \mathcal{O}(t)^{\oplus 2}\to \mathcal{O}(t-1) \right][-1] .
 \end{align*}
 
 We can see that computing the image of an arbitrary object in $\mathcal{E} \in \mathcal{D}(X_-)$ under $\Phi_t$ requires us to resolve $\mathcal{E}$ in terms of the generators of the first window, then resolve $\psi_{t}(\mathcal{E})$ in terms of generators of the second. This becomes more difficult in the general case.  \cite{donovan_window_2014} shows the existence of an endofunctor on the ambient quotient stack $\mathfrak{T}: \mathcal{D}(\mathfrak{X})\to \mathcal{D}(\mathfrak{X})$ which identifies objects from one window with another, called the Transfer Functor. To see it in action, let's consider the case of $t = 1$.
@@ -428,6 +424,6 @@ $$\bar{p}_{*} = \mathcal{D}(\bar{ X})/ \mathcal{K}^{b}\to \mathcal{D}(X_{-})$$
 \begin{theorem}{Barbacovi}{}
 There is a  four-periodic SOD of $\mathcal{D}(\hat{X})/\mathcal{K}^b$ given by $$
 \left< \mathrm{ker}\,\bar{p}_{*},\mathcal{D}(X_{-}) \right> =  \left< \mathcal{D}(X_{+}), \mathrm{ker}\,\bar{q}_{*} \right> = \left< \mathrm{ker}\,\bar{q}_{*} , \mathcal{D}(X_{+})\right> = \left< \mathcal{D}(X_{-}), \mathrm{ker}\,\bar{p}_{*} \right>  
-$$ which induces spherical functors $\Psi_{+}: \mathrm{ker} \bar{p}_{*}\xrightarrow{\bar{q}_{*}}\mathcal{D}(X_+)$ and $\Psi_{+}: \mathrm{ker} \bar{q}_{*}\xrightarrow{\bar{p}_{*}}\mathcal{D}(X_-)$ such that the 'flop-flop' autoequivalences $FF _{+}:= q_{*}p^{*}p_{*}q^{*}$ and $F F_{-}: = p_{*}q^{*}q_{*}p^*$ are the spherical twists around each functor respectively.
+$$ which induces spherical functors $\Psi_{+}: \mathrm{ker} \bar{p}_{*}\xrightarrow{\bar{q}_{*}}\mathcal{D}(X_+)$ and $\Psi_{+}: \mathrm{ker} \bar{q}_{*}\xrightarrow{\bar{p}_{*}}\mathcal{D}(X_-)$ such that the `flop-flop' autoequivalences $FF _{+}:= q_{*}p^{*}p_{*}q^{*}$ and $F F_{-}: = p_{*}q^{*}q_{*}p^*$ are the spherical twists around each functor respectively.
 \end{theorem}
 
