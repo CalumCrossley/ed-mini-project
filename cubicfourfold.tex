@@ -166,7 +166,8 @@ Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. 
 The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
 
 Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
-\todo{Give explanation why ev is the unit and why mutations compose}
+which follows from \ref{ex:Relative exceptional SOD} applied to $Y=pt$ since $\O(i)$ are exceptional.
+
 
 On the other hand, we can think of the middle as $\Phi_{\O_\Delta}F$ and the left object as $\Phi_{\O(-i)\boxtimes \O(i)}F$. More precisely, by using the projection and base change formulas:
 \begin{gather*}
@@ -300,8 +301,8 @@ More precisely, we can blowup $P$ in $\P^5$ which resolves the rational map defi
 
 \begin{center}
 \begin{tikzcd}
-    \P \calN_{P/ \P^5} \simeq E \arrow[d] \arrow[r] & \mathrm{Bl}_P \P^5 \arrow[d, "\tau"] \arrow[rd] &      \\
-    P \arrow[r]                             & \P^5 \arrow[r, dotted, "\phi"]                          & \P^2
+    \P \calN_{P/ \P^5} \simeq E \arrow[d] \arrow[r] & \mathrm{Bl}_P \P^5 \arrow[d, "\tau"] \arrow[rd, "\phi"] &      \\
+    P \arrow[r]                             & \P^5 \arrow[r, dotted]                          & \P^2
     \end{tikzcd}
 \end{center}
 
@@ -320,7 +321,7 @@ However, this isomorphism is slightly non-canonical: a coordinate-free alternati
 
 Now, we restrict to $X$: the blowup $\tilde{X}:=\mathrm{Bl}_P X$ is the strict transform of $X$ in $\mathrm{Bl}_P \P^5$. If $F$ is the defining function of $X$, which is a cubic, we expect generically the fiber of $\tilde{X}\rightarrow \P^2$ to be a quadric, since the blowup only gives a linear condition. The reason for this is that $\tau^*F \in H^0(\tau^* \O(3) \otimes \calI_E)$ since $F$ vanishes on $P$ and hence $\tilde{X}$ is defined as the zero locus of a section of the line bundle $\calL := \tau^* \O(3) \otimes \calI_E$. To understand the fibers of $\tilde{X}$ we push this line bundle down to $\P^2$: $$\phi_*(\tau^* \O(3) \otimes \calI_E)=\phi_* \tau^* \O(2) \otimes \O(1)$$
 
-Pushing down means taking cohomology on the fibers, hence $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. 
+Pushing down means taking cohomology on the fibers, hence $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$ (see \ref{rem:Relative canonical bundle of projective bundle}).
 
 All in all, we see that $$\phi_* \calL = \mathrm{Sym}^2 \calF \otimes \O(1)\subset\lHom (\calF^* , \calF \otimes \O(1))$$
 
@@ -484,7 +485,7 @@ Now, by work of Hassett, the special cubic fourfolds in these divisors are the c
     \\
 \end{array}\right\} \]
 
-The conditions $(*). (**)$ are the ones from \ref{th:Hassett}. Note that $8$ is not in the list of special cubic fourfolds, and we saw that for $X\in \calC_8$, $\calA_X\simeq \calD(S,\alpha)$ is a twisted K3 category: essentially, $H^2_{prim}(S,\mathbb{Z})$ does not embed in $H^4(X,\mathbb{Z})$ when a nontrivial Brauer class is present, because one has to invert $2$. 
+The conditions $(*), (**)$ are the ones from \ref{th:Hassett}. Note that $8$ is not in the list of special cubic fourfolds, and we saw that for $X\in \calC_8$, $\calA_X\simeq \calD(S,\alpha)$ is a twisted K3 category: essentially, $H^2_{prim}(S,\mathbb{Z})$ does not embed in $H^4_{prim}(X,\mathbb{Z})$ when a nontrivial Brauer class is present, because one has to invert $2$. 
 
 However, $\alpha$ is trivial precisely when $X\in \calC_8 \cap\calC_d$ for some other $d$, i.e. there is some other surface $T\neq P$ contained in it. This is consistent with both predictions of Hassett and Kuznetsov.
 
@@ -494,11 +495,11 @@ Addington-Thomas show that in fact all the other $\calC_i$ meet $\calC_8$ nontri
 
 \textbf{Hassett implies Kuznetsov}: To do the converse direction of Hassett implies Kuznetsov, one proceeds via deformation theory. Addington and Thomas show that starting from $X\in \calC_8\cap \calC_d$, one can deform the Fourier-Mukai kernel witnessing $\calA_X\simeq \calD(S)$ away from $\calC_8$. 
 
-More precisely, given such an $X$, Kuznetsov tells us that $$\calA_X \simeq \calD(S)$$ since the Brauer class vanishes. However, this equivalence is the one relevant to $\calC_8$, namely it is the one which should deform in the direction of cubics containing a plane. We want to instead deform in the other direction. However, a theorem of Mukai-Orlov shows there is a moduli space $\mathcal{M}$ of stable objects of class $a$, which is fine by the assumption that $b$ exists. Mukai has shown that $\mathcal{M}$ is a K3 surface as well and in fact there is a universal object on $\mathcal{M}\times S$ which produces a Fourier-Mukai equivalence $$\calD(S)\simeq \calD(\mathcal{M})$$
+More precisely, given such an $X$, Kuznetsov tells us that $$\calA_X \simeq \calD(S)$$ since the Brauer class vanishes. However, this equivalence is the one relevant to $\calC_8$, namely it is the one which should deform in the direction of cubics containing a plane. We want to instead deform in the other direction. However, a theorem of Mukai-Orlov shows there is a moduli space $\mathcal{M}$ of stable objects of class $a$, which is fine by the assumption that $b$ exists. Classical results of Mukai imply that $\mathcal{M}$ is a K3 surface as well and in fact there is a universal object on $\mathcal{M}\times S$ which produces a Fourier-Mukai equivalence $$\calD(S)\simeq \calD(\mathcal{M})$$
 So we can work with $\mathcal{M}$ instead. The technical core of this step is showing that the Fourier-Mukai kernel $U$ of the equivalence $$\calA_X \simeq \calD(\mathcal{M})$$ deforms as $X$ deforms through $\calC_d$. 
 
-The obstruction to the kernel $U$ deforming is a class in the Hochschild deformation space $$HH^2(\mathcal{M})=\Ext^2(\O_\Delta, \O_\Delta)\simeq H^0(\mathcal{M}, \bigwedge \nolimits^2 T_\mathcal{M})\oplus H^1 (\mathcal{M}, T_\mathcal{M})\oplus H^2(\mathcal{M}, \O_\mathcal{M}) $$
-and can be explicitly described. On a K3 surface, all of this boils down to an essentially cohomological condition using the symplectic form.
+If we think of deforming by beginning with the identity kernel $U=\O_\Delta$, then deforming to first order is controlled its action on cohomology and in particular by a class in the Hochschild deformation space $$HH^2(\mathcal{M})=\Ext^2(\O_\Delta, \O_\Delta)\simeq H^0(\mathcal{M}, \bigwedge \nolimits^2 T_\mathcal{M})\oplus H^1 (\mathcal{M}, T_\mathcal{M})\oplus H^2(\mathcal{M}, \O_\mathcal{M}) $$
+and can be explicitly described. Work of \cite{huybrechts_deformation-obstruction_2013} identifies this obstruction class as $$(\kappa_X, \kappa_\mathcal{M})\circ \mathrm{At}(U)\in \Ext^2(U,U)$$where $\kappa_{\mathcal{M}}\in H^1(\mathcal{M},T_{\mathcal{M}})$ defines a deformation of $\mathcal{M}$ and similarly $\kappa_X=\Phi_U \kappa_S$ . \cite{addington_hodge_2014} show that this obstruction vanishes and then use $T^1$ lifting methods to extend the first-order deformations to all orders, at least on a Zariski dense subset of the Hassett divisor $\calC_d$. Recent work of \cite{li_derived_2022}, \cite{bayer_stability_2021} show that one can extend to the whole of $\calC_d$, concluding the Hassett implies Kuznetsov direction.
 
 
 
