@@ -341,7 +341,7 @@ We finish off by citing the following incredibly useful fact:
     \end{equation*}
     Then
     \begin{equation*}
-        g^*\circ\dR f_*=\dR\tilde f_*\circ\tilde g^*.
+        \dL g^*\circ\dR f_*=\dR\tilde f_*\circ\tilde \dL g^*.
     \end{equation*}
 \end{theorem}
 %Note that $g$ and hence $\tilde g$ being flat means the pullbacks are exact and
@@ -381,7 +381,6 @@ Can make universal bundle over $\calL\to\Pic^0(E)\times E$ given by $\calL\colon
 Now, note that
 \begin{equation*}
     H^\bullet(E,\O_E(P-P_0))
-        = \Ext^\bullet(\O_{P_0},\O_P)
         = \begin{cases}
             0, & P\neq P_{0} \\
             \C\oplus\C[1] & P=P_{0}
@@ -411,7 +410,7 @@ This is a resolution of locally free sheaves allowing us to compute the derived 
 \end{example}
 
 \begin{remark}{Fourier-Mukai transforms}{}
-    What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\calL$ on $E\times E$, which defines an endomorphism $\Phi_\calL:D^b(E)\to D^b(E)$, $\calF\mapsto\dR p_*(q^*\calF\Lotimes\calL)$.
+    What we have just seen is an example of a Fourier-Mukai kernel: the universal line bundle $\calL$ on $E\times E$, which defines an endomorphism $\Phi_\calL:D^b(E)\to D^b(E)$, $\calF\mapsto\dR p_*(q^*\calF\Lotimes\calL)$. In fact, its adjoint is given by the Fourier-Mukai transform with kernel $\calL^\vee [1]$, as we will see later in the section on Fourier-Mukai transforms. Now, we know that $\dR \pi_* \calL = \Phi_\calL \O$. Hence, by adjointness we see that $$\Hom(\dR \pi_* \calL, \O_{P}[-1])\simeq \Hom(\O, \Phi_{\calL^\vee}\O_{P})\simeq H^\bullet(E, \O(P-P_0))$$This allows us to conclude that $\dR \pi_* \calL \simeq \O_{P_0}[-1]$ as was mentioned before.
 \end{remark}
 
 From now on we will drop the $\dR$'s and $\dL$'s unless needed for clarity.
@@ -428,7 +427,7 @@ If we start with vertical, then the first page is
 \begin{equation*}
     E_1^{p,q} = R^qF(A^p) \Rightarrow R^nF(A)
 \end{equation*}
-since we are computing derived functors of $F$. If we start with horizontal, then
+If we start with horizontal, then
 \begin{equation*}
     E_2^{p,q} = R^qF(\calH^pA) \Rightarrow R^nF(A)
 \end{equation*}
@@ -490,18 +489,28 @@ The local homs will be supported at $p$. So it has no higher cohomology i.e. the
 \end{equation*}
 From the Koszul resolution, we see that the latter is just an exterior algebra!
 
-\begin{remark}{Deformations}{}
-    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\O_Y,\O_Y)$.
-\end{remark}
-We mention briefly the Hochschild cohomology $HH^\bullet(X):=\Ext^\bullet(\O_{\Delta_X}, \O_{\Delta_X})$ in the form of the following important theorem, which boils down to the local-to-global spectral sequence degenerating:
-\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
-    $$HH^k(X)=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(X)=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
-
-\end{theorem}
-
 \begin{remark}{Mirror symmetry}{}
     In mirror symmetry, varieties come in pairs such that the Floer cohomology groups on one side correspond to Ext groups on the other. If we think of $X$ as the moduli space of its skyscraper sheaves, then since Ext groups should match up with self Floer groups, the mirrors to points should be Lagrangians with self Floer cohomology equal to an exterior algebra. But self Floer cohomology is equal to usual cohomology for unobstructed Lagrangians, which motivates the fact that mirror to points we should have (special) Lagrangian tori. This is the basis of the SYZ philosophy.
 \end{remark}
+
+\begin{remark}{Deformations}{}
+    We see that the global sections of the normal bundle of $Y$, which describe its deformations inside $X$, can be described by $\Ext^1(\O_Y,\O_Y)$.
+\end{remark}
+We mention briefly the Hochschild (co)homology $$HH^\bullet(X):=\Ext^\bullet(\O_{\Delta_X}, \O_{\Delta_X}), HH_\bullet(X):= \Ext^{n-\bullet}(\Delta_* \omega_X ^{-1}, \O_{\Delta})$$ in the form of the following important theorem due to \cite{kontsevich_deformation_2003}, which boils down to the local-to-global spectral sequence degenerating:
+\begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
+    $$HH^k(X)=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(X)=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
+\end{theorem}
+
+Note that Hochschild cohomology is not functorial, but Hochschild homology is (though both are under fully faithful functors). 
+
+\begin{remark}{More on deformations}{}
+    The second Hochschild cohomology group parametrizes the deformations of the derived category $\calD(X)$ and by the HKR theorem we have that $$HH^2(X)=H^2(X,\O_X)\oplus H^1(X,T_X)\oplus H^0(X, \bigwedge\nolimits^2 T_X) $$
+The first piece can be thought of deforming the sheaves on $X$: if we take $\alpha \in H^2(X,\O_X)$, its exponential $\exp(\alpha)\in H^2(X,\O_X^*)$ is a \emph{Brauer class}, i.e. a cocycle that allows for the definition of twisted vector bundles (see \ref{Twisted projective bundle formula} for more on this).
+\newline
+
+The second piece determines the deformations of $X$ as a variety, whereas the final, more mysterious piece, determines the non-commutative deformations.
+\end{remark}
+
 
 \subsection{Serre duality}
 
@@ -622,17 +631,18 @@ In particular, with $B=\O_Y$ get
 Putting $Y=\pt$, we recover usual Serre duality! So this can be seen as a relative version of Serre duality. But in general, cannot take the pieces $R^i$ as dual! Have to keep the whole chain complex.
 \end{example}
 
-\begin{example}{Poincare bundle again}{}
-Take the universal line bundle on an elliptic curve. The canonical bundle is trivial, so by relative Serre duality we have
-\begin{equation*}
-    (\dR\pi_*\calL)^\vee \simeq \dR\pi_*\calL^{-1}[1]
-\end{equation*}
-Can use Cech resolutions to see that $f_*\calL$ is a torsion free sheaf supported at a point, so has to be zero. So $R^0=0$ on both sides. But $R^1\pi_*\calL=\O_{P_0}[1]$ as we saw before, so the duality does not hold termwise, but over the whole complex! This means that there is a group
-\begin{equation*}
-    \lExt^1(\O_{P_0},\O) = \O_{P_0}
-\end{equation*}
+%\begin{example}{Poincare bundle again}{}
+%Take the universal line bundle on an elliptic curve. The canonical bundle is trivial, so by relative Serre duality we have
+%\begin{equation*}
+%    (\dR\pi_*\calL)^\vee \simeq \dR\pi_*\calL^{-1}[1]
+%\end{equation*}
+%Can use Cech resolutions to see that $f_*\calL$ is a torsion free sheaf supported at a point, so has to be zero. So $R^0=0$ on both sides. But $R^1\pi_*\calL=\O_{P_0}[1]$ as we saw before, so the duality does not hold termwise, but over the whole complex! This means that there is a group
+%\begin{equation*}
+%   \lExt^1(\O_{P_0},\O) = \O_{P_0}
+%\end{equation*}
+
 %There is a generalization of $f^!$ to general nice schemes, if we work with quasicoherent sheaves. Still have duality isomorphisms and the isomorphism $f^!\calF\simeq \dL f^*\calF\otimes f^!\O$.
-\end{example}
+%\end{example}
 
 %In general, if $p:X\rightarrow pt$, we are interested in $p^!(\O_{pt})=\calD_{X}$. But we can compose with an embedding into projective space $i:X\rightarrow \P^n$ and since adjoints are functorial, see that $\calD_{X}=i^!\calD_{\P^n}=i^!\omega_{\P^n}[n]$. So need to understand $i^!$ for an embedding. But it can actually be defined as a derived functor!
 
@@ -695,14 +705,14 @@ Given kernels $\calE$, $\calE'$ on $X\times Y$ and $Y\times Z$ respectively, we 
 \end{equation*}
 \end{proposition}
 \begin{proof}
-    This is done by using the projection formula a bunch of times and finally an instance of flat base change. Basically, first transform everything to a tensor product on the triple product $X\times Y \times Z$ by using the projection formula. Then use commutativity of diagram using different ways to factorize the projection to $Z$. Finally, use projection formula again and base change for the diamond involving $X\times Y \times Z$, $X\times Y$, $Y\times Z$, $Y$. For the complete proof and diagram, consult \cite[\S5][Proposition~5.10]{Huybrechts}.
+    This is done by using the projection formula a bunch of times and finally an instance of flat base change. Basically, one first transforms everything to a tensor product on the triple product $X\times Y \times Z$ by using the projection formula. Then, one one can use different ways to factorize the projection to $Z$, together with the projection formula and base change for the diamond involving $X\times Y \times Z$, $X\times Y$, $Y\times Z$, $Y$. For the complete proof and diagram, consult \cite[\S5][Proposition~5.10]{Huybrechts}.
 \end{proof}
 
 \begin{proposition}{Adjoints of FM transform}{Adjoints of FM transform}
     The adjoints of a Fourier-Mukai functor are given by the dual kernel together with a Serre functor: given $\Phi_\calE$ going from $X$ to $Y$, have two adjoints given by $\Phi_{\calE^\vee\otimes q^*\omega_{X}[\dim X]}$ and $\Phi_{\calE^\vee\otimes p^* \omega_{Y}[\dim Y]}$.
 \end{proposition}
 \begin{proof}
- Need Grothendieck-Verdier duality!
+For this, we crucially need Grothendieck-Verdier duality!
 \begin{gather*}
     \Hom_Y(\Phi_\calE(\calF),\calG)
         = \Hom_Y(p_*(\calE\otimes q^*\calF),\calG)
@@ -771,10 +781,10 @@ since $E=\P^{n-1}$. Moreover, since $p^*\O_X=\O_{\tilde X}$, by adjunction we ge
         = \C
 \end{equation*}
 
-Many homogenous vector bundles are exceptional, e.g.
+Many homogenous vector bundles are exceptional, e.g. the tangent bundle of projective space found in
 Example~\ref{ex:tangentbundle}.
 
-Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves.
+Deformable objects are in general not exceptional (as they have an $\Ext^1$), e.g. skyscraper sheaves, line bundles on curves. 
 
 \begin{remark}{}{}
     Calabi-Yau's don't admit exceptional objects by Serre duality. However, they do admit spherical objects, e.g. $\O_C$ for a rational curve $C$ in a K3 surface.
@@ -787,8 +797,6 @@ Nonexamples: deformable objects, e.g. skyscraper sheaves, line bundles on curves
 We will see in a moment that $\O,\dots,\O(n)$ is such a collection on projective space. Cannot have more, since then we will have the cohomology of the canonical bundle $\omega=\O(-n-1)$ which is nonzero.
 
 More generally, for a Fano, $\omega_X=\O_X(-k)$ is antiample. Then $\O,\dots,\O(k-1)$ is exceptional. We will come back to this when we discuss the cubic fourfold.
-
-% For a blowup $\tilde{X}\to \P^2$ we have line bundles $\O_{E}(-1), \O, \O(H), \O(2H)$ and moreover $$\mathrm{R}\Gamma(\O_{\tilde{X}})=\mathrm{R}\Gamma \,\mathrm{R}f_{*}\O_{\tilde{ X}}=\mathrm{R}\Gamma \O_{\P^2}=k[0]$$since the higher pushforwards of a blowup vanish. So the objects are exceptional. They form an exceptional collection since $\O_{\tilde{X}}(H)=f^*\O(1)$ and then we can use adjunction. The exceptional collection downstairs gives us an exceptional collection upstairs. We also need to check $$\Ext_{\tilde{ X}}(\O(tH), \O_{E}(-1))=\Ext_{\P^2}(\O(t), \mathrm{R}f_{*}\O_{E}(-1))=0$$For this, we can use the base change formula to see that $\mathrm{R}f_{*}\O_{E}(-1)=0$ since by base change this is the line bundle on the exceptional divisor pushed down to a point, i.e. the cohomology of the tautological line bundle.
 
 We put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! However, it is on Calabi-Yau's.
 
@@ -848,7 +856,7 @@ We put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! Ho
     \end{equation*}
     sending $(v,\phi)$ to $\phi(v)$. The image of this map cuts out the same locus as the ideal sheaf of the diagonal, so we can use the Koszul construction to get the locally free resolution for $\O_\Delta$
     \begin{equation*}
-        0 \to \bigwedge^{n}\O(-1)\boxtimes\Omega(1) \to \dots\to \O(-1)\boxtimes\Omega(1)\to \O_{\P^{n}\times \P^{n}} \to O_{\Delta}\to 0.
+        0 \to \bigwedge\nolimits^{n}\O(-1)\boxtimes\Omega(1) \to \dots\to \O(-1)\boxtimes\Omega(1)\to \O_{\P^{n}\times \P^{n}} \to O_{\Delta}\to 0.
     \end{equation*}
 
     Essentially, the morphism \ref{eqn:natural section} can be thought as a morphism $$\calL_1 \rightarrow \mathcal{Q}_2$$where $\calL_1=p^*\O(-1)$ is the tautological line and $\mathcal{Q}_2=q^*\mathcal{Q}$ is the universal quotient. This morphism is a section of the Hom-bundle $\lHom(\calL_1, \mathcal{Q}_2)$ and is zero precisely at $(x,y)\in \P^{n}\times \P^n$ such that the composition $$l_x \hookrightarrow \C^{n+1}\twoheadrightarrow \C^{n+1}/l_y$$
@@ -858,8 +866,8 @@ We put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! Ho
     Let $\calE\coloneqq\O(-1)\boxtimes\Omega(1)$.
     We can split the above resolution into a chain of short exact sequences
     \begin{align*}
-        0 \to \bigwedge^{n}\calE \to &\bigwedge^{n-1}\calE\to M_{n-1}\to 0  \\
-        0\to M_{n-1}\to & \bigwedge^{n-2}\calE\to M_{n-2}\to 0  \\
+        0 \to \bigwedge\nolimits^{n}\calE \to &\bigwedge\nolimits^{n-1}\calE\to M_{n-1}\to 0  \\
+        0\to M_{n-1}\to & \bigwedge\nolimits^{n-2}\calE\to M_{n-2}\to 0  \\
         &\quad\vdots \\
         0\to M_{1}\to &\O_{\P^{n}\times \P^{n}}\to\O_{\Delta}\to 0
     \end{align*}
@@ -867,10 +875,10 @@ We put $E \perp F$ whenever $\RHom(E,F)=0$. This is not a symmetric relation! Ho
 
     Let $\calF\in D^b(\P^n)$. Given that $q^*$, $p^*$ and $\otimes$ are exact, $\Phi_{(-)}(\calF):\calG\mapsto q_{*}(p^{*}\calF\otimes\calG)$ is also exact for $\calG \in D^b(\P^n\times \P^n)$. This gives us exact triangles
     \begin{align*}
-        \Phi_{\bigwedge^{n}\calE}(\calF) \to &\Phi_{\bigwedge^{n-1}\calE} (\calF)\to \Phi_{M_{n-1}}(\calF)\xrightarrow{[1]}   \\
-        \Phi_{M_{n-1}}(\calF)\to & \Phi_{\bigwedge^{n-2}\calE} (\calF)\to \Phi_{M_{n-2}}(\calF)\xrightarrow{[1]}  \\
+        \Phi_{\bigwedge^{n}\calE}(\calF) \to &\Phi_{\bigwedge^{n-1}\calE} (\calF)\to \Phi_{M_{n-1}}(\calF)  \\
+        \Phi_{M_{n-1}}(\calF)\to & \Phi_{\bigwedge^{n-2}\calE} (\calF)\to \Phi_{M_{n-2}}(\calF)  \\
         &\vdots \\
-        \Phi_{M_{1}}(\calF)\to &\Phi_{\O_{\P^n\times\P^n} }(\calF)\to \Phi_{\O_{\Delta}} (\calF)\xrightarrow{[1]}
+        \Phi_{M_{1}}(\calF)\to &\Phi_{\O_{\P^n\times\P^n} }(\calF)\to \Phi_{\O_{\Delta}} (\calF)
     \end{align*}
     We can identify that $\bigwedge^{k}\O(-1)\boxtimes\Omega(1)$ with $\O(-k)\boxtimes\Omega^k(k)$. Then, due to the flatness of $p$ and $q$, and the projection formula, we have for each $i \leq n$,
     \begin{align*}
@@ -972,23 +980,25 @@ Now, we can proceed in the exact analogous way to define orthogonal projection f
     Recall that the mutation functors fit into exact triangles $$k_*\mR_\calA (E)\rightarrow E \rightarrow \iota_* \iota^* E,\, \iota_* \iota^! E \rightarrow E \rightarrow j_*\mL_\calA(E)$$
     where $j_*: \calA^\perp \rightarrow\calD, k_*: \lperp{}\calA\rightarrow\calD$ are the inclusions.
 
-    By the third axiom of triangulated categories, if we have a morphism $E\rightarrow j_*F$, we can fill in
-    \begin{center}
-    \begin{tikzcd}
-        \iota_* \iota^! E \arrow[r] \arrow[d] & E \arrow[r] \arrow[d] & j_*\mL_\calA E \arrow[d, dotted] \\
-        0 \arrow[r]                           & j_* F \arrow[r]       & j_* F
-        \end{tikzcd}
-    \end{center}
+    %By the third axiom of triangulated categories, if we have a morphism $E\rightarrow j_*F$, we can fill in
+    %\begin{center}
+    %\begin{tikzcd}
+    %    \iota_* \iota^! E \arrow[r] \arrow[d] & E \arrow[r] \arrow[d] & j_*\mL_\calA E \arrow[d, dotted] \\
+    %    0 \arrow[r]                           & j_* F \arrow[r]       & j_* F
+    %    \end{tikzcd}
+    %\end{center}
 
-    This gives us a map $$\Hom_\calD(E, j_*F)\rightarrow \Hom_\calD(j_*\mL_\calA E, j_*F)\simeq \Hom_{\calA^\perp}(\mL_\calA E, F)$$
+    %This gives us a map $$\Hom_\calD(E, j_*F)\rightarrow \Hom_\calD(j_*\mL_\calA E, j_*F)\simeq \Hom_{\calA^\perp}(\mL_\calA E, F)$$
 
-    Similarly, we can get a map in the opposite direction, which is inverse to this one, showing that $\mL_\calA \dashv j_*$. In a similar way we can show $k_* \dashv \mR_\calA$. Alternatively, one can argue that:
+    %Similarly, we can get a map in the opposite direction, which is inverse to this one, showing that $\mL_\calA \dashv j_*$. In a similar way we can show $k_* \dashv \mR_\calA$. 
+    
+    Since cones commute with Homs, we have that
     \begin{gather*}
         \Hom_{\calA^\perp}(\mL_\calA E, F)\simeq \Hom_\calD(j_*\mL_\calA E, j_*F) \simeq \\
         \simeq \Hom_\calD (\mathrm{cone}(\iota_* \iota^! E \rightarrow E), j_*F)\simeq \mathrm{cone}\big(\Hom_\calD(\iota_* \iota^! E, j_* F)\rightarrow \Hom_\calD(E, j_*F)\big)\simeq \\
         \simeq \mathrm{cone}(0\rightarrow \Hom_\calD(E, j_*F))\simeq \Hom_\calD(E, j_*F)
     \end{gather*}
-    The reason being that $\Hom(\iota_* \iota^! E, j_* F)=0$ since $\iota_* \iota^! E\in \calA, j_*F \in \calA^\perp$.
+    The reason being that $\Hom(\iota_* \iota^! E, j_* F)=0$ since $\iota_* \iota^! E\in \calA, j_*F \in \calA^\perp$. This shows that the left mutation is left adjoint to $j_*$. The right mutation can be shown analogously.
 
     \textbf{Step 3}: Now we show they induce equivalences between the left and right orthogonals.
 
@@ -1059,7 +1069,7 @@ Now, we can proceed in the exact analogous way to define orthogonal projection f
     Consider the Beilinson exceptional sequence
     $D^b(\P^n)=\langle\O,\O(1),\ldots,\O(n)\rangle$. We have
     \begin{align*}
-        \mL_\O\O(1)
+        \mL_\O\,\O(1)
             &= \cone\bigl(\RG(\O(1))\otimes\O\to\O(1)\bigr) \\
             &= \cone(\O^{n+1}\to\O(1))
             = \Omega(1)[1]
@@ -1191,11 +1201,7 @@ We now focus on two important semiorthogonal decompositions associated to projec
     \end{gather*}
 for $i<j$. We could also have argued using \ref{ex:Relative exceptional SOD} by applying it many times to the relative exceptional line bundles $\O(i)$: the fact they are relative exceptional follows from the fact that $p_*\O_{\P\calE}=\O_B$ for a projective bundle.
 
-\textbf{Step 2}: We now show generation.
-
-One way to show this is as follows: For a point $p\in\P(\calE)$, have Koszul resolution on the fibers. But a fiber has $\O_F=p^*\O_q$ where $p(F)=q$. So can generate everything fiberwise via Beilinson.
-
-Another way is to just resolve the diagonal for the projective bundle: we have an Euler sequence as before $$0\rightarrow \O\rightarrow p^* \calE \otimes \O_{p}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$since $$\calT_p:=\calT_{\P\calE/B}\simeq \lHom(\O_{p}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{p}(-1),\mathcal{Q}\oplus \O_{p}(-1))}{\lHom (\O_{p}(-1), \O_{p}(-1))}\simeq \frac{\lHom(\O_{p}(-1), p^* \calE)}{ \O}$$
+\textbf{Step 2}: We now show generation. We do this by resolving the diagonal just as we did for $\P^n$, but now for a projective bundle: we have an Euler sequence as before $$0\rightarrow \O\rightarrow p^* \calE \otimes \O_{p}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$since $$\calT_p:=\calT_{\P\calE/B}\simeq \lHom(\O_{p}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{p}(-1),\mathcal{Q}\oplus \O_{p}(-1))}{\lHom (\O_{p}(-1), \O_{p}(-1))}\simeq \frac{\lHom(\O_{p}(-1), p^* \calE)}{ \O}$$
 
 We can twist by $\O_p(-1)$ to get the sequence $$0\rightarrow \O_p(-1)\rightarrow p^* \calE \rightarrow \mathcal{Q}\rightarrow 0$$
 
@@ -1205,9 +1211,22 @@ and hence produce a Koszul resolution $$0\rightarrow \bigwedge\nolimits^r \O_p(-
 In the exact analogous way, this shows that the pieces generate the full category.
 \end{proof}
 
+\begin{remark}{Relative canonical bundle of projective bundle}{Relative canonical bundle of projective bundle}
+
+        More generally \cite[Remark~13.36]{Wedhorn}, given a projective bundle $p:\P\calE \rightarrow B$ which can be defined as a relative Proj of a sheaf of algebras $\underline{\Proj}\, \mathrm{Sym}^\bullet \calE^\vee$, we have the following fact: $$p_* \O_{\P\calE}(d)=\mathrm{Sym}^d \calE^\vee$$ 
+    
+        In particular, $p_*\O(-1)=\calE$. Recall the relative Euler sequence: $$0\rightarrow \O\rightarrow p^* \calE \otimes \O_{\pi}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$
+        %since $$\calT_\pi:=\calT_{\P\calE/B}\simeq \lHom(\O_{\pi}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{\pi}(-1),\mathcal{Q}\oplus \O_{\pi}(-1))}{\lHom (\O_{\pi}(-1), \O_{\pi}(-1))}\simeq \frac{\lHom(\O_{\pi}(-1), \pi^* \calE)}{ \O}$$  
+    
+        By twisting by $-1$ and taking determinants, we see that $$p^* \det \calE \simeq \O_p(-1) \otimes \det(\calT_p\otimes \O_p(-1))\simeq \O_p(-r) \otimes \det(\calT_p)$$and so $$\omega_p\simeq p^* \det \calE^\vee \otimes \O_{p}(-r)$$
+    
+        Now, to understand the derived pushforward of the relative canonical bundle, we can use Grothendieck-Verdier duality: $$\O_B=\lHom (p_* \O_{\P\calE}, \O_B)\simeq p_* \lHom(\O_{\P\calE}, p^!\O_B)\simeq p_* \omega_p[r]$$
+        Hence,  $p_* \omega_p\simeq \O_B[-r]$, and so we conclude that $p_* \O_p(-r) \simeq \det \calE[-r]$. 
+\end{remark}
+
 This allows us to talk about blowups, since over the exceptional locus they are given by a projective bundle.
 
-\paragraph*{Twisted projective bundle formula}
+\paragraph*{Twisted projective bundle formula}\label{Twisted projective bundle formula}
 We quickly mention a twisted version of the projective bundle formula due to Bernardara \cite{bernardara_semiorthogonal_2005}. In general, a projective space bundle $\P^r \rightarrow P\rightarrow B$ need not be a projectivized vector bundle - it is only locally so. Let's say that over an open cover $\mathcal{U}$, $P|_U\simeq \P \calE_U$. Then, on overlaps we have isomorphisms $\P\calE_U \simeq \P \calE_V$ but in order to lift this to an isomorphism of vector bundles $\calE_U \simeq \calE_V$, we need a choice of lift from $\P\mathrm{GL}(r,U\cap V)$ to $\mathrm{GL}(r,U\cap V)$. This choice is not canonical, and hence on triple overlaps we get an obstruction cocycle $\alpha \in \Gamma(\C^\times, U\cap V \cap W)$ i.e. an element of $H^2(B,\O_B^\times)$. This element is called the \emph{Brauer class of the Brauer-Severi variety }$P$.
 
 What we get is a twisted vector bundle $(\calE, \alpha)$ such that the gluing cocycles with values in $\mathrm{GL}(r)$ satisfy $$\psi_{12} \circ \psi_{23}=\alpha \psi_{13}$$

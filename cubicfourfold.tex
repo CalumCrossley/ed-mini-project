@@ -322,18 +322,6 @@ Now, we restrict to $X$: the blowup $\tilde{X}:=\mathrm{Bl}_P X$ is the strict t
 
 Pushing down means taking cohomology on the fibers, hence $\phi_* \tau^* \O(2)=\phi_* \O_\phi(2)=\mathrm{Sym}^2 \calF$ essentially since $H^0(\O(2))=\mathrm{Sym}^2 H^0(\O(1))$. 
 
-\begin{remark}{Relative line bundles on projective bundles}{Relative line bundles on projective bundles}
-
-    More generally \cite[Remark~13.36]{Wedhorn}, given a projective bundle $\pi:\P\calE^\lor \rightarrow B$ which can be defined as a relative Proj of a sheaf of algebras $\underline{\Proj}\, \mathrm{Sym}^\bullet \calE$, we have the following fact: $$\pi_* \O_{\P\calE}(d)=\mathrm{Sym}^d \calE$$ 
-
-    In particular, $\pi_*\O(1)=\calE$. Recall the relative Euler sequence: $$0\rightarrow \O\rightarrow \pi^* \calE \otimes \O_{\pi}(1)\rightarrow \calT_{\P\calE/B}\rightarrow 0$$
-    %since $$\calT_\pi:=\calT_{\P\calE/B}\simeq \lHom(\O_{\pi}(-1),\mathcal{Q})\simeq \frac{\lHom(\O_{\pi}(-1),\mathcal{Q}\oplus \O_{\pi}(-1))}{\lHom (\O_{\pi}(-1), \O_{\pi}(-1))}\simeq \frac{\lHom(\O_{\pi}(-1), \pi^* \calE)}{ \O}$$  
-
-    By twisting by $-1$ and taking determinants, we see that $$\pi^* \det \calE \simeq \O_\pi(-1) \otimes \det(\calT_\pi\otimes \O_\pi(-1))\simeq \O_\pi(-k-1) \otimes \det(\calT_\pi)$$and so $$\omega_\pi\simeq \pi^* \det \calE^* \otimes \O_{\pi}(-k-1)$$
-
-    Moreover, the derived pushforward is given by $\pi_* \omega_\pi\simeq \O_B[-1]$, and so we conclude that $\pi_* \O_\pi(-k-1) \simeq \det \calE^*[-1]$. 
- \end{remark}
-
 All in all, we see that $$\phi_* \calL = \mathrm{Sym}^2 \calF \otimes \O(1)\subset\lHom (\calF^* , \calF \otimes \O(1))$$
 
 We see that the fiber over $q \in \P^2$ is the residual quadric defined by the quadratic form $q$ corresponding to $F$ which is a section of $\mathrm{Sym}^2\calF$. This quadric is smooth, unless we are in the discriminant locus where $\det(q)$=0. This is a section of the bundle $\Hom(\det(\calF^*), \det (\calF\otimes \O(1))\simeq \O(6) $ since $\det \calF=1$ and $\det \calF\otimes \O(1)= \det (\O(2) \oplus \O(1)^{\oplus 3})=5$. So the discriminant locus is a sextic curve $C$!
@@ -379,7 +367,7 @@ We have seen that to every cubic fourfold containing a plane, we can associate s
 \end{proposition}
 
 \begin{proof}[Proof 1]
-    The original approach is due to Kuznetsov (Derived category of cubic fourfolds). The point is that on the one hand, the blowup formula \ref{th:Bondal-Orlov blowup formula} shows that $$\calD(\tilde{X})\simeq \langle \calD(P), \calD(X)  \rangle $$
+    The original approach is due to Kuznetsov \cite{KuznetsovDerivedCubic}. The point is that on the one hand, the blowup formula \ref{th:Bondal-Orlov blowup formula} shows that $$\calD(\tilde{X})\simeq \langle \calD(P), \calD(X)  \rangle $$
     This has $6$ exceptional objects and the category $\calA_X$.
     On the other hand, Kuznetsov's work on quadric fibrations shows that there is another semiorthogonal decomposition $$\calD(\tilde{X})=\langle \calD(S,\alpha), \calD(P), \calD(P) \otimes \O(1)\rangle$$
     This also has $6$ exceptional objects, together with the category $\calD(S,\alpha)$.
@@ -415,28 +403,26 @@ Applying this to $\O_X(-1)$ we see that $\Phi_{\O_{X\times \tscrF}(1)}\O(-1)=\Ph
 
 Similarly, applying it to $\O_X(-2)$, we first see that $\Phi_{\O_{X\times \tscrF}}(\O_X(-1))=0$ since this is doing cohomology on the fibers $H^\bullet(X, \O_X(-1))=H^\bullet(X, \omega_X \otimes \O_X(2))=0$ by Bott vanishing. Moreover, $\Phi_{\O_{\tscrP}}(\O_X(-1))=0$ since this is cohomology on the $\P^1$ fibers, and $H^\bullet(\P^1, \O(-1))=0$.
 
-Finally, we need to consider $\O_X(-3)$. We still have Bott vanishing for $X$ i.e. $\Phi_{\O_{X\times \tscrF}}(\O_X(-2))=0$ since $H^\bullet(X, \O_X(-2))=H^\bullet(X, \omega_X \otimes \O_X(1))=0$. However, the cohomology of $\O(-2)$ on the $\P^1$ fibers is nonzero, so we only have that $\Phi \O(-3)\simeq \Phi_{\O_{\tscrP}}(\O(-2))[-1]$. Explicitly, by Remark \ref{rem:Relative line bundles on projective bundles}, we have 
+Finally, we need to consider $\O_X(-3)$. We still have Bott vanishing for $X$ i.e. $\Phi_{\O_{X\times \tscrF}}(\O_X(-2))=0$ since $H^\bullet(X, \O_X(-2))=H^\bullet(X, \omega_X \otimes \O_X(1))=0$. However, the cohomology of $\O(-2)$ on the $\P^1$ fibers is nonzero, so we only have that $\Phi \O(-3)\simeq \Phi_{\O_{\tscrP}}(\O(-2))[-1]$. Explicitly, by Remark \ref{rem:Relative canonical bundle of projective bundle}, we have 
 $$\Phi_{\O_{\tscrP}}(\O(-2))={\pi_{\tscrF}}_* \O_{\pi_{\tscrF}}(-2)=\O_{\tscrF} (-1)[-1]$$
 The desired vanishing is thus equivalent via Serre duality to $$0 = \Hom(E, \Phi \O(-3))=\Hom(E, \O_{\tscrF} (-1)[-2])\iff 0=\Hom(\O_{\tscrF} (-1), E\otimes \omega_{\tscrF})$$
 
-We only need to show this for skyscrapers. But they are embedded via $\pi_S^* \otimes \O_{\pi_S}(-1)$ so a skyscraper $\O_x \in \calD(S,\alpha)$ corresponds to $\O_{F_x}(-1)$, and so we are reduced to showing $$\Hom(\O_{\tscrF}(-1), \O_{F_x}(-1)\otimes\omega_{\tscrF})\simeq H^\bullet(F_x, \O_{F_x}(-1) \otimes \O_{F_x}(-2)\otimes \O_{\tscrF}(-1)|_{F_x})=H^\bullet(\P^1, \O(-1))=0$$since the embedding $\P^1 \simeq F_x \subset \tscrF$ is of degree $2$, i.e. it pulls back the Plucker polarization coming from the tautological line $\O(1)$ on $\P \bigwedge^2 \mathbb{C}^6$ to $\O(2)$.
+We only need to show this for skyscrapers. But they are embedded via $\pi_S^* \otimes \O_{\pi_S}(-1)$ so a skyscraper $\O_x \in \calD(S,\alpha)$ corresponds to $\O_{F_x}(-1)$, and so we are reduced to showing $$\Hom(\O_{\tscrF}(-1), \O_{F_x}(-1)\otimes\omega_{\tscrF})\simeq H^\bullet(F_x, \O_{F_x}(-1) \otimes \O_{F_x}(-2)\otimes \O_{\tscrF}(-1)|_{F_x})=H^\bullet(\P^1, \O(-1))=0$$since the embedding $\P^1 \simeq F_x \subset \tscrF$ is of degree $2$, i.e. it pulls back the Plucker polarization coming from the tautological line $\O(1)$ on $\P \bigwedge^2 \mathbb{C}^6$ to $\O(2)$ \footnote{This is shown in \cite[\S1]{huybrechts_geometry_2023}}.
 
 \textbf{Step 3}: The final step in the proof consists of showing that $\Psi'$ is fully faithful, which requires the use of the criterion by Bondal-Orlov \ref{prop:Generation criterion}. 
 
 Firstly, we identify the kernel for $\Psi'$. By \ref{prop:Adjoints of FM transform}, we know that is must be $\calI(1)^\vee \otimes \pi_X^* \omega_X [3]$. The generation criterion then requires to check what happens on skyscrapers $\O_s, s\in S$. Explicitly, $$\Psi'\O_s={\pi_X}_* ( \calI(1)^\vee \otimes \omega_X \boxtimes \O \otimes \pi_{\tscrF}^*\O_s)[3]$$
 
-By the way we've set things up, the pullup is twisted by the way $\calD(S,\alpha)$ includes into $\calD(\tscrF)$, namely: $\pi^*_{\tscrF}\O_s=\O_{F_s}(-1)$ where $F_s \simeq \P^1$ is the fiber over $s$ in the $\P^1$ bundle $\tscrF\rightarrow S$. Hence, the object in question is $$\Psi'\O_s={\pi_X}_*(\calI_s(1)^\vee \otimes (\omega_{\tscrF}\otimes \O_{F_s}(-1))\boxtimes \O_X)[3]$$
+The way we've set things up, the pullup is twisted via the way $\calD(S,\alpha)$ includes into $\calD(\tscrF)$, namely: $\pi^*_{\tscrF}\O_s=\O_{F_s}(-1)$ where $F_s \simeq \P^1$ is the fiber over $s$ in the $\P^1$ bundle $\tscrF\rightarrow S$. Hence, the object in question is $$\Psi'\O_s={\pi_X}_*(\calI_s(1)^\vee \otimes (\omega_{\tscrF}\otimes \O_{F_s}(-1))\boxtimes \O_X)[3]$$
 
 Here, $\calI_s$ is the ideal sheaf of the subvariety $\tscrP_s \subset X \times F_s$, since tensoring with the skyscraper has made everything supported on a fiber. Under the projection $\pi_s: F_s\times X \rightarrow X$, the relative canonical sheaf is just $\omega_{\tscrF}\boxtimes \O_X$. Hence, we can apply Grothendieck-Verdier duality \ref{ex:Shriek functor}:
-
-\begin{gather*}
-    {\pi_s}_*(\calI_s(1)^\vee \otimes \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq 
-    {\pi_s}_*\lHom(\calI_s\otimes \O\boxtimes \O_X(1), \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq \\
-    {\pi_s}_*\lHom(\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \omega_{\pi})[3]\simeq
-    \lHom(({\pi_s}_*)\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \O[2])\simeq\\
-    ({\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O))^\vee\otimes \O_X(-1) [2]
-\end{gather*}
-
+    \begin{gather*}
+        {\pi_s}_*(\calI_s(1)^\vee \otimes \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq 
+        {\pi_s}_*\lHom(\calI_s\otimes \O\boxtimes \O_X(1), \omega_{\pi}\otimes \O_{F_s}(-1)\boxtimes \O_X)[3]\simeq \\
+        {\pi_s}_*\lHom(\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \omega_{\pi})[3]\simeq
+        \lHom(({\pi_s}_*)\calI_s\otimes \O_{F_s}(1)\boxtimes \O_X(1), \O[2])\simeq\\
+        ({\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O))^\vee\otimes \O_X(-1) [2]
+    \end{gather*}
 We thus need to understand ${\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O)$. This is really the Fourier-Mukai transform of $\O_{F_s}(1)$ with kernel $\calI_s$, which fits into the triangle $$\calI_s\rightarrow \O_{X\times F_s}\rightarrow \O_{\tscrP_s}$$and hence we have a triangle $$\Phi_{\calI_s}(\O_{F_s}(1))\rightarrow \Phi_{\O_{X\times F_s}}(\O_{F_s}(1))\rightarrow \Phi_{\O_{\tscrP_s}}(\O_{F_s}(1))$$
 
 Hence, we see that $$(\Psi'\O_s)^\vee\otimes \O_X(-1)[2]\simeq {\pi_s}_*(\calI_s\otimes \O_{F_s}(1)\boxtimes \O)\simeq \ker[H^0(X,\O_{F_s}(1))\otimes \O_X \rightarrow \O_Q(1)]:=K_s$$
@@ -444,29 +430,34 @@ where $Q$ is the residual quadric in $X$ corresponding to $s$.
 
 The only thing left is to check the Bondal-Orlov criterion on $K_s$, since $$\Ext^i(\Psi'\O_s, \Psi'\O_t)\simeq \Ext^i(K_s,K_t)$$
 
-The fact that $\Ext^0(K_s,K_s)=\C$ follows from $\dots$
+The computation of these Ext groups is done in \cite[\S7, Lemma~3.7]{huybrechts_geometry_2023}. One can show that $\Ext^0(K_s,K_s)=\C$ and moreover $\Ext^i(K_s,K_s)$ vanishes for $i<0$ since this is a sheaf and the case $i>2$ follows by Serre duality.
 
-$\Ext^i(K_s,K_s)$ vanishes for $i<0$ since this is a sheaf and the case $i>2$ follows by Serre duality.
-
-When $s\neq t$, we need to check vanishing of $\Ext^0(K_s, K_t)$ which then implies by Serre duality vanishing of $\Ext^2(K_s, K_t)$. The final step, to check $\Ext^1(K_s, K_t)=0$, is given by a computation of the Euler characteristic: we know that since $H^0(X,\O_{F_s}(1))=\C^2$, that $K_s=2\O_X-\O_Q(1)$ in the Grothendieck ring. Therefore,
-
-$$\chi(K_s,K_t)=4\chi(\O_X,\O_X)-2\chi(\O_X,\O_Q(1))+2\chi(\O_Q(1),\O_X)-\chi(\O_Q,\O_Q)=0$$
-
-
-
-
-
-
+When $s\neq t$, one needs to check vanishing of $\Ext^0(K_s, K_t)$ which then implies by Serre duality vanishing of $\Ext^2(K_s, K_t)$. The final step, to check $\Ext^1(K_s, K_t)=0$, is given by a computation of the Euler characteristic: we know that since $H^0(X,\O_{F_s}(1))=\C^2$ then $K_s=2\O_X-\O_Q(1)$ in the Grothendieck ring. Therefore,
+$$\chi(K_s,K_t)=\underbrace{4\chi(\O_X,\O_X)}_4-\underbrace{2\chi(\O_X,\O_Q(1))}_4+\underbrace{2\chi(\O_Q(1),\O_X)}_4-\underbrace{\chi(\O_Q,\O_Q)}_{Q\cdot Q=4}=0$$
 \end{proof}
-\todo{Finish the proof}
+
+\begin{remark}{Self-intersection via Euler characteristic}{}
+    We have in general for a half-dimensional subvariety $Q\subset X$ that $$\chi(\O_Q, \O_Q)=(-1)^{\dim Q}Q\cdot Q$$ The proof uses Hirzebruch-Riemann-Roch:
+
+    If $\mathcal{E}$ is the bundle cutting out $Q$ such that $\mathcal{E}|_Q=\mathcal{N}_Q$, so $c_{top}(\mathcal{E})=[Q]$ then we have that 
+    $$\begin{gathered}
+    \chi(\mathcal{O}_Q, \mathcal{O}_Q)=\chi(\mathcal{O}_Q^\vee \otimes^L \mathcal{O}_Q)=\chi(\bigoplus_{i,j} \bigwedge\nolimits^i \mathcal{E}^\vee \otimes \bigwedge\nolimits^j\mathcal{E})=\\=\sum_{i,j}(-1)^{i+j}\chi(\bigwedge\nolimits^i \mathcal{E}^\vee \otimes \bigwedge\nolimits^j \mathcal{E}) =\int_X \mathrm{ch}\left( \sum_{i,j} (-1)^{i+j}\bigwedge\nolimits^i \mathcal{E}^\vee \otimes \bigwedge\nolimits^j\mathcal{E} \right)\mathrm{td}(X)=\\
+    =\int_X \mathrm{ch}\left( \sum_i (-1)^i \bigwedge\nolimits^i \mathcal{E}^\vee  \right) \mathrm{ch}\left( \sum_j (-1)^j \bigwedge\nolimits^j \mathcal{E}  \right)\mathrm{td}(X)=\int_X \frac{c_{top}(\mathcal{E})}{\mathrm{td}(\mathcal{E})}\frac{c_{top}(\mathcal{E}^\vee)}{\mathrm{td}(\mathcal{E}^\vee)}\mathrm{td}(X)\\
+    =\int_Q  \frac{c_{top}(\mathcal{N}^\vee)}{\mathrm{td}(\mathcal{N}^\vee)}\mathrm{td}(Q)=(-1)^k\int_Q c_{top}(\mathcal{N})\mathrm{td}(TQ-\mathcal{N}^\vee)=\\=(-1)^k \int_{Q} c_{top}(\mathcal{N})=(-1)^k Q\cdot Q  \end{gathered}$$
+
+    The last bit follows since the rank of $\mathcal{N}$ is the same as the dimension of $Q$, and hence when integrating only $td_0=1$ survives.
+
+    We use the multiplicative and additive properties of the Chern character, as well as the fact that for any bundle $\mathcal{F}$ we have $$\sum_{i=0}^r (-1)^i \mathrm{ch}(\bigwedge\nolimits ^i \mathcal{F}^\vee)=\frac{c_r(\mathcal{F})}{\mathrm{td}(\mathcal{F})}$$ and an instance of Poincare duality and the normal bundle sequence which tells us that $\mathrm{td}(X)=\mathrm{td}(\mathcal{N}
+    )\mathrm{td}(Q)$ on $Q$.
+\end{remark}
 
 \paragraph*{Family version}
 
-This is an aside remark, which explains that one can use Homological Projective Duality and study the problem above in a $\P^1$-family. This was done in \cite{calabrese_derived_2016} and bears the following structure: 
+This is an aside remark, which explains that one can use Homological Projective Duality and study the problem above in a $\P^1$-family. This was done in \cite{calabrese_derived_2016} and produces a derived equivalence between two Calabi-Yau threefolds.
 
 Firstly, suppose we have a pencil of cubic fourfolds. This produces universal cubic hypersurface $$\mathcal{H}\rightarrow \P^1$$whose fiber over $t$ is the associated cubic fourfold to $t$. This also has a Kuznetsov component and an SOD $$\calD(\mathcal{H})=\langle \calA_{\mathcal{H}}, \pi^* \calD\P^1(i,0); i=3,4,5 \rangle $$
 
-Homological Projective Duality prescribes an equivalence $$\calA_{\mathcal{H}} \simeq \calD(\mathcal{X})$$where $\mathcal{X}$ is the base locus of the linear system.
+Homological Projective Duality prescribes an equivalence $$\calA_{\mathcal{H}} \simeq \calD(\mathcal{X})$$where $\mathcal{X}$ is the base locus of the linear system of the pencil.
 
 Consider, in particular, a pencil of cubics containing our fixed plane $P$. This is equivalent to choosing two sections $s_0,s_\infty$ of the linear system defining $\tilde{X}$ which is $\calI_E\otimes \tau^* \O(3)$. The base locus $\mathcal{X}=\{s_0=s_\infty=0\}$ of this sub-linear system is a $(3,3)$ complete intersection in $\P^5$, which is a Calabi-Yau threefold.
 
@@ -478,10 +469,40 @@ Before, we had that $$\calD(\P^2, \calB_0)\simeq \calD(S, \alpha)$$ for the K3 s
 
 \subsection{Connecting the Hodge theoretic and derived viewpoints: the paper of Addington-Thomas}
 
-So far we have seen a countable union of divisors in the moduli space of cubic fourfolds with a distinguished divisor $\calC_8$. Addington-Thomas show that all the other $\calC_i$ meet this nontrivially. The cubic fourfolds in these divisors are the conjecturally rational ones. 
+So far we have seen a countable union of divisors in the moduli space of cubic fourfolds with a distinguished divisor $\calC_8$ consisting of the cubics containing a plane, which is crucial to the proof of the global Torelli theorem.
 
-- Reformulation of Hassett condition
-- Deformation theory away from $\calC_8$
+Now, by work of Hassett, the special cubic fourfolds in these divisors are the conjecturally rational ones and Kuznetsov has conjectured that their Kuznetsov component is equivalent to the derived category of a K3 surface. Thus there are two viewpoints\footnote{Hassett never explicitly conjectures that rationality is equivalent to the cubic being special}: 
+
+\[\left\{\begin{array}{cc}\underline{\text{Hassett's Hodge theoretic viewpoint}} \\
+    \calC_d \text{ nonempty iff } (*)\\
+    \calC_d \text{ associated to K3 surface iff } (**)\\
+    \text{Conjecture: X rational precisely }\\\text{ when it has an associated K3 surface}
+\end{array}\right\} \text{ vs } \left\{\begin{array}{cc}\underline{\text{Kuznetsov's derived viewpoint}} \\
+    \calA_X \text{ always a Calabi-Yau 2 category}\\
+    \text{Conjecture}:\\
+    \text{X rational iff } \exists \text{ K3 surface } \calD(S)\simeq \calA_X \\
+    \\
+\end{array}\right\} \]
+
+The conditions $(*). (**)$ are the ones from \ref{th:Hassett}. Note that $8$ is not in the list of special cubic fourfolds, and we saw that for $X\in \calC_8$, $\calA_X\simeq \calD(S,\alpha)$ is a twisted K3 category: essentially, $H^2_{prim}(S,\mathbb{Z})$ does not embed in $H^4(X,\mathbb{Z})$ when a nontrivial Brauer class is present, because one has to invert $2$. 
+
+However, $\alpha$ is trivial precisely when $X\in \calC_8 \cap\calC_d$ for some other $d$, i.e. there is some other surface $T\neq P$ contained in it. This is consistent with both predictions of Hassett and Kuznetsov.
+
+Addington-Thomas show that in fact all the other $\calC_i$ meet $\calC_8$ nontrivially. They show that essentially the two viewpoints of Hassett and Kuznetsov are equivalent, in the following steps: 
+
+\textbf{Kuznetsov implies Hassett}: Firstly, using a lot of lattice theory, they reformulate Hassett's condition $(**)$ using a more natural K-theoretic one: it is in fact equivalent to there being two classes $a,b\in K_{top}(\calA_X)$ which are point-like and line-bundle-like: $$\langle a,a\rangle =0, \langle a, b \rangle =1, \langle b,b \rangle =2$$ One should think of $a=\O_{pt}, b=\O_S$. This shows that Kuznetsov's condition implies the Hassett special condition. 
+
+\textbf{Hassett implies Kuznetsov}: To do the converse direction of Hassett implies Kuznetsov, one proceeds via deformation theory. Addington and Thomas show that starting from $X\in \calC_8\cap \calC_d$, one can deform the Fourier-Mukai kernel witnessing $\calA_X\simeq \calD(S)$ away from $\calC_8$. 
+
+More precisely, given such an $X$, Kuznetsov tells us that $$\calA_X \simeq \calD(S)$$ since the Brauer class vanishes. However, this equivalence is the one relevant to $\calC_8$, namely it is the one which should deform in the direction of cubics containing a plane. We want to instead deform in the other direction. However, a theorem of Mukai-Orlov shows there is a moduli space $\mathcal{M}$ of stable objects of class $a$, which is fine by the assumption that $b$ exists. Mukai has shown that $\mathcal{M}$ is a K3 surface as well and in fact there is a universal object on $\mathcal{M}\times S$ which produces a Fourier-Mukai equivalence $$\calD(S)\simeq \calD(\mathcal{M})$$
+So we can work with $\mathcal{M}$ instead. The technical core of this step is showing that the Fourier-Mukai kernel $U$ of the equivalence $$\calA_X \simeq \calD(\mathcal{M})$$ deforms as $X$ deforms through $\calC_d$. 
+
+The obstruction to the kernel $U$ deforming is a class in the Hochschild deformation space $$HH^2(\mathcal{M})=\Ext^2(\O_\Delta, \O_\Delta)\simeq H^0(\mathcal{M}, \bigwedge \nolimits^2 T_\mathcal{M})\oplus H^1 (\mathcal{M}, T_\mathcal{M})\oplus H^2(\mathcal{M}, \O_\mathcal{M}) $$
+and can be explicitly described. On a K3 surface, all of this boils down to an essentially cohomological condition using the symplectic form.
+
+
+
+
 
 
 
