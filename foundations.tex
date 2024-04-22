@@ -431,7 +431,7 @@ If we start with horizontal, then
 \begin{equation*}
     E_2^{p,q} = R^qF(\calH^pA) \Rightarrow R^nF(A)
 \end{equation*}
-More generally, there is a computational tool called the \emph{Grothendieck spectral sequence} which computes the derived functors of a composition: $$E_2^{pq}=R^pG \circ R^q F\implies R^{p+q}G\circ F$$
+More generally, there is a computational tool called the \emph{Grothendieck spectral sequence} which computes the derived functors of a composition: $$E_2^{pq}=R^pG \circ R^q F\implies R^{p+q}(G\circ F)$$
 
 Now we describe two very important instance of the Grothendieck spectral sequence, the Leray spectral sequence and the local to global spectral sequence.
 
@@ -498,13 +498,13 @@ From the Koszul resolution, we see that the latter is just an exterior algebra!
 \end{remark}
 We mention briefly the Hochschild (co)homology $$HH^\bullet(X):=\Ext^\bullet(\O_{\Delta_X}, \O_{\Delta_X}), HH_\bullet(X):= \Ext^{n-\bullet}(\Delta_* \omega_X ^{-1}, \O_{\Delta})$$ in the form of the following important theorem due to \cite{kontsevich_deformation_2003}, which boils down to the local-to-global spectral sequence degenerating:
 \begin{theorem}{Hochschild-Kostant-Rosenberg}{HKR}
-    $$HH^k(X)=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X), HH_k(X)=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
+    $$HH^k(X)=\bigoplus_{p+q=k} H^q(X, \Lambda^p T_X),\quad HH_k(X)=\bigoplus_{q-p=k} H^q(X, \Omega^p_X)=\bigoplus_{q-p=k} H^{p,q}(X)$$
 \end{theorem}
 
 Note that Hochschild cohomology is not functorial, but Hochschild homology is (though both are under fully faithful functors). 
 
 \begin{remark}{More on deformations}{}
-    The second Hochschild cohomology group parametrizes the deformations of the derived category $\calD(X)$ and by the HKR theorem we have that $$HH^2(X)=H^2(X,\O_X)\oplus H^1(X,T_X)\oplus H^0(X, \bigwedge\nolimits^2 T_X) $$
+    The second Hochschild cohomology group parametrizes the deformations of the derived category $D^b(X)$ and by the HKR theorem we have that $$HH^2(X)=H^2(X,\O_X)\oplus H^1(X,T_X)\oplus H^0(X, \bigwedge\nolimits^2 T_X) $$
 The first piece can be thought of deforming the sheaves on $X$: if we take $\alpha \in H^2(X,\O_X)$, its exponential $\exp(\alpha)\in H^2(X,\O_X^*)$ is a \emph{Brauer class}, i.e. a cocycle that allows for the definition of twisted vector bundles (see \ref{Twisted projective bundle formula} for more on this).
 \newline
 
@@ -1128,7 +1128,7 @@ The mutation functors also allow us to view admissible categories in the followi
     Moreover, $\calA^\perp$ is also admissible and its Serre functor can be described as $$\calS_{\calA^\perp}=\calS_\calD \circ \mR_\calA|_{\calA^\perp}$$
   \end{lemma}
   \begin{proof}
-    The first of these follows by a straightforward chase around adjunctions. The second one follows since given $X,Y \in \calA^\perp,$ then $$\Hom(X, \calS_\calD \mR_\calA Y)\simeq \Hom(\mR_\calA Y, X)^*\simeq \Hom(\mL_\calA \mR_\calA Y, X)^*\simeq \Hom(Y,X)^*$$where we use the fact that $\mL \mR =id$ on $\calA^\perp$ and furthermore the exact triangle $\iota_* \iota^! \mR_\calA Y \rightarrow \mR_\calA Y \rightarrow \mL_\calA \mR_\calA Y$, combined with the fact that $\Hom(\iota_* \iota^! \mR_\calA Y,X)=0, X\in \calA^\perp$ tells us that $\Hom(\mR_\calA Y, X)\simeq \Hom(\mL_\calA \mR_\calA Y, X)$.
+      The first of these follows by a straightforward chase around adjunctions. The second one follows since given $X,Y \in \calA^\perp,$ then $$\Hom(X, \calS_\calD \mR_\calA Y)\simeq \Hom(\mR_\calA Y, X)^*\simeq \Hom(\mL_\calA \mR_\calA Y, X)^*\simeq \Hom(Y,X)^*$$where we use the fact that $\mL_\calA\mR_\calA=\id_{\calA^\perp}$ and furthermore the exact triangle $\iota_* \iota^! \mR_\calA Y \rightarrow \mR_\calA Y \rightarrow \mL_\calA \mR_\calA Y$, combined with the fact that $\Hom(\iota_* \iota^! \mR_\calA Y,X)=0$ for $X\in \calA^\perp$ tells us that $\Hom(\mR_\calA Y, X)\simeq \Hom(\mL_\calA \mR_\calA Y, X)$.
  \end{proof}
 
 
