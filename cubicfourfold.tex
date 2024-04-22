@@ -1,13 +1,10 @@
 In this section, we will review the deep link between K3 surfaces and cubic fourfolds. 
 
- A theorem of Hasset describes the so called \emph{special cubic fourfolds}, which are cubic fourfolds containing a surface $T$ which is not a complete intersection. They form a countable union of divisors $\calC_d$ in the moduli space $\P H^0(\O(3))/\P GL(6)$ of cubic fourfolds which are expected to be the rational cubic fourfolds (the intuition is that for a cubic fourfold to be rational, one has to blow up a surface at some point) and have associated K3 surfaces: the primitive cohomology of a K3 surface embeds as the complement $\langle h^2, T\rangle^\perp$. 
+ A theorem of Hasset describes the so called \emph{special cubic fourfolds}, which are cubic fourfolds containing a surface $T$ which is not a complete intersection. They form a countable union of divisors $\calC_d$ in the moduli space $\P H^0(\O(3))/\P GL(6)$ of cubic fourfolds which are expected to be rational (the intuition is that for a cubic fourfold to be rational, one has to blow up a surface at some point). They also have associated K3 surfaces: Hassett shows that the primitive cohomology of a K3 surface embeds as the complement $\langle h^2, T\rangle^\perp$. 
 
 Alternatively, Kuznetsov has considered the derived category of a cubic fourfold and found a component $\calA_X$. He showed that Pfaffian cubics and nodal cubics have $\calA_X$ derived equivalent to K3 surfaces and conjectured \cite{KuznetsovDerivedCubic} that $X$ is rational if and only if $\calA_X \simeq \calD(S)$ for some K3 surface $S$.
 
-The two viewpoints, the Hodge theoretic of Hassett and derived categorical of Kuznetsov, were shown to be equivalent by \cite{addington_hodge_2014}: in other words, ...
-
-In this section, we will briefly describe the Hodge theory and Torelli theorems for K3 surfaces and cubic fourfolds. After that, we will show that the Kuznetsov component is a Calabi-Yau 2 category and show that the cubic fourfolds containing a plane $\calC_8$ are derived equivalent to a twisted K3 surface, which is an honest K3 surface when $X\in \calC_8 \cap \calC_d$ for some other $d$ on Hasset's list. Finally, we quickly sketch Addington-Thomas' paper.
-
+In this section, we will briefly describe the Hodge theory and Torelli theorems for K3 surfaces and cubic fourfolds. After that, we will show that the Kuznetsov component is a Calabi-Yau 2 category and show that the cubic fourfolds containing a plane $\calC_8$ are derived equivalent to a twisted K3 surface, which is an honest K3 surface when $X\in \calC_8 \cap \calC_d$ for some other $d$ on Hasset's list. Finally, we quickly sketch Addington-Thomas' paper \cite{addington_hodge_2014} which connects the Hodge-theoretic viewpoint of Hassett and the derived categorical viewpoint of Kuznetsov.
 
 
 \subsection{A quick review of K3 surfaces}
@@ -163,7 +160,7 @@ Let us consider a general degree $d$ hypersurface $X \subset \mathbb{P}^{n+1}$. 
 
 \paragraph*{The kernel of the Serre functor}
 
-The left mutation with respect to the admissible subcategory spanned by the line bundles is $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
+The left mutation with respect to the admissible subcategory spanned by the line bundles is, by \ref{prop:Mutations of semiorthogonal decompositions} $$\mL_{\langle \O, \dots, \O(n+1-d) \rangle}\simeq \mL_\O \circ \dots \circ \mL_{\O(n+1-d)}$$
 
 Now we notice the following: the mutation $\mL_{\O(i)}$ fits into an exact triangle $$\Hom(\O(i), F)\otimes \O(i) \xrightarrow{ev} F \rightarrow \mL_{\O(i)} F$$
 which follows from \ref{ex:Relative exceptional SOD} applied to $Y=pt$ since $\O(i)$ are exceptional.

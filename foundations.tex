@@ -1140,6 +1140,22 @@ The mutation functors also allow us to view admissible categories in the followi
     A semiorthogonal decomposition of $\calD$ is a sequence of admissible subcategories $\calA_{i}$ such that $\calA_{j}\perp \calA_{i}, i<j$ and they generate $\calD$.
 \end{definition}
 
+We now observe how SOD's behave with respect to mutations: 
+\begin{proposition}{Mutations of semiorthogonal decompositions}{Mutations of semiorthogonal decompositions}
+    If we have an SOD $\calD =\langle \calC, \calA, \calB \rangle$, then $$\mL_{\langle \calA, \calB \rangle}=\mL_{\calA}\circ \mL_{\calB}, \mR_{\langle \calA, \calB \rangle}=\mR_{\calB}\circ \mR_{\calA}$$
+\end{proposition}
+
+\begin{proof}
+    We start with the triangle defining $\mL_{\calB}(F)$: $$[\beta_*\beta^! F\rightarrow F]=\mL_{\calB}F$$
+    We apply $\mL_{\calA}$ to this and get $$[\mL_{\calA}\beta_*\beta^!F \rightarrow \mL_{\calA}F]=\mL_{\calA}\circ \mL_{\calB}F$$
+    This is the same as the complex $$[[\alpha_*\alpha^! \beta_* \beta^! F \rightarrow \beta_*\beta^! F] \rightarrow [\alpha_*\alpha^! F \rightarrow F]]$$
+
+    Firstly, since there are no Homs from $\calB$ to $\calA$, then $\alpha_*\alpha^! \beta_*\beta^! F \in \calB\cap \calA=0$, so the first cone is just $\beta_*\beta!F$. Then, for the same reason, we see the middle map is zero and the cone can be replaced by $$[\alpha_*\alpha^!F \oplus \beta_* \beta^! F\rightarrow F]=\mL_{\calA}\circ \mL_{\calB}F$$
+
+    But this is precisely the definition of $\mL_{\langle \calA, \calB \rangle}$, since the adjoints to the inclusion  $\alpha_*\oplus \beta_*$ are $\alpha^! \oplus \beta^!$. The proof for the right mutation is analogous.
+ 
+\end{proof}
+
 We finish by mentioning a few facts about semiorthogonal decompositions coming from left resp. right admissible subcategories:
 
 \begin{proposition}{Associated semiorthogonal decompositions}{Associated semiorthogonal decompositions}
