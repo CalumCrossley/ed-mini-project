@@ -31,9 +31,7 @@ Moreover, the restriction $\mathcal{O}_{\tilde{X}}(\tilde{Y}) \mid_{\tilde{Y}} \
 &\simeq p^{*} \mathcal{O}_Y(-k) \otimes p^{+*}\mathcal{O}_{Y^+}(-l) 
 \end{align*}
 
-which we will denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$. 
-
-We claim that the pull and push along these flipping contractions yield a fully faithful functor, which is an equivalence if $l = k$. Hence we have the following proposition. 
+which we will denote $\mathcal{O}(-k) \boxtimes\mathcal{O}(-l)$. Hence we have the following proposition. 
 
 \begin{theorem}{}{}
     For the standard flip as described above, the composition $$
@@ -42,7 +40,6 @@ $$ is full and faithful, with an equivalence in the case of $l =k$.
 \end{theorem}
 
 In the above case of the standard flop, the equivalence of derived categories is induced by the standard blow up and blow down. In the next section, we will see the effect of more birational transformations on the derived category in the case of toric varieties, in particular those described by GIT quotients. 
-
 
 \subsection{Semi-orthogonal decomposition of GIT quotients}
 
@@ -117,7 +114,6 @@ We get a wall and chamber decomposition
 	
 \end{centering}
 
-
 Note that $\det V=(0,2)^T$
 The characters define GIT quotients: 
 \begin{itemize}
@@ -173,7 +169,7 @@ Hence we get the theorem due to~\cite*{halpernleistner2014derived} and~\cite*{ba
 \begin{theorem}{Wall Crossing Formula}{wall crossing formula}
 Consider GIT quotients $X_{+},X_{-}$  related by a wall crossing across W  with wall datum $(Z, \mu)$ as described above. 
 
-If $\mu > 0$, we have a semi-orthogonal decomposition given by $$D(X_{+}) = \left< D(X_{-}),D(Z) , \dots, D(Z)  \right>$$with $\mu$ copies of $D(Z)$ appearing.
+If $\mu > 0$, we have a semi-orthogonal decomposition given by $$D(X_{+}) = \left< D(X_{-}),D(Z) , \dots, D(Z)  \right>$$ with $\mu$ copies of $D(Z)$ appearing.
 
 If $\mu = 0$, the wall crossing induces a flop, and we have an equivalence of categories $$D(X_{+})\simeq D(X_-).$$
 \end{theorem}
@@ -195,7 +191,7 @@ This theorem was proved in~\cite*{ballard2014variation} in much greater generali
 
 \subsubsection{Homological Mori Program}
 
-The above theorem immediately yields a method for calculating a semi-orthogonal decomposition which is 'maximally refined', in that none of its components can be factored further through wall-crossings. This follows a similar algorithm to the toric Mori program. Indeed, in such a GIT problem, a sequence of adjacent walls come from sequences of birational operations, specifically directed flips, flops and divisorial contractions. This sequence can be seen by considering a path $\gamma : [0,1] \to \mathbb{L}^\vee$ in the cocharacter lattice, such that $\gamma(0)$ is in the ample cone of the secondary fan, and $\gamma$ does not intersect a codimension 2 cone in $\mathbb{L}^\vee$. A path $\gamma$ is called a run of the toric Mori program if, for every wall it intersects, the wall datum has $\mu \leq 0$.
+The above theorem immediately yields a method for calculating a semi-orthogonal decomposition which is 'maximally refined', in that none of its components can be factored further through wall-crossings. This follows a similar algorithm to the toric Mori program. Indeed, in such a GIT problem, a sequence of adjacent walls come from sequences of birational operations, specifically directed flips, flops and divisorial contractions. This sequence can be seen by considering a path $\gamma : [0,1] \to \mathbb{L}^\vee$ in the cocharacter lattice, such that $\gamma(0)$ is in the ample cone of the secondary fan, and $\gamma$ does not intersect a codimension 2 cone in $\mathbb{L}^\vee$. Such a path $\gamma$ is called a run of the toric Mori program.
 
 Starting with some fixed stability condition $\theta _1$ and its corresponding variety $X_1$, a wall crossing across the wall $W$ (away from $\det V$) gives the decomposition into $X_2$, the variety defined by the wall crossing, and $\mu$ copies of the variety $Z_W$, the variety defined by the wall datum for $W$. We can perform repeated wall crossings to decompose $X_2$ until a minimal model $X_{min}$ is reached. We will then be left with a factor of $X_{min}$ , and factors corresponding to the GIT problems $V^{\lambda_{W}} / / \lambda_{W}$ for each wall $W$ crossed, and can hence repeat the process of decomposition on each of the remaining non-minimal factors.
 
