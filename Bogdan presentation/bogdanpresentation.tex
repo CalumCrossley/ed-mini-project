@@ -1,0 +1,109 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\definecolor{maincolor}{RGB}{35, 55, 58}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{xspace}
+\usepackage{tikz-cd}
+\setbeamercovered{transparent}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+% {{{
+\def\sh{\mathcal}                   % sheaf font
+\def\bb{\mathbb}                    % bold font
+\def\cat{\mathtt}                   % category font
+\def\leq{\leqslant}                 % <=
+\def\geq{\geqslant}                 % >=
+\def\setmin{-}                      % set minus
+\def\rad{\mathfrak{r}}              % radical
+\def\nilrad{\mathfrak{N}}           % nilradical
+\def\emp{\varnothing}               % empty set
+\def\vphi{\phi}                     % for switching \phi and \varphi, change if needed
+\def\HH{\mathrm{H}}                 % cohomology H
+\def\CHH{\check{\HH}}               % Čech cohomology H
+\def\RR{\mathrm{R}}                 % right derived R
+\def\LL{\mathrm{L}}                 % left derived L
+\def\dual#1{{#1}^\v}              % dual
+\def\v{\smash{\scalebox{.8}[1.4]{\rotatebox{90}{\guilsinglleft}}}}
+\def\kres{k}                        % residue field k
+\def\C{\cat{C}}                     % category C
+\def\op{^\cat{op}}                  % opposite category
+\def\Set{\cat{Set}}                 % category of sets
+\def\CHom{\cat{Hom}}                % functor category
+\def\supertilde{{\,\widetilde{\,}\,}}   % use \supertilde instead of ^\sim
+\def\GL{\bb{GL}}
+\def\Q{\bb{Q}}
+\def\Z{\bb{Z}}
+\def\R{\bb{R}}
+\def\C{\bb{C}}
+\def\O{\sh{O}}
+\def\G{\bb{G}}
+\def\P{\bb{P}}
+\def\bbGamma{\boldsymbol\Gamma}
+\def\red{\mathrm{red}}
+\def\rg{\operatorname{rg}}
+\def\gr{\operatorname{gr}}
+\def\Gr{\operatorname{Gr}}
+\def\Sym{\operatorname{Sym}}
+\def\Hom{\operatorname{Hom}}
+\def\Proj{\operatorname{Proj}}
+\def\Tor{\operatorname{Tor}}
+\def\Ext{\operatorname{Ext}}
+\def\Supp{\operatorname{Supp}}
+\def\Ker{\operatorname{Ker}}
+\def\Im{\operatorname{Im}}
+\def\Coker{\operatorname{Coker}}
+\def\Spec{\operatorname{Spec}}
+\def\Spf{\operatorname{Spf}}
+\def\grad{\operatorname{grad}}
+\def\dimc{\operatorname{dimc}}
+\def\codim{\operatorname{codim}}
+\def\id{\operatorname{id}}
+\def\Der{\operatorname{Der}}
+\def\Diff{\operatorname{Diff}}
+\def\Hyp{\operatorname{Hyp}}
+\def\Tr{\operatorname{Tr}}
+% }}}
+
+
+\title{Derived categories of coherent sheaves}
+% \date{\today}
+\date{}
+\author{Bogdan Simeonov}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\newtcbtheorem{colordef}{Definition} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
+
+\newtcbtheorem{colorthm}{Theorem} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries, fontupper=\itshape}{th}
+
+\newtcbtheorem{constructionbox}{Construction} {theorem style = plain, colback=maincolor!30!white, coltitle=black, colframe=black, fonttitle = \upshape\bfseries, fontupper=\upshape}{th}
+
+\maketitle
+%Computer Project?
+
+\begin{frame}{Overview}
+    \begin{itemize}
+        \pause
+        \item The derived category of a variety \pause
+        \item The Kuznetsov component and its geometric meaning \pause
+        \item Cubic fourfolds containing a plane 
+    \end{itemize}
+ 
+\end{frame}
+
+
+
+
+
+
+    
+
+\end{document}

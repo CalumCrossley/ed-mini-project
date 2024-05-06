@@ -20,3 +20,7 @@
 *.bcf
 *.blg
 *.run.xml
+
+*.nav
+*.vrb
+*.snm
