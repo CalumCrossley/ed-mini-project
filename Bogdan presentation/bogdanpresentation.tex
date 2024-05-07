@@ -25,75 +25,103 @@
 \end{frame}
 
 \begin{frame}[fragile]{The cubic fourfold}
-    $X\subset \P^5$ is the zero locus of a degree $3$ polynomial.  \pause
+    Let $X\subset \P^5$ be the zero locus of a degree $3$ polynomial. We can compare its Hodge diamond to that of a K3 surface: \pause
 
-    \captionsetup{justification=centering}
-        \hfill
-    \begin{minipage}[t]{0.4\textwidth}
+                            %\captionsetup{justification=centering}
+                        %   \begin{center}
+                                %\hfill
+                                
+                        %       \begin{minipage}[t]{0.4\textwidth}
+                        %       \centering
+                        %           \begin{figure}[H]
+                        %           \begin{tikzcd}[ampersand replacement=\&, row sep=0.10em, column sep=0.10em]
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %              \\
+                        %              \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \\
+                        %               \&   \& 1  \&   \&   \\
+                        %               \& 0 \&    \& 0 \&   \\
+                        %           1 \&   \& 20 \&   \& 1 \\
+                        %               \& 0 \&    \& 0 \&   \\
+                        %               \&   \& 1  \&   \& 
+                        %           \end{tikzcd}
+                        %
+                        %            \caption*{Hodge diamond of K3 surface} \label{fig: MonFun2}
+                        %            \end{figure}
+                        %        \end{minipage}
+                        %        %\captionsetup{justification=centering}
+                        %        \begin{minipage}[t]{0.4\textwidth}
+                        %        \centering
+                        %            \begin{figure}[H]
+                        %            \begin{tikzcd}[ampersand replacement=\&, row sep=0.10em, column sep=0.10em]
+                        %                \&   \&   \&   \& 1  \&   \&   \&   \&   \\
+                        %                \&   \&   \& 0 \&    \& 0 \&   \&   \&   \\
+                        %                \&   \& 0 \&   \& 1  \&   \& 0 \&   \&   \\
+                        %                \& 0 \&   \& 0 \&    \& 0 \&   \& 0 \&   \\
+                        %            0 \&   \& 1 \&   \& 21 \&   \& 1 \&   \& 0 \\
+                        %                \& 0 \&   \& 0 \&    \& 0 \&   \& 0 \&   \\
+                        %               \&   \& 0 \&   \& 1  \&   \& 0 \&   \&   \\
+                        %                \&   \&   \& 0 \&    \& 0 \&   \&   \&   \\
+                        %                \&   \&   \&   \& 1  \&   \&   \&   \& 
+                        %            \end{tikzcd}
+                        %            \centering\caption*{\,\,\,\,\,\,\,\,Hodge diamond of X} \label{fig: MonFun3}
+                        %            \end{figure}
+                        %        \end{minipage}
+                            %\hfill
+                            %\null
+                        %    \end{center}
+\begin{figure}
     \centering
-        \begin{figure}[H]
-        \begin{tikzcd}[ampersand replacement=\&, row sep=0.10em, column sep=0.10em]
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \\
-            \&   \& 1  \&   \&   \\
-            \& 0 \&    \& 0 \&   \\
-          1 \&   \& 20 \&   \& 1 \\
-            \& 0 \&    \& 0 \&   \\
-            \&   \& 1  \&   \& 
-        \end{tikzcd}
-
-        \caption*{Hodge diamond of K3 surface} \label{fig: MonFun2}
-        \end{figure}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{CubicFourfoldHodgeDiamond.png} % first figure itself
+        \caption*{Cubic fourfold}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.4\textwidth]{K3diamond} % second figure itself
+        \caption*{K3 surface}
     \end{minipage}
-    \captionsetup{justification=centering}
-    \begin{minipage}[t]{0.4\textwidth}
-    \centering
-        \begin{figure}[H]
-        \begin{tikzcd}[ampersand replacement=\&, row sep=0.10em, column sep=0.10em]
-            \&   \&   \&   \& 1  \&   \&   \&   \&   \\
-            \&   \&   \& 0 \&    \& 0 \&   \&   \&   \\
-            \&   \& 0 \&   \& 1  \&   \& 0 \&   \&   \\
-            \& 0 \&   \& 0 \&    \& 0 \&   \& 0 \&   \\
-          0 \&   \& 1 \&   \& 21 \&   \& 1 \&   \& 0 \\
-            \& 0 \&   \& 0 \&    \& 0 \&   \& 0 \&   \\
-            \&   \& 0 \&   \& 1  \&   \& 0 \&   \&   \\
-            \&   \&   \& 0 \&    \& 0 \&   \&   \&   \\
-            \&   \&   \&   \& 1  \&   \&   \&   \& 
-        \end{tikzcd}
-        \centering\caption*{\,\,\,\,\,\,\,\,Hodge diamond of X} \label{fig: MonFun3}
-        \end{figure}
-    \end{minipage}
-    \hfill\null
+\end{figure}\pause
 
+If we take the primitive cohomology of the cubic fourfold, we get something that looks exactly like a K3 surface! However, we run into a problem: the two have different signatures!
 \end{frame}
+
+\begin{frame}{The cubic fourfold}
+    The solution is to pass to codimension one subspaces which have the same signature $(19,2)$. On the K3 side, we just take the primitive part. In many cases (the special cubic fourfolds) we can find a class $T\in H^{2,2}(X,\mathbb{Z})$ that allows us to pass to the orthogonal complement.
+
+    \begin{colorthm}{Hasset}{}
+        
+    \end{colorthm}
+    
+\end{frame}
+
 
 
 
