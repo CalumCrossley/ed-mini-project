@@ -17,15 +17,19 @@
 \begin{frame}{Overview}
     \begin{itemize}
         \pause
-        \item The derived category of a variety \pause
-        \item The Kuznetsov component and its geometric meaning \pause
-        \item Cubic fourfolds containing a plane 
+        \item 
     \end{itemize}
  
 \end{frame}
 
-\begin{frame}[fragile]{The cubic fourfold}
-    Let $X\subset \P^5$ be the zero locus of a degree $3$ polynomial. We can compare its Hodge diamond to that of a K3 surface: \pause
+\begin{frame}{Rationality of cubic fourfolds}
+    We know classically that cubic curves are not rational (they are elliptic curves). However, cubic surfaces are always rational! Clemens and Griffiths showed in 1972 that cubic threefolds are, in contrast, never rational.
+
+    What about cubic fourfolds?
+\end{frame}
+
+\begin{frame}[fragile]{Hodge theory of the cubic fourfold}
+    Let $X\subset \P^5$ be the zero locus of a degree $3$ polynomial. We can compare its Hodge diamond to that of a K3 surface: 
 
                             %\captionsetup{justification=centering}
                         %   \begin{center}
@@ -108,19 +112,46 @@
         \includegraphics[width=0.4\textwidth]{K3diamond} % second figure itself
         \caption*{K3 surface}
     \end{minipage}
-\end{figure}\pause
+\end{figure}
 
-If we take the primitive cohomology of the cubic fourfold, we get something that looks exactly like a K3 surface! However, we run into a problem: the two have different signatures!
 \end{frame}
 
-\begin{frame}{The cubic fourfold}
-    The solution is to pass to codimension one subspaces which have the same signature $(19,2)$. On the K3 side, we just take the primitive part. In many cases (the special cubic fourfolds) we can find a class $T\in H^{2,2}(X,\mathbb{Z})$ that allows us to pass to the orthogonal complement.
+\begin{frame}{The moduli space of cubic fourfolds}
+    Both K3 surfaces and cubic threefolds have a Global Torelli theorem, meaning that a cubic fourfold is specified by the line $H^{3,1}\subset H^4$, the condition $H^{3,1}\perp h^2$ and furthermore $\eta\cup \eta =0, \eta \cup \overline{\eta}>0$ and so the period map lands in an open subset of a quadric in $\P^{21}$. Voisin proved that this is an open immersion.
+\end{frame}
+
+\begin{frame}{Cubic fourfolds and K3 surfaces}
+    If we take the primitive cohomology of the cubic fourfold, we get something that looks exactly like a K3 surface! However, the two have different signatures.
+    To be able to compare them, we have to pass to a codimension one subspace. For the K3, we can always take the primitive cohomology. \pause For \emph{special cubic fourfolds} we can find a class $T\in H^{2,2}(X,\mathbb{Z})$ and move to its orthogonal complement.\pause
 
     \begin{colorthm}{Hasset}{}
-        
+        The cubics containing an integral class $T$ as above form a family of irreducible divisors $\mathcal{C}_d$, nonempty iff $d>6, d=0,2 \,( \mathrm{mod}\, 6)$. Moreover, the cubics in $\mathcal{C}_d$ have an associated K3 surface i.e. $\exists S$ such that $$H^2_{prim}(S)\simeq \langle h^2, T\rangle ^\perp$$
+        precisely when $d$ is not divisible by four, nine, or any odd prime $p =-1(\,\mathrm{ mod }\, 3)$
     \end{colorthm}
+\end{frame}
+
+\begin{frame}{Back to the rationality problem for cubic fourfolds}
+
+    Implicit in Hasset's results is the conjecture that the special cubic fourfolds are rational. Intuitively, one has to blow up a surface in order to be birational to $\P^4$. Hence, we expect the rational cubic fourfolds to form a countable union of divisors, which is neither open nor closed, in stark contrast to the lower dimensional cases!
     
 \end{frame}
+
+\begin{frame}{The derived perspective}
+    Kuznetsov presented a different viewpoint on the cubic fourfold using derived categories. The three line bundles $\mathcal{O}_X, \mathcal{O}_X(1), \mathcal{O}_X(2)$ form an exceptional collection and he defined the component $$\mathcal{A}_X=\langle \mathcal{O}_X, \mathcal{O}_X(1), \mathcal{O}_X(2)\rangle ^\perp\subset \mathcal{D}(X)$$\pause
+
+    The HKR theorem guarantees that the Hochschild homology of $\mathcal{A}_X$ is the same as that of a K3 surface. \pause Kuznetsov showed that $\mathcal{A}_X$ is a \emph{Calabi Yau 2} category and we can think of $\mathcal{A}_X$ as a noncommutative K3 surface.\pause
+
+    \begin{colorconj}{Kuznetsov}{}
+        $X$ is rational if and only if there is a K3 surface $S$ such that $$\mathcal{D}(S)\simeq \mathcal{A}_X$$
+    \end{colorconj}
+    
+\end{frame}
+
+\begin{frame}{(Non)-example: cubics containing a plane}
+    
+\end{frame}
+
+
 
 
 
