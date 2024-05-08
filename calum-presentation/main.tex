@@ -1,0 +1,90 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+
+\input{commands.tex}
+
+\title{Derived categories of coherent sheaves}
+\date{}
+\author{Calum Crossley}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Overview}
+    \begin{itemize}
+        \pause
+        \item Derived categories \pause
+        \item Matrix factorizations \pause
+        \item Kn\"orrer periodicity \pause
+        \item Orlov's theorem % TODO: better name
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Derived categories of coherent sheaves}
+    \begin{itemize}
+        \item Coherent sheaves: vector bundles + cokernels of bundle maps (makes
+            an abelian category), e.g. vector bundles supported on subvarieties.
+            % TODO: picture, examples
+            \begin{equation*}
+                \Coh(X)
+            \end{equation*}
+
+        \item Derived category: allow (bounded) chain complexes of sheaves,
+            identify when quasi-isomorphic ($\exists$ chain map identifying
+            cohomologies)
+            % TODO: structure?, functors + motivation (resolutions, intersections)
+            \begin{equation*}
+                D^b(\Coh X)
+            \end{equation*}
+
+        \item Fourier-Mukai functors, semi-orthogonal decompositions
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Matrix factorizations}
+    \begin{itemize}
+        \item Can't factorize $x^2+y^2$ over $\Z$, but can over
+            $\C\subset M_{2\times2}(\R)$.
+            \begin{equation*}
+                x^2 + y^2 = \begin{pmatrix}
+                    x & -y \\ y & x
+                \end{pmatrix}\begin{pmatrix}
+                    x & y \\ -y & x
+                \end{pmatrix}
+            \end{equation*}
+            % maybe Laplacian example instead?
+        \item Given function $W:\C^n\to\C$, can ask for factorization via linear
+            maps of vector bundles
+            \begin{align*}
+                \calE &\xrightarrow{M} \calF \\
+                \calF &\xrightarrow{N} \calE \\
+                NM &= W\cdot1_\calE \\
+                MN &= W\cdot1_\calF.
+            \end{align*}
+            Get ``chain complex'' with $d^2=W$, restrict to $Y=\{W=0\}$ to get
+            a locally free resolution:
+            \begin{equation*}
+                \cdots \to \calE|_Y
+                    \xrightarrow{M} \calF|_Y
+                    \xrightarrow{N} \calE|_Y \to \calP \to 0.
+            \end{equation*}
+            % TODO: category, examples
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kn\"orrer periodicity}
+    What's an obvious (matrix) factorization? \pause $xy = x\cdot y$.
+
+    If $W\cdot I=MN=NM$, we can build
+    \begin{equation*}
+        (W+xy)I = \begin{pmatrix}
+            M & y \\ x & N
+        \end{pmatrix}\begin{pmatrix}
+            M & -x \\ y & N
+        \end{pmatrix} % TODO: fix
+    \end{equation*}
+\end{frame}
+
+\end{document}
