@@ -1,0 +1,26 @@
+*.bak*
+*.log
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.pdf
+*.toc
+*.out
+
+*.synctex(busy)
+*.synctex.gz
+
+# listings
+*.markdown.in
+*.markdown.lua
+
+# bibtex
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+*.nav
+*.vrb
+*.snm
