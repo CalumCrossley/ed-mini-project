@@ -5,7 +5,6 @@
 
 \usepackage{mathtools}
 \usepackage{derivative}
-\usepackage{amsthm}
 \usepackage{tikz-cd}
 
 \usepackage{graphicx}
@@ -13,6 +12,7 @@
 
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Tot}{Tot}
 \DeclareMathOperator{\Coh}{Coh}
 \DeclareMathOperator{\Crit}{Crit}
 \DeclareMathOperator{\MF}{MF}
@@ -289,6 +289,8 @@
     $\to$ $\MF(\A^n,W)$. \pause (graded vector bundles $\to$ $\MF_\Z(\A^n,W)$)
     % \Z/2-grading sad, want to recover \Z-graded chain complexes when W=0
     % d has grading 1, d^2 = W[2] (``W has grading 2'')
+
+    % can replace \A^n by any affine variety
 \end{frame}
 
 \begin{frame}
@@ -329,9 +331,6 @@
     \frametitle{Kn\"orrer periodicity}
 
     Suppose $MN=NM=W\cdot I$ is a matrix factorization. \pause
-
-    ~
-
     Can factor $W+xy$:
     \begin{equation*}
         \begin{pmatrix}
@@ -346,37 +345,68 @@
             M & x \\ -y & N
         \end{pmatrix}.
     \end{equation*} \pause
-
     \begin{theorem}
-        There is an equivalence $\MF(\A^n\times\A^2,W+xy)\simeq\MF(\A^n,W)$.
-    \end{theorem}
+        There is an equivalence $\MF(\A^n\times\A^2_{x,y},W+xy)\simeq\MF(\A^n,W)$.
+    \end{theorem} \pause
 
-    % example
-    % line bundle generalization, critical locus
+    Example: cone $W=xy-z^2$, \pause
+    $\MF(\A^3,W)\simeq\MF(\A^1_z,z^2)=\langle*\rangle$. \pause
 
-    % TODO
+    Generalization: Suppose $f,g:\A^n\to\A^1$, with $D=\{g=0\}\subset\A^n$
+    smooth. \pause
+    \begin{theorem}
+        There is an equivalence $\MF(\A^n\times\A^1_t,f+tg)\simeq\MF(D,f)$.
+    \end{theorem} \pause
+
+    Intuition: If $f\ne0$ then $f+tg=0$ non-singular, otherwise critical locus
+    is along $\{t=g=0\}\simeq D$ where $tg$ vanishes to second order.
+
+    % case f=0, note \MF_\Z(X,0) = \calD(X)
+    % get something like \MF_\Z(X,W) = D^b(\Crit(W))
 \end{frame}
 
 \begin{frame}
     \frametitle{Cone singularities}
 
-    Hypersurface $X=\{f=0\}\subset\P^n$, $f$ homog. degree $d$. \pause
+    Hypersurface $X=\{f=0\}\subset\P^{n-1}$, $f$ homog. degree $d$. \pause
 
-    ~
-
-    Affine cone $\{f=0\}\subset\A^{n+1}$ with $\MF_\Z(\A^{n+1},f)$ measuring
+    Affine cone $\{f=0\}\subset\A^n$ with $\MF_\Z(\A^n,f)$ measuring
     singularity. \pause
+    \begin{theorem}[Orlov]
+        \begin{itemize}
+            \item (Fano) $n<d\implies
+                \calD(X)=\langle\O(d-n+1),\ldots,\O,\MF_\Z(\A^n,f)\rangle$.
+            \item (Calabi-Yau) $n=d \implies
+                \calD(X)\simeq\MF_\Z(\A^n,f)$.
+            \item (General type) $n>d \implies
+                \MF_\Z(\A^n,f)=\langle\ldots,\calD(X)\rangle$.
+        \end{itemize}
+    \end{theorem} \pause
+
+    Sketch: Function $f\cdot t$ on $\Tot\O(-d)$, where $t$ is linear coordinate.
+    \pause $\MF_\Z(\Tot\O(-d),f\cdot t)\simeq\MF_\Z(X,0)=\calD(X)$ by
+    version of Kn\"orrer. \pause Have birational equivalence
+    $\Tot\O(-d)\sim[\A^n/\mu_d]$ by varying GIT quotient
+    $\C^n/\C^*_{1,\ldots,1,-d}$, which gives derived comparison. \pause
+
+    % so study structure of derived categories via matrix factorizations
+    % component complement to line bundles = Kuznetsov component,
+    % interesting geometry, see Bogdan
 
     ~
 
-    \begin{theorem}[Orlov]
-        There is an equivalence $\MF_\Z(\A^{n+1},f)\simeq\calD(X)$.
-    \end{theorem}
+    Example: Conic $\calD(\P^1)\simeq\MF_\Z(\A^3,xy+z^2) \pause
+    \simeq\MF_\Z(\A^1_z,z^2)$ by Kn\"orrer. \pause
 
-    % example
-    % sketch via knorrer
+    $\MF_\Z(\A^1_z,z^2)=\langle\calE,\calE(1)\rangle$,
+    in line with $\calD(\P^1)=\langle\O,\O(1)\rangle$, where
+    $\calE=\bigl(\O\xrightarrow{t}\O(1)\xrightarrow{t}\O(2)\bigr)$.
+    % (n) means grading shift
+    % [2] = (2) so only need \calE(i),\calE(i+1) to generate
+\end{frame}
 
-    % TODO
+\begin{frame}
+    Thanks for listening!
 \end{frame}
 
 \end{document}
