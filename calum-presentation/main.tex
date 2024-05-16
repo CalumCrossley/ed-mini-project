@@ -30,14 +30,15 @@
 \newcommand{\calE}{\mathcal{E}}
 \newcommand{\calF}{\mathcal{F}}
 
-\newcommand{\dL}{\mathbf{L}}
-\newcommand{\dR}{\mathbf{R}}
+\newcommand{\dL}[1]{\mathbf{L}#1}
+\newcommand{\dR}[1]{\mathbf{R}#1}
+\DeclareMathOperator{\RHom}{\dR Hom}
 
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\pt}{\mathrm{pt}}
 
 \title{Derived categories of coherent sheaves}
-\subtitle{(Introduction, and links to matrix factorizations)}
+\subtitle{(and matrix factorizations)}
 \date{15th May 2024}
 \author{Calum Crossley}
 
@@ -53,11 +54,11 @@
     \begin{itemize}
         \item Introduce derived categories of coherent sheaves
 
-            (setting: smooth projective varieties over $\C$)
+            (setting: smooth projective varieties over $\C$) \pause
 
         \item Look at matrix factorizations
 
-            (setting: affine hypersurface singularities)
+            (setting: affine hypersurface singularities) \pause
 
         \item Two theorems: Kn\"orrer periodicity, cone singularities
 
@@ -105,18 +106,20 @@
     ~
 
     Resolutions which are ``nice'' for global sections $\Gamma$, get more useful
-    results \pause
+    results % than just applying \Gamma directly
+    \pause
 
     ~
 
     Tensor products = intersections
 
-    Non-transverse? Use locally free resolutions ``nice'' for tensor products \pause
+    Non-transverse? Use locally free resolutions: ``nice'' for tensor products
+    \pause
 
     ~
 
-    $\O_H\otimes-$ applied to $\O_H$, replace by $\O(-H)\to\O$:
-    $\O_H(-H)\xrightarrow{0}\O_H$
+    $\O_H\otimes-$ applied to $\O_H$, \pause replace by $\O(-H)\to\O$:
+    $\O_H(-H)\xrightarrow{0}\O_H$ \pause
 
     ~
 
@@ -165,34 +168,42 @@
 \begin{frame}
     \frametitle{What can we do with them?} \pause
 
-    Functor construction: Fourier-Mukai transforms: ``kernel''
-    $\calP\in\calD(X\times Y)$ gives $\Phi_\calP:\calD(X)\to\calD(Y)$;
-    $\calF\mapsto\dR(\pi_Y)_*(\calP\otimes^\dL(\dL\pi_X^*\calF))$
+    \begin{itemize}
+        \item
+            Fourier-Mukai transforms: \pause ``kernel''
+            $\calP\in\calD(X\times Y)$ gives $\Phi_\calP:\calD(X)\to\calD(Y)$;
+            $\calF\mapsto\dR(\pi_Y)_*(\calP\otimes^\dL(\dL\pi_X^*\calF))$ \pause
 
-    ~
+            % almost all functors we care about are FM transforms
+            % theorems guarantee functor to be an FM transform in nice cases
 
-    { \color{gray}
-    pushforward = $\dR\Gamma$ on fibers $\to$ ``integrate'' on fibers
+            ~
 
-    like integral transform
-    $f(x)\mapsto\hat f(y)=\int_{X\times\{y\}}p(x,y)f(x)dx$
-    } \pause
+            pushforward = $\dR\Gamma$ on fibers $\to$ ``integrate'' on fibers
 
-    ~
+            like integral transform
+            $f(x)\mapsto\hat f(y)=\int_{X\times\{y\}}p(x,y)f(x)dx$ \pause
 
-    Semi-orthogonal decompositions: split into objects / subcategories with
-    (left/right) ``orthogonal complements'' wrt $\dR\Hom(-,-)$:
+            % hence Fourier analogy
 
-    ~
+        \item
+            Semi-orthogonal decompositions: \pause split into objects /
+            subcategories with (left/right) ``orthogonal complements'' wrt
+            $\RHom(-,-)$: \pause
 
-    $\calD(X)=\langle\calA,\calB,\calC\rangle$, no $\dR\Hom$'s right-to-left
-    \pause
+            ~
 
-    ~
+            $\calD(X)=\langle\calA,\calB,\calC\rangle$, no $\RHom$'s
+            right-to-left \pause
 
-    e.g. Beilinson exceptional sequence:
-    $\calD(\P^n)=\langle\O,\ldots,\O(n)\rangle$, SOD formulas for projective
-    bundles, blowups, e.t.c.
+            ~
+
+            e.g. Beilinson exceptional sequence:
+            $\calD(\P^n)=\langle\O,\O(1),\ldots,\O(n)\rangle$, SOD formulas for
+            projective bundles, blowups, e.t.c.
+
+            % exceptional objects generate subcategories with complements
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -274,15 +285,17 @@
             \calE^1 \ar[l,shift left,"d^1"]
         \end{tikzcd}
     \end{equation*}
-    s.t. $d^1d^0=W\cdot\id_{\calE^0}$, $d^0d^1 = W\cdot\id_{\calE^1}$.
+    s.t. $d^1d^0=W\cdot\id_{\calE^0}$, $d^0d^1 = W\cdot\id_{\calE^1}$. \pause
     ``$d^2=W$'' \pause
 
     ~
 
-    $\Hom(\calE^\bullet,\calF^\bullet)$ gives $\Z/2$-graded total complex
+    $\Hom(\calE^\bullet,\calF^\bullet)$ has $\Z/2$-graded total complex \pause
     $\to$ differential $\Z/2$-graded category. \pause Take homotopy category:
-    morphisms = $H^0$ of $\Hom(\calE^\bullet,\calF^\bullet)$ = chain maps up to
-    chain homotopy \pause
+    \pause morphisms = $H^0$ of $\Hom(\calE^\bullet,\calF^\bullet)$
+    = chain maps up to chain homotopy. \pause
+
+    % W - W = 0
 
     ~
 
@@ -312,7 +325,7 @@
     ~
 
     Given $\calE^\bullet$, have sheaf $\coker d^0$ on $\{W=0\}$ with periodic
-    resolution \pause
+    resolution \pause % original motivating example
     \begin{equation*}
         \MF(\A^n,W) \simeq \calD(\{W=0\})
             / \{\text{finite locally free resolutions}\}
@@ -374,11 +387,11 @@
     singularity. \pause
     \begin{theorem}[Orlov]
         \begin{itemize}
-            \item (Fano) $n<d\implies
+            \item (Fano) $d<n\implies
                 \calD(X)=\langle\O(d-n+1),\ldots,\O,\MF_\Z(\A^n,f)\rangle$.
-            \item (Calabi-Yau) $n=d \implies
+            \item (Calabi-Yau) $d=n \implies
                 \calD(X)\simeq\MF_\Z(\A^n,f)$.
-            \item (General type) $n>d \implies
+            \item (General type) $d>n \implies
                 \MF_\Z(\A^n,f)=\langle\ldots,\calD(X)\rangle$.
         \end{itemize}
     \end{theorem} \pause
@@ -395,14 +408,11 @@
 
     ~
 
-    Example: Conic $\calD(\P^1)\simeq\MF_\Z(\A^3,xy+z^2) \pause
-    \simeq\MF_\Z(\A^1_z,z^2)$ by Kn\"orrer. \pause
+    Example: Conic $\calD(\P^1)=\langle\O,\MF_\Z(\A^3,xy+z^2)\rangle$, \pause
+    and $\MF_\Z(\A^3,xy+z^2)\simeq\MF_\Z(\A^1_z,z^2)$ by Kn\"orrer. \pause
 
-    $\MF_\Z(\A^1_z,z^2)=\langle\calE,\calE(1)\rangle$,
-    in line with $\calD(\P^1)=\langle\O,\O(1)\rangle$, where
-    $\calE=\bigl(\O\xrightarrow{t}\O(1)\xrightarrow{t}\O(2)\bigr)$.
-    % (n) means grading shift
-    % [2] = (2) so only need \calE(i),\calE(i+1) to generate
+    $\MF_\Z(\A^1_z,z^2)=\langle*\rangle$, in line with
+    $\calD(\P^1)=\langle\O,\O(1)\rangle$.
 \end{frame}
 
 \begin{frame}
